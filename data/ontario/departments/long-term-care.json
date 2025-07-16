@@ -61,5 +61,18 @@
       }
     ]
   },
-  "generatedAt": "2025-07-09T21:53:36.588Z"
+  "generatedAt": "2025-07-09T21:53:36.588Z",
+  "_comments": {
+    "_editing_guide": "The fields below can be edited to customize the department page content. These texts will appear on the public website.",
+    "_introText": "Short introduction that appears at the top of the department page",
+    "_descriptionText": "Detailed description - you can use placeholder variables like {jurisdiction.name}, {department.name}, etc.",
+    "_roleText": "Description of the department's role and importance to the province",
+    "_programsHeading": "Heading for the programs and services section",
+    "_programsDescription": "Description of what programs and services this department offers"
+  },
+  "introText": "The Ministry of Long-Term Care oversees long-term care homes and services for Ontario's aging population, ensuring quality care and support for seniors and their families.",
+  "descriptionText": "The Ontario Ministry of Long-Term Care spent $2.6B in fiscal year (FY) 2023-24, representing 1.2% of the $206.6B in total provincial spending. This investment supports long-term care homes and services for seniors.",
+  "roleText": "With Ontario's aging population, long-term care is increasingly important. This ministry ensures quality care in long-term care homes, supports capital development, and works to improve standards and capacity.",
+  "programsHeading": "Long-Term Care Services",
+  "programsDescription": "The Ministry of Long-Term Care operates programs including long-term care home funding, capital development, quality assurance, staff training support, and family support services."
 }

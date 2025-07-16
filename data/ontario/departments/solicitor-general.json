@@ -316,5 +316,18 @@
       }
     ]
   },
-  "generatedAt": "2025-07-09T21:53:36.589Z"
+  "generatedAt": "2025-07-09T21:53:36.589Z",
+  "_comments": {
+    "_editing_guide": "The fields below can be edited to customize the department page content. These texts will appear on the public website.",
+    "_introText": "Short introduction that appears at the top of the department page",
+    "_descriptionText": "Detailed description - you can use placeholder variables like {jurisdiction.name}, {department.name}, etc.",
+    "_roleText": "Description of the department's role and importance to the province",
+    "_programsHeading": "Heading for the programs and services section",
+    "_programsDescription": "Description of what programs and services this department offers"
+  },
+  "introText": "The Ministry of the Solicitor General ensures public safety through policing, correctional services, emergency management, and fire safety, protecting communities across Ontario.",
+  "descriptionText": "The Ontario Ministry of the Solicitor General spent $3.9B in fiscal year (FY) 2023-24, representing 1.9% of the $206.6B in total provincial spending. This investment supports the OPP, correctional facilities, and emergency services.",
+  "roleText": "Public safety is a core government responsibility. This ministry operates the Ontario Provincial Police, manages correctional institutions, coordinates emergency response, and supports community safety initiatives across the province.",
+  "programsHeading": "Public Safety and Emergency Services",
+  "programsDescription": "The Ministry of the Solicitor General operates programs including the Ontario Provincial Police, correctional services, emergency management, fire safety oversight, 911 services, and community policing grants."
 }

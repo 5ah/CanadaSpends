@@ -33,6 +33,12 @@ export type Department = {
     children: Category[];
   };
   generatedAt: string;
+  // Editable content fields
+  introText: string;
+  descriptionText: string;
+  roleText: string;
+  programsHeading: string;
+  programsDescription: string;
 };
 
 type Data = {

@@ -22,8 +22,15 @@ msgid "— Canada Spends Team"
 msgstr "— Canada Spends Team"
 
 #. placeholder {0}: department.name
+#. placeholder {0}: department.introText
+#. placeholder {0}: department.descriptionText
 #: src/components/DepartmentList.tsx:68
-#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:60
+#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:62
+#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:65
+#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:91
+#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:103
+#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:112
+#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:115
 msgid "{0}"
 msgstr "{0}"
 
@@ -31,36 +38,24 @@ msgstr "{0}"
 #. placeholder {1}: department.percentageFormatted
 #. placeholder {2}: jurisdiction.name
 #. placeholder {3}: jurisdiction.financialYear
-#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:99
+#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:95
 msgid "{0} accounted for {1} of all {2}provincial spending in FY {3}"
 msgstr "{0} accounted for {1} of all {2}provincial spending in FY {3}"
 
 #. placeholder {0}: jurisdiction.name
-#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:93
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:205
 msgid "{0} Government Departments explained"
 msgstr "{0} Government Departments explained"
 
 #. placeholder {0}: jurisdiction.name
-#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:47
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:77
 msgid "{0} Government Spending"
 msgstr "{0} Government Spending"
 
-#. placeholder {0}: jurisdiction.financialYear
-#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:71
-#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:76
-msgid "`In FY ${0},`"
-msgstr "`In FY ${0},`"
-
 #. placeholder {0}: jurisdiction.name
-#. placeholder {1}: department.name
-#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:79
-msgid "`of ${0} provincial spending was by ${1}`"
-msgstr "`of ${0} provincial spending was by ${1}`"
-
-#. placeholder {0}: department.name
-#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:73
-msgid "`was spent by ${0}`"
-msgstr "`was spent by ${0}`"
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:179
+msgid "{0} Government Workforce"
+msgstr "{0} Government Workforce"
 
 #: src/components/MainLayout/Footer.tsx:113
 msgid "© 2025 Canada Spends. All rights reserved. A Project of <0>Build Canada</0>."
@@ -149,8 +144,8 @@ msgstr "A look at how Veterans Affairs Canada spends its budget"
 msgid "A significant portion of GAC's budget supports Canada's international development assistance, with key programs focused on climate adaptation, gender equality, and health initiatives in developing nations. The department also facilitates economic diplomacy and trade agreements that benefit Canadian businesses and secure investment opportunities abroad."
 msgstr "A significant portion of GAC's budget supports Canada's international development assistance, with key programs focused on climate adaptation, gender equality, and health initiatives in developing nations. The department also facilitates economic diplomacy and trade agreements that benefit Canadian businesses and secure investment opportunities abroad."
 
-#: src/components/MainLayout/index.tsx:63
-#: src/components/MainLayout/index.tsx:94
+#: src/components/MainLayout/index.tsx:95
+#: src/components/MainLayout/index.tsx:137
 #: src/components/MainLayout/Footer.tsx:90
 msgid "About"
 msgstr "About"
@@ -217,7 +212,7 @@ msgid "All data presented regarding government spending is sourced directly from
 msgstr "All data presented regarding government spending is sourced directly from official government databases. Unless otherwise noted, we have used <0>Public Accounts of Canada</0> data as the primary data source. While we strive to provide accurate, up-to-date information, we cannot guarantee the data's completeness, reliability, or timeliness. We assume no responsibility for any errors, omissions, or outcomes resulting from the use of this information. Please consult the original government sources for official and verified data."
 
 #: src/app/[lang]/(main)/spending/page.tsx:133
-#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:106
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:218
 msgid "All government spending data is sourced from official databases, but due to the complexity of these systems, occasional errors may occur despite our best efforts. We aim to make this information more accessible and accurate, and we welcome feedback. If you notice any issues, please let us know <0>here</0> — we appreciate it and will work to address them promptly."
 msgstr "All government spending data is sourced from official databases, but due to the complexity of these systems, occasional errors may occur despite our best efforts. We aim to make this information more accessible and accurate, and we welcome feedback. If you notice any issues, please let us know <0>here</0> — we appreciate it and will work to address them promptly."
 
@@ -229,6 +224,11 @@ msgstr "All of the information we use comes from publicly available databases an
 msgid "All the information comes from public databases and reports by the Government of Canada. We show our sources, so you know exactly where it comes from."
 msgstr "All the information comes from public databases and reports by the Government of Canada. We show our sources, so you know exactly where it comes from."
 
+#. placeholder {0}: jurisdiction.financialYear
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:170
+msgid "Annual interest expense for {0}"
+msgstr "Annual interest expense for {0}"
+
 #: src/app/[lang]/(main)/spending/page.tsx:86
 msgid "Annual payroll"
 msgstr "Annual payroll"
@@ -236,6 +236,12 @@ msgstr "Annual payroll"
 #: src/app/[lang]/(main)/about/faq.tsx:63
 msgid "Are you DOGE?"
 msgstr "Are you DOGE?"
+
+#. placeholder {0}: jurisdiction.financialYear
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:136
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:153
+msgid "As of fiscal year end {0}"
+msgstr "As of fiscal year end {0}"
 
 #: src/app/[lang]/(main)/about/faq.tsx:50
 msgid "At this time, the best way to support us is through engagement and amplification of our content. If we open up to donations in the future, we'll let you know how you can contribute directly to our efforts."
@@ -368,8 +374,8 @@ msgstr "Compensation per Employee"
 msgid "Connect with us"
 msgstr "Connect with us"
 
-#: src/components/MainLayout/index.tsx:66
-#: src/components/MainLayout/index.tsx:97
+#: src/components/MainLayout/index.tsx:98
+#: src/components/MainLayout/index.tsx:140
 #: src/components/MainLayout/Footer.tsx:95
 msgid "Contact"
 msgstr "Contact"
@@ -606,6 +612,10 @@ msgstr "ESDC's share of federal spending in FY 2024 was lower than FY 1995"
 msgid "Established in 2005, ESDC is a federal department responsible for supporting Canadians through social programs and workforce development. It administers key programs such as Employment Insurance (EI), the Canada Pension Plan (CPP), Old Age Security (OAS), and skills training initiatives. ESDC also oversees Service Canada, which delivers government services directly to the public."
 msgstr "Established in 2005, ESDC is a federal department responsible for supporting Canadians through social programs and workforce development. It administers key programs such as Employment Insurance (EI), the Canada Pension Plan (CPP), Old Age Security (OAS), and skills training initiatives. ESDC also oversees Service Canada, which delivers government services directly to the public."
 
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:185
+msgid "Estimated provincial public service"
+msgstr "Estimated provincial public service"
+
 #: src/app/[lang]/(main)/about/page.tsx:32
 msgid "Every year, hundreds of billions of dollars move through the Government of Canada's budget. This data is technically available but the information is difficult to understand and spread across PDFs and databases that most Canadians don't know about."
 msgstr "Every year, hundreds of billions of dollars move through the Government of Canada's budget. This data is technically available but the information is difficult to understand and spread across PDFs and databases that most Canadians don't know about."
@@ -627,7 +637,7 @@ msgid "Excise Tax — Gasoline"
 msgstr "Excise Tax — Gasoline"
 
 #. placeholder {0}: jurisdiction.name
-#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:65
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:95
 msgid "Explore {0}'s revenue and spending categories or filter by ministry for deeper insights."
 msgstr "Explore {0}'s revenue and spending categories or filter by ministry for deeper insights."
 
@@ -672,6 +682,11 @@ msgstr "External Revenues"
 #: src/app/[lang]/(main)/page.tsx:102
 msgid "Facts about Spending"
 msgstr "Facts about Spending"
+
+#: src/components/MainLayout/index.tsx:80
+#: src/components/MainLayout/index.tsx:125
+msgid "Federal"
+msgstr "Federal"
 
 #: src/app/[lang]/(main)/spending/department-of-finance/page.tsx:175
 msgid "Federal departments often contain other entities including offices, crown corporations and agencies. In FY 2024, Department of Finance entities with the highest expenditures were the Office of the Superintendent of Financial Institutions, Office of the Auditor General, and the Financial Transactions and Reports Analysis Centre of Canada."
@@ -792,8 +807,13 @@ msgid "Finance Canada"
 msgstr "Finance Canada"
 
 #. placeholder {0}: jurisdiction.financialYear
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:122
+msgid "Financial Position {0}"
+msgstr "Financial Position {0}"
+
+#. placeholder {0}: jurisdiction.financialYear
 #. placeholder {1}: jurisdiction.name
-#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:59
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:89
 msgid "Financial Year {0} {1} Government Revenue and Spending"
 msgstr "Financial Year {0} {1} Government Revenue and Spending"
 
@@ -859,7 +879,7 @@ msgstr "Gender Equality"
 
 #. placeholder {0}: jurisdiction.name
 #. placeholder {1}: jurisdiction.name
-#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:50
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:80
 msgid "Get data-driven insights into how {0}'s provincial revenue and spending affect {1} residents and programs."
 msgstr "Get data-driven insights into how {0}'s provincial revenue and spending affect {1} residents and programs."
 
@@ -917,8 +937,8 @@ msgstr "Government Departments explained"
 msgid "Government IT Operations"
 msgstr "Government IT Operations"
 
-#: src/components/MainLayout/index.tsx:57
-#: src/components/MainLayout/index.tsx:88
+#: src/components/MainLayout/index.tsx:67
+#: src/components/MainLayout/index.tsx:121
 #: src/app/[lang]/(main)/spending/page.tsx:40
 msgid "Government Spending"
 msgstr "Government Spending"
@@ -1114,6 +1134,12 @@ msgstr "Immigration, Refugees and Citizenship Canada (IRCC) is led by the Minist
 msgid "Immigration, Refugees and Citizenship Canada | Canada Spends"
 msgstr "Immigration, Refugees and Citizenship Canada | Canada Spends"
 
+#. placeholder {0}: jurisdiction.financialYear
+#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:71
+#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:78
+msgid "In Financial Year {0},"
+msgstr "In Financial Year {0},"
+
 #: src/app/[lang]/(main)/spending/indigenous-services-and-northern-affairs/page.tsx:96
 msgid "In fiscal year (FY) 2024, ISC and CIRNAC collectively spent <0>$63 billion</0>, accounting for <1>12.3% of the total federal budget</1>. The departments play a critical role in addressing socio-economic disparities, facilitating self-governance agreements, and improving service delivery for Indigenous communities across Canada."
 msgstr "In fiscal year (FY) 2024, ISC and CIRNAC collectively spent <0>$63 billion</0>, accounting for <1>12.3% of the total federal budget</1>. The departments play a critical role in addressing socio-economic disparities, facilitating self-governance agreements, and improving service delivery for Indigenous communities across Canada."
@@ -1244,6 +1270,10 @@ msgstr "Innovation, Science and Industry Canada | Canada Spends"
 msgid "Innovative and Sustainable Natural Resources Development"
 msgstr "Innovative and Sustainable Natural Resources Development"
 
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:162
+msgid "Interest on Debt"
+msgstr "Interest on Debt"
+
 #: src/components/Sankey/index.tsx:303
 msgid "Interim Housing Assistance"
 msgstr "Interim Housing Assistance"
@@ -1367,10 +1397,6 @@ msgstr "Major legislative changes, compliance trends, and digital tax services h
 msgid "Major policy shifts, unforeseen events such as natural disasters, and global security concerns can significantly impact the department's annual spending. The COVID-19 pandemic, for example, led to a sharp increase in federal emergency response funding in 2020."
 msgstr "Major policy shifts, unforeseen events such as natural disasters, and global security concerns can significantly impact the department's annual spending. The COVID-19 pandemic, for example, led to a sharp increase in federal emergency response funding in 2020."
 
-#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:120
-msgid "Major Programs and Services"
-msgstr "Major Programs and Services"
-
 #: src/app/[lang]/(main)/about/page.tsx:15
 msgid "Making Government Spending Clear | About Us | Canada Spends"
 msgstr "Making Government Spending Clear | About Us | Canada Spends"
@@ -1387,11 +1413,14 @@ msgstr "Manitoba HTP"
 msgid "Manitoba STP"
 msgstr "Manitoba STP"
 
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:189
+msgid "Ministries + Agencies"
+msgstr "Ministries + Agencies"
+
 #: src/components/Sankey/index.tsx:791
 msgid "Miscellaneous revenues"
 msgstr "Miscellaneous revenues"
 
-#: src/components/OntarioMinistryList.tsx:107
 #: src/components/DepartmentList.tsx:45
 msgid "More coming soon..."
 msgstr "More coming soon..."
@@ -1450,6 +1479,10 @@ msgstr "Nature Conservation"
 #: src/components/Sankey/index.tsx:356
 msgid "Net actuarial losses"
 msgstr "Net actuarial losses"
+
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:128
+msgid "Net Debt"
+msgstr "Net Debt"
 
 #: src/components/Sankey/index.tsx:779
 msgid "Net Foreign Exchange Revenue"
@@ -1547,6 +1580,12 @@ msgstr "Nunavut STP"
 msgid "Obligations"
 msgstr "Obligations"
 
+#. placeholder {0}: jurisdiction.name
+#. placeholder {1}: department.name
+#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:82
+msgid "of {0} provincial spending was by {1}"
+msgstr "of {0} provincial spending was by {1}"
+
 #: src/app/[lang]/(main)/spending/indigenous-services-and-northern-affairs/page.tsx:89
 msgid "of federal spending was allocated to Indigenous priorities via these Departments. This does not include additional programs in other departments designed specifically for Indigenous beneficiaries."
 msgstr "of federal spending was allocated to Indigenous priorities via these Departments. This does not include additional programs in other departments designed specifically for Indigenous beneficiaries."
@@ -1615,6 +1654,11 @@ msgstr "Official Languages + Culture"
 msgid "On-reserve Income Support in Yukon Territory"
 msgstr "On-reserve Income Support in Yukon Territory"
 
+#: src/components/MainLayout/index.tsx:86
+#: src/components/MainLayout/index.tsx:130
+msgid "Ontario"
+msgstr "Ontario"
+
 #: src/components/Sankey/index.tsx:503
 msgid "Ontario EQP"
 msgstr "Ontario EQP"
@@ -1631,6 +1675,11 @@ msgstr "Ontario STP"
 #: src/app/[lang]/(main)/spending/department-of-finance/MiniSankey.tsx:36
 msgid "Other"
 msgstr "Other"
+
+#. placeholder {0}: jurisdiction.name
+#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:121
+msgid "Other {0} Government Ministries"
+msgstr "Other {0} Government Ministries"
 
 #: src/components/Sankey/index.tsx:101
 msgid "Other Boards + Councils"
@@ -1679,10 +1728,6 @@ msgstr "Other Natural Resources Management Support"
 #: src/components/Sankey/index.tsx:772
 msgid "Other Non-tax Revenue"
 msgstr "Other Non-tax Revenue"
-
-#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:133
-msgid "Other Ontario Government Ministries"
-msgstr "Other Ontario Government Ministries"
 
 #: src/components/Sankey/index.tsx:278
 msgid "Other Public Safety Expenses"
@@ -1822,6 +1867,10 @@ msgstr "Professional + Special Services"
 msgid "Professional and Special Services"
 msgstr "Professional and Special Services"
 
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:191
+msgid "Provincial organizations"
+msgstr "Provincial organizations"
+
 #: src/app/[lang]/(main)/spending/public-services-and-procurement-canada/page.tsx:89
 msgid "PSPC accounted for 1.6% of all federal spending in FY 2024. 10 government departments accounted for 73.2% of federal spending in FY 2024"
 msgstr "PSPC accounted for 1.6% of all federal spending in FY 2024. 10 government departments accounted for 73.2% of federal spending in FY 2024"
@@ -1829,6 +1878,12 @@ msgstr "PSPC accounted for 1.6% of all federal spending in FY 2024. 10 governmen
 #: src/app/[lang]/(main)/spending/public-services-and-procurement-canada/page.tsx:81
 msgid "PSPC spent $8.3 billion in fiscal year (FY) 2024. This was 1.6% of the $513.9 billion in overall federal spending. The department ranked twelfth among federal departments in total spending."
 msgstr "PSPC spent $8.3 billion in fiscal year (FY) 2024. This was 1.6% of the $513.9 billion in overall federal spending. The department ranked twelfth among federal departments in total spending."
+
+#. placeholder {0}: jurisdiction.name
+#. placeholder {1}: jurisdiction.financialYear
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:197
+msgid "Public Accounts of {0} FY {1}"
+msgstr "Public Accounts of {0} FY {1}"
 
 #: src/app/[lang]/(main)/spending/national-defence/MiniSankey.tsx:63
 #: src/app/[lang]/(main)/spending/housing-infrastructure-communities/MiniSankey.tsx:61
@@ -1870,6 +1925,10 @@ msgstr "Public Safety Canada spent $13.9 billion in fiscal year (FY) 2024, accou
 #: src/app/[lang]/(main)/spending/public-safety-canada/page.tsx:49
 msgid "Public Safety, Democratic Institutions and Intergovernmental Affairs Canada (Public Safety Canada) is the federal department responsible for national security, emergency preparedness, and community safety. Established in 2003, it consolidates security, law enforcement, and emergency management functions. It includes the RCMP, CSIS, and CBSA and coordinates federal responses to threats and develops policies on crime prevention, cyber resilience, and disaster preparedness while overseeing intelligence-sharing with domestic and international partners."
 msgstr "Public Safety, Democratic Institutions and Intergovernmental Affairs Canada (Public Safety Canada) is the federal department responsible for national security, emergency preparedness, and community safety. Established in 2003, it consolidates security, law enforcement, and emergency management functions. It includes the RCMP, CSIS, and CBSA and coordinates federal responses to threats and develops policies on crime prevention, cyber resilience, and disaster preparedness while overseeing intelligence-sharing with domestic and international partners."
+
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:183
+msgid "Public Service Employees"
+msgstr "Public Service Employees"
 
 #: src/hooks/useDepartments.ts:69
 #: src/app/[lang]/(main)/spending/public-services-and-procurement-canada/MiniSankey.tsx:18
@@ -2031,16 +2090,17 @@ msgstr "Social Security"
 msgid "Social Transfer to Provinces"
 msgstr "Social Transfer to Provinces"
 
-#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:79
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:108
 msgid "Source"
 msgstr "Source"
 
 #: src/app/[lang]/(main)/spending/page.tsx:132
-#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:103
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:215
 msgid "Sources"
 msgstr "Sources"
 
 #: src/app/[lang]/(main)/spending/page.tsx:123
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:195
 msgid "Sources:"
 msgstr "Sources:"
 
@@ -2053,8 +2113,8 @@ msgstr "Space"
 msgid "Spending"
 msgstr "Spending"
 
-#: src/components/MainLayout/index.tsx:60
-#: src/components/MainLayout/index.tsx:91
+#: src/components/MainLayout/index.tsx:92
+#: src/components/MainLayout/index.tsx:134
 msgid "Spending Database"
 msgstr "Spending Database"
 
@@ -2118,21 +2178,6 @@ msgstr "Term"
 msgid "Thank you for subscribing!"
 msgstr "Thank you for subscribing!"
 
-#. placeholder {0}: jurisdiction.name
-#. placeholder {1}: department.name
-#. placeholder {2}: department.totalSpendingFormatted
-#. placeholder {3}: jurisdiction.financialYear
-#. placeholder {4}: department.percentageFormatted
-#. placeholder {5}: jurisdiction.totalProvincialSpendingFormatted
-#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:88
-msgid "The {0} {1} spent ${2} in fiscal year (FY) {3}, representing {4} of the ${5} in total provincial spending."
-msgstr "The {0} {1} spent ${2} in fiscal year (FY) {3}, representing {4} of the ${5} in total provincial spending."
-
-#. placeholder {0}: department.name
-#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:63
-msgid "The {0} manages critical provincial operations and services for Ontario residents."
-msgstr "The {0} manages critical provincial operations and services for Ontario residents."
-
 #: src/app/[lang]/(main)/spending/page.tsx:101
 msgid "The average employee is 43.3 years old"
 msgstr "The average employee is 43.3 years old"
@@ -2144,10 +2189,6 @@ msgstr "The average employee makes $136,345/yr"
 #: src/app/[lang]/(main)/about/faq.tsx:46
 msgid "The best way to support us is to engage with our content. Like, share, and comment on our posts on social media. Even better, share our work with a friend and encourage them to do the same. Together, we can expand the conversation and reach more people with these important facts."
 msgstr "The best way to support us is to engage with our content. Like, share, and comment on our posts on social media. Even better, share our work with a friend and encourage them to do the same. Together, we can expand the conversation and reach more people with these important facts."
-
-#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:123
-msgid "The Cabinet Office → Cabinet Office operates various programs and services as part of Ontario's commitment to delivering effective government services to residents."
-msgstr "The Cabinet Office → Cabinet Office operates various programs and services as part of Ontario's commitment to delivering effective government services to residents."
 
 #: src/app/[lang]/(main)/spending/canada-revenue-agency/page.tsx:50
 msgid "The Canada Revenue Agency (CRA) is the federal institution responsible for administering tax laws, enforcing compliance, and delivering key benefit programs to individuals and businesses across Canada. Established in 1999 under the Canada Revenue Agency Act, the CRA operates with a workforce of approximately 59,155 employees (2024) and oversees tax revenues totaling $379 billion annually—which accounts for over 82% of federal revenues. It also administers over $46 billion in benefits and credits to Canadians, including the Canada Child Benefit and the GST/HST credit."
@@ -2300,14 +2341,13 @@ msgstr "The Public Services and Procurement Canada (PSPC) is the federal departm
 msgid "These Ministers are some of the <0>cabinet members</0> who serve at the Prime Minister's discretion. Their tenure typically ends when they resign, are replaced, or when a new Prime Minister takes office and appoints a new cabinet. Outgoing ministers remain in their roles until their successors are sworn in."
 msgstr "These Ministers are some of the <0>cabinet members</0> who serve at the Prime Minister's discretion. Their tenure typically ends when they resign, are replaced, or when a new Prime Minister takes office and appoints a new cabinet. Outgoing ministers remain in their roles until their successors are sworn in."
 
-#. placeholder {0}: jurisdiction.name
-#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:107
-msgid "This ministry plays an important role in {0}'s government operations, delivering essential services and programs to residents across the province."
-msgstr "This ministry plays an important role in {0}'s government operations, delivering essential services and programs to residents across the province."
-
 #: src/app/[lang]/(main)/spending/health-canada/page.tsx:59
 msgid "Through the Public Health Agency of Canada (PHAC), Health Canada monitors public health risks, manages disease outbreaks, and promotes health initiatives. It also funds medical research via the Canadian Institutes of Health Research (CIHR) and oversees healthcare services for Indigenous communities."
 msgstr "Through the Public Health Agency of Canada (PHAC), Health Canada monitors public health risks, manages disease outbreaks, and promotes health initiatives. It also funds medical research via the Canadian Institutes of Health Research (CIHR) and oversees healthcare services for Indigenous communities."
+
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:145
+msgid "Total Debt"
+msgstr "Total Debt"
 
 #: src/app/[lang]/(main)/spending/page.tsx:74
 msgid "Total full-time equivalents"
@@ -2440,13 +2480,18 @@ msgid "Veterans Affairs Canada | Canada Spends"
 msgstr "Veterans Affairs Canada | Canada Spends"
 
 #: src/app/[lang]/(main)/spending/page.tsx:62
-#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:87
+#: src/app/[lang]/(main)/[jurisdiction]/page.tsx:116
 msgid "View this chart in full screen"
 msgstr "View this chart in full screen"
 
 #: src/components/Sankey/index.tsx:307
 msgid "Visitors, International Students + Temporary Workers"
 msgstr "Visitors, International Students + Temporary Workers"
+
+#. placeholder {0}: department.name
+#: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:74
+msgid "was spent by {0}"
+msgstr "was spent by {0}"
 
 #: src/app/[lang]/(main)/spending/employment-and-social-development-canada/page.tsx:73
 msgid "was spent by ESDC"

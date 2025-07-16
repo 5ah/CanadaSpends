@@ -164,5 +164,18 @@
       }
     ]
   },
-  "generatedAt": "2025-07-09T21:53:36.586Z"
+  "generatedAt": "2025-07-09T21:53:36.586Z",
+  "_comments": {
+    "_editing_guide": "The fields below can be edited to customize the department page content. These texts will appear on the public website.",
+    "_introText": "Short introduction that appears at the top of the department page",
+    "_descriptionText": "Detailed description - you can use placeholder variables like {jurisdiction.name}, {department.name}, etc.",
+    "_roleText": "Description of the department's role and importance to the province",
+    "_programsHeading": "Heading for the programs and services section",
+    "_programsDescription": "Description of what programs and services this department offers"
+  },
+  "introText": "The Ministry of Finance manages Ontario's fiscal policy, government revenues, taxation, and financial operations, ensuring responsible stewardship of public funds and economic planning.",
+  "descriptionText": "The Ontario Ministry of Finance spent $13.3B in fiscal year (FY) 2023-24, representing 6.4% of the $206.6B in total provincial spending. This includes debt servicing, municipal partnerships, and core government financial operations.",
+  "roleText": "Finance plays a central role in Ontario's government operations, managing the province's budget, debt, taxation systems, and transfers to municipalities. It ensures fiscal responsibility while supporting economic growth and public service delivery.",
+  "programsHeading": "Financial Management and Municipal Programs",
+  "programsDescription": "The Ministry of Finance operates programs including debt management, taxation administration, the Ontario Municipal Partnership Fund, property tax assessment, economic forecasting, and financial policy development."
 }

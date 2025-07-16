@@ -206,5 +206,18 @@
       }
     ]
   },
-  "generatedAt": "2025-07-09T21:53:36.588Z"
+  "generatedAt": "2025-07-09T21:53:36.588Z",
+  "_comments": {
+    "_editing_guide": "The fields below can be edited to customize the department page content. These texts will appear on the public website.",
+    "_introText": "Short introduction that appears at the top of the department page",
+    "_descriptionText": "Detailed description - you can use placeholder variables like {jurisdiction.name}, {department.name}, etc.",
+    "_roleText": "Description of the department's role and importance to the province",
+    "_programsHeading": "Heading for the programs and services section",
+    "_programsDescription": "Description of what programs and services this department offers"
+  },
+  "introText": "The Ministry of Labour, Immigration, Training and Skills Development supports workforce development, workplace safety, and immigration settlement, helping build Ontario's skilled workforce.",
+  "descriptionText": "The Ontario Ministry of Labour, Immigration, Training and Skills Development spent $1.6B in fiscal year (FY) 2023-24, representing 0.8% of the $206.6B in total provincial spending. This investment supports employment, training, and workplace safety.",
+  "roleText": "A skilled and safe workforce is essential for Ontario's economic success. This ministry provides employment services, ensures workplace safety, supports immigration settlement, and develops the skills Ontario needs.",
+  "programsHeading": "Employment and Skills Development Programs",
+  "programsDescription": "The Ministry of Labour, Immigration, Training and Skills Development operates programs including Employment Ontario, apprenticeship training, workplace safety oversight, immigration settlement services, and skills development funding."
 }
