@@ -84,7 +84,7 @@ export function getDepartmentData(
 export function getDepartmentsForJurisdiction(jurisdiction: string): string[] {
   return fs
     .readdirSync(path.join(dataDir, jurisdiction, "departments"))
-    .filter((f) => path.join(dataDir, jurisdiction, "departments", f))
+    .filter((f) => f.endsWith(".json"))
     .map((f) => f.replace(".json", ""));
 }
 

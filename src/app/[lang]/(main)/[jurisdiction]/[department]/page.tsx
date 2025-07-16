@@ -95,6 +95,7 @@ export default async function DepartmentPage({
             <Trans>
               {department.name} accounted for {department.percentageFormatted}{" "}
               of all {jurisdiction.name}
+              {" "}
               provincial spending in FY {jurisdiction.financialYear}
             </Trans>
           </H2>
@@ -132,18 +133,3 @@ export default async function DepartmentPage({
     </Page>
   );
 }
-
-// 			total: ministryData.totalSpending,
-// 	spending: ministryData.totalSpending,
-// 	revenue: 0,
-// 	spending_data: {
-// 		name: t`Ontario Cabinet Office → Cabinet Office`,
-// 		amount: ministryData.totalSpending,
-// 		children: [...ministryData.spending_data.children]
-// 	},
-// 	revenue_data: {
-// 		name: t`Revenue`,
-// 		amount: 0,
-// 		children: []
-// 	}
-// };
