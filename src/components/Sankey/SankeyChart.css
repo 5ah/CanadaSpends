@@ -99,7 +99,7 @@
     border-radius: 4px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    pointer-events: none;
+    pointer-events: all;
   }
   
   .node-tooltip-name {
@@ -111,6 +111,22 @@
     display: flex;
     flex-direction: row;
     gap: 8px;
+  }
+  
+  .node-tooltip-department {
+    margin-top: 8px;
+    font-size: 11px;
+  }
+
+  .node-tooltip-link {
+    color: #66c4ef;
+    text-decoration: none;
+    font-size: 11px;
+  }
+  
+  .node-tooltip-link:hover {
+    color: #299ED9;
+    text-decoration: underline;
   }
   
   .charts {

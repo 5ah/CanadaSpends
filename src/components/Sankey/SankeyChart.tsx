@@ -1,10 +1,12 @@
 import { hierarchy } from 'd3'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState, useRef } from 'react'
 import Select from 'react-select'
+import { useLingui } from '@lingui/react/macro'
 import './SankeyChart.css'
 import { SankeyData } from './SankeyChartD3'
 import { SankeyChartSingle } from './SankeyChartSingle'
 import { formatNumber, sortNodesByAmount, transformToIdBased } from './utils'
+import { departmentNames } from '@/lib/sankeyDepartmentMappings'
 
 type FlatDataNodes = ReturnType<typeof getFlatData>['nodes']
 type Node = FlatDataNodes[number] & {
@@ -14,6 +16,7 @@ type Node = FlatDataNodes[number] & {
 interface HoverNodeType extends Node {
 	percent: number;
 	blockRect?: DOMRect;
+	departmentSlug?: string;
 }
 
 interface SearchOptionType {
@@ -79,6 +82,7 @@ type SankeyChartProps = {
 }
 
 export function SankeyChart(props: SankeyChartProps) {
+	const { i18n } = useLingui()
 	const [chartData, setChartData] = useState<SankeyData | null>(null)
 	const [flatData, setFlatData] = useState<FlatDataNodes | null>(null)
 
@@ -88,6 +92,8 @@ export function SankeyChart(props: SankeyChartProps) {
 	// Mouse position as fallback - ensures tooltip still works if blockRect is missing
 	const [mousePosition, setMousePosition] = useState<{ x: number; y: number } | null>(null)
 	const [totalAmount, setTotalAmount] = useState(0)
+	const [isTooltipHovered, setIsTooltipHovered] = useState(false)
+	const hideTooltipTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
 	useEffect(() => {
 		// Transform the data to use ID-based structure
@@ -103,6 +109,15 @@ export function SankeyChart(props: SankeyChartProps) {
 		setFlatData(nodes)
 		setTotalAmount(Math.max(revenueTotal, spendingTotal))
 	}, [props.data])
+
+	// Cleanup timeout on unmount
+	useEffect(() => {
+		return () => {
+			if (hideTooltipTimeoutRef.current) {
+				clearTimeout(hideTooltipTimeoutRef.current)
+			}
+		}
+	}, [])
 
 	const handleSearch = (selected: SearchOptionType | null) => {
 		setSearchedNode(selected)
@@ -123,6 +138,11 @@ export function SankeyChart(props: SankeyChartProps) {
 
 	const handleMouseOver = useCallback((totalAmount: number) => {
 		return (node: Node, event?: MouseEvent) => {
+			// Clear any pending hide timeout
+			if (hideTooltipTimeoutRef.current) {
+				clearTimeout(hideTooltipTimeoutRef.current)
+				hideTooltipTimeoutRef.current = null
+			}
 			const percent = (node.realValue! / totalAmount) * 100
 			setHoverNode({
 				...node,
@@ -136,9 +156,13 @@ export function SankeyChart(props: SankeyChartProps) {
 	}, [])
 
 	const handleMouseOut = useCallback(() => {
-		setHoverNode(null)
-		setMousePosition(null)
-	}, [])
+		hideTooltipTimeoutRef.current = setTimeout(() => {
+			if (!isTooltipHovered) {
+				setHoverNode(null)
+				setMousePosition(null)
+			}
+		}, 100)
+	}, [isTooltipHovered])
 
 	return (
 		<div className='sankey-chart-wrapper'>
@@ -180,10 +204,22 @@ export function SankeyChart(props: SankeyChartProps) {
 				{hoverNode && (
 				<div 
 					className='node-tooltip'
+					onMouseEnter={() => {
+						if (hideTooltipTimeoutRef.current) {
+							clearTimeout(hideTooltipTimeoutRef.current)
+							hideTooltipTimeoutRef.current = null
+						}
+						setIsTooltipHovered(true)
+					}}
+					onMouseLeave={() => {
+						setIsTooltipHovered(false)
+						setHoverNode(null)
+						setMousePosition(null)
+					}}
 					style={{
 						// Horizontal: right of the block, constrained to viewport
 						left: hoverNode.blockRect 
-							? `${Math.min(hoverNode.blockRect.right + 10, window.innerWidth - 340)}px` 
+							? `${Math.min(hoverNode.blockRect.right, window.innerWidth - 340)}px` 
 							: `${Math.min((mousePosition?.x || 0) + 10, window.innerWidth - 340)}px`,
 						// Vertical: 40px above the block to avoid native tooltip conflict
 						// Math.max ensures tooltip stays within viewport (min 10px from top)
@@ -198,6 +234,16 @@ export function SankeyChart(props: SankeyChartProps) {
 						<span className='node-tooltip-amount-divider'>&#8226;</span>
 						<span>{hoverNode.percent.toFixed(1)}%</span>
 					</div>
+					{hoverNode.departmentSlug && (
+						<div className='node-tooltip-department'>
+							<a 
+								href={`/${i18n.locale}/spending/${hoverNode.departmentSlug}`}
+								className='node-tooltip-link'
+							>
+								{departmentNames[hoverNode.departmentSlug]}
+							</a>
+						</div>
+					)}
 				</div>
 			)}
 
