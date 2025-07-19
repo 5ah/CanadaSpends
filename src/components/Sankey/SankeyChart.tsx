@@ -92,7 +92,6 @@ export function SankeyChart(props: SankeyChartProps) {
 	// Mouse position as fallback - ensures tooltip still works if blockRect is missing
 	const [mousePosition, setMousePosition] = useState<{ x: number; y: number } | null>(null)
 	const [totalAmount, setTotalAmount] = useState(0)
-	const [isTooltipHovered, setIsTooltipHovered] = useState(false)
 	const hideTooltipTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
 	useEffect(() => {
@@ -157,12 +156,10 @@ export function SankeyChart(props: SankeyChartProps) {
 
 	const handleMouseOut = useCallback(() => {
 		hideTooltipTimeoutRef.current = setTimeout(() => {
-			if (!isTooltipHovered) {
-				setHoverNode(null)
-				setMousePosition(null)
-			}
+			setHoverNode(null)
+			setMousePosition(null)
 		}, 100)
-	}, [isTooltipHovered])
+	}, [])
 
 	return (
 		<div className='sankey-chart-wrapper'>
@@ -209,13 +206,8 @@ export function SankeyChart(props: SankeyChartProps) {
 							clearTimeout(hideTooltipTimeoutRef.current)
 							hideTooltipTimeoutRef.current = null
 						}
-						setIsTooltipHovered(true)
 					}}
-					onMouseLeave={() => {
-						setIsTooltipHovered(false)
-						setHoverNode(null)
-						setMousePosition(null)
-					}}
+					onMouseLeave={handleMouseOut}
 					style={{
 						// Horizontal: right of the block, constrained to viewport
 						left: hoverNode.blockRect 
