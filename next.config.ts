@@ -26,6 +26,15 @@ const nextConfig: NextConfig = {
 
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: "/:locale/tax-calculator",
+        destination: "/:locale/tax-visualizer",
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     return [
       {
