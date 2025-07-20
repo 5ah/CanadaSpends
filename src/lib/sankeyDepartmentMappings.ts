@@ -1,7 +1,6 @@
 // Direct mapping: sankey node name → department slug
 export const nodeToDepartment: Record<string, string> = {
   // Direct department mappings
-  "Revenue Canada": "canada-revenue-agency",
   "Defence": "national-defence",
   "International Affairs": "global-affairs-canada",
   "Immigration + Border Security": "immigration-refugees-and-citizenship",
