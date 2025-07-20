@@ -176,7 +176,7 @@ export function SankeyChart(props: SankeyChartProps) {
 						};
 						
 						const deptSlug = nodeToDepartment[d.displayName];
-						if (deptSlug && departmentNames[deptSlug]) {
+						if (deptSlug && departmentNames[deptSlug] && d.children) {
 							return [
 								base,
 								{
