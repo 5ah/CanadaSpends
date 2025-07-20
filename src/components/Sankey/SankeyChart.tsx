@@ -6,7 +6,7 @@ import './SankeyChart.css'
 import { SankeyData } from './SankeyChartD3'
 import { SankeyChartSingle } from './SankeyChartSingle'
 import { formatNumber, sortNodesByAmount, transformToIdBased } from './utils'
-import { departmentNames } from '@/lib/sankeyDepartmentMappings'
+import { departmentNames, nodeToDepartment } from '@/lib/sankeyDepartmentMappings'
 
 type FlatDataNodes = ReturnType<typeof getFlatData>['nodes']
 type Node = FlatDataNodes[number] & {
@@ -169,10 +169,24 @@ export function SankeyChart(props: SankeyChartProps) {
 					instanceId="sankey-search"
 					inputId="sankey-search-input"
 					value={searchedNode}
-					options={flatData?.map(d => ({
-						value: d.id!,
-						label: d.displayName || d.name || 'Unknown'
-					})).filter(d => d.value && d.label)}
+					options={flatData?.flatMap(d => {
+						const base = {
+							value: d.id!,
+							label: d.displayName || d.name || 'Unknown'
+						};
+						
+						const deptSlug = nodeToDepartment[d.displayName];
+						if (deptSlug && departmentNames[deptSlug]) {
+							return [
+								base,
+								{
+									value: d.id!,
+									label: departmentNames[deptSlug]
+								}
+							];
+						}
+						return [base];
+					}).filter(d => d.value && d.label)}
 					onChange={handleSearch}
 					isClearable={true}
 					placeholder='Search...'

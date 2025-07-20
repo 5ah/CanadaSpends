@@ -12,9 +12,10 @@ export const nodeToDepartment: Record<string, string> = {
   "Public Works + Government Services": "public-services-and-procurement-canada",
   "Innovation + Research": "innovation-science-and-industry",
   "Net Interest on Debt": "department-of-finance",
-  "Transfers to Provinces": "department-of-finance",
+  "Health Transfers to Provinces": "department-of-finance",
   "Employment + Training": "employment-and-social-development-canada",
   "Social Security": "employment-and-social-development-canada",
+  "Indigenous Priorities": "indigenous-services-and-northern-affairs",
   "Indigenous Well-Being + Self Determination": "indigenous-services-and-northern-affairs",
   "Crown-Indigenous Relations": "indigenous-services-and-northern-affairs",
   
