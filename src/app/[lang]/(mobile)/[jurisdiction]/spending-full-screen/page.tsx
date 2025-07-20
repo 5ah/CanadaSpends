@@ -1,5 +1,4 @@
 import { ExternalLink } from "@/components/Layout";
-import NoSSR from "@/components/NoSSR";
 import { JurisdictionSankey } from "@/components/Sankey/JurisdictionSankey";
 import { getJurisdictionData, getJurisdictionSlugs } from "@/lib/jurisdictions";
 

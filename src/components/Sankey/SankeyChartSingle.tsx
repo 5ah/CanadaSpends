@@ -1,5 +1,3 @@
-"use client"
-
 import { useEffect, useRef } from 'react'
 import { SankeyChartD3, SankeyChartD3Props } from './SankeyChartD3'
 

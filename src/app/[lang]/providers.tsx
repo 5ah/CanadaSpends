@@ -10,7 +10,7 @@ import { PostHogProvider as PHProvider } from "posthog-js/react";
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    process.env.NEXT_PUBLIC_POSTHOG_KEY &&
+    if (process.env.NEXT_PUBLIC_POSTHOG_KEY) {
       posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
         api_host: "/ph",
         ui_host: "https://us.posthog.com",
@@ -18,6 +18,7 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
         capture_pageview: false, // Disable automatic pageview capture, as we capture manually
         capture_pageleave: true, // Enable pageleave capture
       });
+    }
   }, []);
 
   return (

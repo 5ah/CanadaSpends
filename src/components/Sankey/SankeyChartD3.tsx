@@ -229,8 +229,11 @@ export class SankeyChartD3 {
 				return 0
 			})
 			.on('mouseover', (e, d) => {
+				const target = e.currentTarget as HTMLElement
+				const rect = target.getBoundingClientRect()
+				
 				this.highlightNode(d)
-				this.params.onMouseOver(d)
+				this.params.onMouseOver({ ...d, blockRect: rect }, e)
 			})
 			.on('mouseout', (e, d) => {
 				this.highlightNode(null)
@@ -342,7 +345,7 @@ export class SankeyChartD3 {
 			)
 		})
 
-		let highlightedNodeElements = []
+		const highlightedNodeElements = []
 
 		this.sankeyDiv
 			.selectAll('.block:not(.fake)')

@@ -198,7 +198,7 @@ export default async function Department(props: PageLangParam) {
 					<P>
 						<Trans>
 							The Canada Revenue Agency is overseen by the{" "}
-							<ExternalLink href="https://www.canada.ca/en/government/ministers/marie-claude-bibeau.html">
+							<ExternalLink href="https://www.canada.ca/en/government/ministers/francois-philippe-champagne.html">
 								Minister of National Revenue
 							</ExternalLink>
 							, who is responsible for ensuring tax fairness and benefit program

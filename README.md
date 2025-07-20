@@ -59,4 +59,30 @@ By the end of 2025, we aim to have automated data ingestion pipelines for every 
 
 ## Getting Started
 
-Canada Spends is a NextJS app. Currently 
+Canada Spends is a NextJS app. To run it, run:
+
+```
+pnpm install
+pnpm run dev
+```
+
+## Linting
+
+This project uses ESLint with Next.js configuration. Run linting with:
+
+```bash
+pnpm lint          # Check for linting issues
+pnpm lint:fix      # Auto-fix auto-fixable issues
+```
+
+The linting configuration enforces TypeScript best practices, React rules, and Next.js optimizations while keeping most issues as warnings (temporarily) to avoid blocking development.
+
+## Git Hooks
+
+This project automatically runs linting checks before each commit using `simple-git-hooks`. This is enabled automatically when you run `pnpm install`. If you need to enable it manually:
+
+```bash
+npx simple-git-hooks
+```
+
+If linting fails, the commit will be blocked until issues are resolved.

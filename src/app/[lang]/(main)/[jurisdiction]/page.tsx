@@ -39,12 +39,17 @@ const HelpIcon = () => (
   </svg>
 );
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
-  const slugs = getJurisdictionSlugs();
+  const jurisdictions = getJurisdictionSlugs();
+  const languages = ["en", "fr"]; // or import { locales } from '@/locales';
 
-  const jurs = slugs.map((slug) => ({ jurisdiction: slug }));
+  const all = languages.flatMap((lang) =>
+    jurisdictions.map((jurisdiction) => ({ lang, jurisdiction })),
+  );
 
-  return jurs;
+  return all;
 }
 
 export default async function ProvinceIndex({
@@ -66,7 +71,7 @@ export default async function ProvinceIndex({
   const totalDebt = 552.1; // in billions of dollars
   const totalDebtFormatted = `$${totalDebt.toFixed(1)}B`;
 
-  const interestOnDebt = 14.26; // in billions of dollars (Interest on Ontario Securities)
+  const interestOnDebt = 11.376; // in billions of dollars (Interest on Ontario Securities)
   const interestOnDebtFormatted = `$${interestOnDebt.toFixed(1)}B`;
 
   return (
@@ -195,7 +200,8 @@ export default async function ProvinceIndex({
             <Trans>Sources:</Trans>{" "}
             <ExternalLink href={jurisdiction.source}>
               <Trans>
-                Public Accounts of {jurisdiction.name} FY {jurisdiction.financialYear}
+                Public Accounts of {jurisdiction.name} FY{" "}
+                {jurisdiction.financialYear}
               </Trans>
             </ExternalLink>
           </P>

@@ -1,5 +1,3 @@
-"use client"
-
 import { hierarchy } from 'd3'
 import { useCallback, useEffect, useState } from 'react'
 import Select from 'react-select'
@@ -15,6 +13,7 @@ type Node = FlatDataNodes[number] & {
 
 interface HoverNodeType extends Node {
 	percent: number;
+	blockRect?: DOMRect;
 }
 
 interface SearchOptionType {
@@ -86,6 +85,8 @@ export function SankeyChart(props: SankeyChartProps) {
 	const [searchedNode, setSearchedNode] = useState<SearchOptionType | null>(null)
 	const [searchResult, setSearchResult] = useState<Node | null>(null)
 	const [hoverNode, setHoverNode] = useState<HoverNodeType | null>(null)
+	// Mouse position as fallback - ensures tooltip still works if blockRect is missing
+	const [mousePosition, setMousePosition] = useState<{ x: number; y: number } | null>(null)
 	const [totalAmount, setTotalAmount] = useState(0)
 
 	useEffect(() => {
@@ -121,22 +122,28 @@ export function SankeyChart(props: SankeyChartProps) {
 	}
 
 	const handleMouseOver = useCallback((totalAmount: number) => {
-		return (node: Node) => {
+		return (node: Node, event?: MouseEvent) => {
 			const percent = (node.realValue! / totalAmount) * 100
 			setHoverNode({
 				...node,
 				percent,
 			})
+			// Store mouse position as fallback for tooltip positioning
+			if (event) {
+				setMousePosition({ x: event.clientX, y: event.clientY })
+			}
 		}
 	}, [])
 
 	const handleMouseOut = useCallback(() => {
 		setHoverNode(null)
+		setMousePosition(null)
 	}, [])
 
 	return (
-		<>
-			<div className='search-container'>
+		<div className='sankey-chart-wrapper'>
+			<div className='sankey-chart-header'>
+				<div className='search-container'>
 				<Select
 					instanceId="sankey-search"
 					inputId="sankey-search-input"
@@ -166,10 +173,25 @@ export function SankeyChart(props: SankeyChartProps) {
 						})
 					}}
 				/>
+				</div>
 			</div>
 
-			{hoverNode && (
-				<div className='node-tooltip'>
+			<div className='sankey-chart-content'>
+				{hoverNode && (
+				<div 
+					className='node-tooltip'
+					style={{
+						// Horizontal: right of the block, constrained to viewport
+						left: hoverNode.blockRect 
+							? `${Math.min(hoverNode.blockRect.right + 10, window.innerWidth - 340)}px` 
+							: `${Math.min((mousePosition?.x || 0) + 10, window.innerWidth - 340)}px`,
+						// Vertical: 40px above the block to avoid native tooltip conflict
+						// Math.max ensures tooltip stays within viewport (min 10px from top)
+						top: hoverNode.blockRect 
+							? `${Math.max(10, hoverNode.blockRect.top - 40)}px`
+							: `${(mousePosition?.y || 0) + 10}px`
+					}}
+				>
 					<p className='node-tooltip-name'>{hoverNode.displayName || hoverNode.name}</p>
 					<div className='node-tooltip-amount'>
 						<span>{formatNumber(hoverNode.realValue ?? 0, amountScalingFactor)}</span>
@@ -222,7 +244,8 @@ export function SankeyChart(props: SankeyChartProps) {
 					/>
 				</div>
 			)}
-		</>
+			</div>
+		</div>
 	)
 }
 

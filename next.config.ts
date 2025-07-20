@@ -6,15 +6,15 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   experimental: {
-    swcPlugins: [['@lingui/swc-plugin', {}]],
+    swcPlugins: [["@lingui/swc-plugin", {}]],
     turbo: {
       rules: {
-        '*.po': {
-          loaders: ['@lingui/loader'],
-          as: '*.js'
-        }
-      }
-    }
+        "*.po": {
+          loaders: ["@lingui/loader"],
+          as: "*.js",
+        },
+      },
+    },
   },
   webpack: (config) => {
     config.module.rules.push({
@@ -25,6 +25,15 @@ const nextConfig: NextConfig = {
     });
 
     return config;
+  },
+  async redirects() {
+    return [
+      {
+        source: "/:locale/tax-calculator",
+        destination: "/:locale/tax-visualizer",
+        permanent: true,
+      },
+    ];
   },
   async rewrites() {
     return [

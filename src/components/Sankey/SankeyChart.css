@@ -53,26 +53,53 @@
 .sankey-chart-container {
   position: relative;
   background-color: #202122;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  .sankey-chart-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .sankey-chart-header {
+    position: sticky;
+    top: 0;
+    background-color: #202122;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 10;
+    display: flex;
+    justify-content: flex-end;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .sankey-chart-content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+  }
   
   .search-container {
     width: 320px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 5;
   }
   
   .node-tooltip {
-    z-index: 10;
-    width: 320px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    z-index: 20;
+    min-width: 200px;
+    max-width: 320px;
+    position: fixed;
     background-color: #000;
     color: var(--color-text-base);
     padding: 10px;
     font-size: 12px;
     border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    pointer-events: none;
   }
   
   .node-tooltip-name {
@@ -91,8 +118,8 @@
     padding: 1rem 1.5rem 0px 1rem;
     flex-grow: 1;
     display: flex;
-    overflow: hidden;
     column-gap: .5rem;
+    height: 100%;
   }
   
   .chart {
