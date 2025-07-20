@@ -101,5 +101,18 @@
       }
     ]
   },
-  "generatedAt": "2025-07-09T21:53:36.588Z"
+  "generatedAt": "2025-07-09T21:53:36.588Z",
+  "_comments": {
+    "_editing_guide": "The fields below can be edited to customize the department page content. These texts will appear on the public website.",
+    "_introText": "Short introduction that appears at the top of the department page",
+    "_descriptionText": "Detailed description - you can use placeholder variables like {jurisdiction.name}, {department.name}, etc.",
+    "_roleText": "Description of the department's role and importance to the province",
+    "_programsHeading": "Heading for the programs and services section",
+    "_programsDescription": "Description of what programs and services this department offers"
+  },
+  "introText": "The Ministry of Mines oversees Ontario's mining sector, promoting responsible resource development while ensuring safety and environmental protection in mining operations.",
+  "descriptionText": "The Ontario Ministry of Mines spent $549M in fiscal year (FY) 2023-24, representing 0.3% of the $206.6B in total provincial spending. This investment supports mining development and oversight.",
+  "roleText": "Mining is an important part of Ontario's economy, particularly in northern regions. This ministry regulates mining operations, promotes exploration and development, and ensures mining activities meet safety and environmental standards.",
+  "programsHeading": "Mining and Mineral Development",
+  "programsDescription": "The Ministry of Mines operates programs including mining regulation, exploration incentives, Indigenous partnerships, critical minerals development, and mining safety oversight."
 }

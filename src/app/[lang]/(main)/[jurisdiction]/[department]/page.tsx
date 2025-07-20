@@ -69,10 +69,7 @@ export default async function DepartmentPage({
             <Trans>{department.name}</Trans>
           </H1>
           <Intro>
-            <Trans>
-              The {department.name} manages critical provincial operations and
-              services for Ontario residents.
-            </Trans>
+            <Trans>{department.introText}</Trans>
           </Intro>
 
           <StatCardContainer>
@@ -98,30 +95,20 @@ export default async function DepartmentPage({
           </StatCardContainer>
 
           <P>
-            <Trans>
-              The {jurisdiction.name} {department.name} spent{" "}
-              {department.totalSpendingFormatted} in fiscal year (FY){" "}
-              {jurisdiction.financialYear}, representing{" "}
-              {department.percentageFormatted} of the{" "}
-              {jurisdiction.totalProvincialSpendingFormatted} in total
-              provincial spending.
-            </Trans>
+            <Trans>{department.descriptionText}</Trans>
           </P>
 
           <H2>
             <Trans>
               {department.name} accounted for {department.percentageFormatted}{" "}
               of all {jurisdiction.name}
+              {" "}
               provincial spending in FY {jurisdiction.financialYear}
             </Trans>
           </H2>
 
           <P>
-            <Trans>
-              This ministry plays an important role in {jurisdiction.name}'s
-              government operations, delivering essential services and programs
-              to residents across the province.
-            </Trans>
+            <Trans>{department.roleText}</Trans>
           </P>
 
           <ChartContainer>
@@ -130,14 +117,10 @@ export default async function DepartmentPage({
 
           <Section>
             <H3>
-              <Trans>Major Programs and Services</Trans>
+              <Trans>{department.programsHeading}</Trans>
             </H3>
             <P>
-              <Trans>
-                The {department.name} operates various programs and services as
-                part of {jurisdiction.name}'s commitment to delivering effective
-                government services to residents.
-              </Trans>
+              <Trans>{department.programsDescription}</Trans>
             </P>
           </Section>
 
@@ -157,18 +140,3 @@ export default async function DepartmentPage({
     </Page>
   );
 }
-
-// 			total: ministryData.totalSpending,
-// 	spending: ministryData.totalSpending,
-// 	revenue: 0,
-// 	spending_data: {
-// 		name: t`Ontario Cabinet Office → Cabinet Office`,
-// 		amount: ministryData.totalSpending,
-// 		children: [...ministryData.spending_data.children]
-// 	},
-// 	revenue_data: {
-// 		name: t`Revenue`,
-// 		amount: 0,
-// 		children: []
-// 	}
-// };

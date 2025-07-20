@@ -247,5 +247,24 @@
       }
     ]
   },
-  "generatedAt": "2025-07-09T21:53:36.566Z"
+  "generatedAt": "2025-07-09T21:53:36.566Z",
+  
+  "_comments": {
+    "_editing_guide": "The fields below can be edited to customize the department page content. These texts will appear on the public website.",
+    "_introText": "Short introduction that appears at the top of the department page",
+    "_descriptionText": "Detailed description - you can use placeholder variables like {jurisdiction.name}, {department.name}, etc.",
+    "_roleText": "Description of the department's role and importance to the province",
+    "_programsHeading": "Heading for the programs and services section",
+    "_programsDescription": "Description of what programs and services this department offers"
+  },
+  
+  "introText": "The Ministry of Agriculture, Food and Rural Affairs supports Ontario's agriculture and food sector, promoting innovation, sustainability, and rural economic development across the province.",
+  
+  "descriptionText": "The Ontario Ministry of Agriculture, Food and Rural Affairs spent $938M in fiscal year (FY) 2023-24, representing 0.5% of the $206.6B in total provincial spending. This investment supports farmers, food producers, and rural communities throughout Ontario.",
+  
+  "roleText": "This ministry plays a crucial role in Ontario's economy, ensuring food security, supporting agricultural innovation, and promoting sustainable farming practices. It helps maintain Ontario's position as a leading agricultural producer while supporting rural communities and economic development.",
+  
+  "programsHeading": "Agricultural Programs and Rural Development",
+  
+  "programsDescription": "The Ministry of Agriculture, Food and Rural Affairs operates programs including agricultural insurance, research and innovation funding, rural economic development initiatives, food safety oversight, and support for the University of Guelph's agricultural programs."
 }

@@ -33,6 +33,12 @@ export type Department = {
     children: Category[];
   };
   generatedAt: string;
+  // Editable content fields
+  introText: string;
+  descriptionText: string;
+  roleText: string;
+  programsHeading: string;
+  programsDescription: string;
 };
 
 type Data = {
@@ -78,7 +84,7 @@ export function getDepartmentData(
 export function getDepartmentsForJurisdiction(jurisdiction: string): string[] {
   return fs
     .readdirSync(path.join(dataDir, jurisdiction, "departments"))
-    .filter((f) => path.join(dataDir, jurisdiction, "departments", f))
+    .filter((f) => f.endsWith(".json"))
     .map((f) => f.replace(".json", ""));
 }
 

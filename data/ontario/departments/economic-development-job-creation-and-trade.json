@@ -261,5 +261,18 @@
       }
     ]
   },
-  "generatedAt": "2025-07-09T21:53:36.584Z"
+  "generatedAt": "2025-07-09T21:53:36.584Z",
+  "_comments": {
+    "_editing_guide": "The fields below can be edited to customize the department page content. These texts will appear on the public website.",
+    "_introText": "Short introduction that appears at the top of the department page",
+    "_descriptionText": "Detailed description - you can use placeholder variables like {jurisdiction.name}, {department.name}, etc.",
+    "_roleText": "Description of the department's role and importance to the province",
+    "_programsHeading": "Heading for the programs and services section",
+    "_programsDescription": "Description of what programs and services this department offers"
+  },
+  "introText": "The Ministry of Economic Development, Job Creation and Trade supports business growth, innovation, and international trade, working to strengthen Ontario's economy and create jobs.",
+  "descriptionText": "The Ontario Ministry of Economic Development, Job Creation and Trade spent $1.3B in fiscal year (FY) 2023-24, representing 0.6% of the $206.6B in total provincial spending. This investment supports business development and innovation.",
+  "roleText": "Economic growth and job creation are vital for Ontario's prosperity. This ministry supports businesses, promotes innovation, facilitates trade, and creates conditions for economic development across the province.",
+  "programsHeading": "Economic Development and Innovation Programs",
+  "programsDescription": "The Ministry of Economic Development, Job Creation and Trade operates programs including business investment incentives, innovation tax credits, trade promotion, regional development, and industrial land development."
 }

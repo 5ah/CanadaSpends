@@ -239,5 +239,18 @@
       }
     ]
   },
-  "generatedAt": "2025-07-09T21:53:36.587Z"
+  "generatedAt": "2025-07-09T21:53:36.587Z",
+  "_comments": {
+    "_editing_guide": "The fields below can be edited to customize the department page content. These texts will appear on the public website.",
+    "_introText": "Short introduction that appears at the top of the department page",
+    "_descriptionText": "Detailed description - you can use placeholder variables like {jurisdiction.name}, {department.name}, etc.",
+    "_roleText": "Description of the department's role and importance to the province",
+    "_programsHeading": "Heading for the programs and services section",
+    "_programsDescription": "Description of what programs and services this department offers"
+  },
+  "introText": "The Ministry of Infrastructure manages government facilities, infrastructure planning, and public-private partnerships, supporting the physical foundations of government services and economic development.",
+  "descriptionText": "The Ontario Ministry of Infrastructure spent $2.6B in fiscal year (FY) 2023-24, representing 1.3% of the $206.6B in total provincial spending. This investment supports government facilities, infrastructure projects, and community development.",
+  "roleText": "Infrastructure is the backbone of government service delivery and economic development. This ministry manages government real estate, coordinates major infrastructure projects, and supports community infrastructure development.",
+  "programsHeading": "Infrastructure and Facilities Management",
+  "programsDescription": "The Ministry of Infrastructure operates programs including government real estate management, infrastructure planning, broadband development, municipal infrastructure support, and public-private partnership oversight."
 }
