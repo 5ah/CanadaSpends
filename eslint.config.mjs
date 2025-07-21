@@ -17,7 +17,7 @@ const eslintConfig = [
   },
 
   // Apply Next.js configs to all files
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...compat.extends("next/core-web-vitals", "next/typescript", "prettier"),
 
   // Custom rules
   {
