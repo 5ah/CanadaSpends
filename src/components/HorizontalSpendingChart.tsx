@@ -25,25 +25,29 @@ const defaultColors = [
   "#dbeafe", // blue-100
 ];
 
-export function HorizontalSpendingChart({ 
-  data, 
+export function HorizontalSpendingChart({
+  data,
   title,
-  totalAmount 
+  totalAmount,
 }: HorizontalSpendingChartProps) {
-  const maxAmount = Math.max(...data.map(item => item.amount));
-  
+  const maxAmount = Math.max(...data.map((item) => item.amount));
+
   return (
     <div className="bg-white p-6 rounded-lg shadow-sm border">
       {title && (
         <h3 className="text-lg font-semibold text-gray-900 mb-6">{title}</h3>
       )}
-      
+
       <div className="space-y-4">
         {data.map((item, index) => {
           const barWidth = (item.amount / maxAmount) * 100;
           // Use lighter color for "Other" category
-          const color = item.color || (item.name === 'Other' ? "#dbeafe" : defaultColors[index % defaultColors.length]);
-          
+          const color =
+            item.color ||
+            (item.name === "Other"
+              ? "#dbeafe"
+              : defaultColors[index % defaultColors.length]);
+
           return (
             <div key={item.name} className="space-y-2">
               {/* Category name and amount row */}
@@ -55,7 +59,7 @@ export function HorizontalSpendingChart({
                   {item.formattedAmount}
                 </div>
               </div>
-              
+
               {/* Bar */}
               <div className="w-full bg-gray-100 rounded-sm h-4">
                 <div
@@ -70,7 +74,7 @@ export function HorizontalSpendingChart({
           );
         })}
       </div>
-      
+
       {totalAmount && (
         <div className="mt-6 pt-4 border-t border-gray-200">
           <div className="flex justify-between items-center">

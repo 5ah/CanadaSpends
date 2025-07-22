@@ -17,8 +17,7 @@ export const useDepartments = () => {
       Percentage: 18.38,
     },
     {
-      name:
-        t`Indigenous Services Canada + Crown-Indigenous Relations and Northern Affairs Canada`,
+      name: t`Indigenous Services Canada + Crown-Indigenous Relations and Northern Affairs Canada`,
       slug: "indigenous-services-and-northern-affairs",
       href: `/${i18n.locale}/spending/indigenous-services-and-northern-affairs`,
       Percentage: 12.25,

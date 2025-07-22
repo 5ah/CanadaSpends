@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { BarList } from "@/components/BarList";
 import { formatNumber } from "@/components/Sankey/utils";
@@ -11,14 +11,14 @@ const data = [
   { name: "Marine Atlantic Inc.", value: 0.191685 },
   { name: "The Federal Bridge Corporation Limited", value: 0.007045 },
   { name: "VIA HFR - VIA TGF Inc", value: 0.049503 },
-  { name: "VIA Rail Canada Inc", value: 0.80395 }
+  { name: "VIA Rail Canada Inc", value: 0.80395 },
 ].sort((a, b) => b.value - a.value);
 
 export function FederalSpendingByEntity() {
-  return <BarList
-    data={data}
-    valueFormatter={(number: number) =>
-      formatNumber(number, 1e9)
-    }
-  />
+  return (
+    <BarList
+      data={data}
+      valueFormatter={(number: number) => formatNumber(number, 1e9)}
+    />
+  );
 }

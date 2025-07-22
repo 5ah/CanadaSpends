@@ -48,8 +48,8 @@
   border: 0;
   cursor: pointer;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 .ais-Carousel-navigation::-moz-focus-inner,
 .ais-ClearRefinements-button::-moz-focus-inner,
@@ -132,12 +132,16 @@
   height: 20px;
 }
 
-.ais-SearchBox-input::-ms-clear, .ais-SearchBox-input::-ms-reveal {
+.ais-SearchBox-input::-ms-clear,
+.ais-SearchBox-input::-ms-reveal {
   display: none;
   width: 0;
   height: 0;
 }
-.ais-SearchBox-input::-webkit-search-decoration, .ais-SearchBox-input::-webkit-search-cancel-button, .ais-SearchBox-input::-webkit-search-results-button, .ais-SearchBox-input::-webkit-search-results-decoration {
+.ais-SearchBox-input::-webkit-search-decoration,
+.ais-SearchBox-input::-webkit-search-cancel-button,
+.ais-SearchBox-input::-webkit-search-results-button,
+.ais-SearchBox-input::-webkit-search-results-decoration {
   display: none;
 }
 
@@ -247,15 +251,15 @@
 /**
  * Reset
  */
-[class^=ais-] {
+[class^="ais-"] {
   box-sizing: border-box;
 }
 
 /**
  * Disabled
  */
-[class^=ais-][class$="--disabled"],
-[class^=ais-][class$="--disabled"] *,
+[class^="ais-"][class$="--disabled"],
+[class^="ais-"][class$="--disabled"] *,
 .ais-VoiceSearch-button:disabled {
   cursor: not-allowed;
 }
@@ -277,8 +281,8 @@
 .ais-RelevantSort-button,
 .ais-Carousel-navigation {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background-color: #fff;
   background-image: linear-gradient(-180deg, #fff, #fcfcfd);
   border: 1px solid #d6d6e7;
@@ -296,8 +300,8 @@
   place-items: center;
   text-decoration: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 .ais-HierarchicalMenu-showMore,
@@ -321,7 +325,10 @@
 .ais-InfiniteHits-loadMore:hover,
 .ais-RangeInput-submit:hover,
 .ais-InfiniteHits-loadPrevious:hover,
-.ais-Pagination-item:not(.ais-Pagination-item--selected):not(.ais-Pagination-item--disabled) .ais-Pagination-link:hover,
+.ais-Pagination-item:not(.ais-Pagination-item--selected):not(
+    .ais-Pagination-item--disabled
+  )
+  .ais-Pagination-link:hover,
 .ais-GeoSearch-redo:hover,
 .ais-GeoSearch-reset:hover,
 .ais-VoiceSearch-button:hover,
@@ -343,7 +350,9 @@
 .ais-Carousel-navigation:focus {
   background-image: linear-gradient(-180deg, #fff, #f5f5fa);
   border-color: #3c4fe0;
-  box-shadow: #3c4fe0 0 0 0 1px, rgba(35, 38, 59, 0.05) 0 2px 0 1px;
+  box-shadow:
+    #3c4fe0 0 0 0 1px,
+    rgba(35, 38, 59, 0.05) 0 2px 0 1px;
   outline: currentcolor none medium;
 }
 
@@ -360,7 +369,10 @@
 .ais-VoiceSearch-button:active,
 .ais-Carousel-navigation:active {
   border-color: #d6d6e7;
-  box-shadow: rgba(119, 122, 175, 0.4) 0 1px 4px 0 inset, rgba(119, 122, 175, 0.4) 0 1px 1px 0 inset, rgba(35, 38, 59, 0.05) 0 1px 0 0;
+  box-shadow:
+    rgba(119, 122, 175, 0.4) 0 1px 4px 0 inset,
+    rgba(119, 122, 175, 0.4) 0 1px 1px 0 inset,
+    rgba(35, 38, 59, 0.05) 0 1px 0 0;
 }
 
 .ais-ClearRefinements-button:disabled[disabled],
@@ -426,7 +438,9 @@
   white-space: nowrap;
 }
 
-.ais-HierarchicalMenu-item--selected > .ais-HierarchicalMenu-link > .ais-HierarchicalMenu-label,
+.ais-HierarchicalMenu-item--selected
+  > .ais-HierarchicalMenu-link
+  > .ais-HierarchicalMenu-label,
 .ais-Menu-item--selected .ais-Menu-label,
 .ais-RefinementList-item--selected,
 .ais-RatingMenu-item--selected {
@@ -474,11 +488,15 @@
 .ais-HitsPerPage-select,
 .ais-SortBy-select {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background-color: #fff;
-  background-image: url('data:image/svg+xml;utf8,<svg width="14" height="24" xmlns="http://www.w3.org/2000/svg"><g stroke="%23777aaf" stroke-width="2" fill="none" fill-rule="evenodd"><path d="M13 7L7 1 1 7M1 17l6 6 6-6"/></g></svg>'), linear-gradient(-180deg, #fff, #fcfcfd);
-  background-position: right 1rem center, 0 0;
+  background-image:
+    url('data:image/svg+xml;utf8,<svg width="14" height="24" xmlns="http://www.w3.org/2000/svg"><g stroke="%23777aaf" stroke-width="2" fill="none" fill-rule="evenodd"><path d="M13 7L7 1 1 7M1 17l6 6 6-6"/></g></svg>'),
+    linear-gradient(-180deg, #fff, #fcfcfd);
+  background-position:
+    right 1rem center,
+    0 0;
   background-repeat: no-repeat;
   background-size: 10px, auto;
   border: 1px solid #d6d6e7;
@@ -514,20 +532,28 @@
 
 .ais-HitsPerPage-select:hover,
 .ais-SortBy-select:hover {
-  background-image: url('data:image/svg+xml;utf8,<svg width="14" height="24" xmlns="http://www.w3.org/2000/svg"><g stroke="%23777aaf" stroke-width="2" fill="none" fill-rule="evenodd"><path d="M13 7L7 1 1 7M1 17l6 6 6-6"/></g></svg>'), linear-gradient(-180deg, #fcfcfd, #f5f5fa);
+  background-image:
+    url('data:image/svg+xml;utf8,<svg width="14" height="24" xmlns="http://www.w3.org/2000/svg"><g stroke="%23777aaf" stroke-width="2" fill="none" fill-rule="evenodd"><path d="M13 7L7 1 1 7M1 17l6 6 6-6"/></g></svg>'),
+    linear-gradient(-180deg, #fcfcfd, #f5f5fa);
   border-color: #d6d6e7;
 }
 
 .ais-HitsPerPage-select:focus,
 .ais-SortBy-select:focus {
-  background-image: url('data:image/svg+xml;utf8,<svg width="14" height="24" xmlns="http://www.w3.org/2000/svg"><g stroke="%23777aaf" stroke-width="2" fill="none" fill-rule="evenodd"><path d="M13 7L7 1 1 7M1 17l6 6 6-6"/></g></svg>'), linear-gradient(-180deg, #fff, #f5f5fa);
+  background-image:
+    url('data:image/svg+xml;utf8,<svg width="14" height="24" xmlns="http://www.w3.org/2000/svg"><g stroke="%23777aaf" stroke-width="2" fill="none" fill-rule="evenodd"><path d="M13 7L7 1 1 7M1 17l6 6 6-6"/></g></svg>'),
+    linear-gradient(-180deg, #fff, #f5f5fa);
   border-color: #3c4fe0;
-  box-shadow: #3c4fe0 0 0 0 1px, rgba(35, 38, 59, 0.05) 0 2px 0 0;
+  box-shadow:
+    #3c4fe0 0 0 0 1px,
+    rgba(35, 38, 59, 0.05) 0 2px 0 0;
 }
 
 .ais-HitsPerPage-select:disabled,
 .ais-SortBy-select:disabled {
-  background-image: url('data:image/svg+xml;utf8,<svg width="14" height="24" xmlns="http://www.w3.org/2000/svg"><g stroke="%23b6b7d5" stroke-width="2" fill="none" fill-rule="evenodd"><path d="M13 7L7 1 1 7M1 17l6 6 6-6"/></g></svg>'), linear-gradient(-180deg, #fff, #f5f5fa);
+  background-image:
+    url('data:image/svg+xml;utf8,<svg width="14" height="24" xmlns="http://www.w3.org/2000/svg"><g stroke="%23b6b7d5" stroke-width="2" fill="none" fill-rule="evenodd"><path d="M13 7L7 1 1 7M1 17l6 6 6-6"/></g></svg>'),
+    linear-gradient(-180deg, #fff, #f5f5fa);
   border-color: #efeff5;
   box-shadow: none;
   color: #b6b7d5;
@@ -590,7 +616,9 @@
 }
 
 .ais-SearchBox-form::before {
-  background: rgba(0, 0, 0, 0) url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%235a5e9a%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2211%22%20cy%3D%2211%22%20r%3D%228%22%3E%3C%2Fcircle%3E%3Cline%20x1%3D%2221%22%20y1%3D%2221%22%20x2%3D%2216.65%22%20y2%3D%2216.65%22%3E%3C%2Fline%3E%3C%2Fsvg%3E") repeat scroll 0% 0%;
+  background: rgba(0, 0, 0, 0)
+    url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%235a5e9a%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2211%22%20cy%3D%2211%22%20r%3D%228%22%3E%3C%2Fcircle%3E%3Cline%20x1%3D%2221%22%20y1%3D%2221%22%20x2%3D%2216.65%22%20y2%3D%2216.65%22%3E%3C%2Fline%3E%3C%2Fsvg%3E")
+    repeat scroll 0% 0%;
   content: "";
   height: 1rem;
   left: 1rem;
@@ -602,8 +630,8 @@
 
 .ais-SearchBox-input {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background-color: #fff;
   border: 1px solid #d6d6e7;
   border-radius: 3px;
@@ -631,7 +659,8 @@
 }
 
 .ais-SearchBox-input:disabled {
-  background: rgba(0, 0, 0, 0) linear-gradient(-180deg, #fff, #f5f5fa) repeat scroll 0% 0%;
+  background: rgba(0, 0, 0, 0) linear-gradient(-180deg, #fff, #f5f5fa) repeat
+    scroll 0% 0%;
   border-color: #efeff5;
   box-shadow: none;
   cursor: not-allowed;
@@ -652,7 +681,7 @@
 .ais-SearchBox-input::-webkit-search-results-button,
 .ais-SearchBox-input::-webkit-search-results-decoration {
   -webkit-appearance: none;
-          appearance: none;
+  appearance: none;
 }
 
 .ais-SearchBox-loadingIndicator,
@@ -860,8 +889,8 @@
 .ais-RefinementList-checkbox,
 .ais-GeoSearch-input {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background-color: #fff;
   background-position: 50%;
   background-size: 180%;
@@ -891,7 +920,9 @@
 
 .ais-RefinementList-item--selected .ais-RefinementList-checkbox:focus,
 .ais-GeoSearch-input:checked:focus {
-  box-shadow: rgba(35, 38, 59, 0.05) 0 1px 0 0 inset, currentcolor 0 0 0 1px;
+  box-shadow:
+    rgba(35, 38, 59, 0.05) 0 1px 0 0 inset,
+    currentcolor 0 0 0 1px;
 }
 
 /**
@@ -905,8 +936,8 @@
 
 .ais-NumericMenu-radio {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background: #fff;
   border: 1px solid #d6d6e7;
   border-radius: 50%;
@@ -925,7 +956,9 @@
 }
 
 .ais-NumericMenu-radio:focus {
-  box-shadow: 0 0 0 1px #3c4fe0, 0 1px 0 0 rgba(35, 38, 59, 0.05);
+  box-shadow:
+    0 0 0 1px #3c4fe0,
+    0 1px 0 0 rgba(35, 38, 59, 0.05);
 }
 
 .ais-NumericMenu-radio:checked:after {
@@ -954,8 +987,8 @@
   height: 1rem;
   margin-right: 0.5rem;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
   width: 1rem;
 }
 
@@ -1040,8 +1073,8 @@
 
 .ais-ToggleRefinement-checkbox {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background: rgba(65, 66, 71, 0.08);
   background: #f5f5fa;
   border-radius: 9999px;
@@ -1131,7 +1164,9 @@
   background-color: transparent;
   border: none;
   border-radius: 3px;
-  box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 0.5px 0 0 rgba(255, 255, 255, 0.05);
+  box-shadow:
+    inset 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 0.5px 0 0 rgba(255, 255, 255, 0.05);
   height: 4px;
 }
 
@@ -1146,8 +1181,8 @@
 .ais-RangeSlider .rheostat-tooltip {
   font-weight: bold;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 .ais-RangeSlider .rheostat-handle {

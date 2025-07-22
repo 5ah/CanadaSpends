@@ -1,5 +1,5 @@
-import {ReactNode} from "react";
-import {Badge} from "@/components/badge";
+import { ReactNode } from "react";
+import { Badge } from "@/components/badge";
 import BackButton from "./BackButton";
 
 interface DetailsPageProps {
@@ -35,7 +35,7 @@ export async function DetailsPage({
 }: DetailsPageProps) {
   let finalSourceUrl = source_url;
 
-  if (database === 'contracts-over-10k' && reference_number && vendor_name) {
+  if (database === "contracts-over-10k" && reference_number && vendor_name) {
     const encodedRef = encodeURIComponent(reference_number);
     // Double-encode vendor_name because the API's `filters` parameter
     // is URL-encoded as a whole, and nested values must be pre-encoded
@@ -67,7 +67,7 @@ export async function DetailsPage({
         <p className="text-xs text-gray-500 mb-4 font-bold">FY {fiscal_year}</p>
         <div className="font-bold text-gray-900">Summary</div>
         <div className="text-sm text-gray-700 mb-4 whitespace-pre-wrap">
-          {(summary || '—')}
+          {summary || "—"}
         </div>
         <div className="grid md:grid-cols-2 grid-cols-1 gap-x-8 gap-y-2 text-sm">
           {children}
@@ -77,19 +77,26 @@ export async function DetailsPage({
             <div className="font-bold text-gray-900 mt-2">Keywords</div>
             <div>
               {keywords.map((kw: string) => (
-                <Badge className="mr-1" variant="outline" key={kw}>{kw}</Badge>
+                <Badge className="mr-1" variant="outline" key={kw}>
+                  {kw}
+                </Badge>
               ))}
             </div>
           </>
         )}
         {finalSourceUrl && (
           <div className="mt-6">
-            <a href={finalSourceUrl} className="text-blue-600 underline" target="_blank" rel="noopener noreferrer">
+            <a
+              href={finalSourceUrl}
+              className="text-blue-600 underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {linkText}
             </a>
           </div>
         )}
       </div>
     </main>
-  )
+  );
 }

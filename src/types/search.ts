@@ -19,7 +19,7 @@ export interface SearchResult {
 
 // Define more specific types for facet sorting
 type FacetSortAttribute = "count" | "name" | "isRefined";
-type FacetSortByDirection = `${FacetSortAttribute}:${'asc' | 'desc'}`;
+type FacetSortByDirection = `${FacetSortAttribute}:${"asc" | "desc"}`;
 
 export interface RefinementListComboboxProps {
   attribute: string;
@@ -28,4 +28,4 @@ export interface RefinementListComboboxProps {
   popoverWidth?: string;
   // Update sortBy to use the more specific type
   sortBy?: FacetSortByDirection[];
-} 
+}

@@ -13,4 +13,4 @@ export const Tooltip = ({ children, text }: TooltipProps) => {
       <span className="tooltiptext">{text}</span>
     </div>
   );
-}; 
+};

@@ -29,9 +29,11 @@ Each department JSON file contains **editable text fields** that control the con
 ## 📋 How to Edit Content
 
 ### 1. Find Your Department
+
 Open the appropriate `.json` file for the department you want to edit (e.g., `health.json`, `education.json`).
 
 ### 2. Locate the Editable Fields
+
 Scroll to the bottom of the file to find the editable content fields:
 
 ```json
@@ -43,6 +45,7 @@ Scroll to the bottom of the file to find the editable content fields:
 ```
 
 ### 3. Edit the Text
+
 - Keep text **clear and informative**
 - Use **proper grammar and spelling**
 - Maintain a **professional tone**
@@ -50,10 +53,11 @@ Scroll to the bottom of the file to find the editable content fields:
 - Make **descriptionText more detailed** but still concise
 
 ### 4. Use Template Variables (Optional)
+
 You can use these placeholders in your text that will be automatically replaced:
 
 - `{department.name}` - The department's official name
-- `{jurisdiction.name}` - "Ontario" 
+- `{jurisdiction.name}` - "Ontario"
 - `{department.totalSpendingFormatted}` - e.g., "$82.9B"
 - `{department.percentageFormatted}` - e.g., "40.1%"
 - `{jurisdiction.totalProvincialSpendingFormatted}` - "$206.6B"
@@ -64,18 +68,21 @@ You can use these placeholders in your text that will be automatically replaced:
 ### Good Examples:
 
 **Intro Text:**
+
 ```json
 "introText": "The Ministry of Health is responsible for Ontario's healthcare system, ensuring accessible, high-quality medical care and public health services for all Ontarians across the province."
 ```
 
 **Description Text:**
+
 ```json
 "descriptionText": "The Ontario Ministry of Health spent $82.9B in fiscal year (FY) 2023-24, representing 40.1% of the $206.6B in total provincial spending. This substantial investment ensures Ontarians have access to hospitals, physicians, public health programs, and essential medical services."
 ```
 
 ### Avoid:
+
 - ❌ Very long sentences or paragraphs
-- ❌ Technical jargon that the public won't understand  
+- ❌ Technical jargon that the public won't understand
 - ❌ Political language or partisan statements
 - ❌ Outdated information or specific years (use template variables instead)
 - ❌ Modifying non-editable fields
@@ -148,4 +155,4 @@ This directory contains JSON files for these Ontario departments:
 
 ## ❓ Questions or Issues?
 
-If you encounter any problems or have questions about editing these files, please reach out to the development team. 
+If you encounter any problems or have questions about editing these files, please reach out to the development team.

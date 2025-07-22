@@ -1,14 +1,14 @@
 /** @type {import('@lingui/conf').LinguiConfig} */
 module.exports = {
-  locales: ['en', 'fr'],
-  sourceLocale: 'en',
+  locales: ["en", "fr"],
+  sourceLocale: "en",
   fallbackLocales: {
-    default: 'en'
+    default: "en",
   },
   catalogs: [
     {
-      path: 'src/locales/{locale}',
-      include: ['src/']
-    }
-  ]
-} 
+      path: "src/locales/{locale}",
+      include: ["src/"],
+    },
+  ],
+};
