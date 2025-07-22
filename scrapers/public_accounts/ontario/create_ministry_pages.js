@@ -1,66 +1,76 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 // Read the summary to get all ministries
-const summaryData = JSON.parse(fs.readFileSync('./ministries/_summary.json', 'utf8'));
+const summaryData = JSON.parse(
+  fs.readFileSync("./ministries/_summary.json", "utf8"),
+);
 
 // Ministries that already have pages created
-const existingMinistries = ['health', 'education'];
+const existingMinistries = ["health", "education"];
 
 // Filter to get ministries that need pages
-const ministriesToCreate = summaryData.ministries.filter(ministry => 
-    !existingMinistries.includes(ministry.slug)
+const ministriesToCreate = summaryData.ministries.filter(
+  (ministry) => !existingMinistries.includes(ministry.slug),
 );
 
 console.log(`Creating pages for ${ministriesToCreate.length} ministries...`);
 
 // Function to create slug-friendly component name
 function createComponentName(slug) {
-    return slug.split('-')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join('') + 'MiniSankey';
+  return (
+    slug
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join("") + "MiniSankey"
+  );
 }
 
 // Function to create human-readable ministry name for descriptions
-function createDescription(ministryName, totalSpending, percentage) {
-    const lowerName = ministryName.toLowerCase();
-    let description = `Explore Ontario's ${ministryName} spending: ${totalSpending} in fiscal year 2024`;
-    
-    // Add specific context based on ministry
-    if (lowerName.includes('health')) {
-        description += ', covering hospitals, physicians, and health services';
-    } else if (lowerName.includes('education')) {
-        description += ', covering schools, teachers, and education programs';
-    } else if (lowerName.includes('children') || lowerName.includes('social')) {
-        description += ', covering ODSP, Ontario Works, and child protection';
-    } else if (lowerName.includes('finance')) {
-        description += ', covering treasury operations and municipal support';
-    } else if (lowerName.includes('transportation')) {
-        description += ', covering transit, highways, and transportation infrastructure';
-    } else if (lowerName.includes('long-term care')) {
-        description += ', covering long-term care homes and operations';
-    } else if (lowerName.includes('college') || lowerName.includes('universit')) {
-        description += ', covering post-secondary education and research';
-    } else if (lowerName.includes('energy')) {
-        description += ', covering electricity programs and energy policy';
-    } else if (lowerName.includes('solicitor')) {
-        description += ', covering policing, corrections, and public safety';
-    } else if (lowerName.includes('attorney')) {
-        description += ', covering courts, legal services, and justice programs';
-    } else {
-        description += ', covering ministry operations and programs';
-    }
-    
-    description += `.`;
-    return description;
+function createDescription(ministryName, totalSpending) {
+  const lowerName = ministryName.toLowerCase();
+  let description = `Explore Ontario's ${ministryName} spending: ${totalSpending} in fiscal year 2024`;
+
+  // Add specific context based on ministry
+  if (lowerName.includes("health")) {
+    description += ", covering hospitals, physicians, and health services";
+  } else if (lowerName.includes("education")) {
+    description += ", covering schools, teachers, and education programs";
+  } else if (lowerName.includes("children") || lowerName.includes("social")) {
+    description += ", covering ODSP, Ontario Works, and child protection";
+  } else if (lowerName.includes("finance")) {
+    description += ", covering treasury operations and municipal support";
+  } else if (lowerName.includes("transportation")) {
+    description +=
+      ", covering transit, highways, and transportation infrastructure";
+  } else if (lowerName.includes("long-term care")) {
+    description += ", covering long-term care homes and operations";
+  } else if (lowerName.includes("college") || lowerName.includes("universit")) {
+    description += ", covering post-secondary education and research";
+  } else if (lowerName.includes("energy")) {
+    description += ", covering electricity programs and energy policy";
+  } else if (lowerName.includes("solicitor")) {
+    description += ", covering policing, corrections, and public safety";
+  } else if (lowerName.includes("attorney")) {
+    description += ", covering courts, legal services, and justice programs";
+  } else {
+    description += ", covering ministry operations and programs";
+  }
+
+  description += `.`;
+  return description;
 }
 
 // Template for page.tsx
-function createPageTemplate(ministry, ministryData) {
-    const componentName = createComponentName(ministry.slug);
-    const description = createDescription(ministry.name, ministry.totalSpendingFormatted, ministry.percentageFormatted);
-    
-    return `import {
+function createPageTemplate(ministry) {
+  const componentName = createComponentName(ministry.slug);
+  const description = createDescription(
+    ministry.name,
+    ministry.totalSpendingFormatted,
+    ministry.percentageFormatted,
+  );
+
+  return `import {
 	ChartContainer,
 	ExternalLink,
 	H1,
@@ -93,7 +103,7 @@ export async function generateMetadata(
 	};
 }
 
-export default async function ${ministry.name.replace(/[^a-zA-Z0-9]/g, '')}Page(
+export default async function ${ministry.name.replace(/[^a-zA-Z0-9]/g, "")}Page(
 	props: PageLangParam,
 ) {
 	const params = await props.params;
@@ -171,15 +181,19 @@ export default async function ${ministry.name.replace(/[^a-zA-Z0-9]/g, '')}Page(
 
 // Template for MiniSankey component
 function createMiniSankeyTemplate(ministry, ministryData) {
-    const componentName = createComponentName(ministry.slug);
-    const topCategories = ministryData.categories.slice(0, 10); // Top 10 categories
-    
-    const childrenData = topCategories.map(cat => `					{
+  const componentName = createComponentName(ministry.slug);
+  const topCategories = ministryData.categories.slice(0, 10); // Top 10 categories
+
+  const childrenData = topCategories
+    .map(
+      (cat) => `					{
 						"name": t\`${cat.name}\`,
 						"amount": ${cat.amount}
-					}`).join(',\n');
+					}`,
+    )
+    .join(",\n");
 
-    return `"use client";
+  return `"use client";
 
 import { SankeyChart } from "@/components/Sankey/SankeyChart";
 import { SankeyData } from "@/components/Sankey/SankeyChartD3";
@@ -210,34 +224,38 @@ ${childrenData}
 // Create pages for all ministries
 let createdCount = 0;
 
-ministriesToCreate.forEach(ministry => {
-    try {
-        // Read the detailed ministry data
-        const ministryDataPath = `./ministries/${ministry.slug}.json`;
-        const ministryData = JSON.parse(fs.readFileSync(ministryDataPath, 'utf8'));
-        
-        // Create ministry directory
-        const ministryDir = `../src/app/[lang]/(main)/ontario/${ministry.slug}`;
-        if (!fs.existsSync(ministryDir)) {
-            fs.mkdirSync(ministryDir, { recursive: true });
-        }
-        
-        // Create page.tsx
-        const pageContent = createPageTemplate(ministry, ministryData);
-        fs.writeFileSync(path.join(ministryDir, 'page.tsx'), pageContent);
-        
-        // Create MiniSankey component
-        const componentName = createComponentName(ministry.slug);
-        const sankeyContent = createMiniSankeyTemplate(ministry, ministryData);
-        fs.writeFileSync(path.join(ministryDir, `${componentName}.tsx`), sankeyContent);
-        
-        console.log(`✓ Created ${ministry.name} (${ministry.totalSpendingFormatted})`);
-        createdCount++;
-        
-    } catch (error) {
-        console.error(`✗ Failed to create ${ministry.name}:`, error.message);
+ministriesToCreate.forEach((ministry) => {
+  try {
+    // Read the detailed ministry data
+    const ministryDataPath = `./ministries/${ministry.slug}.json`;
+    const ministryData = JSON.parse(fs.readFileSync(ministryDataPath, "utf8"));
+
+    // Create ministry directory
+    const ministryDir = `../src/app/[lang]/(main)/ontario/${ministry.slug}`;
+    if (!fs.existsSync(ministryDir)) {
+      fs.mkdirSync(ministryDir, { recursive: true });
     }
+
+    // Create page.tsx
+    const pageContent = createPageTemplate(ministry, ministryData);
+    fs.writeFileSync(path.join(ministryDir, "page.tsx"), pageContent);
+
+    // Create MiniSankey component
+    const componentName = createComponentName(ministry.slug);
+    const sankeyContent = createMiniSankeyTemplate(ministry, ministryData);
+    fs.writeFileSync(
+      path.join(ministryDir, `${componentName}.tsx`),
+      sankeyContent,
+    );
+
+    console.log(
+      `✓ Created ${ministry.name} (${ministry.totalSpendingFormatted})`,
+    );
+    createdCount++;
+  } catch (error) {
+    console.error(`✗ Failed to create ${ministry.name}:`, error.message);
+  }
 });
 
 console.log(`\n✅ Successfully created ${createdCount} ministry pages!`);
-console.log(`📁 All pages created in: ../src/app/[lang]/(main)/ontario/`); 
+console.log(`📁 All pages created in: ../src/app/[lang]/(main)/ontario/`);

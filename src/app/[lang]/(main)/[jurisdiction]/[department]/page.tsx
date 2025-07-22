@@ -101,9 +101,8 @@ export default async function DepartmentPage({
           <H2>
             <Trans>
               {department.name} accounted for {department.percentageFormatted}{" "}
-              of all {jurisdiction.name}
-              {" "}
-              provincial spending in FY {jurisdiction.financialYear}
+              of all {jurisdiction.name} provincial spending in FY{" "}
+              {jurisdiction.financialYear}
             </Trans>
           </H2>
 

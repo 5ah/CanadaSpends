@@ -33,6 +33,13 @@ const eslintConfig = [
       "@next/next/no-html-link-for-pages": "warn",
     },
   },
+  // File-specific overrides for files
+  {
+    files: ["tailwind.config.ts", "scrapers/public_accounts/**/*.js"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+    },
+  },
 ];
 
 export default eslintConfig;

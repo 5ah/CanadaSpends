@@ -15,16 +15,24 @@ interface TaxCalculatorFormProps {
   setProvince: (province: string) => void;
 }
 
-function TaxCalculatorForm({ income, setIncome, province, setProvince }: TaxCalculatorFormProps) {
+function TaxCalculatorForm({
+  income,
+  setIncome,
+  province,
+  setProvince,
+}: TaxCalculatorFormProps) {
   const { t } = useLingui();
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-sm border">
       <H2>{t`Calculate Your Tax Contribution`}</H2>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         <div>
-          <label htmlFor="income" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="income"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             {t`Annual Income (CAD)`}
           </label>
           <input
@@ -32,9 +40,9 @@ function TaxCalculatorForm({ income, setIncome, province, setProvince }: TaxCalc
             id="income"
             value={income ? income.toLocaleString() : ""}
             onChange={(e) => {
-              const value = e.target.value.replace(/,/g, '');
+              const value = e.target.value.replace(/,/g, "");
               const numericValue = Number(value);
-              if (!isNaN(numericValue) || value === '') {
+              if (!isNaN(numericValue) || value === "") {
                 setIncome(numericValue);
               }
             }}
@@ -42,9 +50,12 @@ function TaxCalculatorForm({ income, setIncome, province, setProvince }: TaxCalc
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
-        
+
         <div>
-          <label htmlFor="province" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="province"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             {t`Province/Territory`}
           </label>
           <select
@@ -100,8 +111,12 @@ function TaxSummary({ taxCalculation }: TaxSummaryProps) {
 function TaxBracketsTable() {
   return (
     <div className="mt-16">
-      <h2 className="text-2xl font-bold text-center mb-2">Ontario Provincial and Federal tax brackets</h2>
-      <p className="text-center text-gray-600 mb-8">Your taxable income is taxed at the following rates.</p>
+      <h2 className="text-2xl font-bold text-center mb-2">
+        Ontario Provincial and Federal tax brackets
+      </h2>
+      <p className="text-center text-gray-600 mb-8">
+        Your taxable income is taxed at the following rates.
+      </p>
       <div className="flex flex-col md:flex-row gap-8 justify-center">
         {/* Federal Tax Brackets */}
         <div className="bg-white rounded-lg shadow-sm border p-6 flex-1 min-w-[320px] max-w-md">
@@ -170,7 +185,10 @@ function TaxBracketsTable() {
           </table>
         </div>
       </div>
-      <p className="text-center text-xs text-gray-600 mt-8">Basic personal amount of $15,705 for federal and $12,399 for Ontario have been deducted.</p>
+      <p className="text-center text-xs text-gray-600 mt-8">
+        Basic personal amount of $15,705 for federal and $12,399 for Ontario
+        have been deducted.
+      </p>
     </div>
   );
 }
@@ -181,12 +199,12 @@ export default function TaxCalculatorPage() {
   const { t } = useLingui();
   const [income, setIncome] = useState<number>(100000);
   const [province, setProvince] = useState<string>("ontario");
-  
+
   const taxCalculation = useMemo(() => {
     if (income <= 0) return null;
     return calculateTotalTax(income, province);
   }, [income, province]);
-  
+
   const breakdown = useMemo(() => {
     if (!taxCalculation) return null;
     return calculatePersonalTaxBreakdown(taxCalculation);
@@ -237,7 +255,15 @@ export default function TaxCalculatorPage() {
                 </p>
                 <p>
                   <Trans>
-                    For further breakdowns of spending, see <a href="/spending" className="underline">Federal</a> and <a href="/ontario" className="underline">Provincial</a> spending pages.
+                    For further breakdowns of spending, see{" "}
+                    <a href="/spending" className="underline">
+                      Federal
+                    </a>{" "}
+                    and{" "}
+                    <a href="/ontario" className="underline">
+                      Provincial
+                    </a>{" "}
+                    spending pages.
                   </Trans>
                 </p>
               </div>
@@ -248,7 +274,16 @@ export default function TaxCalculatorPage() {
       <TaxBracketsTable />
       <Section>
         <hr></hr>
-        <p className="mt-6 text-center text-sm text-gray-600">Built by <a href="https://www.linkedin.com/in/ruchishshah/" target="_blank" className="underline">Ru</a></p>
+        <p className="mt-6 text-center text-sm text-gray-600">
+          Built by{" "}
+          <a
+            href="https://www.linkedin.com/in/ruchishshah/"
+            target="_blank"
+            className="underline"
+          >
+            Ru
+          </a>
+        </p>
       </Section>
     </PageContent>
   );

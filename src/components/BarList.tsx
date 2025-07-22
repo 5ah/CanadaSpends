@@ -1,25 +1,25 @@
 // Tremor BarList [v0.1.1]
 
-import React from "react"
+import React from "react";
 
-import { cn, focusRing } from "@/lib/utils"
-import Link from "next/link"
+import { cn, focusRing } from "@/lib/utils";
+import Link from "next/link";
 
 type Bar<T> = T & {
-  key?: string
-  href?: string
-  value: number
-  name: string
-  className?: string
-}
+  key?: string;
+  href?: string;
+  value: number;
+  name: string;
+  className?: string;
+};
 
 interface BarListProps<T = unknown>
   extends React.HTMLAttributes<HTMLDivElement> {
-  data: Bar<T>[]
-  valueFormatter?: (value: number) => string
-  showAnimation?: boolean
-  onValueChange?: (payload: Bar<T>) => void
-  sortOrder?: "ascending" | "descending" | "none"
+  data: Bar<T>[];
+  valueFormatter?: (value: number) => string;
+  showAnimation?: boolean;
+  onValueChange?: (payload: Bar<T>) => void;
+  sortOrder?: "ascending" | "descending" | "none";
 }
 
 function BarListInner<T>(
@@ -34,24 +34,24 @@ function BarListInner<T>(
   }: BarListProps<T>,
   forwardedRef: React.ForwardedRef<HTMLDivElement>,
 ) {
-  const Component = onValueChange ? "button" : "div"
+  const Component = onValueChange ? "button" : "div";
   const sortedData = React.useMemo(() => {
     if (sortOrder === "none") {
-      return data
+      return data;
     }
     return [...data].sort((a, b) => {
-      return sortOrder === "ascending" ? a.value - b.value : b.value - a.value
-    })
-  }, [data, sortOrder])
+      return sortOrder === "ascending" ? a.value - b.value : b.value - a.value;
+    });
+  }, [data, sortOrder]);
 
   const widths = React.useMemo(() => {
-    const maxValue = Math.max(...sortedData.map((item) => item.value), 0)
+    const maxValue = Math.max(...sortedData.map((item) => item.value), 0);
     return sortedData.map((item) =>
       item.value === 0 ? 0 : Math.max((item.value / maxValue) * 100, 2),
-    )
-  }, [sortedData])
+    );
+  }, [sortedData]);
 
-  const rowHeight = "h-8"
+  const rowHeight = "h-8";
 
   return (
     <div
@@ -66,7 +66,7 @@ function BarListInner<T>(
           <Component
             key={item.key ?? item.name}
             onClick={() => {
-              onValueChange?.(item)
+              onValueChange?.(item);
             }}
             className={cn(
               // base
@@ -75,10 +75,10 @@ function BarListInner<T>(
               focusRing,
               onValueChange
                 ? [
-                  "!-m-0 cursor-pointer",
-                  // hover
-                  "hover:bg-gray-50 ",
-                ]
+                    "!-m-0 cursor-pointer",
+                    // hover
+                    "hover:bg-gray-50 ",
+                  ]
                 : "",
             )}
           >
@@ -90,9 +90,7 @@ function BarListInner<T>(
                 // background color
                 "bg-blue-200 ",
                 item.className,
-                onValueChange
-                  ? "group-hover:bg-blue-300 "
-                  : "",
+                onValueChange ? "group-hover:bg-blue-300 " : "",
                 // margin and duration
                 {
                   "mb-0": index === sortedData.length - 1,
@@ -121,7 +119,6 @@ function BarListInner<T>(
                 ) : (
                   <p
                     className={cn(
-
                       // base
                       "truncate whitespace-nowrap text-sm",
                       // text color
@@ -160,13 +157,13 @@ function BarListInner<T>(
         ))}
       </div>
     </div>
-  )
+  );
 }
 
-BarListInner.displayName = "BarList"
+BarListInner.displayName = "BarList";
 
 const BarList = React.forwardRef(BarListInner) as <T>(
   p: BarListProps<T> & { ref?: React.ForwardedRef<HTMLDivElement> },
-) => ReturnType<typeof BarListInner>
+) => ReturnType<typeof BarListInner>;
 
-export { BarList, type BarListProps }
+export { BarList, type BarListProps };
