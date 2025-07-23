@@ -14,46 +14,7 @@ We bring this transparency in two ways:
 
 ### Roadmap
 
-By the end of 2025, we aim to have automated data ingestion pipelines for every province and territory and the largest 20 municipalities in Canada.
-
-- [ ] Alberta
-- [ ] British Columbia
-- [ ] Ontario
-- [ ] Quebec
-- [ ] Saskatchewan
-- [ ] Manitoba
-- [ ] Nova Scotia
-- [ ] New Brunswick
-- [ ] Prince Edward Island
-- [ ] Newfoundland and Labrador
-- [ ] Yukon
-- [ ] Northwest Territories
-- [ ] Nunavut
-
-- [ ] Toronto
-- [ ] Ottawa
-- [ ] Montreal
-- [ ] Vancouver #79
-- [ ] Calgary #81
-- [ ] Edmonton #82
-- [ ] Winnipeg #83
-- [ ] Hamilton
-- [ ] London
-- [ ] Mississauga
-- [ ] Brampton
-- [ ] Markham
-- [ ] Oakville
-- [ ] Halifax
-- [ ] Saint John
-- [ ] St. John's
-- [ ] Charlottetown
-- [ ] Surrey
-- [ ] Moncton
-- [ ] Quebec City
-- [ ] Victoria
-- [ ] Vaughan
-- [ ] Markham
-- [ ] Gatineau
+By the end of 2025, we aim to have automated data ingestion pipelines for every province and territory and the largest 20 municipalities in Canada. See [Issues](https://github.com/BuildCanada/CanadaSpends/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22Public%20Accounts%22) for target provinces and cities.
 
 ## Getting Started
 
