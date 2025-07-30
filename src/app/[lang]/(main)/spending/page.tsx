@@ -169,6 +169,17 @@ export default function Spending() {
                 <Trans>The average employee makes $136,345/yr</Trans>
               </p>
             </div>
+            <P className="text-sm">
+              <Trans>Sources:</Trans>{" "}
+              <ExternalLink href="https://www.pbo-dpb.ca/en/additional-analyses--analyses-complementaires/BLOG-2425-009--personnel-expenditure-analysis-tool-update-2023-24-personnel-expenditures--mise-jour-outil-analyse-depenses-personnel-depenses-personnel-2023-2024">
+                <Trans>PBO</Trans>
+              </ExternalLink>
+              ,{" "}
+              <ExternalLink href="https://www.canada.ca/en/treasury-board-secretariat/services/innovation/human-resources-statistics/demographic-snapshot-federal-public-service-2023.html">
+                <Trans>Treasury Board</Trans>
+              </ExternalLink>
+            </P>
+
             <div className="md:col-span-3">
               <h3 className="font-medium mb-2">
                 <Trans>Salary Distribution</Trans>
@@ -184,12 +195,8 @@ export default function Spending() {
               </NoSSR>
             </div>
             <P className="text-sm">
-              <Trans>Sources:</Trans>{" "}
-              <ExternalLink href="https://www.pbo-dpb.ca/en/additional-analyses--analyses-complementaires/BLOG-2425-009--personnel-expenditure-analysis-tool-update-2023-24-personnel-expenditures--mise-jour-outil-analyse-depenses-personnel-depenses-personnel-2023-2024">
-                <Trans>PBO</Trans>
-              </ExternalLink>
-              ,{" "}
-              <ExternalLink href="https://www.canada.ca/en/treasury-board-secretariat/services/innovation/human-resources-statistics/demographic-snapshot-federal-public-service-2023.html">
+              <Trans>Source:</Trans>{" "}
+              <ExternalLink href="https://www.canada.ca/en/treasury-board-secretariat/services/innovation/human-resources-statistics/diversity-inclusion-statistics/distribution-public-service-canada-employees-designated-group-salary-range.html">
                 <Trans>Treasury Board</Trans>
               </ExternalLink>
             </P>
