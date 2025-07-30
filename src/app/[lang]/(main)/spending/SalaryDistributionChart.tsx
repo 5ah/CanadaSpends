@@ -24,7 +24,7 @@ export const SalaryDistributionChart = () => {
     range: showInflationAdjusted
       ? adjustSalaryRangeForInflation(item.range, selectedYear)
       : item.range,
-    employees: item.count,
+    Employees: item.count,
   }));
 
   return (
@@ -41,7 +41,7 @@ export const SalaryDistributionChart = () => {
             id="year-select"
             value={selectedYear}
             onChange={(e) => setSelectedYear(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="block p-2 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           >
             {years.map((year) => (
               <option key={year} value={year}>
@@ -62,7 +62,7 @@ export const SalaryDistributionChart = () => {
             id="group-select"
             value={selectedGroup}
             onChange={(e) => setSelectedGroup(e.target.value)}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="block p-2 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           >
             {groups.map((group) => (
               <option key={group} value={group}>
@@ -103,15 +103,10 @@ export const SalaryDistributionChart = () => {
           className="h-80"
           data={chartData}
           index="range"
-          categories={["employees"]}
+          categories={["Employees"]}
           colors={["blue"]}
           showLegend={false}
           showGridLines={true}
-          valueFormatter={(value) =>
-            Intl.NumberFormat("en-US", {
-              notation: "compact",
-            }).format(Number(value))
-          }
           xAxisLabel={t`Salary Range`}
           yAxisLabel={t`Number of Employees`}
         />
