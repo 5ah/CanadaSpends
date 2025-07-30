@@ -1,7 +1,7 @@
 "use client";
 
 import { TenureChart } from "@/app/[lang]/(main)/spending/TenureChart";
-import SalaryDistributionChart from "@/app/[lang]/(main)/spending/SalaryDistributionChart";
+import { SalaryDistributionChart } from "@/app/[lang]/(main)/spending/SalaryDistributionChart";
 import { BarChart } from "@/components/BarChart";
 import { DepartmentList } from "@/components/DepartmentList";
 import {
@@ -171,16 +171,16 @@ export default function Spending() {
             </div>
             <div className="md:col-span-3">
               <h3 className="font-medium mb-2">
-                <Trans>Salary Distribution Over Time</Trans>
+                <Trans>Salary Distribution</Trans>
               </h3>
               <p className="text-sm text-gray-600 mb-4">
                 <Trans>
-                  Explore how government workforce salary distribution has
-                  changed over time
+                  Explore federal employee salary distribution by year and
+                  demographic group
                 </Trans>
               </p>
               <NoSSR>
-                <SalaryDistributionChart data={[]} />
+                <SalaryDistributionChart />
               </NoSSR>
             </div>
             <P className="text-sm">
