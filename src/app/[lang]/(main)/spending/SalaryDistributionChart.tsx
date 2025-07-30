@@ -112,8 +112,8 @@ export const SalaryDistributionChart = () => {
               notation: "compact",
             }).format(Number(value))
           }
-          xAxisLabel="Salary Range"
-          yAxisLabel="Number of Employees"
+          xAxisLabel={t`Salary Range`}
+          yAxisLabel={t`Number of Employees`}
         />
 
         <p className="text-xs text-gray-500 mt-4 italic">
