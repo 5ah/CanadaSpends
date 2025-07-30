@@ -1,6 +1,7 @@
 "use client";
 
 import { TenureChart } from "@/app/[lang]/(main)/spending/TenureChart";
+import SalaryDistributionChart from "@/app/[lang]/(main)/spending/SalaryDistributionChart";
 import { BarChart } from "@/components/BarChart";
 import { DepartmentList } from "@/components/DepartmentList";
 import {
@@ -167,6 +168,20 @@ export default function Spending() {
               <p className="text-sm text-gray-600">
                 <Trans>The average employee makes $136,345/yr</Trans>
               </p>
+            </div>
+            <div className="md:col-span-3">
+              <h3 className="font-medium mb-2">
+                <Trans>Salary Distribution Over Time</Trans>
+              </h3>
+              <p className="text-sm text-gray-600 mb-4">
+                <Trans>
+                  Explore how government workforce salary distribution has
+                  changed over time
+                </Trans>
+              </p>
+              <NoSSR>
+                <SalaryDistributionChart data={[]} />
+              </NoSSR>
             </div>
             <P className="text-sm">
               <Trans>Sources:</Trans>{" "}
