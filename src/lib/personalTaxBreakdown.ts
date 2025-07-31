@@ -22,7 +22,8 @@ const FEDERAL_SPENDING_CATEGORIES = [
   { name: "Retirement Benefits", percentage: 14.8 },
   { name: "Children, Community and Social Services", percentage: 5.1 },
   { name: "Employment Insurance", percentage: 4.5 },
-  { name: "Transfer to Provinces", percentage: 19.5 },
+  { name: "Transfer to Ontario", percentage: 6.02 },
+  { name: "Transfers to Other Provinces", percentage: 13.48 },
   { name: "Interest on Debt", percentage: 9.2 },
   { name: "Indigenous Priorities", percentage: 8.3 },
   { name: "Defence", percentage: 6.7 },
@@ -157,7 +158,7 @@ function combineFederalAndProvincialForChart(
 
   // Add federal spending (excluding transfers)
   federalSpending.forEach((category) => {
-    if (category.name !== "Transfer to Provinces") {
+    if (category.name !== "Transfer to Ontario") {
       if (!combined[category.name]) {
         combined[category.name] = { federal: 0, provincial: 0 };
       }
@@ -198,7 +199,7 @@ function combineFederalAndProvincial(
 
   // Add federal spending (excluding transfers)
   federalSpending.forEach((category) => {
-    if (category.name !== "Transfer to Provinces") {
+    if (category.name !== "Transfer to Ontario") {
       combined[category.name] = {
         ...category,
         level: "federal" as const,
@@ -256,7 +257,7 @@ export function calculatePersonalTaxBreakdown(
 
   // Find the transfer amount
   const transferCategory = federalSpending.find(
-    (cat) => cat.name === "Transfer to Provinces",
+    (cat) => cat.name === "Transfer to Ontario",
   );
   const transferAmount = transferCategory ? transferCategory.amount : 0;
 
