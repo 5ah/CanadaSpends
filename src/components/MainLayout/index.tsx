@@ -85,18 +85,22 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
                     className="bg-white rounded-md shadow-lg p-1 flex flex-col min-w-[150px] z-[200]"
                     sideOffset={4}
                   >
-                    <Link
-                      href={`/${i18n.locale}/spending`}
-                      className="px-3 py-2 text-sm hover:bg-gray-100 rounded"
-                    >
-                      <Trans>Federal</Trans>
-                    </Link>
-                    <Link
-                      href="/ontario"
-                      className="px-3 py-2 text-sm hover:bg-gray-100 rounded"
-                    >
-                      <Trans>Ontario</Trans>
-                    </Link>
+                    <DropdownMenu.Item asChild>
+                      <Link
+                        href={`/${i18n.locale}/spending`}
+                        className="px-3 py-2 text-sm hover:bg-gray-100 rounded cursor-pointer"
+                      >
+                        <Trans>Federal</Trans>
+                      </Link>
+                    </DropdownMenu.Item>
+                    <DropdownMenu.Item asChild>
+                      <Link
+                        href="/ontario"
+                        className="px-3 py-2 text-sm hover:bg-gray-100 rounded cursor-pointer"
+                      >
+                        <Trans>Ontario</Trans>
+                      </Link>
+                    </DropdownMenu.Item>
                   </DropdownMenu.Content>
                 </DropdownMenu.Portal>
               </DropdownMenu.Root>
@@ -156,6 +160,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
             <MobileNavLink
               href={`/${i18n.locale}/spending`}
               active={pathname.startsWith(`/${i18n.locale}/spending`)}
+              onClick={() => setIsMenuOpen(false)}
             >
               <span className="pl-4 inline-block">
                 <Trans>Federal</Trans>
@@ -164,6 +169,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
             <MobileNavLink
               href="/ontario"
               active={pathname.startsWith("/ontario")}
+              onClick={() => setIsMenuOpen(false)}
             >
               <span className="pl-4 inline-block">
                 <Trans>Ontario</Trans>
@@ -172,24 +178,28 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
             <MobileNavLink
               href={`/${i18n.locale}/tax-visualizer`}
               active={pathname === `/${i18n.locale}/tax-visualizer`}
+              onClick={() => setIsMenuOpen(false)}
             >
               <Trans>Tax Calculator</Trans>
             </MobileNavLink>
             <MobileNavLink
               href={`/${i18n.locale}/search`}
               active={pathname === `/${i18n.locale}/search`}
+              onClick={() => setIsMenuOpen(false)}
             >
               <Trans>Spending Database</Trans>
             </MobileNavLink>
             <MobileNavLink
               href={`/${i18n.locale}/about`}
               active={pathname === `/${i18n.locale}/about`}
+              onClick={() => setIsMenuOpen(false)}
             >
               <Trans>About</Trans>
             </MobileNavLink>
             <MobileNavLink
               href={`/${i18n.locale}/contact`}
               active={pathname === `/${i18n.locale}/contact`}
+              onClick={() => setIsMenuOpen(false)}
             >
               <Trans>Contact</Trans>
             </MobileNavLink>
@@ -212,15 +222,17 @@ interface NavLinkProps {
   href: string;
   children: React.ReactNode;
   active?: boolean;
+  onClick?: () => void;
 }
 
 // Memoize MobileNavLink
 const MobileNavLink = memo(
-  ({ href, children, active = false }: NavLinkProps) => {
+  ({ href, children, active = false, onClick }: NavLinkProps) => {
     return (
       <Link
         href={href}
         className={`block px-3 py-2 text-base font-medium ${active ? "text-black" : "text-gray-600 hover:text-black"}`}
+        onClick={onClick}
       >
         {children}
       </Link>
