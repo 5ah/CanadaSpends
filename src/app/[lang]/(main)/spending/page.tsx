@@ -38,6 +38,7 @@ const StatBox = ({
       <div
         className={`text-xs font-medium ${growthPercentage > 0 ? "text-green-600" : "text-red-600"}`}
       >
+        {growthPercentage > 0 ? "+" : ""}
         {growthPercentage}% over the last 5 years
       </div>
     )}
