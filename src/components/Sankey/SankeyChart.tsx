@@ -234,22 +234,22 @@ export function SankeyChart(props: SankeyChartProps) {
 							: `${(mousePosition?.y || 0) + 10}px`
 					}}
 				>
-					<p className='node-tooltip-name'>{hoverNode.displayName || hoverNode.name}</p>
+					<div className='node-tooltip-header'>
+						<span className='node-tooltip-name'>{hoverNode.displayName || hoverNode.name}</span>
+						{hoverNode.departmentSlug && (
+							<a 
+								href={`/${i18n.locale}/spending/${hoverNode.departmentSlug}`}
+								className='node-tooltip-link'
+							>
+								See more
+							</a>
+						)}
+					</div>
 					<div className='node-tooltip-amount'>
 						<span>{formatNumber(hoverNode.realValue ?? 0, amountScalingFactor)}</span>
 						<span className='node-tooltip-amount-divider'>&#8226;</span>
 						<span>{hoverNode.percent.toFixed(1)}%</span>
 					</div>
-					{hoverNode.departmentSlug && (
-						<div className='node-tooltip-department'>
-							<a 
-								href={`/${i18n.locale}/spending/${hoverNode.departmentSlug}`}
-								className='node-tooltip-link'
-							>
-								{departmentNames[hoverNode.departmentSlug]}
-							</a>
-						</div>
-					)}
 				</div>
 			)}
 

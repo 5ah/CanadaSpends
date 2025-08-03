@@ -102,9 +102,18 @@
     pointer-events: all;
   }
   
+  .node-tooltip-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    width: 100%;
+  }
+  
   .node-tooltip-name {
     font-weight: 700;
     margin: 0;
+    flex: 1;
   }
   
   .node-tooltip-amount {
@@ -113,15 +122,12 @@
     gap: 8px;
   }
   
-  .node-tooltip-department {
-    margin-top: 8px;
-    font-size: 11px;
-  }
-
   .node-tooltip-link {
     color: #66c4ef;
     text-decoration: none;
-    font-size: 11px;
+    font-size: 9px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
   
   .node-tooltip-link:hover {
