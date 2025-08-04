@@ -86,6 +86,18 @@
     width: 320px;
   }
 
+  .search-select-placeholder {
+    height: 38px;
+    background-color: #000;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    font-size: 14px;
+  }
+
   .node-tooltip {
     z-index: 20;
     min-width: 200px;

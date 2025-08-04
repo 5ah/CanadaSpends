@@ -1,10 +1,16 @@
 import { hierarchy } from "d3";
 import { useCallback, useEffect, useState } from "react";
-import Select from "react-select";
+import dynamic from "next/dynamic";
 import "./SankeyChart.css";
 import { SankeyData } from "./SankeyChartD3";
 import { SankeyChartSingle } from "./SankeyChartSingle";
 import { formatNumber, sortNodesByAmount, transformToIdBased } from "./utils";
+
+// Dynamically import React Select to avoid SSR hydration issues
+const Select = dynamic(() => import("react-select"), {
+  ssr: false,
+  loading: () => <div className="search-select-placeholder">Loading...</div>,
+}) as any;
 
 type FlatDataNodes = ReturnType<typeof getFlatData>["nodes"];
 type Node = FlatDataNodes[number] & {
@@ -166,15 +172,15 @@ export function SankeyChart(props: SankeyChartProps) {
             placeholder="Search..."
             className="search-select"
             styles={{
-              input: (base) => ({
+              input: (base: any) => ({
                 ...base,
                 color: "#fff",
               }),
-              singleValue: (base) => ({
+              singleValue: (base: any) => ({
                 ...base,
                 color: "#fff",
               }),
-              control: (base) => ({
+              control: (base: any) => ({
                 ...base,
                 color: "#fff",
                 backgroundColor: "#000",

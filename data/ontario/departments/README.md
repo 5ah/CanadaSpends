@@ -13,6 +13,10 @@ Each department JSON file contains **editable text fields** that control the con
 - **`roleText`** - Description of the department's role and importance to the province
 - **`programsHeading`** - Heading for the programs and services section
 - **`programsDescription`** - Description of what programs and services this department offers
+- **`leadershipHeading`** - Heading for the leadership and oversight section
+- **`leadershipDescription`** - Description of the department's leadership structure and oversight mechanisms
+- **`prioritiesHeading`** - Local H2 heading for department-specific priorities section
+- **`prioritiesDescription`** - Description of the department's key priorities and focus areas (supports bullet points with `•`)
 
 ## 🚫 What NOT to Edit
 
@@ -41,7 +45,11 @@ Scroll to the bottom of the file to find the editable content fields:
 "descriptionText": "Your detailed description...",
 "roleText": "Description of the department's role...",
 "programsHeading": "Your programs section heading",
-"programsDescription": "Description of programs and services..."
+"programsDescription": "Description of programs and services...",
+"leadershipHeading": "Your leadership section heading",
+"leadershipDescription": "Description of leadership and oversight...",
+"prioritiesHeading": "Your priorities section heading",
+"prioritiesDescription": "Description of priorities with bullet points:\n\n• Priority 1 – Description here\n• Priority 2 – Description here"
 ```
 
 ### 3. Edit the Text
@@ -86,6 +94,21 @@ You can use these placeholders in your text that will be automatically replaced:
 - ❌ Political language or partisan statements
 - ❌ Outdated information or specific years (use template variables instead)
 - ❌ Modifying non-editable fields
+
+### Using Bullet Points in Priorities
+
+For the `prioritiesDescription` field, you can create bullet points using the following format:
+
+```json
+"prioritiesDescription": "Department focuses on these key areas:\n\n• Priority Name – Description of this priority\n• Another Priority – Description of this priority\n• Third Priority – Description of this priority"
+```
+
+**Important formatting notes:**
+
+- Use `•` (bullet character) at the start of each bullet point
+- Separate priority name and description with `–` (space, dash, space)
+- Use `\n\n` for line breaks between sections
+- The priority names will automatically appear in **bold** on the website
 
 ## 🔍 Comments Section
 
