@@ -39,6 +39,10 @@ export type Department = {
   roleText: string;
   programsHeading: string;
   programsDescription: string;
+  leadershipHeading?: string;
+  leadershipDescription?: string;
+  prioritiesHeading?: string;
+  prioritiesDescription?: string;
 };
 
 type Data = {

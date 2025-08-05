@@ -30,7 +30,6 @@ import {
   ChartContainer,
   H1,
   H2,
-  H3,
   Intro,
   P,
   Page,
@@ -72,6 +71,10 @@ export default async function DepartmentPage({
             <Trans>{department.introText}</Trans>
           </Intro>
 
+          <H2>
+            <Trans>Department Spending</Trans>
+          </H2>
+
           <StatCardContainer>
             <StatCard
               title={
@@ -94,17 +97,11 @@ export default async function DepartmentPage({
             />
           </StatCardContainer>
 
+          <div className="mt-6"></div>
+
           <P>
             <Trans>{department.descriptionText}</Trans>
           </P>
-
-          <H2>
-            <Trans>
-              {department.name} accounted for {department.percentageFormatted}{" "}
-              of all {jurisdiction.name} provincial spending in FY{" "}
-              {jurisdiction.financialYear}
-            </Trans>
-          </H2>
 
           <P>
             <Trans>{department.roleText}</Trans>
@@ -114,14 +111,55 @@ export default async function DepartmentPage({
             <DepartmentMiniSankey department={department} />
           </ChartContainer>
 
-          <Section>
-            <H3>
-              <Trans>{department.programsHeading}</Trans>
-            </H3>
-            <P>
-              <Trans>{department.programsDescription}</Trans>
-            </P>
-          </Section>
+          <div className="mt-8"></div>
+
+          {department.prioritiesHeading && department.prioritiesDescription && (
+            <Section>
+              <H2>
+                <Trans>{department.prioritiesHeading}</Trans>
+              </H2>
+              <div>
+                {department.prioritiesDescription
+                  .split("\n\n")
+                  .map((paragraph, index) => (
+                    <div key={index}>
+                      {paragraph.startsWith("•") ? (
+                        <ul className="list-disc pl-6 space-y-2">
+                          {paragraph
+                            .split("\n")
+                            .filter((line) => line.trim().startsWith("•"))
+                            .map((item, itemIndex) => {
+                              const cleanItem = item.replace("• ", "");
+                              const parts = cleanItem.split(" – ");
+                              return (
+                                <li key={itemIndex} className="text-gray-700">
+                                  <strong>{parts[0]}</strong>
+                                  {parts[1] && ` – ${parts[1]}`}
+                                </li>
+                              );
+                            })}
+                        </ul>
+                      ) : (
+                        <P>
+                          <Trans>{paragraph}</Trans>
+                        </P>
+                      )}
+                    </div>
+                  ))}
+              </div>
+            </Section>
+          )}
+
+          {department.leadershipHeading && department.leadershipDescription && (
+            <Section>
+              <H2>
+                <Trans>{department.leadershipHeading}</Trans>
+              </H2>
+              <P>
+                <Trans>{department.leadershipDescription}</Trans>
+              </P>
+            </Section>
+          )}
 
           <Section>
             <H2>
