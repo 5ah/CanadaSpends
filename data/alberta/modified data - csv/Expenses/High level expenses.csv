@@ -1,0 +1,61 @@
+Expenses,Actuals
+Operating Expense by Ministry,
+  Advanced Education,6.233
+  Affordability and Utilities,0.119
+  Agriculture and Irrigation,0.743
+"  Arts, Culture and Status of Women",0.132
+  Children and Family Services,1.603
+  Education,8.878
+  Energy and Minerals,0.822
+  Environment and Protected Areas,0.377
+  Executive Council,0.047
+  Forestry and Parks,0.285
+  Health,25.165
+  Immigration and Multiculturalism,0.039
+  Indigenous Relations,0.214
+  Infrastructure,0.462
+"  Jobs, Economy and Trade",1.557
+  Justice,0.652
+  Mental Health and Addiction,0.151
+  Municipal Affairs,0.220
+  Public Safety and Emergency Services,1.205
+"  Seniors, Community and Social Services",5.284
+  Service Alberta and Red Tape Reduction,0.159
+  Technology and Innovation,0.723
+  Tourism and Sport,0.112
+  Transportation and Economic Corridors,0.564
+  Treasury Board and Finance,2.237
+  Legislative Assembly,0.160
+  Total Operating Expense,58.143
+Capital Grants,
+"  Arts, Culture and Status of Women",0.123
+  Energy and Minerals,0.130
+  Municipal Affairs,0.765
+  Transportation and Economic Corridors,0.819
+  Other,0.266
+  Total Capital Grants,2.103
+Disaster / Emergency Assistance,
+  Agriculture and Irrigation – agriculture support,1.856
+  Forestry and Parks – wildfire fighting,0.851
+  Health - wildfire supports,0.004
+  Public Safety and Emergency Services – wildfire / flood support,0.260
+"  Seniors, Community and Services - wildfire supports",0.054
+  Total Disaster / Emergency Assistance,3.025
+Amortization / Inventory Consumption / Loss on Asset Disposals,4.399
+Taxpayer-supported Debt Servicing Costs - General,
+  Education (School Boards),0.010
+  Treasury Board and Finance,0.917
+  Total Taxpayer-supported General Debt Servicing Costs,0.927
+Taxpayer-supported Debt Servicing Costs - Capital Plan,
+  Education (school P3s) / Transportation (ring road P3s),0.122
+  Treasury Board and Finance – direct borrowing,1.201
+  Total Taxpayer-supported Capital Plan Debt Servicing Costs,1.323
+Total Taxpayer-supported Debt Servicing Costs,2.250
+Self-supported Debt Servicing Costs,
+  Treasury Board and Finance – loans to local authorities,0.802
+  Treasury Board and Finance – Ag Financial Services Corp.,0.097
+  Total Self-supported Debt Servicing Costs,0.899
+Total Debt Servicing Costs,3.149
+Pension Provisions / (Recovery),-0.372
+Contingency,
+Total Expense,70.447

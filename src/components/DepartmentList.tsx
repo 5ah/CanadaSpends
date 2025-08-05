@@ -28,8 +28,8 @@ const DepartmentItem = ({ name, slug }: DepartmentProps) => {
 export const DepartmentList = (props: { current?: string }) => {
   const departments = useDepartments();
   const BrowsableDepartment = departments
-    .filter((d) => !!d.href && !!d.slug)
-    .sort((a, b) => a.name.localeCompare(b.name)) as {
+    .filter((d) => !!d.href && !!d.slug && !!d.name)
+    .sort((a, b) => (a.name ?? "").localeCompare(b.name ?? "")) as {
     name: string;
     slug: string;
   }[];
@@ -78,8 +78,8 @@ export const JurisdictionDepartmentList = (props: {
   current?: string;
 }) => {
   const BrowsableDepartment = props.departments
-    .filter((d) => !!d.slug)
-    .sort((a, b) => a.name.localeCompare(b.name));
+    .filter((d) => !!d.slug && !!d.name)
+    .sort((a, b) => (a.name ?? "").localeCompare(b.name ?? ""));
 
   return (
     <div className="text-gray-600 leading-relaxed mb-4">

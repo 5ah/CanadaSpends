@@ -1,0 +1,227 @@
+{
+  "name": "Alberta",
+  "financialYear": "2023-24",
+  "source": "https://www.alberta.ca/government-and-ministry-annual-reports#23-24",
+  "totalProvincialSpending": "70.447",
+  "totalProvincialSpendingFormatted": "$70.4B",
+  "totalEmployees": "30,500",
+  "ministries": [
+    {
+      "name": "Advanced Education",
+      "slug": "advanced-education",
+      "totalSpending": 6.233,
+      "totalSpendingFormatted": "$6.2B",
+      "percentage": 8.847786277,
+      "percentageFormatted": "8.8%"
+    },
+    {
+      "name": "Affordability and Utilities",
+      "slug": "affordability-and-utilities",
+      "totalSpending": 0.119,
+      "totalSpendingFormatted": "$0.12B",
+      "percentage": 0.168921317,
+      "percentageFormatted": "0.2%"
+    },
+    {
+      "name": "Agriculture and Irrigation",
+      "slug": "agriculture-and-irrigation",
+      "totalSpending": 2.599,
+      "totalSpendingFormatted": "$2.6B",
+      "percentage": 3.689298337,
+      "percentageFormatted": "3.7%"
+    },
+    {
+      "name": "Arts, Culture and Status of Women",
+      "slug": "arts-culture-and-status-of-women",
+      "totalSpending": 0.255,
+      "totalSpendingFormatted": "$0.25B",
+      "percentage": 0.36197425,
+      "percentageFormatted": "0.4%"
+    },
+    {
+      "name": "Children and Family Services",
+      "slug": "children-and-family-services",
+      "totalSpending": 1.603,
+      "totalSpendingFormatted": "$1.6B",
+      "percentage": 2.275469501,
+      "percentageFormatted": "2.3%"
+    },
+    {
+      "name": "Education",
+      "slug": "education",
+      "totalSpending": 8.888,
+      "totalSpendingFormatted": "$8.9B",
+      "percentage": 12.616576998,
+      "percentageFormatted": "12.6%"
+    },
+    {
+      "name": "Energy and Minerals",
+      "slug": "energy-and-minerals",
+      "totalSpending": 0.952,
+      "totalSpendingFormatted": "$1.0B",
+      "percentage": 1.351370534,
+      "percentageFormatted": "1.4%"
+    },
+    {
+      "name": "Environment and Protected Areas",
+      "slug": "environment-and-protected-areas",
+      "totalSpending": 0.377,
+      "totalSpendingFormatted": "$0.4B",
+      "percentage": 0.535154087,
+      "percentageFormatted": "0.5%"
+    },
+    {
+      "name": "Executive Council",
+      "slug": "executive-council",
+      "totalSpending": 0.047,
+      "totalSpendingFormatted": "$0.0B",
+      "percentage": 0.066716823,
+      "percentageFormatted": "0.1%"
+    },
+    {
+      "name": "Forestry and Parks",
+      "slug": "forestry-and-parks",
+      "totalSpending": 1.136,
+      "totalSpendingFormatted": "$1.1B",
+      "percentage": 1.612559796,
+      "percentageFormatted": "1.6%"
+    },
+    {
+      "name": "Health",
+      "slug": "health",
+      "totalSpending": 25.169,
+      "totalSpendingFormatted": "$25.2B",
+      "percentage": 35.727568235,
+      "percentageFormatted": "35.7%"
+    },
+    {
+      "name": "Immigration and Multiculturalism",
+      "slug": "immigration-and-multiculturalism",
+      "totalSpending": 0.039,
+      "totalSpendingFormatted": "$0.0B",
+      "percentage": 0.055360768,
+      "percentageFormatted": "0.1%"
+    },
+    {
+      "name": "Indigenous Relations",
+      "slug": "indigenous-relations",
+      "totalSpending": 0.214,
+      "totalSpendingFormatted": "$0.2B",
+      "percentage": 0.303774469,
+      "percentageFormatted": "0.3%"
+    },
+    {
+      "name": "Infrastructure",
+      "slug": "infrastructure",
+      "totalSpending": 0.462,
+      "totalSpendingFormatted": "$0.5B",
+      "percentage": 0.655812171,
+      "percentageFormatted": "0.7%"
+    },
+    {
+      "name": "Jobs, Economy and Trade",
+      "slug": "jobs-economy-and-trade",
+      "totalSpending": 1.557,
+      "totalSpendingFormatted": "$1.6B",
+      "percentage": 2.210172186,
+      "percentageFormatted": "2.2%"
+    },
+    {
+      "name": "Justice",
+      "slug": "justice",
+      "totalSpending": 0.652,
+      "totalSpendingFormatted": "$0.7B",
+      "percentage": 0.925518475,
+      "percentageFormatted": "0.9%"
+    },
+    {
+      "name": "Legislative Assembly",
+      "slug": "legislative-assembly",
+      "totalSpending": 0.16,
+      "totalSpendingFormatted": "$0.2B",
+      "percentage": 0.227121098,
+      "percentageFormatted": "0.2%"
+    },
+    {
+      "name": "Mental Health and Addiction",
+      "slug": "mental-health-and-addiction",
+      "totalSpending": 0.151,
+      "totalSpendingFormatted": "$0.2B",
+      "percentage": 0.214345536,
+      "percentageFormatted": "0.2%"
+    },
+    {
+      "name": "Municipal Affairs",
+      "slug": "municipal-affairs",
+      "totalSpending": 0.985,
+      "totalSpendingFormatted": "$1.0B",
+      "percentage": 1.39821426,
+      "percentageFormatted": "1.4%"
+    },
+    {
+      "name": "Public Safety and Emergency Services",
+      "slug": "public-safety-and-emergency-services",
+      "totalSpending": 1.465,
+      "totalSpendingFormatted": "$1.5B",
+      "percentage": 2.079577554,
+      "percentageFormatted": "2.1%"
+    },
+    {
+      "name": "Seniors, Community and Social Services",
+      "slug": "seniors-community-and-social-services",
+      "totalSpending": 5.338,
+      "totalSpendingFormatted": "$5.3B",
+      "percentage": 7.577327635,
+      "percentageFormatted": "7.6%"
+    },
+    {
+      "name": "Service Alberta and Red Tape Reduction",
+      "slug": "service-alberta-and-red-tape-reduction",
+      "totalSpending": 0.159,
+      "totalSpendingFormatted": "$0.2B",
+      "percentage": 0.225701591,
+      "percentageFormatted": "0.2%"
+    },
+    {
+      "name": "Technology and Innovation",
+      "slug": "technology-and-innovation",
+      "totalSpending": 0.723,
+      "totalSpendingFormatted": "$0.7B",
+      "percentage": 1.026303462,
+      "percentageFormatted": "1.0%"
+    },
+    {
+      "name": "Tourism and Sport",
+      "slug": "tourism-and-sport",
+      "totalSpending": 0.112,
+      "totalSpendingFormatted": "$0.1B",
+      "percentage": 0.158984769,
+      "percentageFormatted": "0.2%"
+    },
+    {
+      "name": "Transportation and Economic Corridors",
+      "slug": "transportation-and-economic-corridors",
+      "totalSpending": 1.505,
+      "totalSpendingFormatted": "$1.5B",
+      "percentage": 2.136357829,
+      "percentageFormatted": "2.1%"
+    },
+    {
+      "name": "Treasury Board and Finance",
+      "slug": "treasury-board-and-finance",
+      "totalSpending": 5.254,
+      "totalSpendingFormatted": "$5.3B",
+      "percentage": 7.458089058,
+      "percentageFormatted": "7.5%"
+    },
+    {
+      "name": "Other Expenses",
+      "slug": "other-expenses",
+      "totalSpending": 4.293,
+      "totalSpendingFormatted": "$4.3B",
+      "percentage": 6.093855401,
+      "percentageFormatted": "6.1%"
+    }
+  ],
+  "generatedAt": "2025-08-04T00:00:00.000Z"
+}
