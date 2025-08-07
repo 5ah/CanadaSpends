@@ -43,6 +43,8 @@ export type Department = {
   leadershipDescription?: string;
   prioritiesHeading?: string;
   prioritiesDescription?: string;
+  agenciesHeading?: string;
+  agenciesDescription?: string;
 };
 
 type Data = {
