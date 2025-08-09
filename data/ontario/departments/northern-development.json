@@ -101,5 +101,18 @@
       }
     ]
   },
-  "generatedAt": "2025-07-09T21:53:36.589Z"
+  "generatedAt": "2025-07-09T21:53:36.589Z",
+  "_comments": {
+    "_editing_guide": "The fields below can be edited to customize the department page content. These texts will appear on the public website.",
+    "_introText": "Short introduction that appears at the top of the department page",
+    "_descriptionText": "Detailed description - you can use placeholder variables like {jurisdiction.name}, {department.name}, etc.",
+    "_roleText": "Description of the department's role and importance to the province",
+    "_programsHeading": "Heading for the programs and services section",
+    "_programsDescription": "Description of what programs and services this department offers"
+  },
+  "introText": "The Ministry of Northern Development supports economic development and infrastructure in Northern Ontario, addressing the unique challenges and opportunities of Ontario's northern communities.",
+  "descriptionText": "The Ontario Ministry of Northern Development spent $704M in fiscal year (FY) 2023-24, representing 0.3% of the $206.6B in total provincial spending. This investment supports northern communities and economic development.",
+  "roleText": "Northern Ontario faces unique challenges and opportunities. This ministry supports economic development, infrastructure, and community development in the north, helping to unlock the region's potential and support northern communities.",
+  "programsHeading": "Northern Development Programs",
+  "programsDescription": "The Ministry of Northern Development operates programs including the Northern Ontario Heritage Fund, infrastructure development, economic development initiatives, winter roads, and support for northern communities."
 }

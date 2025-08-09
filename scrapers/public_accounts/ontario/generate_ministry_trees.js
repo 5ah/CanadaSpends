@@ -1,25 +1,25 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 // Paths
-const provincialFile = path.join(__dirname, 'Ontario2024CompressedSankey.json');
-const provincialData = JSON.parse(fs.readFileSync(provincialFile, 'utf8'));
+const provincialFile = path.join(__dirname, "Ontario2024CompressedSankey.json");
+const provincialData = JSON.parse(fs.readFileSync(provincialFile, "utf8"));
 
 // Output directory inside src so it is part of the Next.js bundle
-const outputDir = path.join(__dirname, '..', 'src', 'data', 'ministries');
+const outputDir = path.join(__dirname, "..", "src", "data", "ministries");
 fs.mkdirSync(outputDir, { recursive: true });
 
 function slugify(name) {
   return name
     .toLowerCase()
-    .replace(/\s*→\s*/g, '-') // replace arrow with dash
-    .replace(/[^a-z0-9]+/g, '-') // non-alphanum to dash
-    .replace(/^-+|-+$/g, '')     // trim leading/trailing dashes
-    .replace(/--+/g, '-');       // collapse consecutive dashes
+    .replace(/\s*→\s*/g, "-") // replace arrow with dash
+    .replace(/[^a-z0-9]+/g, "-") // non-alphanum to dash
+    .replace(/^-+|-+$/g, "") // trim leading/trailing dashes
+    .replace(/--+/g, "-"); // collapse consecutive dashes
 }
 
 function sumAmounts(node) {
-  if (typeof node.amount === 'number') {
+  if (typeof node.amount === "number") {
     return node.amount;
   }
   if (!node.children || node.children.length === 0) {
@@ -29,15 +29,33 @@ function sumAmounts(node) {
 }
 
 // Iterate over top-level ministries
-provincialData.spending_data.children.forEach(ministry => {
+provincialData.spending_data.children.forEach((ministry) => {
   const baseSlug = slugify(ministry.name);
   let slug = baseSlug;
 
   // Check if directory with baseSlug exists; if not, check doubled slug form
-  const dirBase = path.join(__dirname, '..', 'src', 'app', '[lang]', '(main)', 'ontario', baseSlug);
+  const dirBase = path.join(
+    __dirname,
+    "..",
+    "src",
+    "app",
+    "[lang]",
+    "(main)",
+    "ontario",
+    baseSlug,
+  );
   if (!fs.existsSync(dirBase)) {
     const doubleSlug = `${baseSlug}-${baseSlug}`;
-    const dirDouble = path.join(__dirname, '..', 'src', 'app', '[lang]', '(main)', 'ontario', doubleSlug);
+    const dirDouble = path.join(
+      __dirname,
+      "..",
+      "src",
+      "app",
+      "[lang]",
+      "(main)",
+      "ontario",
+      doubleSlug,
+    );
     if (fs.existsSync(dirDouble)) {
       slug = doubleSlug;
     }
@@ -52,7 +70,7 @@ provincialData.spending_data.children.forEach(ministry => {
     name: ministry.name,
     slug,
     totalSpending,
-    spending_data: ministryTree
+    spending_data: ministryTree,
   };
 
   const tsPath = path.join(outputDir, `${slug}.ts`);
@@ -76,4 +94,4 @@ export default ministryData;
   console.log(`Generated module for ${ministry.name} -> ${slug}.ts`);
 });
 
-console.log('✅ All ministry modules generated.'); 
+console.log("✅ All ministry modules generated.");

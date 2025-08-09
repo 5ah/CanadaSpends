@@ -267,5 +267,18 @@
       }
     ]
   },
-  "generatedAt": "2025-07-09T21:53:36.577Z"
+  "generatedAt": "2025-07-09T21:53:36.577Z",
+  "_comments": {
+    "_editing_guide": "The fields below can be edited to customize the department page content. These texts will appear on the public website.",
+    "_introText": "Short introduction that appears at the top of the department page",
+    "_descriptionText": "Detailed description - you can use placeholder variables like {jurisdiction.name}, {department.name}, etc.",
+    "_roleText": "Description of the department's role and importance to the province",
+    "_programsHeading": "Heading for the programs and services section",
+    "_programsDescription": "Description of what programs and services this department offers"
+  },
+  "introText": "The Ministry of the Attorney General oversees Ontario's justice system, including courts, legal services, and access to justice programs, ensuring fair and effective legal services for all Ontarians.",
+  "descriptionText": "The Ontario Ministry of the Attorney General spent $2.1B in fiscal year (FY) 2023-24, representing 1.0% of the $206.6B in total provincial spending. This investment supports courts, legal aid, and justice services.",
+  "roleText": "The justice system is fundamental to the rule of law and democratic society. This ministry operates courts, provides legal services, supports victims, and ensures access to justice for all Ontarians.",
+  "programsHeading": "Justice and Legal Services",
+  "programsDescription": "The Ministry of the Attorney General operates programs including court services, Legal Aid Ontario, victim services, Indigenous justice programs, prosecution services, and human rights support."
 }

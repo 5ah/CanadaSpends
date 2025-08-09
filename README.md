@@ -1,6 +1,5 @@
 # Canada Spends helps Canadians understand how their government spends their money
 
-
 ## Ambition
 
 Canada Spends aims to be the easiest way for Canadians to understand how their government spends their money.
@@ -9,53 +8,13 @@ bring transparency to every level of government in Canada: federal, provincial, 
 
 We bring this transparency in two ways:
 
-1) We parse, aggregate and visualize audited financial statements that governments publish so that everyone can
+1. We parse, aggregate and visualize audited financial statements that governments publish so that everyone can
    understand how their government spends their money and how it changes over time.
-2) We aggregate and normalize government spending databases to make the data fast to search and accessible.
+2. We aggregate and normalize government spending databases to make the data fast to search and accessible.
 
 ### Roadmap
 
-By the end of 2025, we aim to have automated data ingestion pipelines for every province and territory and the largest 20 municipalities in Canada.
-
-- [ ] Alberta
-- [ ] British Columbia
-- [ ] Ontario
-- [ ] Quebec
-- [ ] Saskatchewan
-- [ ] Manitoba
-- [ ] Nova Scotia
-- [ ] New Brunswick
-- [ ] Prince Edward Island
-- [ ] Newfoundland and Labrador
-- [ ] Yukon
-- [ ] Northwest Territories
-- [ ] Nunavut
-
-- [ ] Toronto
-- [ ] Ottawa
-- [ ] Montreal
-- [ ] Vancouver #79
-- [ ] Calgary #81
-- [ ] Edmonton #82
-- [ ] Winnipeg #83
-- [ ] Hamilton
-- [ ] London
-- [ ] Mississauga
-- [ ] Brampton
-- [ ] Markham
-- [ ] Oakville
-- [ ] Halifax
-- [ ] Saint John
-- [ ] St. John's
-- [ ] Charlottetown
-- [ ] Surrey
-- [ ] Moncton
-- [ ] Quebec City
-- [ ] Victoria
-- [ ] Vaughan
-- [ ] Markham
-- [ ] Gatineau
-
+By the end of 2025, we aim to have automated data ingestion pipelines for every province and territory and the largest 20 municipalities in Canada. See [Issues](https://github.com/BuildCanada/CanadaSpends/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22Public%20Accounts%22) for target provinces and cities.
 
 ## Getting Started
 
@@ -77,9 +36,17 @@ pnpm lint:fix      # Auto-fix auto-fixable issues
 
 The linting configuration enforces TypeScript best practices, React rules, and Next.js optimizations while keeping most issues as warnings (temporarily) to avoid blocking development.
 
+## Prettier
+
+This project uses [Prettier](https://prettier.io/) for code formatting. To format your code manually, run:
+
+```bash
+pnpm format
+```
+
 ## Git Hooks
 
-This project automatically runs linting checks before each commit using `simple-git-hooks`. This is enabled automatically when you run `pnpm install`. If you need to enable it manually:
+This project automatically runs linting checks and formatting before each commit using `simple-git-hooks`. This is enabled automatically when you run `pnpm install`. If you need to enable it manually:
 
 ```bash
 npx simple-git-hooks

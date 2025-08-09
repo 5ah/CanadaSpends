@@ -231,5 +231,24 @@
       }
     ]
   },
-  "generatedAt": "2025-07-09T21:53:36.585Z"
+  "generatedAt": "2025-07-09T21:53:36.585Z",
+
+  "_comments": {
+    "_editing_guide": "The fields below can be edited to customize the department page content. These texts will appear on the public website.",
+    "_introText": "Short introduction that appears at the top of the department page",
+    "_descriptionText": "Detailed description - you can use placeholder variables like {jurisdiction.name}, {department.name}, etc.",
+    "_roleText": "Description of the department's role and importance to the province",
+    "_programsHeading": "Heading for the programs and services section",
+    "_programsDescription": "Description of what programs and services this department offers"
+  },
+
+  "introText": "The Ministry of Education oversees Ontario's publicly funded education system, from early childhood education through elementary and secondary schools, ensuring quality education for all students.",
+
+  "descriptionText": "The Ontario Ministry of Education spent $38.8B in fiscal year (FY) 2023-24, representing 18.8% of the $206.6B in total provincial spending. This investment supports over 2 million students in 4,000+ schools across the province.",
+
+  "roleText": "Education is fundamental to Ontario's future prosperity and social development. This ministry ensures every child has access to quality education, supports teachers and school boards, and manages the curriculum that prepares students for post-secondary education and careers.",
+
+  "programsHeading": "Education Programs and Services",
+
+  "programsDescription": "The Ministry of Education operates programs including school board funding, teacher training and development, curriculum development, special education support, French-language education, child care and early years programs, and capital funding for school infrastructure."
 }

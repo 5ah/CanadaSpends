@@ -17,7 +17,7 @@ const eslintConfig = [
   },
 
   // Apply Next.js configs to all files
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...compat.extends("next/core-web-vitals", "next/typescript", "prettier"),
 
   // Custom rules
   {
@@ -31,6 +31,13 @@ const eslintConfig = [
       "no-var": "warn",
       "@next/next/no-img-element": "warn",
       "@next/next/no-html-link-for-pages": "warn",
+    },
+  },
+  // File-specific overrides for files
+  {
+    files: ["tailwind.config.ts", "scrapers/public_accounts/**/*.js"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
     },
   },
 ];

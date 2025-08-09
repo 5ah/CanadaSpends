@@ -6,7 +6,10 @@ import "./SankeyChart.css";
 import { SankeyData } from "./SankeyChartD3";
 import { SankeyChartSingle } from "./SankeyChartSingle";
 import { formatNumber, sortNodesByAmount, transformToIdBased } from "./utils";
-import { departmentNames, nodeToDepartment } from "@/lib/sankeyDepartmentMappings";
+import {
+  departmentNames,
+  nodeToDepartment,
+} from "@/lib/sankeyDepartmentMappings";
 
 // Dynamically import React Select to avoid SSR hydration issues
 const Select = dynamic(() => import("react-select"), {
@@ -148,27 +151,24 @@ export function SankeyChart(props: SankeyChartProps) {
     setSearchResult(node ?? null);
   };
 
-  const handleMouseOver = useCallback(
-    (totalAmount: number) => {
-      return (node: Node, event?: MouseEvent) => {
-        // Clear any pending hide timeout
-        if (hideTooltipTimeoutRef.current) {
-          clearTimeout(hideTooltipTimeoutRef.current);
-          hideTooltipTimeoutRef.current = null;
-        }
-        const percent = (node.realValue! / totalAmount) * 100;
-        setHoverNode({
-          ...node,
-          percent,
-        });
-        // Store mouse position as fallback for tooltip positioning
-        if (event) {
-          setMousePosition({ x: event.clientX, y: event.clientY });
-        }
-      };
-    },
-    [],
-  );
+  const handleMouseOver = useCallback((totalAmount: number) => {
+    return (node: Node, event?: MouseEvent) => {
+      // Clear any pending hide timeout
+      if (hideTooltipTimeoutRef.current) {
+        clearTimeout(hideTooltipTimeoutRef.current);
+        hideTooltipTimeoutRef.current = null;
+      }
+      const percent = (node.realValue! / totalAmount) * 100;
+      setHoverNode({
+        ...node,
+        percent,
+      });
+      // Store mouse position as fallback for tooltip positioning
+      if (event) {
+        setMousePosition({ x: event.clientX, y: event.clientY });
+      }
+    };
+  }, []);
 
   const handleMouseOut = useCallback(() => {
     hideTooltipTimeoutRef.current = setTimeout(() => {
@@ -287,7 +287,6 @@ export function SankeyChart(props: SankeyChartProps) {
               onMouseOver={handleMouseOver(chartData.revenue)}
               onMouseOut={handleMouseOut}
             />
-
             <SankeyChartSingle
               {...chartConfig.spending}
               data={sortNodesByAmount(chartData.spending_data)}
@@ -322,5 +321,3 @@ export function SankeyChart(props: SankeyChartProps) {
     </div>
   );
 }
-
-

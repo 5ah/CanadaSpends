@@ -122,5 +122,18 @@
       }
     ]
   },
-  "generatedAt": "2025-07-09T21:53:36.585Z"
+  "generatedAt": "2025-07-09T21:53:36.585Z",
+  "_comments": {
+    "_editing_guide": "The fields below can be edited to customize the department page content. These texts will appear on the public website.",
+    "_introText": "Short introduction that appears at the top of the department page",
+    "_descriptionText": "Detailed description - you can use placeholder variables like {jurisdiction.name}, {department.name}, etc.",
+    "_roleText": "Description of the department's role and importance to the province",
+    "_programsHeading": "Heading for the programs and services section",
+    "_programsDescription": "Description of what programs and services this department offers"
+  },
+  "introText": "The Ministry of Energy oversees Ontario's electricity system, energy policy, and programs to ensure reliable, affordable, and clean energy for homes, businesses, and communities across the province.",
+  "descriptionText": "The Ontario Ministry of Energy spent $6.3B in fiscal year (FY) 2023-24, representing 3.1% of the $206.6B in total provincial spending. This investment supports electricity price mitigation, energy programs, and system reliability.",
+  "roleText": "Energy is fundamental to Ontario's economy and daily life. This ministry manages electricity policy, supports energy affordability programs, and works to ensure a reliable and increasingly clean energy system for all Ontarians.",
+  "programsHeading": "Energy Programs and Electricity Support",
+  "programsDescription": "The Ministry of Energy operates programs including the Ontario Electricity Rebate, rural rate protection, Indigenous energy partnerships, energy efficiency initiatives, and electricity system planning."
 }

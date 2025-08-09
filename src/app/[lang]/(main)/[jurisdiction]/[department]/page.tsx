@@ -30,7 +30,6 @@ import {
   ChartContainer,
   H1,
   H2,
-  H3,
   Intro,
   P,
   Page,
@@ -69,11 +68,12 @@ export default async function DepartmentPage({
             <Trans>{department.name}</Trans>
           </H1>
           <Intro>
-            <Trans>
-              The {department.name} manages critical provincial operations and
-              services for Ontario residents.
-            </Trans>
+            <Trans>{department.introText}</Trans>
           </Intro>
+
+          <H2>
+            <Trans>Department Spending</Trans>
+          </H2>
 
           <StatCardContainer>
             <StatCard
@@ -97,49 +97,69 @@ export default async function DepartmentPage({
             />
           </StatCardContainer>
 
+          <div className="mt-6"></div>
+
           <P>
-            <Trans>
-              The {jurisdiction.name} {department.name} spent{" "}
-              {department.totalSpendingFormatted} in fiscal year (FY){" "}
-              {jurisdiction.financialYear}, representing{" "}
-              {department.percentageFormatted} of the{" "}
-              {jurisdiction.totalProvincialSpendingFormatted} in total
-              provincial spending.
-            </Trans>
+            <Trans>{department.descriptionText}</Trans>
           </P>
 
-          <H2>
-            <Trans>
-              {department.name} accounted for {department.percentageFormatted}{" "}
-              of all {jurisdiction.name}
-              provincial spending in FY {jurisdiction.financialYear}
-            </Trans>
-          </H2>
-
           <P>
-            <Trans>
-              This ministry plays an important role in {jurisdiction.name}'s
-              government operations, delivering essential services and programs
-              to residents across the province.
-            </Trans>
+            <Trans>{department.roleText}</Trans>
           </P>
 
           <ChartContainer>
             <DepartmentMiniSankey department={department} />
           </ChartContainer>
 
-          <Section>
-            <H3>
-              <Trans>Major Programs and Services</Trans>
-            </H3>
-            <P>
-              <Trans>
-                The {department.name} operates various programs and services as
-                part of {jurisdiction.name}'s commitment to delivering effective
-                government services to residents.
-              </Trans>
-            </P>
-          </Section>
+          <div className="mt-8"></div>
+
+          {department.prioritiesHeading && department.prioritiesDescription && (
+            <Section>
+              <H2>
+                <Trans>{department.prioritiesHeading}</Trans>
+              </H2>
+              <div>
+                {department.prioritiesDescription
+                  .split("\n\n")
+                  .map((paragraph, index) => (
+                    <div key={index}>
+                      {paragraph.startsWith("•") ? (
+                        <ul className="list-disc pl-6 space-y-2">
+                          {paragraph
+                            .split("\n")
+                            .filter((line) => line.trim().startsWith("•"))
+                            .map((item, itemIndex) => {
+                              const cleanItem = item.replace("• ", "");
+                              const parts = cleanItem.split(" – ");
+                              return (
+                                <li key={itemIndex} className="text-gray-700">
+                                  <strong>{parts[0]}</strong>
+                                  {parts[1] && ` – ${parts[1]}`}
+                                </li>
+                              );
+                            })}
+                        </ul>
+                      ) : (
+                        <P>
+                          <Trans>{paragraph}</Trans>
+                        </P>
+                      )}
+                    </div>
+                  ))}
+              </div>
+            </Section>
+          )}
+
+          {department.leadershipHeading && department.leadershipDescription && (
+            <Section>
+              <H2>
+                <Trans>{department.leadershipHeading}</Trans>
+              </H2>
+              <P>
+                <Trans>{department.leadershipDescription}</Trans>
+              </P>
+            </Section>
+          )}
 
           <Section>
             <H2>
@@ -157,18 +177,3 @@ export default async function DepartmentPage({
     </Page>
   );
 }
-
-// 			total: ministryData.totalSpending,
-// 	spending: ministryData.totalSpending,
-// 	revenue: 0,
-// 	spending_data: {
-// 		name: t`Ontario Cabinet Office → Cabinet Office`,
-// 		amount: ministryData.totalSpending,
-// 		children: [...ministryData.spending_data.children]
-// 	},
-// 	revenue_data: {
-// 		name: t`Revenue`,
-// 		amount: 0,
-// 		children: []
-// 	}
-// };

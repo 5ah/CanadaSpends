@@ -299,5 +299,18 @@
       }
     ]
   },
-  "generatedAt": "2025-07-09T21:53:36.590Z"
+  "generatedAt": "2025-07-09T21:53:36.590Z",
+  "_comments": {
+    "_editing_guide": "The fields below can be edited to customize the department page content. These texts will appear on the public website.",
+    "_introText": "Short introduction that appears at the top of the department page",
+    "_descriptionText": "Detailed description - you can use placeholder variables like {jurisdiction.name}, {department.name}, etc.",
+    "_roleText": "Description of the department's role and importance to the province",
+    "_programsHeading": "Heading for the programs and services section",
+    "_programsDescription": "Description of what programs and services this department offers"
+  },
+  "introText": "The Ministry of Transportation manages Ontario's transportation infrastructure, including highways, transit systems, and transportation safety, connecting communities and supporting economic activity.",
+  "descriptionText": "The Ontario Ministry of Transportation spent $7.4B in fiscal year (FY) 2023-24, representing 3.6% of the $206.6B in total provincial spending. This investment maintains highways, supports transit, and ensures safe transportation systems.",
+  "roleText": "Transportation infrastructure is vital to Ontario's economy and quality of life. This ministry maintains the highway network, supports public transit including GO Transit and municipal systems, and ensures transportation safety standards.",
+  "programsHeading": "Transportation Infrastructure and Transit",
+  "programsDescription": "The Ministry of Transportation operates programs including highway maintenance and construction, Metrolinx and GO Transit support, municipal transit funding, transportation safety oversight, and infrastructure planning."
 }

@@ -159,5 +159,18 @@
       }
     ]
   },
-  "generatedAt": "2025-07-09T21:53:36.589Z"
+  "generatedAt": "2025-07-09T21:53:36.589Z",
+  "_comments": {
+    "_editing_guide": "The fields below can be edited to customize the department page content. These texts will appear on the public website.",
+    "_introText": "Short introduction that appears at the top of the department page",
+    "_descriptionText": "Detailed description - you can use placeholder variables like {jurisdiction.name}, {department.name}, etc.",
+    "_roleText": "Description of the department's role and importance to the province",
+    "_programsHeading": "Heading for the programs and services section",
+    "_programsDescription": "Description of what programs and services this department offers"
+  },
+  "introText": "The Ministry of Natural Resources and Forestry manages Ontario's natural resources, forests, and wildlife, balancing conservation with sustainable economic development and outdoor recreation.",
+  "descriptionText": "The Ontario Ministry of Natural Resources and Forestry spent $1.1B in fiscal year (FY) 2023-24, representing 0.5% of the $206.6B in total provincial spending. This investment supports forest management, conservation, and natural resource stewardship.",
+  "roleText": "Ontario's natural resources are fundamental to both the economy and environment. This ministry manages forests, wildlife, and natural resources while providing outdoor recreation opportunities and wildfire protection services.",
+  "programsHeading": "Natural Resource Management and Conservation",
+  "programsDescription": "The Ministry of Natural Resources and Forestry operates programs including forest management, wildlife conservation, wildfire suppression, natural resource development, outdoor recreation, and environmental monitoring."
 }
