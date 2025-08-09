@@ -1,264 +1,265 @@
 // @ts-nocheck: too complex to type for now... one day. Inputs are good enough
 
-import { select } from 'd3-selection'
-import { scaleLinear } from 'd3-scale'
-import { curveBumpX, area } from 'd3-shape'
-import { cumsum, pairs, rollups, sum } from 'd3-array'
-import { hierarchy } from 'd3-hierarchy'
-import { formatNumber } from './utils'
-import { nodeToDepartment } from '@/lib/sankeyDepartmentMappings'
+import { select } from "d3-selection";
+import { scaleLinear } from "d3-scale";
+import { curveBumpX, area } from "d3-shape";
+import { cumsum, pairs, rollups, sum } from "d3-array";
+import { hierarchy } from "d3-hierarchy";
+import { formatNumber } from "./utils";
+import { nodeToDepartment } from "@/lib/sankeyDepartmentMappings";
 
 export type SankeyNode = {
-	id: string           // Unique identifier for internal operations
-	displayName: string  // User-facing name for display
-	name?: string        // Optional: for backward compatibility
-	amount: number
-	children?: SankeyNode[]
-}
+  id: string; // Unique identifier for internal operations
+  displayName: string; // User-facing name for display
+  name?: string; // Optional: for backward compatibility
+  amount: number;
+  children?: SankeyNode[];
+};
 
 export type SankeyData = {
-	total: number
-	spending: number
-	revenue: number
-	spending_data: SankeyNode
-	revenue_data: SankeyNode
-}
+  total: number;
+  spending: number;
+  revenue: number;
+  spending_data: SankeyNode;
+  revenue_data: SankeyNode;
+};
 
 export type SankeyChartD3Props = {
-	container?: HTMLElement
-	width?: number
-	height: number
-	direction: 'left-to-right' | 'right-to-left'
-	margin?: {
-		top: number
-		right: number
-		bottom: number
-		left: number
-	}
-	colors?: {
-		primary: string
-	}
-	shortBlockHeight?: number
-	data: SankeyNode
-	totalAmount: number
-	difference?: number
-	differenceLabel?: string
-	amountScalingFactor?: number
-	onMouseOver?: (node: any) => void
-	onMouseOut?: (node: any) => void
-}
+  container?: HTMLElement;
+  width?: number;
+  height: number;
+  direction: "left-to-right" | "right-to-left";
+  margin?: {
+    top: number;
+    right: number;
+    bottom: number;
+    left: number;
+  };
+  colors?: {
+    primary: string;
+  };
+  shortBlockHeight?: number;
+  data: SankeyNode;
+  totalAmount: number;
+  difference?: number;
+  differenceLabel?: string;
+  amountScalingFactor?: number;
+  onMouseOver?: (node: any) => void;
+  onMouseOut?: (node: any) => void;
+};
 export class SankeyChartD3 {
-	params: SankeyChartD3Props
+  params: SankeyChartD3Props;
 
-	constructor(props: SankeyChartD3Props) {
-		// Default configuration parameters for the chart
-		const params = Object.assign(
-			{
-				container: document.body,
-				width: 0, // calculated dynamically if zero
-				height: 600,
-				margin: {
-					top: 50,
-					right: 1,
-					bottom: 0,
-					left: 1
-				},
-				colors: {
-					primary: '#E3007D'
-				},
-				shortBlockHeight: 16,
-				data: null,
-				totalAmount: 100,
-				difference: 0,
-				differenceLabel: 'Deficit',
-				amountScalingFactor: 1e9,
-				onMouseOver: () => {},
-				onMouseOut: () => {}
-			},
-			props
-		)
+  constructor(props: SankeyChartD3Props) {
+    // Default configuration parameters for the chart
+    const params = Object.assign(
+      {
+        container: document.body,
+        width: 0, // calculated dynamically if zero
+        height: 600,
+        margin: {
+          top: 50,
+          right: 1,
+          bottom: 0,
+          left: 1,
+        },
+        colors: {
+          primary: "#E3007D",
+        },
+        shortBlockHeight: 16,
+        data: null,
+        totalAmount: 100,
+        difference: 0,
+        differenceLabel: "Deficit",
+        amountScalingFactor: 1e9,
+        onMouseOver: () => {},
+        onMouseOut: () => {},
+      },
+      props,
+    );
 
-		this.highlightedNode = null
-		this.linksMap = new Map()
+    this.highlightedNode = null;
+    this.linksMap = new Map();
 
-		this.params = params
-		this.container = select(params.container || 'body').style(
-			'position',
-			'relative'
-		)
+    this.params = params;
+    this.container = select(params.container || "body").style(
+      "position",
+      "relative",
+    );
 
-		this.link = area()
-			.x(d => d.x)
-			.y0(d => d.y0)
-			.y1(d => d.y1)
-			.curve(curveBumpX)
+    this.link = area()
+      .x((d) => d.x)
+      .y0((d) => d.y0)
+      .y1((d) => d.y1)
+      .curve(curveBumpX);
 
-		this.setChartDimensions()
-		this.renderContainers()
+    this.setChartDimensions();
+    this.renderContainers();
 
-		if (this.params.data) {
-			this.transformData()
-			this.draw()
-			this.drawLinks()
+    if (this.params.data) {
+      this.transformData();
+      this.draw();
+      this.drawLinks();
 
-			// Handle resize
-			const resizeObserver = new ResizeObserver(() => {
-				this.drawLinks()
-				if (this.highlightedNode) {
-					this.highlightNode(this.highlightedNode)
-				}
-			})
+      // Handle resize
+      const resizeObserver = new ResizeObserver(() => {
+        this.drawLinks();
+        if (this.highlightedNode) {
+          this.highlightNode(this.highlightedNode);
+        }
+      });
 
-			resizeObserver.observe(this.container.node())
-		}
-	}
+      resizeObserver.observe(this.container.node());
+    }
+  }
 
-	// Calculates dimensions and sets up the scaling function
-	setChartDimensions() {
-		let { width, height, margin } = this.params
+  // Calculates dimensions and sets up the scaling function
+  setChartDimensions() {
+    let { width, height, margin } = this.params;
 
-		if (!width) {
-			const w = this.container.node().getBoundingClientRect().width
-			if (w) {
-				width = w
-				this.params.width = w
-			}
-		}
+    if (!width) {
+      const w = this.container.node().getBoundingClientRect().width;
+      if (w) {
+        width = w;
+        this.params.width = w;
+      }
+    }
 
-		this.chartWidth = width - margin.left - margin.right
-		this.chartHeight = height - margin.top - margin.bottom
+    this.chartWidth = width - margin.left - margin.right;
+    this.chartHeight = height - margin.top - margin.bottom;
 
-		this.scale = scaleLinear()
-			.domain([0, this.params.totalAmount])
-			.range([0.02, this.chartHeight * 0.7])
-			.clamp(true)
-	}
+    this.scale = scaleLinear()
+      .domain([0, this.params.totalAmount])
+      .range([0.02, this.chartHeight * 0.7])
+      .clamp(true);
+  }
 
-	// Creates the main SVG and DIV containers for the chart
-	renderContainers() {
-		const { margin } = this.params
+  // Creates the main SVG and DIV containers for the chart
+  renderContainers() {
+    const { margin } = this.params;
 
-		this.rootDiv = this.container
-			.selectAll('div')
-			.data(['sankey-chart-outer'])
-			.join('div')
-			.attr('class', 'sankey-chart-outer')
-			.style('height', `${this.params.height}px`)
-			.style('padding-left', `${margin.left}px`)
-			.style('padding-right', `${margin.right}px`)
+    this.rootDiv = this.container
+      .selectAll("div")
+      .data(["sankey-chart-outer"])
+      .join("div")
+      .attr("class", "sankey-chart-outer")
+      .style("height", `${this.params.height}px`)
+      .style("padding-left", `${margin.left}px`)
+      .style("padding-right", `${margin.right}px`);
 
-		this.sankeyDiv = this.rootDiv
-			.selectAll('div')
-			.data(['sankey-chart'])
-			.join('div')
-			.attr('class', 'sankey-chart')
-			.attr('data-direction', this.params.direction)
+    this.sankeyDiv = this.rootDiv
+      .selectAll("div")
+      .data(["sankey-chart"])
+      .join("div")
+      .attr("class", "sankey-chart")
+      .attr("data-direction", this.params.direction);
 
-		this.sankeySvg = this.container
-			.selectAll('svg')
-			.data(['sankey-chart-svg'])
-			.join('svg')
-			.attr('class', 'sankey-chart-svg')
-			.style('position', 'absolute')
-			.style('top', '0')
-			.style('left', '0')
-			.style('width', '100%')
-			.style('height', '100%')
-	}
+    this.sankeySvg = this.container
+      .selectAll("svg")
+      .data(["sankey-chart-svg"])
+      .join("svg")
+      .attr("class", "sankey-chart-svg")
+      .style("position", "absolute")
+      .style("top", "0")
+      .style("left", "0")
+      .style("width", "100%")
+      .style("height", "100%");
+  }
 
-	// Main drawing function that creates the blocks and labels
-	draw() {
-		// Create columns
-		const columns = this.sankeyDiv
-			.selectAll('.column')
-			.data(this.columnsData)
-			.join('div')
-			.attr('class', 'column')
-			.attr('data-level', d => d.index)
-			.classed('narrow', d => d.index === 0)
-			.on('scroll', () => {
-				this.drawLinks()
-				if (this.highlightedNode) {
-					this.highlightNode(this.highlightedNode)
-				}
-			})
+  // Main drawing function that creates the blocks and labels
+  draw() {
+    // Create columns
+    const columns = this.sankeyDiv
+      .selectAll(".column")
+      .data(this.columnsData)
+      .join("div")
+      .attr("class", "column")
+      .attr("data-level", (d) => d.index)
+      .classed("narrow", (d) => d.index === 0)
+      .on("scroll", () => {
+        this.drawLinks();
+        if (this.highlightedNode) {
+          this.highlightNode(this.highlightedNode);
+        }
+      });
 
-		const groups = columns
-			.selectAll('.group')
-			.data(d => d.groups)
-			.join('div')
-			.attr('class', 'group')
-			.attr('data-level', d => d.columnIndex)
+    const groups = columns
+      .selectAll(".group")
+      .data((d) => d.groups)
+      .join("div")
+      .attr("class", "group")
+      .attr("data-level", (d) => d.columnIndex);
 
-		groups
-			.selectAll('.spacer')
-			.data(d => (d.index === 0 ? [d] : []))
-			.join('div')
-			.attr('class', 'spacer')
-			.style('height', () => {
-				return this.params.margin.top + 'px'
-			})
+    groups
+      .selectAll(".spacer")
+      .data((d) => (d.index === 0 ? [d] : []))
+      .join("div")
+      .attr("class", "spacer")
+      .style("height", () => {
+        return this.params.margin.top + "px";
+      });
 
-		// Create blocks within each group
-		const blocks = groups
-			.selectAll('.block')
-			.data(
-				d => d.blocks,
-				d => d.id
-			)
-			.join('div')
-			.attr('class', 'block')
-			.style('position', 'relative')
-			.classed('fake', d => d.fake)
-			.classed(
-				'with-background',
-				d => d.amount < 0 || this.scale(d.value) < this.params.shortBlockHeight
-			)
-			.classed(
-				'short',
-				d => this.scale(d.value) < this.params.shortBlockHeight * 3
-			)
-			.classed('difference', d => d.isDifference)
-			.classed('negative', d => d.amount < 0)
-			.style('height', d => this.scale(d.value) + 'px')
-			.style('background-color', this.params.colors.primary)
-			.style('opacity', d => (d.fake ? 0 : 1))
-			.style('margin-top', (d, i) => {
-				if (d.groupIndex === 0 && i === 0) {
-					return d.depth * 10 + 'px'
-				}
-				return 0
-			})
-			.on('mouseover', (e, d) => {
-				const target = e.currentTarget as HTMLElement
-				const rect = target.getBoundingClientRect()
-				const departmentSlug = nodeToDepartment[d.displayName]
-				
-				this.highlightNode(d)
-				this.params.onMouseOver({ ...d, departmentSlug, blockRect: rect }, e)
-			})
-			.on('mouseout', (e, d) => {
-				this.highlightNode(null)
-				this.params.onMouseOut(d)
-			})
+    // Create blocks within each group
+    const blocks = groups
+      .selectAll(".block")
+      .data(
+        (d) => d.blocks,
+        (d) => d.id,
+      )
+      .join("div")
+      .attr("class", "block")
+      .style("position", "relative")
+      .classed("fake", (d) => d.fake)
+      .classed(
+        "with-background",
+        (d) =>
+          d.amount < 0 || this.scale(d.value) < this.params.shortBlockHeight,
+      )
+      .classed(
+        "short",
+        (d) => this.scale(d.value) < this.params.shortBlockHeight * 3,
+      )
+      .classed("difference", (d) => d.isDifference)
+      .classed("negative", (d) => d.amount < 0)
+      .style("height", (d) => this.scale(d.value) + "px")
+      .style("background-color", this.params.colors.primary)
+      .style("opacity", (d) => (d.fake ? 0 : 1))
+      .style("margin-top", (d, i) => {
+        if (d.groupIndex === 0 && i === 0) {
+          return d.depth * 10 + "px";
+        }
+        return 0;
+      })
+      .on("mouseover", (e, d) => {
+        const target = e.currentTarget as HTMLElement;
+        const rect = target.getBoundingClientRect();
+        const departmentSlug = nodeToDepartment[d.displayName];
 
-		blocks
-			.selectAll('.label')
-			.data(
-				d => [d].filter(d => !d.fake),
-				d => d.id
-			)
-			.join('p')
-			.attr('class', 'label')
-			.html(
-				d => `
+        this.highlightNode(d);
+        this.params.onMouseOver({ ...d, departmentSlug, blockRect: rect }, e);
+      })
+      .on("mouseout", (e, d) => {
+        this.highlightNode(null);
+        this.params.onMouseOut(d);
+      });
+
+    blocks
+      .selectAll(".label")
+      .data(
+        (d) => [d].filter((d) => !d.fake),
+        (d) => d.id,
+      )
+      .join("p")
+      .attr("class", "label")
+      .html(
+        (d) => `
 					<div class="label-amount">${this.getNumber(d.realValue)}</div>
 					<div class="label-name" title="${d.displayName}">
 						${d.link ? `<a href="${d.link}" target="_blank">${d.displayName}</a>` : d.displayName}
 					</div>
-				`
-			)
-	}
+				`,
+      );
+  }
 
 	// Highlights selected node and its connections
 	highlightNode(node) {
