@@ -114,8 +114,9 @@ export const SalaryDistributionChart = () => {
         {selectedYear !== "2023" && selectedYear !== "2024" && (
           <p className="text-xs text-gray-500 mt-4 italic">
             <Trans>
-              Note the different salary ranges prior to 2023. Information for small numbers has been suppressed (values of 0 are
-              actually counts of 1 to 5).
+              Note the different salary ranges prior to 2023. Information for
+              small numbers has been suppressed (values of 0 are actually counts
+              of 1 to 5).
             </Trans>
           </p>
         )}
