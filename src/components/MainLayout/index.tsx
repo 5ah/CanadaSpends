@@ -43,6 +43,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   const spendingActive =
     pathname.startsWith(`/${i18n.locale}/spending`) ||
+    pathname.startsWith(`/${i18n.locale}/budget`) ||
     pathname.startsWith("/ontario") ||
     pathname.startsWith("/alberta");
 
@@ -92,6 +93,14 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
                         className="px-3 py-2 text-sm hover:bg-gray-100 rounded cursor-pointer"
                       >
                         <Trans>Federal</Trans>
+                      </Link>
+                    </DropdownMenu.Item>
+                    <DropdownMenu.Item asChild>
+                      <Link
+                        href={`/${i18n.locale}/budget`}
+                        className="px-3 py-2 text-sm hover:bg-gray-100 rounded cursor-pointer"
+                      >
+                        <Trans>Fall 2025 Budget</Trans>
                       </Link>
                     </DropdownMenu.Item>
                     <DropdownMenu.Item asChild>
@@ -173,6 +182,15 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
             >
               <span className="pl-4 inline-block">
                 <Trans>Federal</Trans>
+              </span>
+            </MobileNavLink>
+            <MobileNavLink
+              href={`/${i18n.locale}/budget`}
+              active={pathname.startsWith(`/${i18n.locale}/budget`)}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <span className="pl-4 inline-block">
+                <Trans>Budget</Trans>
               </span>
             </MobileNavLink>
             <MobileNavLink
