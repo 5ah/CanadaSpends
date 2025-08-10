@@ -45,6 +45,9 @@ export type Department = {
   prioritiesDescription?: string;
   agenciesHeading?: string;
   agenciesDescription?: string;
+  budgetHeading?: string;
+  budgetDescription?: string;
+  budgetProjectionsText?: string;
 };
 
 type Data = {
