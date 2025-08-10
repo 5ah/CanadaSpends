@@ -89,7 +89,21 @@ export default async function DepartmentPage({
                 </div>
               ) : (
                 <Intro>
-                  <Trans>{paragraph}</Trans>
+                  {paragraph.match(/\*\*([^*]+)\*\*/) ||
+                  paragraph.match(/\[([^\]]+)\]\(([^)]+)\)/) ? (
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: paragraph
+                          .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+                          .replace(
+                            /\[([^\]]+)\]\(([^)]+)\)/g,
+                            '<a href="$2" class="text-blue-500 underline hover:text-blue-600" target="_blank" rel="noopener noreferrer">$1</a>',
+                          ),
+                      }}
+                    />
+                  ) : (
+                    <Trans>{paragraph}</Trans>
+                  )}
                 </Intro>
               )}
             </div>
@@ -150,6 +164,34 @@ export default async function DepartmentPage({
 
           <div className="mt-8"></div>
 
+          {department.budgetProjectionsText && (
+            <div>
+              {department.budgetProjectionsText
+                .split("\n\n")
+                .map((paragraph, index) => (
+                  <P key={index}>
+                    {paragraph.match(/\*\*([^*]+)\*\*/) ||
+                    paragraph.match(/\[([^\]]+)\]\(([^)]+)\)/) ? (
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: paragraph
+                            .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+                            .replace(
+                              /\[([^\]]+)\]\(([^)]+)\)/g,
+                              '<a href="$2" class="text-blue-500 underline hover:text-blue-600" target="_blank" rel="noopener noreferrer">$1</a>',
+                            ),
+                        }}
+                      />
+                    ) : (
+                      <Trans>{paragraph}</Trans>
+                    )}
+                  </P>
+                ))}
+            </div>
+          )}
+
+          <div className="mt-8"></div>
+
           {department.agenciesHeading && department.agenciesDescription && (
             <Section>
               <H2>
@@ -180,7 +222,7 @@ export default async function DepartmentPage({
                                       }}
                                     />
                                   ) : (
-                                    <strong>{parts[0]}</strong>
+                                    <span>{parts[0]}</span>
                                   )}
                                   {parts[1] && ` – ${parts[1]}`}
                                 </li>
