@@ -6,6 +6,7 @@ import { curveBumpX, area } from "d3-shape";
 import { cumsum, pairs, rollups, sum } from "d3-array";
 import { hierarchy } from "d3-hierarchy";
 import { formatNumber } from "./utils";
+import { nodeToDepartment } from "@/lib/sankeyDepartmentMappings";
 
 export type SankeyNode = {
   id: string; // Unique identifier for internal operations
@@ -232,9 +233,10 @@ export class SankeyChartD3 {
       .on("mouseover", (e, d) => {
         const target = e.currentTarget as HTMLElement;
         const rect = target.getBoundingClientRect();
+        const departmentSlug = nodeToDepartment[d.displayName];
 
         this.highlightNode(d);
-        this.params.onMouseOver({ ...d, blockRect: rect }, e);
+        this.params.onMouseOver({ ...d, departmentSlug, blockRect: rect }, e);
       })
       .on("mouseout", (e, d) => {
         this.highlightNode(null);

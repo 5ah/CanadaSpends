@@ -1,10 +1,15 @@
 import { hierarchy } from "d3";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import dynamic from "next/dynamic";
+import { useLingui } from "@lingui/react/macro";
 import "./SankeyChart.css";
 import { SankeyData } from "./SankeyChartD3";
 import { SankeyChartSingle } from "./SankeyChartSingle";
 import { formatNumber, sortNodesByAmount, transformToIdBased } from "./utils";
+import {
+  departmentNames,
+  nodeToDepartment,
+} from "@/lib/sankeyDepartmentMappings";
 
 // Dynamically import React Select to avoid SSR hydration issues
 const Select = dynamic(() => import("react-select"), {
@@ -20,6 +25,7 @@ type Node = FlatDataNodes[number] & {
 interface HoverNodeType extends Node {
   percent: number;
   blockRect?: DOMRect;
+  departmentSlug?: string;
 }
 
 interface SearchOptionType {
@@ -87,6 +93,7 @@ type SankeyChartProps = {
 };
 
 export function SankeyChart(props: SankeyChartProps) {
+  const { i18n } = useLingui();
   const [chartData, setChartData] = useState<SankeyData | null>(null);
   const [flatData, setFlatData] = useState<FlatDataNodes | null>(null);
 
@@ -101,6 +108,7 @@ export function SankeyChart(props: SankeyChartProps) {
     y: number;
   } | null>(null);
   const [totalAmount, setTotalAmount] = useState(0);
+  const hideTooltipTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     // Transform the data to use ID-based structure
@@ -116,6 +124,15 @@ export function SankeyChart(props: SankeyChartProps) {
     setFlatData(nodes);
     setTotalAmount(Math.max(revenueTotal, spendingTotal));
   }, [props.data]);
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (hideTooltipTimeoutRef.current) {
+        clearTimeout(hideTooltipTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const handleSearch = (selected: SearchOptionType | null) => {
     setSearchedNode(selected);
@@ -136,6 +153,11 @@ export function SankeyChart(props: SankeyChartProps) {
 
   const handleMouseOver = useCallback((totalAmount: number) => {
     return (node: Node, event?: MouseEvent) => {
+      // Clear any pending hide timeout
+      if (hideTooltipTimeoutRef.current) {
+        clearTimeout(hideTooltipTimeoutRef.current);
+        hideTooltipTimeoutRef.current = null;
+      }
       const percent = (node.realValue! / totalAmount) * 100;
       setHoverNode({
         ...node,
@@ -149,8 +171,10 @@ export function SankeyChart(props: SankeyChartProps) {
   }, []);
 
   const handleMouseOut = useCallback(() => {
-    setHoverNode(null);
-    setMousePosition(null);
+    hideTooltipTimeoutRef.current = setTimeout(() => {
+      setHoverNode(null);
+      setMousePosition(null);
+    }, 100);
   }, []);
 
   return (
@@ -162,10 +186,24 @@ export function SankeyChart(props: SankeyChartProps) {
             inputId="sankey-search-input"
             value={searchedNode}
             options={flatData
-              ?.map((d) => ({
-                value: d.id!,
-                label: d.displayName || d.name || "Unknown",
-              }))
+              ?.flatMap((d) => {
+                const base = {
+                  value: d.id!,
+                  label: d.displayName || d.name || "Unknown",
+                };
+
+                const deptSlug = nodeToDepartment[d.displayName];
+                if (deptSlug && departmentNames[deptSlug] && d.children) {
+                  return [
+                    base,
+                    {
+                      value: d.id!,
+                      label: departmentNames[deptSlug],
+                    },
+                  ];
+                }
+                return [base];
+              })
               .filter((d) => d.value && d.label)}
             onChange={handleSearch}
             isClearable={true}
@@ -195,6 +233,13 @@ export function SankeyChart(props: SankeyChartProps) {
         {hoverNode && (
           <div
             className="node-tooltip"
+            onMouseEnter={() => {
+              if (hideTooltipTimeoutRef.current) {
+                clearTimeout(hideTooltipTimeoutRef.current);
+                hideTooltipTimeoutRef.current = null;
+              }
+            }}
+            onMouseLeave={handleMouseOut}
             style={{
               // Horizontal: right of the block, constrained to viewport
               left: hoverNode.blockRect
@@ -217,6 +262,16 @@ export function SankeyChart(props: SankeyChartProps) {
               <span className="node-tooltip-amount-divider">&#8226;</span>
               <span>{hoverNode.percent.toFixed(1)}%</span>
             </div>
+            {hoverNode.departmentSlug && (
+              <div className="node-tooltip-department">
+                <a
+                  href={`/${i18n.locale}/spending/${hoverNode.departmentSlug}`}
+                  className="node-tooltip-link"
+                >
+                  Learn more
+                </a>
+              </div>
+            )}
           </div>
         )}
 
@@ -232,7 +287,6 @@ export function SankeyChart(props: SankeyChartProps) {
               onMouseOver={handleMouseOver(chartData.revenue)}
               onMouseOut={handleMouseOut}
             />
-
             <SankeyChartSingle
               {...chartConfig.spending}
               data={sortNodesByAmount(chartData.spending_data)}
