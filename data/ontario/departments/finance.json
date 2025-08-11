@@ -173,9 +173,13 @@
     "_programsHeading": "Heading for the programs and services section",
     "_programsDescription": "Description of what programs and services this department offers"
   },
-  "introText": "The Ministry of Finance manages Ontario's fiscal policy, government revenues, taxation, and financial operations, ensuring responsible stewardship of public funds and economic planning.",
+  "introText": "The Ontario Ministry of Finance is responsible for managing the province's fiscal policy, developing the provincial budget, preparing mid-year updates, and overseeing taxation and economic policy to maintain a strong financial climate . It regulates financial sectors and ensures accountability in the use of public funds .\n\nAgencies under its purview include Ontario Financing Authority and the Financial Services Regulatory Authority of Ontario (FSRA). It oversees major programs such as tax collection (personal, corporate, HST), debt management, fiscal forecasting, and budget planning.",
   "descriptionText": "The Ontario Ministry of Finance spent $13.3B in fiscal year (FY) 2023-24, representing 6.4% of the $206.6B in total provincial spending. This includes debt servicing, municipal partnerships, and core government financial operations.",
   "roleText": "Finance plays a central role in Ontario's government operations, managing the province's budget, debt, taxation systems, and transfers to municipalities. It ensures fiscal responsibility while supporting economic growth and public service delivery.",
+  "budgetProjectionsText": "In 2023–24, the province's net debt interest fell by $1.8 billion (13.3%), reflecting lower interest rates. This cost reduction is a notable fiscal outcome overseen by the Ministry. For broader context: Health spending grew 6.9% to $85.5 billion, and Education rose 13.8% to $37.2 billion .\n\nThe 2023–24 Public Accounts show the province received clean audit opinions for the seventh consecutive year . The Ministry is instrumental in preparing these accounts, coordinating fiscal reporting, and implementing financial controls. Provincial budget for 2024–25 totals approximately $218.3 billion.",
+
   "programsHeading": "Financial Management and Municipal Programs",
-  "programsDescription": "The Ministry of Finance operates programs including debt management, taxation administration, the Ontario Municipal Partnership Fund, property tax assessment, economic forecasting, and financial policy development."
+  "programsDescription": "",
+  "leadershipHeading": "Leadership",
+  "leadershipDescription": "The Ministry is led by the **Minister of Finance -** formerly known as the Treasurer - who is appointed by the Lieutenant Governor upon advice of the Premier and is accountable to the Legislative Assembly.\n\nA parliamentary assistant supports the Minister. The Ministry does not have a separate governance board; its stewardship is overseen by central agencies like the Treasury Board Secretariat, led by the President of the Treasury Board which provides fiscal oversight and approves major expenditures and labour agreements ."
 }

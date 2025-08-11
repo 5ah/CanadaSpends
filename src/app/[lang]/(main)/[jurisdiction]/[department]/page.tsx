@@ -67,9 +67,47 @@ export default async function DepartmentPage({
           <H1>
             <Trans>{department.name}</Trans>
           </H1>
-          <Intro>
-            <Trans>{department.introText}</Trans>
-          </Intro>
+          {department.introText.split("\n\n").map((paragraph, index) => (
+            <div key={index}>
+              {paragraph.startsWith("•") ? (
+                <div className="mt-4">
+                  <ul className="list-disc pl-6 space-y-2">
+                    {paragraph
+                      .split("\n")
+                      .filter((line) => line.trim().startsWith("•"))
+                      .map((item, itemIndex) => {
+                        const cleanItem = item.replace("• ", "");
+                        const parts = cleanItem.split(" – ");
+                        return (
+                          <li key={itemIndex} className="text-gray-700">
+                            <strong>{parts[0]}</strong>
+                            {parts[1] && ` – ${parts[1]}`}
+                          </li>
+                        );
+                      })}
+                  </ul>
+                </div>
+              ) : (
+                <Intro>
+                  {paragraph.match(/\*\*([^*]+)\*\*/) ||
+                  paragraph.match(/\[([^\]]+)\]\(([^)]+)\)/) ? (
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: paragraph
+                          .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+                          .replace(
+                            /\[([^\]]+)\]\(([^)]+)\)/g,
+                            '<a href="$2" class="text-blue-500 underline hover:text-blue-600" target="_blank" rel="noopener noreferrer">$1</a>',
+                          ),
+                      }}
+                    />
+                  ) : (
+                    <Trans>{paragraph}</Trans>
+                  )}
+                </Intro>
+              )}
+            </div>
+          ))}
 
           <H2>
             <Trans>Department Spending</Trans>
@@ -99,17 +137,155 @@ export default async function DepartmentPage({
 
           <div className="mt-6"></div>
 
-          <P>
-            <Trans>{department.descriptionText}</Trans>
-          </P>
+          {department.descriptionText.split("\n\n").map((paragraph, index) => (
+            <P key={index}>
+              <Trans>{paragraph}</Trans>
+            </P>
+          ))}
 
-          <P>
-            <Trans>{department.roleText}</Trans>
-          </P>
+          {department.roleText.split("\n\n").map((paragraph, index) => (
+            <P key={index}>
+              {paragraph.match(/\[([^\]]+)\]\(([^)]+)\)/) ? (
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: paragraph.replace(
+                      /\[([^\]]+)\]\(([^)]+)\)/g,
+                      '<a href="$2" class="text-blue-500 underline hover:text-blue-600" target="_blank" rel="noopener noreferrer">$1</a>',
+                    ),
+                  }}
+                />
+              ) : (
+                <Trans>{paragraph}</Trans>
+              )}
+            </P>
+          ))}
 
           <ChartContainer>
             <DepartmentMiniSankey department={department} />
           </ChartContainer>
+
+          <div className="mt-8"></div>
+
+          {department.budgetProjectionsText && (
+            <div>
+              {department.budgetProjectionsText
+                .split("\n\n")
+                .map((paragraph, index) => (
+                  <P key={index}>
+                    {paragraph.match(/\*\*([^*]+)\*\*/) ||
+                    paragraph.match(/\[([^\]]+)\]\(([^)]+)\)/) ? (
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: paragraph
+                            .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+                            .replace(
+                              /\[([^\]]+)\]\(([^)]+)\)/g,
+                              '<a href="$2" class="text-blue-500 underline hover:text-blue-600" target="_blank" rel="noopener noreferrer">$1</a>',
+                            ),
+                        }}
+                      />
+                    ) : (
+                      <Trans>{paragraph}</Trans>
+                    )}
+                  </P>
+                ))}
+            </div>
+          )}
+
+          <div className="mt-8"></div>
+
+          {department.agenciesHeading && department.agenciesDescription && (
+            <Section>
+              <H2>
+                <Trans>{department.agenciesHeading}</Trans>
+              </H2>
+              <div>
+                {department.agenciesDescription
+                  .split("\n\n")
+                  .map((paragraph, index) => (
+                    <div key={index}>
+                      {paragraph.startsWith("•") ? (
+                        <ul className="list-disc pl-6 space-y-2">
+                          {paragraph
+                            .split("\n")
+                            .filter((line) => line.trim().startsWith("•"))
+                            .map((item, itemIndex) => {
+                              const cleanItem = item.replace("• ", "");
+                              const parts = cleanItem.split(" – ");
+                              return (
+                                <li key={itemIndex} className="text-gray-700">
+                                  {parts[0].match(/\*\*([^*]+)\*\*/) ? (
+                                    <span
+                                      dangerouslySetInnerHTML={{
+                                        __html: parts[0].replace(
+                                          /\*\*([^*]+)\*\*/g,
+                                          "<strong>$1</strong>",
+                                        ),
+                                      }}
+                                    />
+                                  ) : (
+                                    <span>{parts[0]}</span>
+                                  )}
+                                  {parts[1] && ` – ${parts[1]}`}
+                                </li>
+                              );
+                            })}
+                        </ul>
+                      ) : (
+                        <P>
+                          <Trans>{paragraph}</Trans>
+                        </P>
+                      )}
+                    </div>
+                  ))}
+              </div>
+            </Section>
+          )}
+
+          {department.programsDescription && (
+            <div className="mt-6">
+              <div>
+                {department.programsDescription
+                  .split("\n\n")
+                  .map((paragraph, index) => (
+                    <div key={index}>
+                      {paragraph.startsWith("•") ? (
+                        <ul className="list-disc pl-6 space-y-2">
+                          {paragraph
+                            .split("\n")
+                            .filter((line) => line.trim().startsWith("•"))
+                            .map((item, itemIndex) => {
+                              const cleanItem = item.replace("• ", "");
+                              const parts = cleanItem.split(" – ");
+                              return (
+                                <li key={itemIndex} className="text-gray-700">
+                                  {parts[0].match(/\*\*([^*]+)\*\*/) ? (
+                                    <span
+                                      dangerouslySetInnerHTML={{
+                                        __html: parts[0].replace(
+                                          /\*\*([^*]+)\*\*/g,
+                                          "<strong>$1</strong>",
+                                        ),
+                                      }}
+                                    />
+                                  ) : (
+                                    <span>{parts[0]}</span>
+                                  )}
+                                  {parts[1] && ` – ${parts[1]}`}
+                                </li>
+                              );
+                            })}
+                        </ul>
+                      ) : (
+                        <P>
+                          <Trans>{paragraph}</Trans>
+                        </P>
+                      )}
+                    </div>
+                  ))}
+              </div>
+            </div>
+          )}
 
           <div className="mt-8"></div>
 
@@ -155,9 +331,63 @@ export default async function DepartmentPage({
               <H2>
                 <Trans>{department.leadershipHeading}</Trans>
               </H2>
-              <P>
-                <Trans>{department.leadershipDescription}</Trans>
-              </P>
+              <div>
+                {department.leadershipDescription
+                  .split("\n\n")
+                  .map((paragraph, index) => (
+                    <div key={index}>
+                      {paragraph.startsWith("•") ? (
+                        <ul className="list-disc pl-6 space-y-2">
+                          {paragraph
+                            .split("\n")
+                            .filter((line) => line.trim().startsWith("•"))
+                            .map((item, itemIndex) => {
+                              const cleanItem = item.replace("• ", "");
+                              const parts = cleanItem.split(" – ");
+                              return (
+                                <li key={itemIndex} className="text-gray-700">
+                                  {parts[0].match(/\*\*([^*]+)\*\*/) ? (
+                                    <span
+                                      dangerouslySetInnerHTML={{
+                                        __html: parts[0].replace(
+                                          /\*\*([^*]+)\*\*/g,
+                                          "<strong>$1</strong>",
+                                        ),
+                                      }}
+                                    />
+                                  ) : (
+                                    <span>{parts[0]}</span>
+                                  )}
+                                  {parts[1] && ` – ${parts[1]}`}
+                                </li>
+                              );
+                            })}
+                        </ul>
+                      ) : (
+                        <P>
+                          {paragraph.match(/\*\*([^*]+)\*\*/) ||
+                          paragraph.match(/\[([^\]]+)\]\(([^)]+)\)/) ? (
+                            <span
+                              dangerouslySetInnerHTML={{
+                                __html: paragraph
+                                  .replace(
+                                    /\*\*([^*]+)\*\*/g,
+                                    "<strong>$1</strong>",
+                                  )
+                                  .replace(
+                                    /\[([^\]]+)\]\(([^)]+)\)/g,
+                                    '<a href="$2" class="text-blue-500 underline hover:text-blue-600" target="_blank" rel="noopener noreferrer">$1</a>',
+                                  ),
+                              }}
+                            />
+                          ) : (
+                            <Trans>{paragraph}</Trans>
+                          )}
+                        </P>
+                      )}
+                    </div>
+                  ))}
+              </div>
             </Section>
           )}
 
