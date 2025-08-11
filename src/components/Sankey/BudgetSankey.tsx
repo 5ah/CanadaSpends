@@ -34,45 +34,89 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
   // Grouped Spending Reductions (in percentages) - 9 Major Categories
   const [spendingReductions, setSpendingReductions] =
     useState<SpendingReductions>({
-      "Health & Public Safety": 0, // Health Research, Health Care Systems, Food Safety, Public Health, CSIS, Corrections, RCMP, Justice System
-      "Social Services & Employment": 0, // Employment + Training, Housing Assistance, Gender Equality, Support for Veterans
-      "Innovation & Research": 0, // Investment/Growth/Commercialization, Research, Statistics Canada, Other Boards + Councils
-      "Immigration & Border Services": 0, // Border Security, Immigration Services, Settlement Assistance, Citizenship + Passports
-      "Government Operations": 0, // Public Services + Procurement, Government IT, Parliament, Privy Council, Treasury Board
-      "Culture & Official Languages": 0, // Official Languages + Culture
-      "Revenue & Tax Administration": 0, // Revenue Canada
-      "Other Federal Programs": 0, // Catch-all for remaining programs
+      Health: 7.5, // Health Research, Health Care Systems, Food Safety, Public Health
+      "Public Safety": 7.5, // CSIS, Corrections, RCMP, Justice System, Support for Veterans
+      "Social Services & Employment": 7.5, // Employment + Training, Housing Assistance, Gender Equality, Support for Veterans
+      "Economy + Innovation & Research": 7.5, // Investment/Growth/Commercialization, Research, Statistics Canada, Other Boards + Councils
+      "Immigration & Border Services": 7.5, // Border Security, Immigration Services, Settlement Assistance, Citizenship + Passports
+      "Government Operations": 7.5, // Public Services + Procurement, Government IT, Parliament, Privy Council, Treasury Board
+      "Culture & Official Languages": 7.5, // Official Languages + Culture
+      "Revenue & Tax Administration": 7.5, // Revenue Canada
+      "Other Federal Programs": 0, // Spending Classified as "Off-Limits to Cuts"
+      "International Affairs": 7.5, // International Development, International Trade, International Cooperation, International Security, International Development, International Trade, International Cooperation, International Security
     });
 
   // Mapping From Detailed Department Names to Broader Categories
   const getDepartmentCategory = (departmentName: string): string => {
     const categoryMap: { [key: string]: string } = {
-      "Health Research": "Health & Public Safety",
-      "Health Care Systems + Protection": "Health & Public Safety",
-      "Food Safety": "Health & Public Safety",
-      "Public Health + Disease Prevention": "Health & Public Safety",
-      CSIS: "Health & Public Safety",
-      Corrections: "Health & Public Safety",
-      RCMP: "Health & Public Safety",
-      "Justice System": "Health & Public Safety",
+      "Health Care Systems + Protection": "Health",
+      "Food Safety": "Health",
+      "Public Health + Disease Prevention": "Health",
+      "Health Research": "Health",
+
+      RCMP: "Public Safety",
+      Corrections: "Public Safety",
+      "Justice System": "Public Safety",
+      "Community Safety": "Public Safety",
+      CSIS: "Public Safety",
+      "Disaster Relief": "Public Safety",
+      "Other Public Safety Expenses": "Public Safety",
 
       "Employment + Training": "Social Services & Employment",
       "Housing Assistance": "Social Services & Employment",
       "Gender Equality": "Social Services & Employment",
 
-      "Investment, Growth and Commercialization": "Innovation & Research",
-      Research: "Innovation & Research",
-      "Statistics Canada": "Innovation & Research",
-      "Other Boards + Councils": "Innovation & Research",
-
+      "Other Immigration Services": "Immigration & Border Services",
+      "Border Security": "Immigration & Border Services",
       "Settlement Assistance": "Immigration & Border Services",
       "Citizenship + Passports": "Immigration & Border Services",
+      "Visitors, International Students + Temporary Workers":
+        "Immigration & Border Services",
+      "Interim Housing Assistance": "Immigration & Border Services",
+
+      "Other International Affairs Activities": "International Affairs",
+      "Development, Peace + Security Programming": "International Affairs",
+      "Support for Embassies + Canada's Presence Abroad":
+        "International Affairs",
+      "International Diplomacy": "International Affairs",
+      "Trade and Investment": "International Affairs",
+      "International Development Research Centre": "International Affairs",
+
+      "Investment, Growth and Commercialization":
+        "Economy + Innovation & Research",
+      Research: "Economy + Innovation & Research",
+      "Statistics Canada": "Economy + Innovation & Research",
+      "Other Boards + Councils": "Economy + Innovation & Research",
+      "Infrastructure Investments": "Economy + Innovation & Research",
+      "Innovative and Sustainable Natural Resources Development":
+        "Economy + Innovation & Research",
+      "Nuclear Labs + Decommissioning": "Economy + Innovation & Research",
+      "Support for Global Competition": "Economy + Innovation & Research",
+      "Natural Resources Science + Risk Mitigation":
+        "Economy + Innovation & Research",
+      "Other Natural Resources Management Support":
+        "Economy + Innovation & Research",
+      Transportation: "Economy + Innovation & Research",
+      "Coastguard Operations": "Economy + Innovation & Research",
+      "Fisheries + Aquatic Ecosystems": "Economy + Innovation & Research",
+      "Other Fisheries Expenses": "Economy + Innovation & Research",
+      Agriculture: "Economy + Innovation & Research",
+      "Other Environment and Climate Change Programs":
+        "Economy + Innovation & Research",
+      "Weather Services": "Economy + Innovation & Research",
+      "Nature Conservation": "Economy + Innovation & Research",
+      "National Parks": "Economy + Innovation & Research",
+      Space: "Economy + Innovation & Research",
+      "Banking + Finance": "Economy + Innovation & Research",
 
       "Other Public Services + Procurement": "Government Operations",
       "Government IT Operations": "Government Operations",
       Parliament: "Government Operations",
       "Privy Council Office": "Government Operations",
       "Treasury Board": "Government Operations",
+      "Office of the Secretary to the Governor General":
+        "Government Operations",
+      "Office of the Chief Electoral Officer": "Government Operations",
 
       "Official Languages + Culture": "Culture & Official Languages",
 
@@ -815,12 +859,12 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
             {
               name: t`Ready Forces`,
               amount2024: 13.368,
-              amount2025: 13.368,
+              amount2025: 16.368,
             },
             {
               name: t`Defence Procurement`,
               amount2024: 4.93,
-              amount2025: 4.93,
+              amount2025: 7.93,
             },
             {
               name: t`Sustainable Bases, IT Systems, Infrastructure`,
@@ -830,7 +874,7 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
             {
               name: t`Defence Team`,
               amount2024: 5.39,
-              amount2025: 5.39,
+              amount2025: 8.09,
             },
             {
               name: t`Future Force Design`,
@@ -1038,7 +1082,7 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
         {
           name: t`Individual Income Taxes`,
           amount2024: 217.7,
-          amount2025: 217.7,
+          amount2025: 212.3,
         },
         {
           name: t`Corporate Income Taxes`,
@@ -1157,44 +1201,47 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
               <Trans>
                 Adjust sliders to see how department spending reductions affect
                 the overall Fall 2025 Budget. The Minister of Finance has asked
-                departments to reduce spending by 7.5%, 10%, or 15%.
+                departments to reduce spending by 7.5% in 2026-27, 10% in
+                2027-28, and 15% in 2028-29.
               </Trans>
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-            {Object.entries(spendingReductions).map(([category, reduction]) => (
-              <div key={category} className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <label className="text-sm font-medium text-white">
-                    {category}
-                  </label>
-                  <span className="text-sm font-semibold text-white">
-                    {reduction}%
-                  </span>
+            {Object.entries(spendingReductions)
+              .filter(([category]) => category !== "Other Federal Programs")
+              .map(([category, reduction]) => (
+                <div key={category} className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <label className="text-sm font-medium text-white">
+                      {category}
+                    </label>
+                    <span className="text-sm font-semibold text-white">
+                      {reduction}%
+                    </span>
+                  </div>
+                  <input
+                    type="range"
+                    min="0"
+                    max="15"
+                    step="0.5"
+                    value={reduction}
+                    onChange={(e) =>
+                      updateSpendingReduction(
+                        category,
+                        parseFloat(e.target.value),
+                      )
+                    }
+                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                    style={{
+                      background: `linear-gradient(to right, #3B82F6 0%, #3B82F6 ${(reduction / 15) * 100}%, #E5E7EB ${(reduction / 20) * 100}%, #E5E7EB 100%)`,
+                    }}
+                  />
+                  <div className="flex justify-between text-xs text-white">
+                    <span>0%</span>
+                    <span>15%</span>
+                  </div>
                 </div>
-                <input
-                  type="range"
-                  min="0"
-                  max="15"
-                  step="0.5"
-                  value={reduction}
-                  onChange={(e) =>
-                    updateSpendingReduction(
-                      category,
-                      parseFloat(e.target.value),
-                    )
-                  }
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-                  style={{
-                    background: `linear-gradient(to right, #3B82F6 0%, #3B82F6 ${(reduction / 15) * 100}%, #E5E7EB ${(reduction / 20) * 100}%, #E5E7EB 100%)`,
-                  }}
-                />
-                <div className="flex justify-between text-xs text-white">
-                  <span>0%</span>
-                  <span>15%</span>
-                </div>
-              </div>
-            ))}
+              ))}
           </div>
         </Section>
       </PageContent>
