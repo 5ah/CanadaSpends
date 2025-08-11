@@ -216,7 +216,7 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
           name: t`Economy and Standard of Living`,
           children: [
             {
-              name: t`Standard of Living and Assistance to Address Inequalities`,
+              name: t`Standard of Living`,
               children: [
                 {
                   name: t`Health`,
