@@ -11,6 +11,7 @@ import makSok from "./mak_sok.jpeg";
 import natalieLancaster from "./natalie_lancaster.jpeg";
 import shaneParrish from "./shane_parrish.jpeg";
 import toddScheidt from "./todd_scheidt.jpeg";
+import nelsonLee from "./nelson_lee.jpeg";
 
 const contributors: Contributor[] = [
   // {
@@ -68,6 +69,12 @@ const contributors: Contributor[] = [
     name: "Todd Scheidt",
     photoSrc: toddScheidt,
     linkedin_username: "toddscheidt",
+  },
+  {
+    name: "Nelson Lee",
+    photoSrc: nelsonLee,
+    linkedin_username: "nelson-lee2",
+    x_username: "NelsonXLee",
   },
 ].sort((a, b) => a.name.localeCompare(b.name));
 
