@@ -53,10 +53,6 @@ export default function FAQ() {
       answer: t`No, we are not a lobby group. We are not paid, nor do we represent any special interest groups. Our mission is purely to share data-driven insights on federal government spending.`,
     },
     {
-      question: t`Is this a permanent organization?`,
-      answer: t`No, we currently envision this as a short-term project. Our focus is to bring data-driven spending insights to Canadians.`,
-    },
-    {
       question: t`What is your affiliation with Build Canada?`,
       answer: t`We are a project of Build Canada. While some team members overlap, involvement in Build Canada doesn't imply involvement in Canada Spends and vice versa.`,
     },
@@ -66,11 +62,38 @@ export default function FAQ() {
     },
     {
       question: t`Can I donate?`,
-      answer: t`At this time, the best way to support us is through engagement and amplification of our content. If we open up to donations in the future, we'll let you know how you can contribute directly to our efforts.`,
+      answer: (
+        <P>
+          <Trans>
+            Canada Spends, as a project of Build Canada, is funded through
+            donations from our builder network. Donate
+          </Trans>{" "}
+          <ExternalLink href="https://buy.stripe.com/3cI5kCdi8a2K2xY2bgdZ600https://buy.stripe.com/3cI5kCdi8a2K2xY2bgdZ600">
+            here
+          </ExternalLink>{" "}
+          <Trans>
+            to help us support our mission.
+          </Trans>
+        </P>
+      ),
     },
     {
       question: t`How can I stay up to date on your work?`,
-      answer: t`Stay connected by signing up for our newsletter. It's the best way to get updates, exclusive insights, and learn about new initiatives as they happen.`,
+      answer: (
+        <P>
+          <Trans>
+            Stay connected by following us on
+          </Trans>{" "}
+          <ExternalLink href="https://www.x.com/canada_spends">
+            X
+          </ExternalLink>{" "}
+          <Trans>or subscribe to</Trans>{" "}
+          <ExternalLink href="https://buildcanada.substack.com/subscribe">
+            Build Canada's newsletter
+          </ExternalLink>
+          .
+        </P>
+      ),
     },
     {
       question: t`Can I get involved?`,
@@ -79,11 +102,12 @@ export default function FAQ() {
           <Trans>
             We welcome passionate individuals who want to help make a
             difference. Whether it's by contributing your skills, helping with
-            outreach, or amplifying our work, we'd love to hear from you. Reach
-            out to us at
+            outreach, or amplifying our work, we'd love to hear from you
           </Trans>{" "}
-          <ExternalLink href="mailto:hi@canadaspends.com">
-            hi@canadaspends.com
+          <ExternalLink
+            href="https://buildcanada.com/get-involved"
+          >
+            here
           </ExternalLink>
           .
         </P>
@@ -117,7 +141,7 @@ export default function FAQ() {
   ];
 
   return (
-    <Accordion type="single" className="w-full">
+    <Accordion type="single" collapsible className="w-full">
       {faqs.map((faq) => (
         <AccordionItem key={faq.question} value={faq.question}>
           <AccordionTrigger>

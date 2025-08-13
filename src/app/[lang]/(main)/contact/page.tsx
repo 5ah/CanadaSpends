@@ -41,8 +41,8 @@ export default async function Contact(props: PropsWithChildren<PageLangParam>) {
           <Intro>
             <Trans>
               Email us at{" "}
-              <ExternalLink href="mailto:hi@canadaspends.com">
-                hi@canadaspends.com
+              <ExternalLink href="mailto:hi@buildcanada.com">
+                hi@buildcanada.com
               </ExternalLink>{" "}
               or connect with us on X{" "}
               <ExternalLink href="https://x.com/canada_spends">
