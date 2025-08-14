@@ -1,7 +1,7 @@
 "use client";
 
 import { ExternalLink } from "@/components/Layout";
-import { Trans, useLingui } from "@lingui/react/macro";
+import { Trans } from "@lingui/react/macro";
 import Image from "next/image";
 import Link from "next/link";
 import { FaXTwitter } from "react-icons/fa6";
@@ -52,9 +52,11 @@ export const Footer = () => {
                 <Trans>Subscribe to our newsletter</Trans>
               </h3>
               <p className="text-sm/6 text-gray-600">
-                <Trans>Get weekly recaps of current events and updates from our team.</Trans>
+                <Trans>
+                  Get weekly recaps of current events and updates from our team.
+                </Trans>
               </p>
-              <a 
+              <a
                 href="https://buildcanada.substack.com/subscribe"
                 target="_blank"
                 className="bg-indigo-950 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 rounded-md w-fit"
