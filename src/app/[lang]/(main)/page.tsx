@@ -44,16 +44,28 @@ export default async function Page(props: PageLangParam) {
                     <br />
                   </p>
                 </div>
-                <Link
-                  className="text-white bg-indigo-950 hover:bg-indigo-900 items-center font-medium justify-center py-2 px-4 relative flex w-auto min-w-[7.00rem] max-w-full overflow-hidden"
-                  href="/spending"
-                >
-                  <div className="items-center cursor-pointer justify-center relative flex overflow-hidden">
-                    <div className="items-center justify-center flex p-1">
-                      <Trans>Explore data</Trans>
+                <div className="flex gap-4">
+                  <Link
+                    className="text-white bg-indigo-950 hover:bg-indigo-900 items-center font-medium justify-center py-2 px-4 relative flex w-auto min-w-[7.00rem] max-w-full overflow-hidden"
+                    href="/spending"
+                  >
+                    <div className="items-center cursor-pointer justify-center relative flex overflow-hidden">
+                      <div className="items-center justify-center flex p-1">
+                        <Trans>Explore federal data</Trans>
+                      </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                  <Link
+                    className="text-indigo-950 bg-white border-indigo-950 border-2 hover:bg-gray-100 items-center font-medium justify-center py-2 px-4 relative flex w-auto min-w-[7.00rem] max-w-full overflow-hidden"
+                    href="/ontario"
+                  >
+                    <div className="items-center cursor-pointer justify-center relative flex overflow-hidden">
+                      <div className="items-center justify-center flex p-1">
+                        <Trans>Explore Ontario data</Trans>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
               </div>
             </div>
             <div className="items-center bottom-0 justify-center left-0 opacity-75 pb-3 absolute right-0 flex gap-[0.38rem] m-auto">
