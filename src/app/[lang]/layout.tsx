@@ -18,13 +18,14 @@ export async function generateMetadata(
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = useLingui();
+
   return {
     title: t`Get The Facts About Government Spending`,
     description: t`Government spending shouldn't be a black box. We turn complex data into clear, non-partisan insights so every Canadian knows where their money goes.`,
     openGraph: {
       images: [
         {
-          url: "/cs-seo-image.png",
+          url: `https://canadaspends.com/cs-seo-image.png`,
           width: 1200,
           height: 630,
           alt: "Canada Spends",
