@@ -21,6 +21,16 @@ export async function generateMetadata(
   return {
     title: t`Get The Facts About Government Spending`,
     description: t`Government spending shouldn't be a black box. We turn complex data into clear, non-partisan insights so every Canadian knows where their money goes.`,
+    openGraph: {
+      images: [
+        {
+          url: "/cs-seo-image.png",
+          width: 1200,
+          height: 630,
+          alt: "Canada Spends",
+        },
+      ],
+    },
     icons: [
       {
         url: "/favicon-96x96.png",
