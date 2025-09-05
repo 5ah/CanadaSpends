@@ -14,6 +14,18 @@ export interface NewsItem {
 // Budget News Data - Easily Configurable and Maintainable
 export const budgetNewsData: NewsItem[] = [
   {
+    id: "cbc-tariff-spending",
+    source: "CBC",
+    date: "Sep 5, 2025",
+    url: "https://www.cbc.ca/news/politics/carney-unveils-new-industrial-strategy-1.7626064",
+    headline:
+      "Carney unveils billions in funding, Buy Canadian policy to combat Trump's tariffs",
+    budgetImpact: "Economy + Innovation & Research",
+    amount: "$6.37B",
+    percentage: 100,
+    isIncrease: true,
+  },
+  {
     id: "cbc-defence",
     source: "CBC",
     date: "Aug 3, 2025",
