@@ -483,6 +483,26 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
           ],
         },
         {
+          name: t`New Spending`,
+          children: [
+            {
+              name: t`Strategic Response Fund`,
+              amount2024: 0,
+              amount2025: 5,
+            },
+            {
+              name: t`Regional Tariff Response Initiative`,
+              amount2024: 0,
+              amount2025: 1,
+            },
+            {
+              name: t`Biofuel Production Incentive`,
+              amount2024: 0,
+              amount2025: 0.37,
+            },
+          ],
+        },
+        {
           name: t`Safety`,
           children: [
             {
