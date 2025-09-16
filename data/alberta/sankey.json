@@ -38,11 +38,7 @@
           },
           {
             "name": "Advanced Education \u2192 Inter-Ministry Consolidation Adjustments",
-            "amount": -0.422708
-          },
-          {
-            "name": "Advanced Education \u2192 Unreported",
-            "amount": -0.228549
+            "amount": -0.10186
           }
         ]
       },
@@ -72,10 +68,6 @@
           {
             "name": "Affordability and Utilities \u2192 Inter-Ministry Consolidation Adjustments",
             "amount": -0.000167
-          },
-          {
-            "name": "Affordability and Utilities \u2192 Unreported",
-            "amount": -0.007789
           }
         ]
       },
@@ -125,10 +117,6 @@
           {
             "name": "Agriculture and Irrigation \u2192 Inter-Ministry Consolidation Adjustments",
             "amount": -0.103368
-          },
-          {
-            "name": "Agriculture and Irrigation \u2192 Unreported",
-            "amount": -0.048019
           }
         ]
       },
@@ -166,10 +154,6 @@
           {
             "name": "Arts, Culture and Status of Women \u2192 Inter-Ministry Consolidation Adjustments",
             "amount": -0.002426
-          },
-          {
-            "name": "Arts, Culture and Status of Women \u2192 Unreported",
-            "amount": -0.007346
           }
         ]
       },
@@ -207,10 +191,6 @@
           {
             "name": "Children and Family Services \u2192 Inter-Ministry Consolidation Adjustments",
             "amount": -0.005145
-          },
-          {
-            "name": "Children and Family Services \u2192 Unreported",
-            "amount": -0.003421
           }
         ]
       },
@@ -256,10 +236,6 @@
           {
             "name": "Education \u2192 Inter-Ministry Consolidation Adjustments",
             "amount": -0.074208
-          },
-          {
-            "name": "Education \u2192 Unreported",
-            "amount": -0.483
           }
         ]
       },
@@ -297,10 +273,6 @@
           {
             "name": "Energy and Minerals \u2192 Inter-Ministry Consolidation Adjustments",
             "amount": -0.001177
-          },
-          {
-            "name": "Energy and Minerals \u2192 Unreported",
-            "amount": -0.009621
           }
         ]
       },
@@ -350,10 +322,6 @@
           {
             "name": "Environment and Protected Areas \u2192 Inter-Ministry Consolidation Adjustments",
             "amount": -0.0102
-          },
-          {
-            "name": "Environment and Protected Areas \u2192 Unreported",
-            "amount": -0.088455
           }
         ]
       },
@@ -387,10 +355,6 @@
           {
             "name": "Forestry and Parks \u2192 Inter-Ministry Consolidation Adjustments",
             "amount": -0.001506
-          },
-          {
-            "name": "Forestry and Parks \u2192 Unreported",
-            "amount": -0.029658
           }
         ]
       },
@@ -447,8 +411,7 @@
           {
             "name": "Health \u2192 Inter-Ministry Consolidation Adjustments",
             "amount": -0.287755
-          },
-          { "name": "Health \u2192 Unreported", "amount": -2.045903 }
+          }
         ]
       },
       {
@@ -514,10 +477,6 @@
           {
             "name": "Indigenous Relations \u2192 Inter-Ministry Consolidation Adjustments",
             "amount": -0.000088
-          },
-          {
-            "name": "Indigenous Relations \u2192 Unreported",
-            "amount": -0.010545
           }
         ]
       },
@@ -551,8 +510,7 @@
           {
             "name": "Infrastructure \u2192 Inter-Ministry Consolidation Adjustments",
             "amount": -0.967232
-          },
-          { "name": "Infrastructure \u2192 Unreported", "amount": -0.164781 }
+          }
         ]
       },
       {
@@ -616,8 +574,7 @@
           {
             "name": "Justice \u2192 Inter-Ministry Consolidation Adjustments",
             "amount": -0.000517
-          },
-          { "name": "Justice \u2192 Unreported", "amount": -0.001067 }
+          }
         ]
       },
       {
@@ -634,10 +591,6 @@
           {
             "name": "Mental Health and Addiction \u2192 Inter-Ministry Consolidation Adjustments",
             "amount": -0.132054
-          },
-          {
-            "name": "Mental Health and Addiction \u2192 Unreported",
-            "amount": -0.025474
           }
         ]
       },
@@ -687,8 +640,7 @@
           {
             "name": "Municipal Affairs \u2192 Safety Codes Council",
             "amount": 0.016009
-          },
-          { "name": "Municipal Affairs \u2192 Unreported", "amount": -0.004285 }
+          }
         ]
       },
       {
@@ -717,10 +669,6 @@
           {
             "name": "Public Safety and Emergency Services \u2192 Inter-Ministry Consolidation Adjustments",
             "amount": -0.013658
-          },
-          {
-            "name": "Public Safety and Emergency Services \u2192 Unreported",
-            "amount": -0.02902
           }
         ]
       },
@@ -782,10 +730,6 @@
           {
             "name": "Seniors, Community and Social Services \u2192 Inter-Ministry Consolidation Adjustments",
             "amount": -0.022115
-          },
-          {
-            "name": "Seniors, Community and Social Services \u2192 Unreported",
-            "amount": -0.112351
           }
         ]
       },
@@ -811,10 +755,6 @@
           {
             "name": "Service Alberta and Red Tape Reduction \u2192 Inter-Ministry Consolidation Adjustments",
             "amount": -0.030334
-          },
-          {
-            "name": "Service Alberta and Red Tape Reduction \u2192 Unreported",
-            "amount": -0.02042
           }
         ]
       },
@@ -852,10 +792,6 @@
           {
             "name": "Technology and Innovation \u2192 Inter-Ministry Consolidation Adjustments",
             "amount": -0.163983
-          },
-          {
-            "name": "Technology and Innovation \u2192 Unreported",
-            "amount": -0.088911
           }
         ]
       },
@@ -923,10 +859,6 @@
           {
             "name": "Transportation and Economic Corridors \u2192 Inter-Ministry Consolidation Adjustments",
             "amount": -0.037997
-          },
-          {
-            "name": "Transportation and Economic Corridors \u2192 Unreported",
-            "amount": -0.884071
           }
         ]
       },
@@ -1016,10 +948,6 @@
           {
             "name": "Treasury Board and Finance \u2192 Inter-Ministry Consolidation Adjustments",
             "amount": -0.357
-          },
-          {
-            "name": "Treasury Board and Finance \u2192 Unreported",
-            "amount": 0.327
           }
         ]
       },
@@ -1031,19 +959,7 @@
             "amount": 0.16
           }
         ]
-      },
-      {
-        "name": "Pension provisions / (recovery)",
-        "children": [],
-        "amount": -0.372
-      },
-      { "name": "Contingency", "children": [], "amount": 0 },
-      {
-        "name": "Amortization / Inventory Consumption / Loss on Asset Disposals",
-        "children": [],
-        "amount": 4.399
-      },
-      { "name": "Other Capital Grants", "children": [], "amount": 0.266 }
+      }
     ]
   },
   "revenue_data": {
