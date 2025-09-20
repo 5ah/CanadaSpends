@@ -600,7 +600,7 @@ export class SankeyChartD3 {
 
     // Compute the sum of the data treating negatives as positives
     const root = hierarchy(clonedData).sum((d) => {
-      return Math.abs(d.amount);
+      return d.amount;
     });
 
     const links = root.links();
@@ -678,14 +678,12 @@ export class SankeyChartD3 {
       };
     });
 
-    const difference = this.params.totalAmount - root.value;
-
     if (this.params.difference > 0) {
       columns[0].groups[0].blocks.push({
         index: columns[0].groups[0].blocks.length,
         amount: this.params.difference,
         realValue: this.params.difference,
-        value: difference,
+        value: this.params.difference,
         id: "difference_block",
         displayName: this.params.differenceLabel,
         name: this.params.differenceLabel,
