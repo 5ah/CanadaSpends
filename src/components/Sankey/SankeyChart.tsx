@@ -119,7 +119,6 @@ export function SankeyChart(props: SankeyChartProps) {
     const { nodes, revenueTotal, spendingTotal } = getFlatData(transformedData);
 
     setFlatData(nodes);
-
     setTotalAmount(Math.max(revenueTotal, spendingTotal));
   }, [props.data]);
 
