@@ -261,464 +261,466 @@ export class SankeyChartD3 {
       );
   }
 
-	// Highlights selected node and its connections
-	highlightNode(node) {
-		this.highlightedNode = node
+  // Highlights selected node and its connections
+  highlightNode(node) {
+    this.highlightedNode = node;
 
-		if (!node) {
-			this.autoScrolledFor = null
-			// Reset all highlights when no node is selected
-			this.sankeyDiv
-				.selectAll('.block')
-				.classed('highlight', false)
-				.classed('current-node', false)
-			this.sankeySvg.selectAll('.link').classed('highlight', false)
-			this.sankeySvg.selectAll('.highlight-group').remove()
-			// Automatic scroll into view
-			if (this.timerId) {
-				clearTimeout(this.timerId)
-				this.timerId = null
-			}
-			return
-		}
+    if (!node) {
+      this.autoScrolledFor = null;
+      // Reset all highlights when no node is selected
+      this.sankeyDiv
+        .selectAll(".block")
+        .classed("highlight", false)
+        .classed("current-node", false);
+      this.sankeySvg.selectAll(".link").classed("highlight", false);
+      this.sankeySvg.selectAll(".highlight-group").remove();
+      // Automatic scroll into view
+      if (this.timerId) {
+        clearTimeout(this.timerId);
+        this.timerId = null;
+      }
+      return;
+    }
 
-		// Skip difference and fake nodes
-		if (node.isDifference || node.fake) {
-			return
-		}
+    // Skip difference and fake nodes
+    if (node.isDifference || node.fake) {
+      return;
+    }
 
-		// Find all connected nodes and calculate paths
-		const nodesToHighlight = Array.from(
-			new Set([...node.pathToRoot, ...node.descendants])
-		)
+    // Find all connected nodes and calculate paths
+    const nodesToHighlight = Array.from(
+      new Set([...node.pathToRoot, ...node.descendants]),
+    );
 
-		const currentNodeHeight = this.scale(node.value)
+    const currentNodeHeight = this.scale(node.value);
 
-		const path = pairs(node.pathToRoot)
-			.map(d => {
-				return this.linksMap.get(`${d[1]}->${d[0]}`)
-			})
-			.filter(d => d)
-			.map((link, i, arr) => {
-				const cummulativeSum = sum(
-					arr.slice(0, i),
-					d => d.target.cumulativeHeight
-				)
+    const path = pairs(node.pathToRoot)
+      .map((d) => {
+        return this.linksMap.get(`${d[1]}->${d[0]}`);
+      })
+      .filter((d) => d)
+      .map((link, i, arr) => {
+        const cummulativeSum = sum(
+          arr.slice(0, i),
+          (d) => d.target.cumulativeHeight,
+        );
 
-				const cummulativeSumPrevious = sum(
-					arr.slice(0, i - 1),
-					d => d.target.cumulativeHeight
-				)
+        const cummulativeSumPrevious = sum(
+          arr.slice(0, i - 1),
+          (d) => d.target.cumulativeHeight,
+        );
 
-				const sourceY = i
-					? link.lineCoords[0].y0 + cummulativeSum
-					: link.lineCoords[0].y0
+        const sourceY = i
+          ? link.lineCoords[0].y0 + cummulativeSum
+          : link.lineCoords[0].y0;
 
-				const targetY = i
-					? arr[i - 1].lineCoords[0].y0 + cummulativeSumPrevious
-					: link.lineCoords[1].y0
+        const targetY = i
+          ? arr[i - 1].lineCoords[0].y0 + cummulativeSumPrevious
+          : link.lineCoords[1].y0;
 
-				return {
-					id: link.id,
-					rect: {
-						x: link.source.x,
-						y: sourceY,
-						width: link.source.width,
-						height: currentNodeHeight
-					},
-					lineCoords: [
-						{
-							x: link.lineCoords[0].x,
-							y0: sourceY,
-							y1: sourceY + currentNodeHeight
-						},
-						{
-							x: link.lineCoords[1].x,
-							y0: targetY,
-							y1: targetY + currentNodeHeight
-						}
-					]
-				}
-			})
+        return {
+          id: link.id,
+          rect: {
+            x: link.source.x,
+            y: sourceY,
+            width: link.source.width,
+            height: currentNodeHeight,
+          },
+          lineCoords: [
+            {
+              x: link.lineCoords[0].x,
+              y0: sourceY,
+              y1: sourceY + currentNodeHeight,
+            },
+            {
+              x: link.lineCoords[1].x,
+              y0: targetY,
+              y1: targetY + currentNodeHeight,
+            },
+          ],
+        };
+      });
 
-		this.sankeySvg.selectAll('.link').classed('highlight', x => {
-			return (
-				path.some(d => d.id === x.id) ||
-				nodesToHighlight.includes(x.target.id)
-			)
-		})
+    this.sankeySvg.selectAll(".link").classed("highlight", (x) => {
+      return (
+        path.some((d) => d.id === x.id) ||
+        nodesToHighlight.includes(x.target.id)
+      );
+    });
 
-		const highlightedNodeElements = []
+    const highlightedNodeElements = [];
 
-		this.sankeyDiv
-			.selectAll('.block:not(.fake)')
-			.classed('highlight', function (x) {
-				if (nodesToHighlight.includes(x.id)) {
-					// @ts-ignore
-					highlightedNodeElements.push(this.querySelector('.label'))
-					return true
-				}
-				return false
-			})
-			.classed('current-node', x => {
-				return x.id === node.id
-			})
+    this.sankeyDiv
+      .selectAll(".block:not(.fake)")
+      .classed("highlight", function (x) {
+        if (nodesToHighlight.includes(x.id)) {
+          // @ts-ignore
+          highlightedNodeElements.push(this.querySelector(".label"));
+          return true;
+        }
+        return false;
+      })
+      .classed("current-node", (x) => {
+        return x.id === node.id;
+      });
 
-		this.drawHighlightedPath(
-			path.map(d => d.rect),
-			path.map(d => d.lineCoords)
-		)
+    this.drawHighlightedPath(
+      path.map((d) => d.rect),
+      path.map((d) => d.lineCoords),
+    );
 
-		if (highlightedNodeElements.length > 0) {
-			this.autoScroll(highlightedNodeElements)
-		}
-	}
+    if (highlightedNodeElements.length > 0) {
+      this.autoScroll(highlightedNodeElements);
+    }
+  }
 
-	autoScroll(highlightedNodeElements) {
-		// Automatic scroll into view
-		if (this.timerId) {
-			clearTimeout(this.timerId)
-		}
+  autoScroll(highlightedNodeElements) {
+    // Automatic scroll into view
+    if (this.timerId) {
+      clearTimeout(this.timerId);
+    }
 
-		if (this.autoScrolledFor === this.highlightedNode?.id) {
-			return
-		}
+    if (this.autoScrolledFor === this.highlightedNode?.id) {
+      return;
+    }
 
-		this.timerId = setTimeout(() => {
-			// Auto scroll only once
-			this.autoScrolledFor = this.highlightedNode?.id
-			const hiddenElements = highlightedNodeElements.reduce((acc, element) => {
-				// Check if element is fully visible in viewport
-				const rect = element.getBoundingClientRect()
-				const parent = element.closest('.column')
+    this.timerId = setTimeout(() => {
+      // Auto scroll only once
+      this.autoScrolledFor = this.highlightedNode?.id;
+      const hiddenElements = highlightedNodeElements.reduce((acc, element) => {
+        // Check if element is fully visible in viewport
+        const rect = element.getBoundingClientRect();
+        const parent = element.closest(".column");
 
-				if (!parent) {
-					return acc
-				}
+        if (!parent) {
+          return acc;
+        }
 
-				const parentRect = parent.getBoundingClientRect()
-				const isFullyVisible =
-					rect.top >= parentRect.top && rect.bottom <= parentRect.bottom
+        const parentRect = parent.getBoundingClientRect();
+        const isFullyVisible =
+          rect.top >= parentRect.top && rect.bottom <= parentRect.bottom;
 
-				// Only scroll if element is not fully visible
-				if (!isFullyVisible) {
-					acc.push(element)
-				}
-				return acc
-			}, [])
+        // Only scroll if element is not fully visible
+        if (!isFullyVisible) {
+          acc.push(element);
+        }
+        return acc;
+      }, []);
 
-			if (hiddenElements.length > 0) {
-				const elementsToScroll = rollups(
-					hiddenElements,
-					elements => {
-						// Sort elements by their vertical position
-						const positions = elements.map(el => ({
-							element: el,
-							position: this.getRelativePosition(el, this.container.node()).y
-						}))
+      if (hiddenElements.length > 0) {
+        const elementsToScroll = rollups(
+          hiddenElements,
+          (elements) => {
+            // Sort elements by their vertical position
+            const positions = elements.map((el) => ({
+              element: el,
+              position: this.getRelativePosition(el, this.container.node()).y,
+            }));
 
-						// Get the topmost and bottommost elements
-						const topElement = positions.reduce((a, b) =>
-							a.position < b.position ? a : b
-						)
-						const bottomElement = positions.reduce((a, b) =>
-							a.position > b.position ? a : b
-						)
+            // Get the topmost and bottommost elements
+            const topElement = positions.reduce((a, b) =>
+              a.position < b.position ? a : b,
+            );
+            const bottomElement = positions.reduce((a, b) =>
+              a.position > b.position ? a : b,
+            );
 
-						// If topmost element is above viewport center, scroll to it
-						// Otherwise scroll to bottommost element
-						return topElement.position < this.params.height * 0.5
-							? topElement.element
-							: bottomElement.element
-					},
-					d => d.__data__.columnIndex
-				).map(d => d[1])
+            // If topmost element is above viewport center, scroll to it
+            // Otherwise scroll to bottommost element
+            return topElement.position < this.params.height * 0.5
+              ? topElement.element
+              : bottomElement.element;
+          },
+          (d) => d.__data__.columnIndex,
+        ).map((d) => d[1]);
 
-				elementsToScroll.forEach(element => {
-					setTimeout(() => {
-						element.scrollIntoView({
-							behavior: 'smooth',
-							block: 'nearest'
-						})
-					}, 0)
-				})
-			}
-		}, 300)
-	}
+        elementsToScroll.forEach((element) => {
+          setTimeout(() => {
+            element.scrollIntoView({
+              behavior: "smooth",
+              block: "nearest",
+            });
+          }, 0);
+        });
+      }
+    }, 300);
+  }
 
-	getRelativePosition(element, parent) {
-		const childPos = element.getBoundingClientRect()
-		const parentPos = parent.getBoundingClientRect()
+  getRelativePosition(element, parent) {
+    const childPos = element.getBoundingClientRect();
+    const parentPos = parent.getBoundingClientRect();
 
-		return {
-			y: childPos.top - parentPos.top,
-			x: childPos.left - parentPos.left,
-			width: childPos.width,
-			height: childPos.height
-		}
-	}
+    return {
+      y: childPos.top - parentPos.top,
+      x: childPos.left - parentPos.left,
+      width: childPos.width,
+      height: childPos.height,
+    };
+  }
 
-	// Draws the connecting lines between blocks
-	drawHighlightedPath(nodes, links) {
-		// Create container group
-		const highlightGroup = this.sankeySvg
-			.selectAll('g.highlight-group')
-			.data(['highlight-group'])
-			.join('g')
-			.attr('class', 'highlight-group')
+  // Draws the connecting lines between blocks
+  drawHighlightedPath(nodes, links) {
+    // Create container group
+    const highlightGroup = this.sankeySvg
+      .selectAll("g.highlight-group")
+      .data(["highlight-group"])
+      .join("g")
+      .attr("class", "highlight-group");
 
-		// Add rectangles for nodes
-		highlightGroup
-			.selectAll('rect.highlight-box')
-			.data(nodes)
-			.join('rect')
-			.attr('class', 'highlight-box')
-			.attr('x', d => d.x)
-			.attr('y', d => d.y)
-			.attr('width', d => d.width)
-			.attr('height', d => d.height)
+    // Add rectangles for nodes
+    highlightGroup
+      .selectAll("rect.highlight-box")
+      .data(nodes)
+      .join("rect")
+      .attr("class", "highlight-box")
+      .attr("x", (d) => d.x)
+      .attr("y", (d) => d.y)
+      .attr("width", (d) => d.width)
+      .attr("height", (d) => d.height);
 
-		// Add paths for links
-		highlightGroup
-			.selectAll('path.highlight-link')
-			.data(links)
-			.join('path')
-			.attr('class', 'highlight-link')
-			.attr('d', this.link)
-	}
+    // Add paths for links
+    highlightGroup
+      .selectAll("path.highlight-link")
+      .data(links)
+      .join("path")
+      .attr("class", "highlight-link")
+      .attr("d", this.link);
+  }
 
-	// Draws the connecting lines between blocks
-	drawLinks() {
-		// Calculate positions of all blocks relative to container
-		const coords = []
-		const getRelativePosition = this.getRelativePosition
-		const parent = this.container.node()
-		const scale = this.scale
+  // Draws the connecting lines between blocks
+  drawLinks() {
+    // Calculate positions of all blocks relative to container
+    const coords = [];
+    const getRelativePosition = this.getRelativePosition;
+    const parent = this.container.node();
+    const scale = this.scale;
 
-		this.sankeyDiv.selectAll('.block').each(function (d) {
-			if (d.fake || d.isDifference) return
+    this.sankeyDiv.selectAll(".block").each(function (d) {
+      if (d.fake || d.isDifference) return;
 
-			const bound = getRelativePosition(this, parent)
-			coords.push({
-				id: d.target.id,
-				x: bound.x,
-				y: bound.y,
-				width: bound.width,
-				height: scale(d.value),
-				groupIndex: d.groupIndex,
-				columnIndex: d.columnIndex
-			})
-		})
+      const bound = getRelativePosition(this, parent);
+      coords.push({
+        id: d.target.id,
+        x: bound.x,
+        y: bound.y,
+        width: bound.width,
+        height: scale(d.value),
+        groupIndex: d.groupIndex,
+        columnIndex: d.columnIndex,
+      });
+    });
 
-		// If blockes are not rendered, don't draw links
-		if (coords.length === 0) {
-			return
-		}
+    // If blockes are not rendered, don't draw links
+    if (coords.length === 0) {
+      return;
+    }
 
-		const coordsGrouped = rollups(
-			coords,
-			arr => {
-				const cumulativeHeights = cumsum(arr, d => d.height)
-				const newArr = arr.map((d, i) => {
-					return {
-						...d,
-						cumulativeHeight: i ? cumulativeHeights[i - 1] : 0
-					}
-				})
-				return newArr
-			},
-			d => d.columnIndex,
-			d => d.groupIndex
-		).flatMap(d => {
-			return d[1].flatMap(d => d[1])
-		})
+    const coordsGrouped = rollups(
+      coords,
+      (arr) => {
+        const cumulativeHeights = cumsum(arr, (d) => d.height);
+        const newArr = arr.map((d, i) => {
+          return {
+            ...d,
+            cumulativeHeight: i ? cumulativeHeights[i - 1] : 0,
+          };
+        });
+        return newArr;
+      },
+      (d) => d.columnIndex,
+      (d) => d.groupIndex,
+    ).flatMap((d) => {
+      return d[1].flatMap((d) => d[1]);
+    });
 
-		const coordsLookup = new Map(coordsGrouped.map(d => [d.id, d]))
-		const isFlipped = this.params.direction === 'right-to-left'
+    const coordsLookup = new Map(coordsGrouped.map((d) => [d.id, d]));
+    const isFlipped = this.params.direction === "right-to-left";
 
-		const data = this.linksData.map(d => {
-			const source = coordsLookup.get(d.source.data.id)
-			const target = coordsLookup.get(d.target.data.id)
+    const data = this.linksData.map((d) => {
+      const source = coordsLookup.get(d.source.data.id);
+      const target = coordsLookup.get(d.target.data.id);
 
-			return {
-				id: `${d.source.data.id}->${d.target.data.id}`,
-				source: {
-					id: d.source.data.id,
-					x: source.x,
-					y: source.y,
-					width: source.width,
-					height: source.height,
-					cumulativeHeight: source.cumulativeHeight
-				},
-				target: {
-					id: d.target.data.id,
-					x: target.x,
-					y: target.y,
-					width: target.width,
-					height: target.height,
-					cumulativeHeight: target.cumulativeHeight
-				},
-				lineCoords: [
-					{
-						x: isFlipped ? source.x : source.x + source.width,
-						y0: source.y + target.cumulativeHeight,
-						y1: source.y + target.cumulativeHeight + target.height
-					},
-					{
-						x: isFlipped ? target.x + target.width : target.x,
-						y0: target.y,
-						y1: target.y + target.height
-					}
-				]
-			}
-		})
+      return {
+        id: `${d.source.data.id}->${d.target.data.id}`,
+        source: {
+          id: d.source.data.id,
+          x: source.x,
+          y: source.y,
+          width: source.width,
+          height: source.height,
+          cumulativeHeight: source.cumulativeHeight,
+        },
+        target: {
+          id: d.target.data.id,
+          x: target.x,
+          y: target.y,
+          width: target.width,
+          height: target.height,
+          cumulativeHeight: target.cumulativeHeight,
+        },
+        lineCoords: [
+          {
+            x: isFlipped ? source.x : source.x + source.width,
+            y0: source.y + target.cumulativeHeight,
+            y1: source.y + target.cumulativeHeight + target.height,
+          },
+          {
+            x: isFlipped ? target.x + target.width : target.x,
+            y0: target.y,
+            y1: target.y + target.height,
+          },
+        ],
+      };
+    });
 
-		this.sankeySvg
-			.selectAll('.link')
-			.data(data)
-			.join('path')
-			.attr('class', 'link')
-			.attr('d', d => this.link(d.lineCoords))
-			.attr('fill', this.params.colors.primary)
+    this.sankeySvg
+      .selectAll(".link")
+      .data(data)
+      .join("path")
+      .attr("class", "link")
+      .attr("d", (d) => this.link(d.lineCoords))
+      .attr("fill", this.params.colors.primary);
 
-		this.linksMap = new Map(data.map(d => [d.id, d]))
-	}
+    this.linksMap = new Map(data.map((d) => [d.id, d]));
+  }
 
-	// Transforms hierarchical data into format needed for visualization
-	transformData() {
-		const clonedData = structuredClone(this.params.data)
+  // Transforms hierarchical data into format needed for visualization
+  transformData() {
+    const clonedData = structuredClone(this.params.data);
 
-		// Compute the real sum of the data
-		const realSum = hierarchy(clonedData).sum(d => {
-			return d.amount
-		})
+    // Compute the real sum of the data
+    const realSum = hierarchy(clonedData).sum((d) => {
+      return d.amount;
+    });
 
-		// Create a lookup table for the values of the data
-		const valueLookup = new Map(
-			realSum.descendants().map(d => [d.data.id, d.value])
-		)
+    // Create a lookup table for the values of the data
+    const valueLookup = new Map(
+      realSum.descendants().map((d) => [d.data.id, d.value]),
+    );
 
-		// Compute the sum of the data treating negatives as positives
-		const root = hierarchy(clonedData).sum(d => {
-			return Math.abs(d.amount)
-		})
+    // Compute the sum of the data treating negatives as positives
+    const root = hierarchy(clonedData).sum((d) => {
+      return d.amount;
+    });
 
-		const links = root.links()
+    const links = root.links();
 
-		// Calculate paths to root for each node
-		const maxDepth = root.height
+    // Calculate paths to root for each node
+    const maxDepth = root.height;
 
-		root.each(node => {
-			// Store visual value of the node
-			node.data.value = node.value
-			// Store the real value of the node
-			node.data.realValue = valueLookup.get(node.data.id)
+    root.each((node) => {
+      // Store visual value of the node
+      node.data.value = node.value;
+      // Store the real value of the node
+      node.data.realValue = valueLookup.get(node.data.id);
 
-			if (node.depth > 0) {
-				const pathToRoot = node.path(root)
-				node.data.pathToRoot = pathToRoot.map(d => d.data.id)
-			} else {
-				node.data.pathToRoot = []
-			}
+      if (node.depth > 0) {
+        const pathToRoot = node.path(root);
+        node.data.pathToRoot = pathToRoot.map((d) => d.data.id);
+      } else {
+        node.data.pathToRoot = [];
+      }
 
-			node.data.descendants = node.descendants().map(d => d.data.id)
+      node.data.descendants = node.descendants().map((d) => d.data.id);
 
-			if (node.depth < maxDepth && !node.data.children) {
-				this.fillLink(node.data, node.depth, maxDepth)
-			}
-		})
+      if (node.depth < maxDepth && !node.data.children) {
+        this.fillLink(node.data, node.depth, maxDepth);
+      }
+    });
 
-		const nodes = hierarchy(clonedData).descendants()
+    const nodes = hierarchy(clonedData).descendants();
 
-		// Organize nodes into columns and groups
-		const columns = rollups(
-			nodes,
-			arr => {
-				return arr.map(d => {
-					return {
-						source: d.parent?.data,
-						target: d.data,
-						depth: d.depth,
-						...d.data
-					}
-				})
-			},
-			d => d.depth,
-			d => d.parent?.data?.id || 'Root'
-		).map(([, _groups], columnIndex) => {
-			const groups = _groups.map(([, blocks], groupIndex) => {
-				return {
-					index: groupIndex,
-					columnIndex: columnIndex,
-					blocks: blocks.map((x, blockIndex) => {
-						return {
-							...x,
-							index: blockIndex,
-							groupIndex: groupIndex,
-							columnIndex: columnIndex
-						}
-					})
-				}
-			})
+    // Organize nodes into columns and groups
+    const columns = rollups(
+      nodes,
+      (arr) => {
+        return arr.map((d) => {
+          return {
+            source: d.parent?.data,
+            target: d.data,
+            depth: d.depth,
+            ...d.data,
+          };
+        });
+      },
+      (d) => d.depth,
+      (d) => d.parent?.data?.id || "Root",
+    ).map(([, _groups], columnIndex) => {
+      const groups = _groups.map(([, blocks], groupIndex) => {
+        return {
+          index: groupIndex,
+          columnIndex: columnIndex,
+          blocks: blocks.map((x, blockIndex) => {
+            return {
+              ...x,
+              index: blockIndex,
+              groupIndex: groupIndex,
+              columnIndex: columnIndex,
+            };
+          }),
+        };
+      });
 
-			// Remove empty groups
-			let groupIndex = groups.length - 1
+      // Remove empty groups
+      let groupIndex = groups.length - 1;
 
-			while (groupIndex >= 0) {
-				if (groups[groupIndex].blocks.some(d => !d.fake)) {
-					break
-				}
-				groups.pop()
-				groupIndex--
-			}
+      while (groupIndex >= 0) {
+        if (groups[groupIndex].blocks.some((d) => !d.fake)) {
+          break;
+        }
+        groups.pop();
+        groupIndex--;
+      }
 
-			return {
-				index: columnIndex,
-				groups: groups
-			}
-		})
+      return {
+        index: columnIndex,
+        groups: groups,
+      };
+    });
 
-		const difference = this.params.totalAmount - root.value
+    if (this.params.difference > 0) {
+      columns[0].groups[0].blocks.push({
+        index: columns[0].groups[0].blocks.length,
+        amount: this.params.difference,
+        realValue: this.params.difference,
+        value: this.params.difference,
+        id: "difference_block",
+        displayName: this.params.differenceLabel,
+        name: this.params.differenceLabel,
+        isDifference: true,
+        groupIndex: 0,
+        columnIndex: 0,
+        depth: 0,
+        source: null,
+        target: null,
+        link: null,
+      });
+    }
 
-		if (this.params.difference > 0) {
-			columns[0].groups[0].blocks.push({
-				index: columns[0].groups[0].blocks.length,
-				amount: this.params.difference,
-				realValue: this.params.difference,
-				value: difference,
-				id: 'difference_block',
-				displayName: this.params.differenceLabel,
-				name: this.params.differenceLabel,
-				isDifference: true,
-				groupIndex: 0,
-				columnIndex: 0,
-				depth: 0,
-				source: null,
-				target: null,
-				link: null
-			})
-		}
+    this.columnsData = columns;
+    this.linksData = links;
+  }
 
-		this.columnsData = columns
-		this.linksData = links
-	}
+  fillLink(node, level, maxLevel) {
+    if (level === maxLevel) {
+      return node;
+    }
+    node.children = [
+      this.fillLink(
+        {
+          ...node,
+          fake: true,
+          id: `${node.id}_fake_${level}`,
+          displayName: node.displayName || node.name || "Fake",
+        },
+        level + 1,
+        maxLevel,
+      ),
+    ];
+    return node;
+  }
 
-	fillLink(node, level, maxLevel) {
-		if (level === maxLevel) {
-			return node
-		}
-		node.children = [
-			this.fillLink({ 
-				...node, 
-				fake: true,
-				id: `${node.id}_fake_${level}`,
-				displayName: node.displayName || node.name || 'Fake'
-			}, level + 1, maxLevel)
-		]
-		return node
-	}
-
-	getNumber(amount: number) {
-		return formatNumber(amount, this.params.amountScalingFactor)
-	}
+  getNumber(amount: number) {
+    return formatNumber(amount, this.params.amountScalingFactor);
+  }
 }
