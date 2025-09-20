@@ -6,7 +6,10 @@ import "./SankeyChart.css";
 import { SankeyData } from "./SankeyChartD3";
 import { SankeyChartSingle } from "./SankeyChartSingle";
 import { formatNumber, sortNodesByAmount, transformToIdBased } from "./utils";
-import { departmentNames, nodeToDepartment } from "@/lib/sankeyDepartmentMappings";
+import {
+  departmentNames,
+  nodeToDepartment,
+} from "@/lib/sankeyDepartmentMappings";
 
 // Dynamically import React Select to avoid SSR hydration issues
 const Select = dynamic(() => import("react-select"), {
@@ -21,6 +24,7 @@ type Node = FlatDataNodes[number] & {
 
 interface HoverNodeType extends Node {
   percent: number;
+  overallPercent?: number;
   blockRect?: DOMRect;
   departmentSlug?: string;
 }
@@ -32,11 +36,11 @@ interface SearchOptionType {
 
 const getFlatData = (data: SankeyData) => {
   const revenueRoot = hierarchy(data.revenue_data).sum((d) => {
-    return d.amount;
+    return Math.abs(d.amount);
   });
 
   const spendingRoot = hierarchy(data.spending_data).sum((d) => {
-    return d.amount;
+    return Math.abs(d.amount);
   });
 
   return {
@@ -149,7 +153,7 @@ export function SankeyChart(props: SankeyChartProps) {
   };
 
   const handleMouseOver = useCallback(
-    (totalAmount: number) => {
+    (totalAmount: number, overallTotalAmount?: number) => {
       return (node: Node, event?: MouseEvent) => {
         // Clear any pending hide timeout
         if (hideTooltipTimeoutRef.current) {
@@ -157,9 +161,13 @@ export function SankeyChart(props: SankeyChartProps) {
           hideTooltipTimeoutRef.current = null;
         }
         const percent = (node.realValue! / totalAmount) * 100;
+        const overallPercent = overallTotalAmount
+          ? (node.realValue! / overallTotalAmount) * 100
+          : undefined;
         setHoverNode({
           ...node,
           percent,
+          overallPercent,
         });
         // Store mouse position as fallback for tooltip positioning
         if (event) {
@@ -261,6 +269,12 @@ export function SankeyChart(props: SankeyChartProps) {
               </span>
               <span className="node-tooltip-amount-divider">&#8226;</span>
               <span>{hoverNode.percent.toFixed(1)}%</span>
+              {hoverNode.overallPercent !== undefined && (
+                <>
+                  <span className="node-tooltip-amount-divider">&#8226;</span>
+                  <span>{hoverNode.overallPercent.toFixed(1)}% of total</span>
+                </>
+              )}
             </div>
             {hoverNode.departmentSlug && (
               <div className="node-tooltip-department">
@@ -281,26 +295,17 @@ export function SankeyChart(props: SankeyChartProps) {
               {...chartConfig.revenue}
               data={sortNodesByAmount(chartData.revenue_data)}
               totalAmount={totalAmount}
-              difference={
-                chartData.spending > chartData.revenue
-                  ? chartData.spending - chartData.revenue // deficit
-                  : 0
-              }
+              difference={chartData.total - chartData.revenue}
               height={chartHeight}
               amountScalingFactor={amountScalingFactor}
               onMouseOver={handleMouseOver(chartData.revenue)}
               onMouseOut={handleMouseOut}
             />
-
             <SankeyChartSingle
               {...chartConfig.spending}
               data={sortNodesByAmount(chartData.spending_data)}
               totalAmount={totalAmount}
-              difference={
-                chartData.revenue > chartData.spending
-                  ? chartData.revenue - chartData.spending // surplus
-                  : 0
-              }
+              difference={chartData.total - chartData.spending}
               height={chartHeight}
               amountScalingFactor={amountScalingFactor}
               onMouseOver={handleMouseOver(chartData.spending)}
@@ -323,7 +328,11 @@ export function SankeyChart(props: SankeyChartProps) {
               amountScalingFactor={amountScalingFactor}
               difference={0}
               differenceLabel=""
-              onMouseOver={handleMouseOver(searchResult.value ?? 0)}
+              onMouseOver={handleMouseOver(
+                searchResult.value ?? 0,
+                // @ts-expect-error: fix type here
+                chartData?.[searchResult.type] ?? totalAmount,
+              )}
               onMouseOut={handleMouseOut}
             />
           </div>
@@ -332,5 +341,3 @@ export function SankeyChart(props: SankeyChartProps) {
     </div>
   );
 }
-
-
