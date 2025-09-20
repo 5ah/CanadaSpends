@@ -315,6 +315,8 @@ export function SankeyChart(props: SankeyChartProps) {
               amountScalingFactor={amountScalingFactor}
               difference={0}
               differenceLabel=""
+              onMouseOver={handleMouseOver(searchResult.value ?? 0)}
+              onMouseOut={handleMouseOut}
             />
           </div>
         )}
