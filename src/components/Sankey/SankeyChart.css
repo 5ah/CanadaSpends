@@ -124,6 +124,18 @@
     gap: 8px;
   }
 
+  .node-tooltip-percentage {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .node-tooltip-overall {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.2;
+  }
+
   .node-tooltip-department {
     margin-top: 2px;
     font-size: 11px;
