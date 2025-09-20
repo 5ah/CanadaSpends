@@ -332,7 +332,7 @@ export function SankeyChart(props: SankeyChartProps) {
               onMouseOver={handleMouseOver(
                 searchResult.value ?? 0,
                 // @ts-expect-error: fix type here
-                chartData?.[searchResult.type] ?? totalAmount,
+                chartData?.[searchResult.type],
               )}
               onMouseOut={handleMouseOut}
             />
