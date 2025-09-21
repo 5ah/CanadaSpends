@@ -35,7 +35,7 @@ const StatBox = ({
     <div className="text-sm text-gray-600">{description}</div>
     {growthPercentage && (
       <div
-        className={`text-xs font-medium ${growthPercentage > 0 ? "text-green-600" : "text-red-600"}`}
+        className={`text-xs py-1 font-medium ${growthPercentage > 0 ? "text-green-600" : "text-red-600"}`}
       >
         {growthPercentage > 0 ? "+" : ""}
         {growthPercentage}% over the last year
@@ -103,7 +103,7 @@ const calculateGrowthPercentage = (
   previous: number,
 ): number => {
   if (previous === 0) return 0;
-  return Math.round(((current - previous) / previous) * 100);
+  return Math.round(((current - previous) / previous) * 100 * 10) / 10;
 };
 
 export default function Budget() {
@@ -111,10 +111,34 @@ export default function Budget() {
     spending: 513.9,
     revenue: 459.5,
     deficit: 54.4,
+    opex2024: 0,
+    capex2024: 0,
+    opex2025: 0,
+    capex2025: 0,
+    transfers2024: 0,
+    transfers2025: 0,
+    debt2024: 0,
+    debt2025: 0,
+    other2024: 0,
+    other2025: 0,
   });
 
   const handleBudgetDataChange = useCallback(
-    (data: { spending: number; revenue: number; deficit: number }) => {
+    (data: {
+      spending: number;
+      revenue: number;
+      deficit: number;
+      opex2024: number;
+      capex2024: number;
+      opex2025: number;
+      capex2025: number;
+      transfers2024: number;
+      transfers2025: number;
+      debt2024: number;
+      debt2025: number;
+      other2024: number;
+      other2025: number;
+    }) => {
       setBudgetData(data);
     },
     [],
@@ -132,29 +156,27 @@ export default function Budget() {
               The values you see here are based on the FY 2024 Budget with
               preliminary updates based on government announcements, memos, and
               leaks, and are meant to provide a rough idea of the budget. Once
-              the official Fall 2025 Budget is released, we will update this
-              page to reflect the official budget.
+              the official Fall 2025 Budget is released on November 4th, we will
+              update this page to reflect the official budget.
             </Trans>
           </Intro>
         </Section>
         <Section>
           <H2>
-            <Trans>Budget Statistics</Trans>
+            <Trans>Budget Statistics (Projected FY 2025)</Trans>
           </H2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mb-8">
             <StatBox
-              title={<Trans>Total Budget (FY 2025)</Trans>}
+              title={<Trans>Total Budget</Trans>}
               value={`$${budgetData.spending.toFixed(1)}B`}
-              description={
-                <Trans>Projected government budget allocation</Trans>
-              }
+              description={<Trans>Projected government budget</Trans>}
               growthPercentage={calculateGrowthPercentage(
                 budgetData.spending,
                 513.9,
               )}
             />
             <StatBox
-              title={<Trans>Revenue (FY 2025)</Trans>}
+              title={<Trans>Revenue</Trans>}
               value={`$${budgetData.revenue.toFixed(1)}B`}
               description={<Trans>Projected government revenue</Trans>}
               growthPercentage={calculateGrowthPercentage(
@@ -163,7 +185,25 @@ export default function Budget() {
               )}
             />
             <StatBox
-              title={<Trans>Deficit (FY 2025)</Trans>}
+              title={<Trans>Operational Spend</Trans>}
+              value={`$${budgetData.opex2025.toFixed(1)}B`}
+              description={<Trans>Projected operational spending</Trans>}
+              growthPercentage={calculateGrowthPercentage(
+                budgetData.opex2025,
+                budgetData.opex2024,
+              )}
+            />
+            <StatBox
+              title={<Trans>Capital Investments</Trans>}
+              value={`$${budgetData.capex2025.toFixed(1)}B`}
+              description={<Trans>Projected capital investments</Trans>}
+              growthPercentage={calculateGrowthPercentage(
+                budgetData.capex2025,
+                budgetData.capex2024,
+              )}
+            />
+            <StatBox
+              title={<Trans>Deficit</Trans>}
               value={`$${budgetData.deficit.toFixed(1)}B`}
               description={<Trans>Projected budget deficit</Trans>}
               growthPercentage={calculateGrowthPercentage(
