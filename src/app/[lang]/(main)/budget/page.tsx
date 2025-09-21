@@ -156,8 +156,8 @@ export default function Budget() {
               The values you see here are based on the FY 2024 Budget with
               preliminary updates based on government announcements, memos, and
               leaks, and are meant to provide a rough idea of the budget. Once
-              the official Fall 2025 Budget is released, we will update this
-              page to reflect the official budget.
+              the official Fall 2025 Budget is released on November 4th, we will
+              update this page to reflect the official budget.
             </Trans>
           </Intro>
         </Section>
