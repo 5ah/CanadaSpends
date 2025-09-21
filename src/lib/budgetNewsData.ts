@@ -14,6 +14,17 @@ export interface NewsItem {
 // Budget News Data - Easily Configurable and Maintainable
 export const budgetNewsData: NewsItem[] = [
   {
+    id: "cbc-build-canada-homes",
+    source: "CBC",
+    date: "Sep 14, 2025",
+    url: "https://www.cbc.ca/news/politics/carney-new-housing-agency-1.7632981",
+    headline: "Carney announces $13B for Build Canada Homes",
+    budgetImpact: "Economy + Innovation & Research",
+    amount: "$13B",
+    percentage: 100,
+    isIncrease: true,
+  },
+  {
     id: "cbc-tariff-spending",
     source: "CBC",
     date: "Sep 5, 2025",
