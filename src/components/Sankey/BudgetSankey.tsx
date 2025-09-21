@@ -12,11 +12,19 @@ interface SpendingReductions {
   [key: string]: number; // Department Name -> Reduction Percentage
 }
 
+type SpendingKind =
+  | "program" // Normal Program Spend
+  | "transfer" // Major Transfers to Provinces, Equalization, Quebec Offset, etc.
+  | "debt" // Net Interest on Debt
+  | "other";
+
 interface BudgetNode {
   name: string;
   amount2024?: number;
   amount2025?: number;
   amount?: number;
+  capitalShare?: number;
+  kind?: SpendingKind;
   children?: BudgetNode[];
 }
 
@@ -25,6 +33,16 @@ interface BudgetSankeyProps {
     spending: number;
     revenue: number;
     deficit: number;
+    opex2024: number;
+    capex2024: number;
+    opex2025: number;
+    capex2025: number;
+    transfers2024: number;
+    transfers2025: number;
+    debt2024: number;
+    debt2025: number;
+    other2024: number;
+    other2025: number;
   }) => void;
 }
 
@@ -126,11 +144,66 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
     return categoryMap[departmentName] || "Other Federal Programs";
   };
 
-  // Function to Apply Spending Reduction to an Amount
-  const applyReduction = (amount: number, departmentName: string): number => {
-    const category = getDepartmentCategory(departmentName);
-    const reduction = spendingReductions[category] || 0;
-    return amount * (1 - reduction / 100);
+  // Types For Split Amounts
+  type SplitAmounts = {
+    op2024: number;
+    cap2024: number;
+    op2025: number;
+    cap2025: number;
+
+    transfers2024: number;
+    transfers2025: number;
+    debt2024: number;
+    debt2025: number;
+    other2024: number;
+    other2025: number;
+  };
+
+  // Zero SplitAmounts for Initialization
+  const zeroSplitAmounts: SplitAmounts = {
+    op2024: 0,
+    cap2024: 0,
+    op2025: 0,
+    cap2025: 0,
+    transfers2024: 0,
+    transfers2025: 0,
+    debt2024: 0,
+    debt2025: 0,
+    other2024: 0,
+    other2025: 0,
+  };
+
+  // Add two SplitAmounts together
+  const addSplitAmounts = (a: SplitAmounts, b: SplitAmounts): SplitAmounts => ({
+    op2024: a.op2024 + b.op2024,
+    cap2024: a.cap2024 + b.cap2024,
+    op2025: a.op2025 + b.op2025,
+    cap2025: a.cap2025 + b.cap2025,
+    transfers2024: a.transfers2024 + b.transfers2024,
+    transfers2025: a.transfers2025 + b.transfers2025,
+    debt2024: a.debt2024 + b.debt2024,
+    debt2025: a.debt2025 + b.debt2025,
+    other2024: a.other2024 + b.other2024,
+    other2025: a.other2025 + b.other2025,
+  });
+
+  // Split a Single Leaf by capitalShare
+  const splitLeaf = (
+    amount2024: number,
+    amount2025: number,
+    capitalShare = 0,
+  ): SplitAmounts => {
+    const cap2024 = amount2024 * capitalShare;
+    const op2024 = amount2024 - cap2024;
+    const cap2025 = amount2025 * capitalShare;
+    const op2025 = amount2025 - cap2025;
+    return {
+      ...zeroSplitAmounts,
+      op2024,
+      cap2024,
+      op2025,
+      cap2025,
+    };
   };
 
   // Function to Calculate Total from Nested Structure
@@ -154,34 +227,90 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
     [],
   );
 
-  // Function to Apply Reductions and Update 2025 Structure
-  const applyReductionsToData = useCallback(
-    (node: BudgetNode): BudgetNode => {
+  const transformNode = useCallback(
+    (
+      node: BudgetNode,
+    ): {
+      node: BudgetNode;
+      sums: SplitAmounts;
+    } => {
+      // LEAF
       if (
         typeof node.amount2024 === "number" &&
         typeof node.amount2025 === "number"
       ) {
-        const amount2024 = node.amount2024;
-        const amount2025 = applyReduction(node.amount2025, node.name);
+        const kind = node.kind ?? "program";
+        const a24 = node.amount2024;
+        const a25 = node.amount2025;
+
+        if (kind === "transfer") {
+          const updated: BudgetNode = { ...node, amount: a25 };
+          return {
+            node: updated,
+            sums: {
+              ...zeroSplitAmounts,
+              transfers2024: a24,
+              transfers2025: a25,
+            },
+          };
+        }
+        if (kind === "debt") {
+          const updated: BudgetNode = { ...node, amount: a25 };
+          return {
+            node: updated,
+            sums: { ...zeroSplitAmounts, debt2024: a24, debt2025: a25 },
+          };
+        }
+        if (kind === "other") {
+          const updated: BudgetNode = { ...node, amount: a25 };
+          return {
+            node: updated,
+            sums: { ...zeroSplitAmounts, other2024: a24, other2025: a25 },
+          };
+        }
+
+        // Program/Default: Split and Reduce Opex 2025
+        const capitalShare = node.capitalShare ?? 0;
+        const split = splitLeaf(a24, a25, capitalShare);
+
+        const reductionPct =
+          spendingReductions[getDepartmentCategory(node.name)] ?? 0;
+        const op2025After = split.op2025 * (1 - reductionPct / 100);
+
+        const amount2025ForChart = op2025After + split.cap2025;
+        const updated: BudgetNode = { ...node, amount: amount2025ForChart };
+
         return {
-          ...node,
-          amount2024: amount2024,
-          amount2025: amount2025,
-          amount: amount2025,
+          node: updated,
+          sums: {
+            ...zeroSplitAmounts,
+            op2024: split.op2024,
+            cap2024: split.cap2024,
+            op2025: op2025After,
+            cap2025: split.cap2025,
+          },
         };
       }
-      if (node.children && Array.isArray(node.children)) {
-        // This is a Parent Node with Children
-        return {
-          ...node,
-          children: node.children.map((child: BudgetNode) =>
-            applyReductionsToData(child),
-          ),
-        };
+
+      // PARENT
+      if (node.children?.length) {
+        let agg = { ...zeroSplitAmounts };
+        const children: BudgetNode[] = [];
+
+        for (const child of node.children) {
+          const { node: childOut, sums } = transformNode(child);
+          children.push(childOut);
+          agg = addSplitAmounts(agg, sums);
+        }
+
+        const updated: BudgetNode = { ...node, children };
+
+        return { node: updated, sums: agg };
       }
-      return node;
+
+      return { node, sums: { ...zeroSplitAmounts } };
     },
-    [spendingReductions],
+    [spendingReductions, zeroSplitAmounts, splitLeaf, addSplitAmounts],
   );
 
   // Function to Process Revenue Data (no reductions, just add 'amount' property)
@@ -275,11 +404,13 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
                       name: t`Support for Veterans`,
                       amount2024: 6.07,
                       amount2025: 6.07,
+                      kind: "program" as SpendingKind,
                     },
                     {
                       name: t`Carbon Tax Rebate`,
                       amount2024: 9.86,
                       amount2025: 0,
+                      kind: "other" as SpendingKind,
                     },
                   ],
                 },
@@ -442,6 +573,8 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
                   name: t`Infrastructure Investments`,
                   amount2024: 9.02,
                   amount2025: 9.02,
+                  capitalShare: 1.0,
+                  kind: "program" as SpendingKind,
                 },
                 {
                   name: t`Transportation`,
@@ -459,26 +592,31 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
               name: t`Retirement Benefits`,
               amount2024: 76.03,
               amount2025: 76.03,
+              kind: "transfer" as SpendingKind,
             },
             {
               name: t`Employment Insurance`,
               amount2024: 23.13,
               amount2025: 23.13,
+              kind: "transfer" as SpendingKind,
             },
             {
               name: t`Children's Benefits`,
               amount2024: 26.34,
               amount2025: 26.34,
+              kind: "transfer" as SpendingKind,
             },
             {
               name: t`COVID-19 Income Support`,
               amount2024: -4.84,
               amount2025: 0,
+              kind: "transfer" as SpendingKind,
             },
             {
               name: t`Canada Emergency Wage Subsidy`,
               amount2024: -0.42,
               amount2025: 0,
+              kind: "transfer" as SpendingKind,
             },
           ],
         },
@@ -489,16 +627,29 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
               name: t`Strategic Response Fund`,
               amount2024: 0,
               amount2025: 5,
+              capitalShare: 1.0,
+              kind: "program" as SpendingKind,
             },
             {
               name: t`Regional Tariff Response Initiative`,
               amount2024: 0,
               amount2025: 1,
+              capitalShare: 1.0,
+              kind: "program" as SpendingKind,
             },
             {
               name: t`Biofuel Production Incentive`,
               amount2024: 0,
               amount2025: 0.37,
+              capitalShare: 1.0,
+              kind: "program" as SpendingKind,
+            },
+            {
+              name: t`Build Canada Homes`,
+              amount2024: 0,
+              amount2025: 13,
+              capitalShare: 1.0,
+              kind: "program" as SpendingKind,
             },
           ],
         },
@@ -634,6 +785,7 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
               name: t`Net actuarial losses`,
               amount2024: -7.49,
               amount2025: -7.49,
+              kind: "other" as SpendingKind,
             },
           ],
         },
@@ -648,66 +800,79 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
                   name: t`Newfoundland and Labrador HTP`,
                   amount2024: 0.666,
                   amount2025: 0.666,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Prince Edward Island HTP`,
                   amount2024: 0.214,
                   amount2025: 0.214,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Nova Scotia HTP`,
                   amount2024: 1.303,
                   amount2025: 1.303,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`New Brunswick HTP`,
                   amount2024: 1.027,
                   amount2025: 1.027,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Quebec HTP`,
                   amount2024: 10.911,
                   amount2025: 10.911,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Ontario HTP`,
                   amount2024: 19.266,
                   amount2025: 19.266,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Manitoba HTP`,
                   amount2024: 1.794,
                   amount2025: 1.794,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Saskatchewan HTP`,
                   amount2024: 1.491,
                   amount2025: 1.491,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Alberta HTP`,
                   amount2024: 5.771,
                   amount2025: 5.771,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`British Columbia HTP`,
                   amount2024: 6.817,
                   amount2025: 6.817,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Yukon HTP`,
                   amount2024: 0.056,
                   amount2025: 0.056,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Northwest Territories HTP`,
                   amount2024: 0.055,
                   amount2025: 0.055,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Nunavut HTP`,
                   amount2024: 0.05,
                   amount2025: 0.05,
+                  kind: "transfer" as SpendingKind,
                 },
               ],
             },
@@ -718,66 +883,79 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
                   name: t`Newfoundland and Labrador STP`,
                   amount2024: 0.221,
                   amount2025: 0.221,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Prince Edward Island STP`,
                   amount2024: 0.071,
                   amount2025: 0.071,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Nova Scotia STP`,
                   amount2024: 0.433,
                   amount2025: 0.433,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`New Brunswick STP`,
                   amount2024: 0.341,
                   amount2025: 0.341,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Quebec STP`,
                   amount2024: 3.624,
                   amount2025: 3.624,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Ontario STP`,
                   amount2024: 6.4,
                   amount2025: 6.4,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Manitoba STP`,
                   amount2024: 0.596,
                   amount2025: 0.596,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Saskatchewan STP`,
                   amount2024: 0.495,
                   amount2025: 0.495,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Alberta STP`,
                   amount2024: 1.917,
                   amount2025: 1.917,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`British Columbia STP`,
                   amount2024: 2.264,
                   amount2025: 2.264,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Yukon STP`,
                   amount2024: 0.019,
                   amount2025: 0.019,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Northwest Territories STP`,
                   amount2024: 0.018,
                   amount2025: 0.018,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Nunavut STP`,
                   amount2024: 0.017,
                   amount2025: 0.017,
+                  kind: "transfer" as SpendingKind,
                 },
               ],
             },
@@ -793,31 +971,37 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
                   name: t`Prince Edward Island EQP`,
                   amount2024: 0.561,
                   amount2025: 0.561,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Nova Scotia EQP`,
                   amount2024: 2.803,
                   amount2025: 2.803,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`New Brunswick EQP`,
                   amount2024: 2.631,
                   amount2025: 2.631,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Quebec EQP`,
                   amount2024: 14.037,
                   amount2025: 14.037,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Ontario EQP`,
                   amount2024: 0.421,
                   amount2025: 0.421,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Manitoba EQP`,
                   amount2024: 3.51,
                   amount2025: 3.51,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Saskatchewan EQP`,
@@ -855,11 +1039,13 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
               name: t`Quebec Tax Offset`,
               amount2024: -7.1,
               amount2025: -7.1,
+              kind: "transfer" as SpendingKind,
             },
             {
               name: t`Other Major Transfers`,
               amount2024: 17.6,
               amount2025: 17.6,
+              kind: "transfer" as SpendingKind,
             },
           ],
         },
@@ -870,6 +1056,7 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
               name: t`Net Interest on Debt`,
               amount2024: 47.27,
               amount2025: 47.27,
+              kind: "debt" as SpendingKind,
             },
           ],
         },
@@ -880,41 +1067,51 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
               name: t`Ready Forces`,
               amount2024: 13.368,
               amount2025: 16.368,
+              kind: "program" as SpendingKind,
             },
             {
               name: t`Defence Procurement`,
               amount2024: 4.93,
               amount2025: 7.93,
+              capitalShare: 1.0,
+              kind: "program" as SpendingKind,
             },
             {
               name: t`Sustainable Bases, IT Systems, Infrastructure`,
               amount2024: 4.913,
               amount2025: 4.913,
+              capitalShare: 1.0,
+              kind: "program" as SpendingKind,
             },
             {
               name: t`Defence Team`,
               amount2024: 5.39,
               amount2025: 8.09,
+              kind: "program" as SpendingKind,
             },
             {
               name: t`Future Force Design`,
               amount2024: 1.472,
               amount2025: 1.472,
+              kind: "program" as SpendingKind,
             },
             {
               name: t`Defence Operations + Internal Services`,
               amount2024: 3.39,
               amount2025: 3.39,
+              kind: "program" as SpendingKind,
             },
             {
               name: t`Communications Security Establishment`,
               amount2024: 1.01,
               amount2025: 1.01,
+              kind: "program" as SpendingKind,
             },
             {
               name: t`Other Defence`,
               amount2024: 0.01,
               amount2025: 0.01,
+              kind: "program" as SpendingKind,
             },
           ],
         },
@@ -928,46 +1125,55 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
                   name: t`Grants to Support the New Fiscal Relationship with First Nations`,
                   amount2024: 1.36,
                   amount2025: 1.36,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Community Infrastructure Grants`,
                   amount2024: 3.31,
                   amount2025: 3.31,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`First Nations Elementary and Secondary Educational Advancement`,
                   amount2024: 2.56,
                   amount2025: 2.56,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`On-reserve Income Support in Yukon Territory`,
                   amount2024: 1.4,
                   amount2025: 1.4,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`First Nations and Inuit Health Infrastructure Support`,
                   amount2024: 1.22,
                   amount2025: 1.22,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Emergency Management Activities On-Reserve`,
                   amount2024: 0.59,
                   amount2025: 0.59,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Prevention and Protection Services for Children, Youth, Families and Communities`,
                   amount2024: 3.57,
                   amount2025: 3.57,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`First Nations and Inuit Primary Health Care`,
                   amount2024: 3.03,
                   amount2025: 3.03,
+                  kind: "transfer" as SpendingKind,
                 },
                 {
                   name: t`Other Support for Indigenous Well-Being`,
                   amount2024: 9.45,
                   amount2025: 9.45,
+                  kind: "transfer" as SpendingKind,
                 },
               ],
             },
@@ -981,21 +1187,25 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
                       name: t`Out of Court Settlement`,
                       amount2024: 5.0,
                       amount2025: 0,
+                      kind: "other" as SpendingKind,
                     },
                     {
                       name: t`Gottfriedson Band Class Settlement`,
                       amount2024: 2.82,
                       amount2025: 0,
+                      kind: "other" as SpendingKind,
                     },
                     {
                       name: t`Childhood Claims Settlement`,
                       amount2024: 1.42,
                       amount2025: 0,
+                      kind: "other" as SpendingKind,
                     },
                     {
                       name: t`Other Settlement Agreements`,
                       amount2024: 0.85,
                       amount2025: 0,
+                      kind: "other" as SpendingKind,
                     },
                   ],
                 },
@@ -1003,6 +1213,7 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
                   name: t`Other Grants and Contributions to Support Crown-Indigenous Relations`,
                   amount2024: 6.26,
                   amount2025: 6.26,
+                  kind: "other" as SpendingKind,
                 },
               ],
             },
@@ -1162,29 +1373,57 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
       ],
     };
 
-    // Apply Dynamic Reductions to Spending Data (updates 2025 amounts based on sliders)
-    const adjustedSpendingData = applyReductionsToData(baseSpendingData);
+    // Transform Spending Tree With Operational/Capital Split
+    const { node: spendingOut, sums } = transformNode(baseSpendingData);
 
-    // Process Revenue Data to add 'amount' property for chart compatibility (no reductions applied)
-    const processedRevenueData = processRevenueData(revenueData);
+    // Compute Top-Level Spending Totals
+    const op2024 = sums.op2024;
+    const cap2024 = sums.cap2024;
+    const op2025 = sums.op2025;
+    const cap2025 = sums.cap2025;
 
-    // Calculate Totals Dynamically
-    const baselineSpendingTotal = calculateTotal(adjustedSpendingData, false); // 2024 baseline
-    const projectedSpendingTotal = calculateTotal(adjustedSpendingData, true); // 2025 projected (with slider reductions)
-    const revenueTotal = calculateTotal(processedRevenueData, true); // Revenue uses 2025 amounts
-    const totalBudget = Math.max(projectedSpendingTotal, revenueTotal);
+    const transfers2024 = sums.transfers2024;
+    const transfers2025 = sums.transfers2025;
+    const debt2024 = sums.debt2024;
+    const debt2025 = sums.debt2025;
+    const other2024 = sums.other2024;
+    const other2025 = sums.other2025;
+
+    const totalSpending2024 =
+      op2024 + cap2024 + transfers2024 + debt2024 + other2024;
+    const totalSpending2025 =
+      op2025 + cap2025 + transfers2025 + debt2025 + other2025;
+
+    const processedRevenue = processRevenueData(revenueData);
+    const revenue2025 = calculateTotal(processedRevenue, true);
+
+    // Preserve What Sankey Expects
+    const totalForChart = Math.max(totalSpending2025, revenue2025);
 
     return JSON.parse(
       JSON.stringify({
-        total: totalBudget,
-        spending: projectedSpendingTotal, // 2025 projected spending (with reductions)
-        revenue: revenueTotal,
-        spending_data: adjustedSpendingData, // Contains both 2024 baseline and dynamically calculated 2025 amounts
-        revenue_data: processedRevenueData, // Revenue data with 'amount' property for chart compatibility
-        baseline_spending: baselineSpendingTotal, // 2024 baseline spending
+        total: totalForChart,
+        spending: totalSpending2025,
+        revenue: revenue2025,
+        deficit: totalSpending2025 - revenue2025,
+        spending_data: spendingOut,
+        revenue_data: processedRevenue,
+        baseline_spending: totalSpending2024,
+
+        // NEW: expose all spending categories
+        opex2024: op2024,
+        capex2024: cap2024,
+        opex2025: op2025,
+        capex2025: cap2025,
+        transfers2024: transfers2024,
+        transfers2025: transfers2025,
+        debt2024: debt2024,
+        debt2025: debt2025,
+        other2024: other2024,
+        other2025: other2025,
       }),
     );
-  }, [t, applyReductionsToData, calculateTotal, processRevenueData]);
+  }, [t, transformNode, calculateTotal, processRevenueData]);
 
   // Notify Parent Component of Data Changes (using useEffect to avoid setState during render)
   useEffect(() => {
@@ -1193,6 +1432,16 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
         spending: data.spending,
         revenue: data.revenue,
         deficit: data.spending - data.revenue,
+        opex2024: data.opex2024,
+        capex2024: data.capex2024,
+        opex2025: data.opex2025,
+        capex2025: data.capex2025,
+        transfers2024: data.transfers2024,
+        transfers2025: data.transfers2025,
+        debt2024: data.debt2024,
+        debt2025: data.debt2025,
+        other2024: data.other2024,
+        other2025: data.other2025,
       });
     }
   }, [data, onDataChange]);
