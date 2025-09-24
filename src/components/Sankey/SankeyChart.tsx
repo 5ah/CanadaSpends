@@ -24,6 +24,7 @@ type Node = FlatDataNodes[number] & {
 
 interface HoverNodeType extends Node {
   percent: number;
+  overallPercent?: number;
   blockRect?: DOMRect;
   departmentSlug?: string;
 }
@@ -151,24 +152,31 @@ export function SankeyChart(props: SankeyChartProps) {
     setSearchResult(node ?? null);
   };
 
-  const handleMouseOver = useCallback((totalAmount: number) => {
-    return (node: Node, event?: MouseEvent) => {
-      // Clear any pending hide timeout
-      if (hideTooltipTimeoutRef.current) {
-        clearTimeout(hideTooltipTimeoutRef.current);
-        hideTooltipTimeoutRef.current = null;
-      }
-      const percent = (node.realValue! / totalAmount) * 100;
-      setHoverNode({
-        ...node,
-        percent,
-      });
-      // Store mouse position as fallback for tooltip positioning
-      if (event) {
-        setMousePosition({ x: event.clientX, y: event.clientY });
-      }
-    };
-  }, []);
+  const handleMouseOver = useCallback(
+    (totalAmount: number, overallTotalAmount?: number) => {
+      return (node: Node, event?: MouseEvent) => {
+        // Clear any pending hide timeout
+        if (hideTooltipTimeoutRef.current) {
+          clearTimeout(hideTooltipTimeoutRef.current);
+          hideTooltipTimeoutRef.current = null;
+        }
+        const percent = (node.realValue! / totalAmount) * 100;
+        const overallPercent = overallTotalAmount
+          ? (node.realValue! / overallTotalAmount) * 100
+          : undefined;
+        setHoverNode({
+          ...node,
+          percent,
+          overallPercent,
+        });
+        // Store mouse position as fallback for tooltip positioning
+        if (event) {
+          setMousePosition({ x: event.clientX, y: event.clientY });
+        }
+      };
+    },
+    [],
+  );
 
   const handleMouseOut = useCallback(() => {
     hideTooltipTimeoutRef.current = setTimeout(() => {
@@ -260,7 +268,14 @@ export function SankeyChart(props: SankeyChartProps) {
                 {formatNumber(hoverNode.realValue ?? 0, amountScalingFactor)}
               </span>
               <span className="node-tooltip-amount-divider">&#8226;</span>
-              <span>{hoverNode.percent.toFixed(1)}%</span>
+              <div className="node-tooltip-percentage">
+                <span>{hoverNode.percent.toFixed(1)}%</span>
+                {hoverNode.overallPercent !== undefined && (
+                  <div className="node-tooltip-overall">
+                    {hoverNode.overallPercent.toFixed(1)}% of total
+                  </div>
+                )}
+              </div>
             </div>
             {hoverNode.departmentSlug && (
               <div className="node-tooltip-department">
@@ -322,6 +337,12 @@ export function SankeyChart(props: SankeyChartProps) {
               amountScalingFactor={amountScalingFactor}
               difference={0}
               differenceLabel=""
+              onMouseOver={handleMouseOver(
+                searchResult.value ?? 0,
+                // @ts-expect-error: fix type here
+                chartData?.[searchResult.type],
+              )}
+              onMouseOut={handleMouseOut}
             />
           </div>
         )}
