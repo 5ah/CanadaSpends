@@ -36,11 +36,11 @@ interface SearchOptionType {
 
 const getFlatData = (data: SankeyData) => {
   const revenueRoot = hierarchy(data.revenue_data).sum((d) => {
-    return Math.abs(d.amount);
+    return d.amount;
   });
 
   const spendingRoot = hierarchy(data.spending_data).sum((d) => {
-    return Math.abs(d.amount);
+    return d.amount;
   });
 
   return {
@@ -296,7 +296,11 @@ export function SankeyChart(props: SankeyChartProps) {
               {...chartConfig.revenue}
               data={sortNodesByAmount(chartData.revenue_data)}
               totalAmount={totalAmount}
-              difference={chartData.total - chartData.revenue}
+              difference={
+                chartData.spending > chartData.revenue
+                  ? chartData.spending - chartData.revenue // deficit
+                  : 0
+              }
               height={chartHeight}
               amountScalingFactor={amountScalingFactor}
               onMouseOver={handleMouseOver(chartData.revenue)}
@@ -306,7 +310,11 @@ export function SankeyChart(props: SankeyChartProps) {
               {...chartConfig.spending}
               data={sortNodesByAmount(chartData.spending_data)}
               totalAmount={totalAmount}
-              difference={chartData.total - chartData.spending}
+              difference={
+                chartData.revenue > chartData.spending
+                  ? chartData.revenue - chartData.spending // surplus
+                  : 0
+              }
               height={chartHeight}
               amountScalingFactor={amountScalingFactor}
               onMouseOver={handleMouseOver(chartData.spending)}
