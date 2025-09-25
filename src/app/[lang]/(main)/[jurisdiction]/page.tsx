@@ -192,7 +192,12 @@ export default async function ProvinceIndex({
 
             <StatBox
               title={<Trans>Ministries + Agencies</Trans>}
-              value={departments.length.toLocaleString("en-CA")}
+              value={(
+                departments.length ||
+                (Array.isArray((jurisdiction as any).ministries)
+                  ? (jurisdiction as any).ministries.length
+                  : 0)
+              ).toLocaleString("en-CA")}
               description={<Trans>Provincial organizations</Trans>}
             />
           </div>
