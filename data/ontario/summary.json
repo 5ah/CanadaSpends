@@ -5,6 +5,9 @@
   "totalProvincialSpending": 200.63482991300003,
   "totalProvincialSpendingFormatted": "$200.6B",
   "totalEmployees": 74000,
+  "netDebt": 408.0,
+  "totalDebt": 552.1,
+  "debtInterest": 11.376,
   "ministries": [
     {
       "name": "Health",

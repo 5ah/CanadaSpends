@@ -15,6 +15,9 @@ export type Jurisdiction = {
   source: string;
   // Optional list of ministries from summary.json; used for fallback counts
   ministries?: unknown[];
+  debtInterest: number;
+  netDebt: number;
+  totalDebt: number;
 };
 
 type Category = {

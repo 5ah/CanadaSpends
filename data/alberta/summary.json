@@ -5,6 +5,9 @@
   "totalProvincialSpending": "70.447",
   "totalProvincialSpendingFormatted": "$70.4B",
   "totalEmployees": "30,500",
+  "netDebt": 41.4,
+  "totalDebt": 128.2,
+  "debtInterest": 3.2,
   "ministries": [
     {
       "name": "Advanced Education",
