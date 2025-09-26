@@ -65,14 +65,11 @@ export default async function ProvinceIndex({
   const departments = getExpandedDepartments(jurisdiction.slug);
 
   // Financial position figures for Ontario FY 2023-24 (Public Accounts 2023-24)
-  const netDebt = 408.0; // in billions of dollars
-  const netDebtFormatted = `$${netDebt.toFixed(1)}B`;
+  const netDebtFormatted = `$${jurisdiction.netDebt.toFixed(1)}B`;
 
-  const totalDebt = 552.1; // in billions of dollars
-  const totalDebtFormatted = `$${totalDebt.toFixed(1)}B`;
+  const totalDebtFormatted = `$${jurisdiction.totalDebt.toFixed(1)}B`;
 
-  const interestOnDebt = 11.376; // in billions of dollars (Interest on Ontario Securities)
-  const interestOnDebtFormatted = `$${interestOnDebt.toFixed(1)}B`;
+  const interestOnDebtFormatted = `$${jurisdiction.debtInterest.toFixed(1)}B`;
 
   return (
     <Page>
@@ -192,7 +189,12 @@ export default async function ProvinceIndex({
 
             <StatBox
               title={<Trans>Ministries + Agencies</Trans>}
-              value={departments.length.toLocaleString("en-CA")}
+              value={(
+                departments.length ||
+                (Array.isArray((jurisdiction as any).ministries)
+                  ? (jurisdiction as any).ministries.length
+                  : 0)
+              ).toLocaleString("en-CA")}
               description={<Trans>Provincial organizations</Trans>}
             />
           </div>
