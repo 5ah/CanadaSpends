@@ -65,7 +65,7 @@ export function RecruitmentBanner() {
           rel="noopener noreferrer"
           className="underline hover:text-gray-200"
         >
-          buildcanada.com/discord
+          buildcanada.com/get-involved
         </a>
         !
       </p>
