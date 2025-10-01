@@ -1,5 +1,6 @@
 "use client";
 import { Footer } from "@/components/MainLayout/Footer";
+import { RecruitmentBanner } from "@/components/RecruitmentBanner";
 import { Trans, useLingui } from "@lingui/react/macro";
 import Image from "next/image";
 import Link from "next/link";
@@ -49,6 +50,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
+      <RecruitmentBanner />
       <div className="sticky z-[100] border-b-gray-200 border-b-2 w-full border-solid px-4 sm:px-12 py-0">
         <div className="w-full max-w-6xl mx-auto">
           <div className="items-stretch auto-cols-fr justify-between flex min-h-16 gap-2 sm:gap-8 m-auto">
