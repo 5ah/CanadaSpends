@@ -18,12 +18,14 @@ export interface PersonalTaxBreakdown {
 }
 
 // Federal spending categories with percentages (from existing Sankey data)
+// Transfer to Ontario: 6.02%, Transfer to Alberta: 2.30%, Other Provinces: 11.18% (reduced from 13.48)
 const FEDERAL_SPENDING_CATEGORIES = [
   { name: "Retirement Benefits", percentage: 14.8 },
   { name: "Children, Community and Social Services", percentage: 5.1 },
   { name: "Employment Insurance", percentage: 4.5 },
   { name: "Transfer to Ontario", percentage: 6.02 },
-  { name: "Transfers to Other Provinces", percentage: 13.48 },
+  { name: "Transfer to Alberta", percentage: 2.3 },
+  { name: "Transfers to Other Provinces", percentage: 11.18 },
   { name: "Interest on Debt", percentage: 9.2 },
   { name: "Indigenous Priorities", percentage: 8.3 },
   { name: "Defence", percentage: 6.7 },
@@ -64,6 +66,29 @@ const ONTARIO_SPENDING_CATEGORIES = [
   { name: "Natural Resources", percentage: 0.5 },
   { name: "Fisheries and Agriculture", percentage: 0.5 },
   { name: "Other", percentage: 1.9 },
+];
+
+// Alberta spending categories with percentages (from summary.json)
+const ALBERTA_SPENDING_CATEGORIES = [
+  { name: "Health", percentage: 35.7 },
+  { name: "K-12 Education", percentage: 12.6 },
+  { name: "Colleges and Universities", percentage: 8.8 },
+  { name: "Children, Community and Social Services", percentage: 7.6 },
+  { name: "Interest on Debt", percentage: 7.5 },
+  { name: "Fisheries and Agriculture", percentage: 3.7 },
+  { name: "Transportation", percentage: 2.1 },
+  { name: "Public Safety", percentage: 2.1 },
+  { name: "Economic Development and Trade", percentage: 2.2 },
+  { name: "Energy", percentage: 1.4 },
+  { name: "Municipal Affairs and Housing", percentage: 1.4 },
+  { name: "Innovation and Research", percentage: 1.0 },
+  { name: "Attorney and Solicitor General", percentage: 0.9 },
+  { name: "Infrastructure", percentage: 0.7 },
+  { name: "Forestry and Parks", percentage: 1.6 },
+  { name: "Environment", percentage: 0.5 },
+  { name: "Indigenous Priorities", percentage: 0.3 },
+  { name: "Tourism, Culture, and Sport", percentage: 0.6 },
+  { name: "Other", percentage: 8.7 },
 ];
 
 function formatCurrency(amount: number): string {
@@ -156,9 +181,12 @@ function combineFederalAndProvincialForChart(
   const combined: { [key: string]: { federal: number; provincial: number } } =
     {};
 
-  // Add federal spending (excluding transfers)
+  // Add federal spending (excluding provincial transfers)
   federalSpending.forEach((category) => {
-    if (category.name !== "Transfer to Ontario") {
+    if (
+      !category.name.startsWith("Transfer to") ||
+      category.name === "Transfers to Other Provinces"
+    ) {
       if (!combined[category.name]) {
         combined[category.name] = { federal: 0, provincial: 0 };
       }
@@ -197,9 +225,12 @@ function combineFederalAndProvincial(
 ): SpendingCategory[] {
   const combined: { [key: string]: SpendingCategory } = {};
 
-  // Add federal spending (excluding transfers)
+  // Add federal spending (excluding provincial transfers)
   federalSpending.forEach((category) => {
-    if (category.name !== "Transfer to Ontario") {
+    if (
+      !category.name.startsWith("Transfer to") ||
+      category.name === "Transfers to Other Provinces"
+    ) {
       combined[category.name] = {
         ...category,
         level: "federal" as const,
@@ -247,6 +278,7 @@ function combineFederalAndProvincial(
 
 export function calculatePersonalTaxBreakdown(
   taxCalculation: TaxCalculation,
+  province: string = "ontario",
 ): PersonalTaxBreakdown {
   // Calculate federal spending breakdown
   const federalSpending = calculateSpendingByCategory(
@@ -255,17 +287,25 @@ export function calculatePersonalTaxBreakdown(
     "federal",
   );
 
-  // Find the transfer amount
+  // Find the transfer amount based on province
+  const transferName =
+    province === "alberta" ? "Transfer to Alberta" : "Transfer to Ontario";
   const transferCategory = federalSpending.find(
-    (cat) => cat.name === "Transfer to Ontario",
+    (cat) => cat.name === transferName,
   );
   const transferAmount = transferCategory ? transferCategory.amount : 0;
+
+  // Select provincial spending categories based on province
+  const provincialCategories =
+    province === "alberta"
+      ? ALBERTA_SPENDING_CATEGORIES
+      : ONTARIO_SPENDING_CATEGORIES;
 
   // Calculate provincial spending breakdown (including transferred federal funds)
   const totalProvincialFunds = taxCalculation.provincialTax + transferAmount;
   const provincialSpending = calculateSpendingByCategory(
     totalProvincialFunds,
-    ONTARIO_SPENDING_CATEGORIES,
+    provincialCategories,
     "provincial",
   );
 
