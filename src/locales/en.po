@@ -215,8 +215,6 @@ msgid "Air Travellers Charge"
 msgstr "Air Travellers Charge"
 
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:68
-#: src/components/MainLayout/index.tsx:119
-#: src/components/MainLayout/index.tsx:244
 #: src/components/MainLayout/index.tsx:121
 #: src/components/MainLayout/index.tsx:246
 msgid "Alberta"
