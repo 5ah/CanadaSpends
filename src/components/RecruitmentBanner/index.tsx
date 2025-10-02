@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
-export function RecruitmentBanner() {
+function RecruitmentBannerContent() {
   const [isVisible, setIsVisible] = useState(false);
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -70,5 +70,13 @@ export function RecruitmentBanner() {
         !
       </p>
     </div>
+  );
+}
+
+export function RecruitmentBanner() {
+  return (
+    <Suspense fallback={null}>
+      <RecruitmentBannerContent />
+    </Suspense>
   );
 }
