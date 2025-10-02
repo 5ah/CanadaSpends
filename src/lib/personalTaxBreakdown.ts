@@ -68,7 +68,6 @@ const ONTARIO_SPENDING_CATEGORIES = [
   { name: "Other", percentage: 1.9 },
 ];
 
-// Alberta spending categories with percentages (from summary.json)
 const ALBERTA_SPENDING_CATEGORIES = [
   { name: "Health", percentage: 35.7 },
   { name: "K-12 Education", percentage: 12.6 },

@@ -203,27 +203,23 @@ function TaxBracketsTable({ province }: TaxBracketsTableProps) {
               {province === "alberta" && (
                 <>
                   <tr>
-                    <td className="py-2">First $60,000</td>
-                    <td className="py-2 text-right">8%</td>
-                  </tr>
-                  <tr>
-                    <td className="py-2">$60,000 - $151,234</td>
+                    <td className="py-2">First $148,269</td>
                     <td className="py-2 text-right">10%</td>
                   </tr>
                   <tr>
-                    <td className="py-2">$151,234 - $181,481</td>
+                    <td className="py-2">$148,269 - $177,922</td>
                     <td className="py-2 text-right">12%</td>
                   </tr>
                   <tr>
-                    <td className="py-2">$181,481 - $241,974</td>
+                    <td className="py-2">$177,922 - $237,230</td>
                     <td className="py-2 text-right">13%</td>
                   </tr>
                   <tr>
-                    <td className="py-2">$241,974 - $362,961</td>
+                    <td className="py-2">$237,230 - $355,845</td>
                     <td className="py-2 text-right">14%</td>
                   </tr>
                   <tr>
-                    <td className="py-2">More than $362,961</td>
+                    <td className="py-2">More than $355,845</td>
                     <td className="py-2 text-right">15%</td>
                   </tr>
                 </>

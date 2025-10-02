@@ -19,8 +19,8 @@ export const FEDERAL_BASIC_PERSONAL_AMOUNT = 15705;
 // 2024 Ontario basic personal amount
 export const ONTARIO_BASIC_PERSONAL_AMOUNT = 12399;
 
-// 2025 Alberta basic personal amount
-export const ALBERTA_BASIC_PERSONAL_AMOUNT = 22323;
+// 2024 Alberta basic personal amount
+export const ALBERTA_BASIC_PERSONAL_AMOUNT = 21885;
 
 // 2024 Federal tax brackets
 export const FEDERAL_TAX_BRACKETS: TaxBracket[] = [
@@ -40,14 +40,13 @@ export const ONTARIO_TAX_BRACKETS: TaxBracket[] = [
   { min: 220000, max: null, rate: 0.1316 },
 ];
 
-// 2025 Alberta provincial tax brackets
+// 2024 Alberta provincial tax brackets
 export const ALBERTA_TAX_BRACKETS: TaxBracket[] = [
-  { min: 0, max: 60000, rate: 0.08 },
-  { min: 60000, max: 151234, rate: 0.1 },
-  { min: 151234, max: 181481, rate: 0.12 },
-  { min: 181481, max: 241974, rate: 0.13 },
-  { min: 241974, max: 362961, rate: 0.14 },
-  { min: 362961, max: null, rate: 0.15 },
+  { min: 0, max: 148269, rate: 0.1 },
+  { min: 148269, max: 177922, rate: 0.12 },
+  { min: 177922, max: 237230, rate: 0.13 },
+  { min: 237230, max: 355845, rate: 0.14 },
+  { min: 355845, max: null, rate: 0.15 },
 ];
 
 export function calculateTaxFromBrackets(
