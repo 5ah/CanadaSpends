@@ -8,6 +8,37 @@ import { CombinedSpendingChart } from "@/components/CombinedSpendingChart";
 import { calculateTotalTax, formatCurrency } from "@/lib/taxCalculator";
 import { calculatePersonalTaxBreakdown } from "@/lib/personalTaxBreakdown";
 
+type ProvinceData = {
+  name: string;
+  bpa: string;
+  brackets: Array<{ range: string; rate: string }>;
+};
+
+const PROVINCE_DATA: Record<string, ProvinceData> = {
+  alberta: {
+    name: "Alberta",
+    bpa: "$21,885",
+    brackets: [
+      { range: "First $148,269", rate: "10%" },
+      { range: "$148,269 - $177,922", rate: "12%" },
+      { range: "$177,922 - $237,230", rate: "13%" },
+      { range: "$237,230 - $355,845", rate: "14%" },
+      { range: "More than $355,845", rate: "15%" },
+    ],
+  },
+  ontario: {
+    name: "Ontario",
+    bpa: "$12,399",
+    brackets: [
+      { range: "First $51,446", rate: "5.05%" },
+      { range: "$51,446 - $102,894", rate: "9.15%" },
+      { range: "$102,894 - $150,000", rate: "11.16%" },
+      { range: "$150,000 - $220,000", rate: "12.16%" },
+      { range: "More than $220,000", rate: "13.16%" },
+    ],
+  },
+};
+
 interface TaxCalculatorFormProps {
   income: number;
   setIncome: (income: number) => void;
@@ -114,18 +145,13 @@ interface TaxBracketsTableProps {
 }
 
 function TaxBracketsTable({ province }: TaxBracketsTableProps) {
-  const provinceName =
-    province === "alberta"
-      ? "Alberta"
-      : province === "ontario"
-        ? "Ontario"
-        : "";
-  const provincialBPA = province === "alberta" ? "$21,885" : "$12,399";
+  const data = PROVINCE_DATA[province];
+  if (!data) return null;
 
   return (
     <div className="mt-16">
       <h2 className="text-2xl font-bold text-center mb-2">
-        {provinceName} Provincial and Federal tax brackets
+        {data.name} Provincial and Federal tax brackets
       </h2>
       <p className="text-center text-gray-600 mb-8">
         Your taxable income is taxed at the following rates.
@@ -169,68 +195,26 @@ function TaxBracketsTable({ province }: TaxBracketsTableProps) {
           <table className="w-full text-left">
             <thead>
               <tr>
-                <th className="pb-2 font-bold">{provinceName} tax bracket</th>
+                <th className="pb-2 font-bold">{data.name} tax bracket</th>
                 <th className="pb-2 font-bold text-right">
-                  {provinceName} tax rate
+                  {data.name} tax rate
                 </th>
               </tr>
             </thead>
             <tbody className="text-gray-700 text-base">
-              {province === "ontario" && (
-                <>
-                  <tr>
-                    <td className="py-2">First $51,446</td>
-                    <td className="py-2 text-right">5.05%</td>
-                  </tr>
-                  <tr>
-                    <td className="py-2">$51,446 - $102,894</td>
-                    <td className="py-2 text-right">9.15%</td>
-                  </tr>
-                  <tr>
-                    <td className="py-2">$102,894 - $150,000</td>
-                    <td className="py-2 text-right">11.16%</td>
-                  </tr>
-                  <tr>
-                    <td className="py-2">$150,000 - $220,000</td>
-                    <td className="py-2 text-right">12.16%</td>
-                  </tr>
-                  <tr>
-                    <td className="py-2">More than $220,000</td>
-                    <td className="py-2 text-right">13.16%</td>
-                  </tr>
-                </>
-              )}
-              {province === "alberta" && (
-                <>
-                  <tr>
-                    <td className="py-2">First $148,269</td>
-                    <td className="py-2 text-right">10%</td>
-                  </tr>
-                  <tr>
-                    <td className="py-2">$148,269 - $177,922</td>
-                    <td className="py-2 text-right">12%</td>
-                  </tr>
-                  <tr>
-                    <td className="py-2">$177,922 - $237,230</td>
-                    <td className="py-2 text-right">13%</td>
-                  </tr>
-                  <tr>
-                    <td className="py-2">$237,230 - $355,845</td>
-                    <td className="py-2 text-right">14%</td>
-                  </tr>
-                  <tr>
-                    <td className="py-2">More than $355,845</td>
-                    <td className="py-2 text-right">15%</td>
-                  </tr>
-                </>
-              )}
+              {data.brackets.map((bracket, index) => (
+                <tr key={index}>
+                  <td className="py-2">{bracket.range}</td>
+                  <td className="py-2 text-right">{bracket.rate}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
       </div>
       <p className="text-center text-xs text-gray-600 mt-8">
-        Basic personal amount of $15,705 for federal and {provincialBPA} for{" "}
-        {provinceName} have been deducted.
+        Basic personal amount of $15,705 for federal and {data.bpa} for{" "}
+        {data.name} have been deducted.
       </p>
     </div>
   );
