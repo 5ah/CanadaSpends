@@ -90,6 +90,24 @@ const ALBERTA_SPENDING_CATEGORIES = [
   { name: "Other", percentage: 8.7 },
 ];
 
+// Consolidated province configuration
+const PROVINCE_DATA: Record<
+  string,
+  {
+    federalTransferName: string;
+    spendingCategories: { name: string; percentage: number }[];
+  }
+> = {
+  ontario: {
+    federalTransferName: "Transfer to Ontario",
+    spendingCategories: ONTARIO_SPENDING_CATEGORIES,
+  },
+  alberta: {
+    federalTransferName: "Transfer to Alberta",
+    spendingCategories: ALBERTA_SPENDING_CATEGORIES,
+  },
+};
+
 function formatCurrency(amount: number): string {
   return new Intl.NumberFormat("en-CA", {
     style: "currency",
@@ -180,12 +198,14 @@ function combineFederalAndProvincialForChart(
   const combined: { [key: string]: { federal: number; provincial: number } } =
     {};
 
+  // Get all federal transfer names to exclude
+  const federalTransferNames = new Set(
+    Object.values(PROVINCE_DATA).map((p) => p.federalTransferName),
+  );
+
   // Add federal spending (excluding provincial transfers)
   federalSpending.forEach((category) => {
-    if (
-      !category.name.startsWith("Transfer to") ||
-      category.name === "Transfers to Other Provinces"
-    ) {
+    if (!federalTransferNames.has(category.name)) {
       if (!combined[category.name]) {
         combined[category.name] = { federal: 0, provincial: 0 };
       }
@@ -224,12 +244,14 @@ function combineFederalAndProvincial(
 ): SpendingCategory[] {
   const combined: { [key: string]: SpendingCategory } = {};
 
+  // Get all federal transfer names to exclude
+  const federalTransferNames = new Set(
+    Object.values(PROVINCE_DATA).map((p) => p.federalTransferName),
+  );
+
   // Add federal spending (excluding provincial transfers)
   federalSpending.forEach((category) => {
-    if (
-      !category.name.startsWith("Transfer to") ||
-      category.name === "Transfers to Other Provinces"
-    ) {
+    if (!federalTransferNames.has(category.name)) {
       combined[category.name] = {
         ...category,
         level: "federal" as const,
@@ -286,25 +308,23 @@ export function calculatePersonalTaxBreakdown(
     "federal",
   );
 
-  // Find the transfer amount based on province
-  const transferName =
-    province === "alberta" ? "Transfer to Alberta" : "Transfer to Ontario";
+  // Get province-specific configuration
+  const provinceConfig = PROVINCE_DATA[province];
+  if (!provinceConfig) {
+    throw new Error(`Province "${province}" not supported`);
+  }
+
+  // Find the transfer amount for this province
   const transferCategory = federalSpending.find(
-    (cat) => cat.name === transferName,
+    (cat) => cat.name === provinceConfig.federalTransferName,
   );
   const transferAmount = transferCategory ? transferCategory.amount : 0;
-
-  // Select provincial spending categories based on province
-  const provincialCategories =
-    province === "alberta"
-      ? ALBERTA_SPENDING_CATEGORIES
-      : ONTARIO_SPENDING_CATEGORIES;
 
   // Calculate provincial spending breakdown (including transferred federal funds)
   const totalProvincialFunds = taxCalculation.provincialTax + transferAmount;
   const provincialSpending = calculateSpendingByCategory(
     totalProvincialFunds,
-    provincialCategories,
+    provinceConfig.spendingCategories,
     "provincial",
   );
 
