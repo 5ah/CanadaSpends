@@ -194,24 +194,51 @@ export interface CombinedSpendingItem {
 function combineFederalAndProvincialForChart(
   federalSpending: SpendingCategory[],
   provincialSpending: SpendingCategory[],
+  currentProvince: string,
 ): CombinedSpendingItem[] {
   const combined: { [key: string]: { federal: number; provincial: number } } =
     {};
 
-  // Get all federal transfer names to exclude
-  const federalTransferNames = new Set(
+  // Get the current province's transfer name to exclude
+  const currentProvinceConfig = PROVINCE_DATA[currentProvince];
+  const currentProvinceTransferName =
+    currentProvinceConfig?.federalTransferName;
+
+  // Get all federal transfer names for combining into "Transfers to Other Provinces"
+  const allTransferNames = new Set(
     Object.values(PROVINCE_DATA).map((p) => p.federalTransferName),
   );
 
-  // Add federal spending (excluding provincial transfers)
+  let otherProvincesTransferAmount = 0;
+
+  // Add federal spending
   federalSpending.forEach((category) => {
-    if (!federalTransferNames.has(category.name)) {
+    // Skip the current province's transfer (it's included in provincial spending)
+    if (category.name === currentProvinceTransferName) {
+      return;
+    }
+
+    // Combine all other provincial transfers into "Transfers to Other Provinces"
+    if (
+      allTransferNames.has(category.name) ||
+      category.name === "Transfers to Other Provinces"
+    ) {
+      otherProvincesTransferAmount += category.amount;
+    } else {
       if (!combined[category.name]) {
         combined[category.name] = { federal: 0, provincial: 0 };
       }
       combined[category.name].federal = category.amount;
     }
   });
+
+  // Add the combined "Transfers to Other Provinces" if there's any amount
+  if (otherProvincesTransferAmount > 0) {
+    combined["Transfers to Other Provinces"] = {
+      federal: otherProvincesTransferAmount,
+      provincial: 0,
+    };
+  }
 
   // Add provincial spending
   provincialSpending.forEach((category) => {
@@ -241,23 +268,56 @@ function combineFederalAndProvincialForChart(
 function combineFederalAndProvincial(
   federalSpending: SpendingCategory[],
   provincialSpending: SpendingCategory[],
+  currentProvince: string,
 ): SpendingCategory[] {
   const combined: { [key: string]: SpendingCategory } = {};
 
-  // Get all federal transfer names to exclude
-  const federalTransferNames = new Set(
+  // Get the current province's transfer name to exclude
+  const currentProvinceConfig = PROVINCE_DATA[currentProvince];
+  const currentProvinceTransferName =
+    currentProvinceConfig?.federalTransferName;
+
+  // Get all federal transfer names for combining into "Transfers to Other Provinces"
+  const allTransferNames = new Set(
     Object.values(PROVINCE_DATA).map((p) => p.federalTransferName),
   );
 
-  // Add federal spending (excluding provincial transfers)
+  let otherProvincesTransferAmount = 0;
+  let otherProvincesTransferPercentage = 0;
+
+  // Add federal spending
   federalSpending.forEach((category) => {
-    if (!federalTransferNames.has(category.name)) {
+    // Skip the current province's transfer (it's included in provincial spending)
+    if (category.name === currentProvinceTransferName) {
+      return;
+    }
+
+    // Combine all other provincial transfers into "Transfers to Other Provinces"
+    if (
+      allTransferNames.has(category.name) ||
+      category.name === "Transfers to Other Provinces"
+    ) {
+      otherProvincesTransferAmount += category.amount;
+      otherProvincesTransferPercentage += category.percentage;
+    } else {
       combined[category.name] = {
         ...category,
         level: "federal" as const,
       };
     }
   });
+
+  // Add the combined "Transfers to Other Provinces" if there's any amount
+  if (otherProvincesTransferAmount > 0) {
+    combined["Transfers to Other Provinces"] = {
+      name: "Transfers to Other Provinces",
+      amount: otherProvincesTransferAmount,
+      percentage: otherProvincesTransferPercentage,
+      formattedAmount: formatCurrency(otherProvincesTransferAmount),
+      formattedPercentage: formatPercentage(otherProvincesTransferPercentage),
+      level: "federal" as const,
+    };
+  }
 
   // Add or merge provincial spending
   provincialSpending.forEach((category) => {
@@ -334,13 +394,14 @@ export function calculatePersonalTaxBreakdown(
 
   // Create combined view
   const combinedSpending = groupSmallAmounts(
-    combineFederalAndProvincial(federalSpending, provincialSpending),
+    combineFederalAndProvincial(federalSpending, provincialSpending, province),
   );
 
   // Create combined chart data for stacked bars
   const combinedChartData = combineFederalAndProvincialForChart(
     federalSpendingGrouped,
     provincialSpendingGrouped,
+    province,
   );
 
   return {
