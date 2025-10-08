@@ -162,7 +162,7 @@ export default async function ProvinceIndex({
               title={
                 <div className="flex items-center">
                   <Trans>Interest on Debt</Trans>
-                  <Tooltip text="Annual interest payments on Ontario's outstanding debt. This represents the cost of servicing the province's debt obligations.">
+                  <Tooltip text="Annual interest payments on outstanding debt. This represents the cost of servicing the province's debt obligations.">
                     <HelpIcon />
                   </Tooltip>
                 </div>
@@ -208,16 +208,20 @@ export default async function ProvinceIndex({
             </ExternalLink>
           </P>
         </Section>
-        <Section>
-          <H2>
-            <Trans>{jurisdiction.name} Government Departments explained</Trans>
-          </H2>
-          <JurisdictionDepartmentList
-            jurisdiction={jurisdiction}
-            lang={lang}
-            departments={departments}
-          />
-        </Section>
+        {departments && departments.length > 0 && (
+          <Section>
+            <H2>
+              <Trans>
+                {jurisdiction.name} Government Departments explained
+              </Trans>
+            </H2>
+            <JurisdictionDepartmentList
+              jurisdiction={jurisdiction}
+              lang={lang}
+              departments={departments}
+            />
+          </Section>
+        )}
         <Section>
           <H2>
             <Trans>Sources</Trans>
