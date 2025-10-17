@@ -142,7 +142,51 @@ export default async function ProvinceIndex({
     title: React.ReactNode;
     value: React.ReactNode;
     description: React.ReactNode;
-  }[] = [];
+  }[] = [
+    {
+      key: "budget-balance",
+      title: (
+        <div className="flex items-center">
+          <Trans>Budget Surplus/Deficit</Trans>
+          <Tooltip text="The difference between revenue and spending. A surplus indicates revenue exceeded spending.">
+            <HelpIcon />
+          </Tooltip>
+        </div>
+      ),
+      value: budgetValue,
+      description: (
+        <Trans>Budget balance for {jurisdiction.financialYear}</Trans>
+      ),
+    },
+    {
+      key: "total-revenue",
+      title: (
+        <div className="flex items-center">
+          <Trans>Total Revenue</Trans>
+          <Tooltip text="All revenue collected during the fiscal year, including taxes, transfers, and other sources.">
+            <HelpIcon />
+          </Tooltip>
+        </div>
+      ),
+      value: formatBillions(totalRevenue),
+      description: <Trans>Total revenue in {jurisdiction.financialYear}</Trans>,
+    },
+    {
+      key: "total-spending",
+      title: (
+        <div className="flex items-center">
+          <Trans>Total Spending</Trans>
+          <Tooltip text="All program and operating spending recorded for the fiscal year.">
+            <HelpIcon />
+          </Tooltip>
+        </div>
+      ),
+      value: formatBillions(totalSpending),
+      description: (
+        <Trans>Total spending in {jurisdiction.financialYear}</Trans>
+      ),
+    },
+  ];
 
   if (
     hasDebtData &&
@@ -200,51 +244,6 @@ export default async function ProvinceIndex({
       },
     );
   }
-
-  financialStats.push({
-    key: "budget-balance",
-    title: (
-      <div className="flex items-center">
-        <Trans>Budget Surplus/Deficit</Trans>
-        <Tooltip text="The difference between revenue and spending. A surplus indicates revenue exceeded spending.">
-          <HelpIcon />
-        </Tooltip>
-      </div>
-    ),
-    value: budgetValue,
-    description: <Trans>Budget balance for {jurisdiction.financialYear}</Trans>,
-  });
-
-  financialStats.push(
-    {
-      key: "total-revenue",
-      title: (
-        <div className="flex items-center">
-          <Trans>Total Revenue</Trans>
-          <Tooltip text="All revenue collected during the fiscal year, including taxes, transfers, and other sources.">
-            <HelpIcon />
-          </Tooltip>
-        </div>
-      ),
-      value: formatBillions(totalRevenue),
-      description: <Trans>Total revenue in {jurisdiction.financialYear}</Trans>,
-    },
-    {
-      key: "total-spending",
-      title: (
-        <div className="flex items-center">
-          <Trans>Total Spending</Trans>
-          <Tooltip text="All program and operating spending recorded for the fiscal year.">
-            <HelpIcon />
-          </Tooltip>
-        </div>
-      ),
-      value: formatBillions(totalSpending),
-      description: (
-        <Trans>Total spending in {jurisdiction.financialYear}</Trans>
-      ),
-    },
-  );
 
   if (perCapitaSpending !== null) {
     financialStats.push({
