@@ -135,7 +135,7 @@ export default async function ProvinceIndex({
 
   const budgetValue = `${formatBillions(Math.abs(budgetBalance))} ${
     budgetBalance >= 0 ? "surplus" : "deficit"
-  } (Revenue ${formatBillions(totalRevenue)} - Spending ${formatBillions(totalSpending)})`;
+  }`;
 
   const financialStats: {
     key: string;
