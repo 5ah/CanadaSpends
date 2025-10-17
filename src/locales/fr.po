@@ -214,6 +214,7 @@ msgstr "Agriculture"
 msgid "Air Travellers Charge"
 msgstr "Frais des voyageurs aériens"
 
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:99
 #: src/components/MainLayout/index.tsx:121
 #: src/components/MainLayout/index.tsx:246
 msgid "Alberta"
@@ -259,7 +260,7 @@ msgstr "Toutes les informations proviennent des bases de données publiques et d
 msgid "Amount/Change"
 msgstr ""
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:36
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:67
 msgid "Annual Income (CAD)"
 msgstr ""
 
@@ -335,7 +336,7 @@ msgstr ""
 msgid "Build Canada Homes"
 msgstr ""
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:28
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:59
 msgid "Calculate Your Tax Contribution"
 msgstr ""
 
@@ -521,10 +522,6 @@ msgstr "Relations Couronne-Autochtones"
 msgid "CSIS"
 msgstr "SCRS"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:70
-msgid "Currently supports Ontario only. More provinces coming soon."
-msgstr ""
-
 #: src/components/Sankey/BudgetSankey.tsx:1292
 #: src/components/Sankey/index.tsx:727
 msgid "Customs Duties"
@@ -663,11 +660,11 @@ msgstr "Économie + Infrastructure"
 msgid "Economy and Standard of Living"
 msgstr "Économie et niveau de vie"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:103
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:135
 msgid "Effective Rate"
 msgstr ""
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:105
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:137
 msgid "Effective tax rate"
 msgstr ""
 
@@ -708,7 +705,7 @@ msgstr "Cotisations d'assurance-emploi"
 msgid "Energy Taxes"
 msgstr "Taxes sur l'énergie"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:219
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:246
 msgid "Enter your income to see a personalized breakdown of how much you contribute to different government services and programs."
 msgstr ""
 
@@ -750,15 +747,15 @@ msgstr "La part des dépenses fédérales d'EDSC en 2024 était inférieure à c
 msgid "Established in 2005, ESDC is a federal department responsible for supporting Canadians through social programs and workforce development. It administers key programs such as Employment Insurance (EI), the Canada Pension Plan (CPP), Old Age Security (OAS), and skills training initiatives. ESDC also oversees Service Canada, which delivers government services directly to the public."
 msgstr "Établi en 2005, EDSC est un ministère fédéral responsable du soutien aux Canadiens par le biais de programmes sociaux et de développement de la main-d'œuvre. Il administre des programmes clés tels que l'assurance-emploi (AE), le Régime de pensions du Canada (RPC), la Sécurité de la vieillesse (SV) et des initiatives de formation professionnelle. EDSC supervise également Service Canada, qui fournit des services gouvernementaux directement au public."
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:100
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:132
 msgid "Estimated combined tax"
 msgstr ""
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:90
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:122
 msgid "Estimated income tax paid to federal government"
 msgstr ""
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:95
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:127
 msgid "Estimated income tax paid to provincial government"
 msgstr ""
 
@@ -972,7 +969,7 @@ msgstr "Les dépenses fédérales consacrées aux priorités autochtones peuvent
 msgid "Federal spending on public safety fluctuates based on evolving security threats, emergency events, and changes in government policy. Since 2005 shortly after it was established, Public Safety Canada's expenditures have increased by 69.6%, reflecting heightened investments in counterterrorism, cyber defence, and disaster response capabilities. The department's share of the federal budget has remained relatively flat from 2.6% in 2005 to 2.7% in 2024."
 msgstr "Les dépenses fédérales en matière de sécurité publique fluctuent en fonction de l'évolution des menaces pour la sécurité, des événements d'urgence et des changements dans la politique gouvernementale. Depuis 2005, peu après sa création, les dépenses de Sécurité publique Canada ont augmenté de 69,6 %, reflétant des investissements accrus dans les capacités de lutte contre le terrorisme, de cyberdéfense et d'intervention en cas de catastrophe. La part du ministère dans le budget fédéral est restée relativement stable, passant de 2,6 % en 2005 à 2,7 % en 2024."
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:88
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:120
 msgid "Federal Tax"
 msgstr ""
 
@@ -1029,7 +1026,7 @@ msgstr "Sécurité alimentaire"
 msgid "For example, during the COVID-19 pandemic, federal support programs led to a temporary surge in spending. ESDC expenditures increased from $63.3 billion in 2019 to $169.2 billion in 2021 before stabilizing in recent years."
 msgstr "Par exemple, pendant la pandémie de COVID-19, les programmes de soutien fédéraux ont entraîné une augmentation temporaire des dépenses. Les dépenses d'EDSC sont passées de 63,3 milliards de dollars en 2019 à 169,2 milliards de dollars en 2021 avant de se stabiliser ces dernières années."
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:257
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:284
 msgid "For further breakdowns of spending, see <0>Federal</0> and <1>Provincial</1> spending pages."
 msgstr ""
 
@@ -1142,7 +1139,7 @@ msgstr "Opérations informatiques gouvernementales"
 msgid "Government Spending"
 msgstr "Dépenses gouvernementales"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:254
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:281
 msgid "Government spending is based on 2023-2024 fiscal spending. Attempts have been made to merge similar categories across federal and provincial spending."
 msgstr ""
 
@@ -1655,6 +1652,10 @@ msgstr "Revenus divers"
 msgid "More coming soon..."
 msgstr "Plus à venir..."
 
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:102
+msgid "More provinces coming soon."
+msgstr ""
+
 #: src/app/[lang]/(main)/spending/canada-revenue-agency/page.tsx:164
 msgid "Most CRA spending is dedicated to personnel and IT infrastructure supporting tax filing, compliance, and benefit administration."
 msgstr "La plupart des dépenses de l'ARC sont consacrées au personnel et à l'infrastructure informatique soutenant la production des déclarations, la conformité et l'administration des prestations."
@@ -1925,7 +1926,7 @@ msgstr "Langues officielles + Culture"
 msgid "On-reserve Income Support in Yukon Territory"
 msgstr "Soutien du revenu dans les réserves du Yukon"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:67
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:98
 #: src/components/MainLayout/index.tsx:113
 #: src/components/MainLayout/index.tsx:238
 msgid "Ontario"
@@ -2195,7 +2196,7 @@ msgstr ""
 msgid "Projected operational spending"
 msgstr ""
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:59
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:90
 msgid "Province/Territory"
 msgstr ""
 
@@ -2203,7 +2204,7 @@ msgstr ""
 msgid "Provincial organizations"
 msgstr ""
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:93
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:125
 msgid "Provincial Tax"
 msgstr ""
 
@@ -2737,7 +2738,7 @@ msgstr ""
 msgid "These Ministers are some of the <0>cabinet members</0> who serve at the Prime Minister's discretion. Their tenure typically ends when they resign, are replaced, or when a new Prime Minister takes office and appoints a new cabinet. Outgoing ministers remain in their roles until their successors are sworn in."
 msgstr "Ces ministres sont parmi les <0>membres du cabinet</0> qui servent à la discrétion du premier ministre. Leur mandat se termine généralement lorsqu'ils démissionnent, sont remplacés ou lorsqu'un nouveau premier ministre prend ses fonctions et nomme un nouveau cabinet. Les ministres sortants restent en fonction jusqu'à ce que leurs successeurs soient assermentés."
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:248
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:275
 msgid "This visualization shows how your income tax contributions are allocated across different government programs and services based on current government spending patterns. Amounts under $20 are grouped into \"Other\" for conciseness."
 msgstr ""
 
@@ -2761,7 +2762,7 @@ msgstr ""
 msgid "Total full-time equivalents"
 msgstr "Équivalents temps plein totaux"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:98
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:130
 msgid "Total Tax"
 msgstr ""
 
@@ -2855,7 +2856,7 @@ msgstr "Conseil du Trésor"
 msgid "Type of Tenure"
 msgstr "Type d'emploi"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:245
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:272
 msgid "Understanding Your Tax Contribution"
 msgstr ""
 
@@ -3042,8 +3043,8 @@ msgstr "Lorsque LGIC a été fondé au cours de l'exercice 2005 en tant que Bure
 msgid "Where do you get the data on your website?"
 msgstr "D'où proviennent les données sur votre site web?"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:217
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:239
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:244
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:266
 msgid "Where Your Tax Dollars Go"
 msgstr ""
 
@@ -3115,7 +3116,7 @@ msgstr "Année"
 msgid "You deserve the facts"
 msgstr "Vous méritez les faits"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:251
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:278
 msgid "Your tax contributions are approximated based on employment income. Deductions such as basic personal amount are estimated and included. Other sources of income, such as self-employment, investment income, and capital gains, are not included in the calculations. Deductions such as RRSP and FHSA contributions are also not included. Tax calculations are based on 2024 federal and provincial tax brackets."
 msgstr ""
 

@@ -8,6 +8,37 @@ import { CombinedSpendingChart } from "@/components/CombinedSpendingChart";
 import { calculateTotalTax, formatCurrency } from "@/lib/taxCalculator";
 import { calculatePersonalTaxBreakdown } from "@/lib/personalTaxBreakdown";
 
+type ProvinceData = {
+  name: string;
+  bpa: string;
+  brackets: Array<{ range: string; rate: string }>;
+};
+
+const PROVINCE_DATA: Record<string, ProvinceData> = {
+  alberta: {
+    name: "Alberta",
+    bpa: "$21,885",
+    brackets: [
+      { range: "First $148,269", rate: "10%" },
+      { range: "$148,269 - $177,922", rate: "12%" },
+      { range: "$177,922 - $237,230", rate: "13%" },
+      { range: "$237,230 - $355,845", rate: "14%" },
+      { range: "More than $355,845", rate: "15%" },
+    ],
+  },
+  ontario: {
+    name: "Ontario",
+    bpa: "$12,399",
+    brackets: [
+      { range: "First $51,446", rate: "5.05%" },
+      { range: "$51,446 - $102,894", rate: "9.15%" },
+      { range: "$102,894 - $150,000", rate: "11.16%" },
+      { range: "$150,000 - $220,000", rate: "12.16%" },
+      { range: "More than $220,000", rate: "13.16%" },
+    ],
+  },
+};
+
 interface TaxCalculatorFormProps {
   income: number;
   setIncome: (income: number) => void;
@@ -65,9 +96,10 @@ function TaxCalculatorForm({
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="ontario">{t`Ontario`}</option>
+            <option value="alberta">{t`Alberta`}</option>
           </select>
           <p className="text-sm text-gray-500 mt-1">
-            {t`Currently supports Ontario only. More provinces coming soon.`}
+            {t`More provinces coming soon.`}
           </p>
         </div>
       </div>
@@ -108,11 +140,18 @@ function TaxSummary({ taxCalculation }: TaxSummaryProps) {
   );
 }
 
-function TaxBracketsTable() {
+interface TaxBracketsTableProps {
+  province: string;
+}
+
+function TaxBracketsTable({ province }: TaxBracketsTableProps) {
+  const data = PROVINCE_DATA[province];
+  if (!data) return null;
+
   return (
     <div className="mt-16">
       <h2 className="text-2xl font-bold text-center mb-2">
-        Ontario Provincial and Federal tax brackets
+        {data.name} Provincial and Federal tax brackets
       </h2>
       <p className="text-center text-gray-600 mb-8">
         Your taxable income is taxed at the following rates.
@@ -151,43 +190,31 @@ function TaxBracketsTable() {
             </tbody>
           </table>
         </div>
-        {/* Ontario Tax Brackets */}
+        {/* Provincial Tax Brackets */}
         <div className="bg-white rounded-lg shadow-sm border p-6 flex-1 min-w-[320px] max-w-md">
           <table className="w-full text-left">
             <thead>
               <tr>
-                <th className="pb-2 font-bold">Ontario tax bracket</th>
-                <th className="pb-2 font-bold text-right">Ontario tax rate</th>
+                <th className="pb-2 font-bold">{data.name} tax bracket</th>
+                <th className="pb-2 font-bold text-right">
+                  {data.name} tax rate
+                </th>
               </tr>
             </thead>
             <tbody className="text-gray-700 text-base">
-              <tr>
-                <td className="py-2">First $51,446</td>
-                <td className="py-2 text-right">5.05%</td>
-              </tr>
-              <tr>
-                <td className="py-2">$51,446 - $102,894</td>
-                <td className="py-2 text-right">9.15%</td>
-              </tr>
-              <tr>
-                <td className="py-2">$102,894 - $150,000</td>
-                <td className="py-2 text-right">11.16%</td>
-              </tr>
-              <tr>
-                <td className="py-2">$150,000 - $220,000</td>
-                <td className="py-2 text-right">12.16%</td>
-              </tr>
-              <tr>
-                <td className="py-2">More than $220,000</td>
-                <td className="py-2 text-right">13.16%</td>
-              </tr>
+              {data.brackets.map((bracket, index) => (
+                <tr key={index}>
+                  <td className="py-2">{bracket.range}</td>
+                  <td className="py-2 text-right">{bracket.rate}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
       </div>
       <p className="text-center text-xs text-gray-600 mt-8">
-        Basic personal amount of $15,705 for federal and $12,399 for Ontario
-        have been deducted.
+        Basic personal amount of $15,705 for federal and {data.bpa} for{" "}
+        {data.name} have been deducted.
       </p>
     </div>
   );
@@ -207,8 +234,8 @@ export default function TaxCalculatorPage() {
 
   const breakdown = useMemo(() => {
     if (!taxCalculation) return null;
-    return calculatePersonalTaxBreakdown(taxCalculation);
-  }, [taxCalculation]);
+    return calculatePersonalTaxBreakdown(taxCalculation, province);
+  }, [taxCalculation, province]);
 
   return (
     <PageContent>
@@ -260,7 +287,10 @@ export default function TaxCalculatorPage() {
                       Federal
                     </a>{" "}
                     and{" "}
-                    <a href="/ontario" className="underline">
+                    <a
+                      href={province === "alberta" ? "/alberta" : "/ontario"}
+                      className="underline"
+                    >
                       Provincial
                     </a>{" "}
                     spending pages.
@@ -271,7 +301,7 @@ export default function TaxCalculatorPage() {
           </>
         )}
       </Section>
-      <TaxBracketsTable />
+      <TaxBracketsTable province={province} />
       <Section>
         <hr></hr>
         <p className="mt-6 text-center text-sm text-gray-600">

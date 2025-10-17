@@ -19,6 +19,9 @@ export const FEDERAL_BASIC_PERSONAL_AMOUNT = 15705;
 // 2024 Ontario basic personal amount
 export const ONTARIO_BASIC_PERSONAL_AMOUNT = 12399;
 
+// 2024 Alberta basic personal amount
+export const ALBERTA_BASIC_PERSONAL_AMOUNT = 21885;
+
 // 2024 Federal tax brackets
 export const FEDERAL_TAX_BRACKETS: TaxBracket[] = [
   { min: 0, max: 55867, rate: 0.15 },
@@ -35,6 +38,15 @@ export const ONTARIO_TAX_BRACKETS: TaxBracket[] = [
   { min: 102894, max: 150000, rate: 0.1116 },
   { min: 150000, max: 220000, rate: 0.1216 },
   { min: 220000, max: null, rate: 0.1316 },
+];
+
+// 2024 Alberta provincial tax brackets
+export const ALBERTA_TAX_BRACKETS: TaxBracket[] = [
+  { min: 0, max: 148269, rate: 0.1 },
+  { min: 148269, max: 177922, rate: 0.12 },
+  { min: 177922, max: 237230, rate: 0.13 },
+  { min: 237230, max: 355845, rate: 0.14 },
+  { min: 355845, max: null, rate: 0.15 },
 ];
 
 export function calculateTaxFromBrackets(
@@ -87,6 +99,20 @@ export function calculateOntarioTax(income: number): number {
   return Math.max(0, taxOnFullIncome - bpaCredit);
 }
 
+export function calculateAlbertaTax(income: number): number {
+  // Step 1: Calculate tax on full income using progressive brackets
+  const taxOnFullIncome = calculateTaxFromBrackets(
+    income,
+    ALBERTA_TAX_BRACKETS,
+  );
+
+  // Step 2: Apply BPA as a credit (10% of BPA - lowest provincial rate)
+  const bpaCredit = ALBERTA_BASIC_PERSONAL_AMOUNT * 0.1;
+
+  // Step 3: Subtract the credit from the calculated tax
+  return Math.max(0, taxOnFullIncome - bpaCredit);
+}
+
 export function calculateTotalTax(
   income: number,
   province: string = "ontario",
@@ -97,6 +123,9 @@ export function calculateTotalTax(
   switch (province.toLowerCase()) {
     case "ontario":
       provincialTax = calculateOntarioTax(income);
+      break;
+    case "alberta":
+      provincialTax = calculateAlbertaTax(income);
       break;
     default:
       provincialTax = calculateOntarioTax(income); // Default to Ontario for now

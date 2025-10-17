@@ -214,6 +214,7 @@ msgstr "Agriculture"
 msgid "Air Travellers Charge"
 msgstr "Air Travellers Charge"
 
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:99
 #: src/components/MainLayout/index.tsx:121
 #: src/components/MainLayout/index.tsx:246
 msgid "Alberta"
@@ -259,7 +260,7 @@ msgstr "All the information comes from public databases and reports by the Gover
 msgid "Amount/Change"
 msgstr "Amount/Change"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:36
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:67
 msgid "Annual Income (CAD)"
 msgstr "Annual Income (CAD)"
 
@@ -335,7 +336,7 @@ msgstr "Budget Statistics (Projected FY 2025)"
 msgid "Build Canada Homes"
 msgstr "Build Canada Homes"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:28
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:59
 msgid "Calculate Your Tax Contribution"
 msgstr "Calculate Your Tax Contribution"
 
@@ -521,10 +522,6 @@ msgstr "Crown-Indigenous Relations"
 msgid "CSIS"
 msgstr "CSIS"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:70
-msgid "Currently supports Ontario only. More provinces coming soon."
-msgstr "Currently supports Ontario only. More provinces coming soon."
-
 #: src/components/Sankey/BudgetSankey.tsx:1292
 #: src/components/Sankey/index.tsx:727
 msgid "Customs Duties"
@@ -663,11 +660,11 @@ msgstr "Economy + Infrastructure"
 msgid "Economy and Standard of Living"
 msgstr "Economy and Standard of Living"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:103
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:135
 msgid "Effective Rate"
 msgstr "Effective Rate"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:105
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:137
 msgid "Effective tax rate"
 msgstr "Effective tax rate"
 
@@ -708,7 +705,7 @@ msgstr "Employment Insurance Premiums"
 msgid "Energy Taxes"
 msgstr "Energy Taxes"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:219
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:246
 msgid "Enter your income to see a personalized breakdown of how much you contribute to different government services and programs."
 msgstr "Enter your income to see a personalized breakdown of how much you contribute to different government services and programs."
 
@@ -750,15 +747,15 @@ msgstr "ESDC's share of federal spending in FY 2024 was lower than FY 1995"
 msgid "Established in 2005, ESDC is a federal department responsible for supporting Canadians through social programs and workforce development. It administers key programs such as Employment Insurance (EI), the Canada Pension Plan (CPP), Old Age Security (OAS), and skills training initiatives. ESDC also oversees Service Canada, which delivers government services directly to the public."
 msgstr "Established in 2005, ESDC is a federal department responsible for supporting Canadians through social programs and workforce development. It administers key programs such as Employment Insurance (EI), the Canada Pension Plan (CPP), Old Age Security (OAS), and skills training initiatives. ESDC also oversees Service Canada, which delivers government services directly to the public."
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:100
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:132
 msgid "Estimated combined tax"
 msgstr "Estimated combined tax"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:90
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:122
 msgid "Estimated income tax paid to federal government"
 msgstr "Estimated income tax paid to federal government"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:95
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:127
 msgid "Estimated income tax paid to provincial government"
 msgstr "Estimated income tax paid to provincial government"
 
@@ -972,7 +969,7 @@ msgstr "Federal spending on Indigenous priorities may fluctuate over time due to
 msgid "Federal spending on public safety fluctuates based on evolving security threats, emergency events, and changes in government policy. Since 2005 shortly after it was established, Public Safety Canada's expenditures have increased by 69.6%, reflecting heightened investments in counterterrorism, cyber defence, and disaster response capabilities. The department's share of the federal budget has remained relatively flat from 2.6% in 2005 to 2.7% in 2024."
 msgstr "Federal spending on public safety fluctuates based on evolving security threats, emergency events, and changes in government policy. Since 2005 shortly after it was established, Public Safety Canada's expenditures have increased by 69.6%, reflecting heightened investments in counterterrorism, cyber defence, and disaster response capabilities. The department's share of the federal budget has remained relatively flat from 2.6% in 2005 to 2.7% in 2024."
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:88
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:120
 msgid "Federal Tax"
 msgstr "Federal Tax"
 
@@ -1029,7 +1026,7 @@ msgstr "Food Safety"
 msgid "For example, during the COVID-19 pandemic, federal support programs led to a temporary surge in spending. ESDC expenditures increased from $63.3 billion in 2019 to $169.2 billion in 2021 before stabilizing in recent years."
 msgstr "For example, during the COVID-19 pandemic, federal support programs led to a temporary surge in spending. ESDC expenditures increased from $63.3 billion in 2019 to $169.2 billion in 2021 before stabilizing in recent years."
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:257
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:284
 msgid "For further breakdowns of spending, see <0>Federal</0> and <1>Provincial</1> spending pages."
 msgstr "For further breakdowns of spending, see <0>Federal</0> and <1>Provincial</1> spending pages."
 
@@ -1142,7 +1139,7 @@ msgstr "Government IT Operations"
 msgid "Government Spending"
 msgstr "Government Spending"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:254
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:281
 msgid "Government spending is based on 2023-2024 fiscal spending. Attempts have been made to merge similar categories across federal and provincial spending."
 msgstr "Government spending is based on 2023-2024 fiscal spending. Attempts have been made to merge similar categories across federal and provincial spending."
 
@@ -1655,6 +1652,10 @@ msgstr "Miscellaneous revenues"
 msgid "More coming soon..."
 msgstr "More coming soon..."
 
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:102
+msgid "More provinces coming soon."
+msgstr "More provinces coming soon."
+
 #: src/app/[lang]/(main)/spending/canada-revenue-agency/page.tsx:164
 msgid "Most CRA spending is dedicated to personnel and IT infrastructure supporting tax filing, compliance, and benefit administration."
 msgstr "Most CRA spending is dedicated to personnel and IT infrastructure supporting tax filing, compliance, and benefit administration."
@@ -1925,7 +1926,7 @@ msgstr "Official Languages + Culture"
 msgid "On-reserve Income Support in Yukon Territory"
 msgstr "On-reserve Income Support in Yukon Territory"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:67
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:98
 #: src/components/MainLayout/index.tsx:113
 #: src/components/MainLayout/index.tsx:238
 msgid "Ontario"
@@ -2195,7 +2196,7 @@ msgstr "Projected government revenue"
 msgid "Projected operational spending"
 msgstr "Projected operational spending"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:59
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:90
 msgid "Province/Territory"
 msgstr "Province/Territory"
 
@@ -2203,7 +2204,7 @@ msgstr "Province/Territory"
 msgid "Provincial organizations"
 msgstr "Provincial organizations"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:93
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:125
 msgid "Provincial Tax"
 msgstr "Provincial Tax"
 
@@ -2737,7 +2738,7 @@ msgstr "The values you see here are based on the FY 2024 Budget with preliminary
 msgid "These Ministers are some of the <0>cabinet members</0> who serve at the Prime Minister's discretion. Their tenure typically ends when they resign, are replaced, or when a new Prime Minister takes office and appoints a new cabinet. Outgoing ministers remain in their roles until their successors are sworn in."
 msgstr "These Ministers are some of the <0>cabinet members</0> who serve at the Prime Minister's discretion. Their tenure typically ends when they resign, are replaced, or when a new Prime Minister takes office and appoints a new cabinet. Outgoing ministers remain in their roles until their successors are sworn in."
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:248
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:275
 msgid "This visualization shows how your income tax contributions are allocated across different government programs and services based on current government spending patterns. Amounts under $20 are grouped into \"Other\" for conciseness."
 msgstr "This visualization shows how your income tax contributions are allocated across different government programs and services based on current government spending patterns. Amounts under $20 are grouped into \"Other\" for conciseness."
 
@@ -2761,7 +2762,7 @@ msgstr "Total Debt"
 msgid "Total full-time equivalents"
 msgstr "Total full-time equivalents"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:98
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:130
 msgid "Total Tax"
 msgstr "Total Tax"
 
@@ -2855,7 +2856,7 @@ msgstr "Treasury Board"
 msgid "Type of Tenure"
 msgstr "Type of Tenure"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:245
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:272
 msgid "Understanding Your Tax Contribution"
 msgstr "Understanding Your Tax Contribution"
 
@@ -3042,8 +3043,8 @@ msgstr "When HICC was founded in FY 2005 as the Office of Infrastructure Canada,
 msgid "Where do you get the data on your website?"
 msgstr "Where do you get the data on your website?"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:217
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:239
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:244
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:266
 msgid "Where Your Tax Dollars Go"
 msgstr "Where Your Tax Dollars Go"
 
@@ -3115,7 +3116,7 @@ msgstr "Year"
 msgid "You deserve the facts"
 msgstr "You deserve the facts"
 
-#: src/app/[lang]/(main)/tax-visualizer/page.tsx:251
+#: src/app/[lang]/(main)/tax-visualizer/page.tsx:278
 msgid "Your tax contributions are approximated based on employment income. Deductions such as basic personal amount are estimated and included. Other sources of income, such as self-employment, investment income, and capital gains, are not included in the calculations. Deductions such as RRSP and FHSA contributions are also not included. Tax calculations are based on 2024 federal and provincial tax brackets."
 msgstr "Your tax contributions are approximated based on employment income. Deductions such as basic personal amount are estimated and included. Other sources of income, such as self-employment, investment income, and capital gains, are not included in the calculations. Deductions such as RRSP and FHSA contributions are also not included. Tax calculations are based on 2024 federal and provincial tax brackets."
 
