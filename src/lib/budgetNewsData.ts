@@ -14,6 +14,30 @@ export interface NewsItem {
 // Budget News Data - Easily Configurable and Maintainable
 export const budgetNewsData: NewsItem[] = [
   {
+    id: "cbc-cbsa-funding",
+    source: "CBC",
+    date: "Oct 17, 2025",
+    url: "https://www.cbc.ca/player/play/video/9.6942597",
+    headline:
+      "Public Safety minister announces $617.7 million over 5 years to bolster CBSA",
+    budgetImpact: "Defence & Security",
+    amount: "$123.54M",
+    percentage: 4.83,
+    isIncrease: true,
+  },
+  {
+    id: "cbc-national-school-program-funding",
+    source: "CBC",
+    date: "Oct 10, 2025",
+    url: "https://www.cbc.ca/news/politics/carney-school-food-automatic-tax-canada-strong-pass-9.6934474",
+    headline:
+      "Carney announces $216.6M annually for the National School Program",
+    budgetImpact: "Economy + Innovation & Research",
+    amount: "$216.6M",
+    percentage: 0.79,
+    isIncrease: true,
+  },
+  {
     id: "cbc-build-canada-homes",
     source: "CBC",
     date: "Sep 14, 2025",
