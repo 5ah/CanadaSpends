@@ -603,7 +603,7 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
             {
               name: t`Children's Benefits`,
               amount2024: 26.34,
-              amount2025: 26.34,
+              amount2025: 26.55,
               kind: "transfer" as SpendingKind,
             },
             {
@@ -707,7 +707,7 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
                 {
                   name: t`Border Security`,
                   amount2024: 2.69,
-                  amount2025: 2.69,
+                  amount2025: 2.82,
                 },
                 {
                   name: t`Other Immigration Services`,
