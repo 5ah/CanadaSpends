@@ -1,5 +1,7 @@
 # British Columbia (BC) Public Accounts 2024/25 — Data Notes
 
+Data sourced from: https://www2.gov.bc.ca/assets/gov/british-columbians-our-governments/government-finances/public-accounts/2024-25/public-accounts-2024-25.pdf
+
 This repository contains cleaned tabular data and JSON needed to drive the BC spending/revenue visualizations for the 2024/25 Public Accounts.
 
 I am referencing the financial results of the core provincial government operations, specifically the Consolidated Revenue Fund (CRF) for the fiscal year ended March 31, 2025. These amounts reflect the activity of ministries and legislative offices and are distinct from the broader Consolidated Summary Financial Statements which include Crown corporations and the SUCH (School districts, universities, colleges, institutes, and health organizations) sector.
