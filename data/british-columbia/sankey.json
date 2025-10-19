@@ -1,0 +1,1678 @@
+{
+  "total": 77.668219152,
+  "spending": 77.668219152,
+  "revenue": 64.866802,
+  "spending_data": {
+    "name": "Spending",
+    "children": [
+      {
+        "name": "Legislative Assembly",
+        "children": [
+          {
+            "name": "Legislative Assembly \u2192 Caucus Operations",
+            "amount": 0.009980774
+          },
+          {
+            "name": "Legislative Assembly \u2192 Constituency Operations",
+            "amount": 0.029287048
+          },
+          {
+            "name": "Legislative Assembly \u2192 Members Remuneration",
+            "amount": 0.02660082
+          },
+          {
+            "name": "Legislative Assembly \u2192 Independent Respectful Workplace Office",
+            "amount": 0.000102318
+          },
+          {
+            "name": "Legislative Assembly \u2192 Parliamentary Operations",
+            "amount": 0.000892167
+          },
+          {
+            "name": "Legislative Assembly \u2192 Legislative Assembly Administration",
+            "amount": 0.049974608
+          },
+          {
+            "name": "Legislative Assembly \u2192 General Centralized and Accounting",
+            "amount": 0.005174008
+          },
+          {
+            "name": "Legislative Assembly \u2192 Adjustment of Prior Year Accrual",
+            "amount": -3e-05
+          }
+        ]
+      },
+      {
+        "name": "Officers of the Legislature",
+        "children": [
+          {
+            "name": "Officers of the Legislature \u2192 Auditor General",
+            "amount": 0.024378383
+          },
+          {
+            "name": "Officers of the Legislature \u2192 Conflict of Interest Commissioner",
+            "amount": 0.000739043
+          },
+          {
+            "name": "Officers of the Legislature \u2192 Elections BC",
+            "amount": 0.090856629
+          },
+          {
+            "name": "Officers of the Legislature \u2192 Human Rights Commissioner",
+            "amount": 0.007651549
+          },
+          {
+            "name": "Officers of the Legislature \u2192 Information and Privacy Commissioner",
+            "amount": 0.011574274
+          },
+          {
+            "name": "Officers of the Legislature \u2192 Merit Commissioner",
+            "amount": 0.001628668
+          },
+          {
+            "name": "Officers of the Legislature \u2192 Ombudsperson",
+            "amount": 0.014961272
+          },
+          {
+            "name": "Officers of the Legislature \u2192 Police Complaint Commissioner",
+            "amount": 0.009306144
+          },
+          {
+            "name": "Officers of the Legislature \u2192 Representative for Children and Youth",
+            "amount": 0.01291613
+          },
+          {
+            "name": "Officers of the Legislature \u2192 Adjustment of Prior Year Accrual",
+            "amount": -0.000290566
+          }
+        ]
+      },
+      {
+        "name": "Office of the Premier",
+        "children": [
+          {
+            "name": "Office of the Premier \u2192 Intergovernmental Relations Secretariat",
+            "amount": 0.004425092
+          },
+          {
+            "name": "Office of the Premier \u2192 Cabinet Operations",
+            "amount": 0.002187254
+          },
+          {
+            "name": "Office of the Premier \u2192 Planning and Priorities Secretariat",
+            "amount": 0.001053214
+          },
+          {
+            "name": "Office of the Premier \u2192 Executive and Support Services - Premiers Office",
+            "amount": 0.0060424
+          },
+          {
+            "name": "Office of the Premier \u2192 Executive and Support Services - Deputy Ministers Office",
+            "amount": 0.002380596
+          },
+          {
+            "name": "Office of the Premier \u2192 Local Government (Transferred from Ministry of Municipal Affairs)",
+            "amount": 1.62e-07
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Agriculture and Food",
+        "children": [
+          {
+            "name": "Ministry of Agriculture and Food \u2192 Science, Policy and Inspection",
+            "amount": 0.025661538
+          },
+          {
+            "name": "Ministry of Agriculture and Food \u2192 Agriculture Resources",
+            "amount": 0.163329383
+          },
+          {
+            "name": "Ministry of Agriculture and Food \u2192 BC Farm Industry Review Board",
+            "amount": 0.001891158
+          },
+          {
+            "name": "Ministry of Agriculture and Food \u2192 Executive and Support Services",
+            "amount": 0.000723149
+          },
+          {
+            "name": "Ministry of Agriculture and Food \u2192 Corporate Services",
+            "amount": 0.009348724
+          },
+          {
+            "name": "Ministry of Agriculture and Food \u2192 Agricultural Land Commission",
+            "amount": 0.005492889
+          },
+          {
+            "name": "Ministry of Agriculture and Food \u2192 Production Insurance Account",
+            "amount": 0.135992661
+          },
+          {
+            "name": "Ministry of Agriculture and Food \u2192 Insurance for Crops Act",
+            "amount": 0.005137
+          },
+          {
+            "name": "Ministry of Agriculture and Food \u2192 Transfer from General Account to Production Insurance Account",
+            "amount": -0.0144
+          },
+          {
+            "name": "Ministry of Agriculture and Food \u2192 Adjustment of Prior Year Accrual",
+            "amount": -0.005374455
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Attorney General",
+        "children": [
+          {
+            "name": "Ministry of Attorney General \u2192 Justice Services",
+            "amount": 0.203177765
+          },
+          {
+            "name": "Ministry of Attorney General \u2192 Indigenous Justice Secretariat",
+            "amount": 0.014438125
+          },
+          {
+            "name": "Ministry of Attorney General \u2192 Prosecution Services",
+            "amount": 0.230697044
+          },
+          {
+            "name": "Ministry of Attorney General \u2192 Court Services",
+            "amount": 0.184766578
+          },
+          {
+            "name": "Ministry of Attorney General \u2192 Legal Services",
+            "amount": 0.044930924
+          },
+          {
+            "name": "Ministry of Attorney General \u2192 Agencies, Boards, Commissions and Other Tribunals - Agencies, Boards, Commissions and Other Tribunals",
+            "amount": 0.054861947
+          },
+          {
+            "name": "Ministry of Attorney General \u2192 Agencies, Boards, Commissions and Other Tribunals - British Columbia Utilities Commission",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Attorney General \u2192 Multiculturalism and Anti-Racism",
+            "amount": 0.011553714
+          },
+          {
+            "name": "Ministry of Attorney General \u2192 Executive and Support Services - Ministers Office",
+            "amount": 0.000849893
+          },
+          {
+            "name": "Ministry of Attorney General \u2192 Executive and Support Services - Corporate Services",
+            "amount": 0.040020926
+          },
+          {
+            "name": "Ministry of Attorney General \u2192 Judiciary - Superior Courts",
+            "amount": 0.025957494
+          },
+          {
+            "name": "Ministry of Attorney General \u2192 Judiciary - Provincial Courts",
+            "amount": 0.088186653
+          },
+          {
+            "name": "Ministry of Attorney General \u2192 Crown Proceeding Act",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Attorney General \u2192 Independent Investigations Office",
+            "amount": 0.013890912
+          },
+          {
+            "name": "Ministry of Attorney General \u2192 Cannabis, Consumer Protection and Corporate Policy (Transfer from Ministry of Public Safety and Solicitor General)",
+            "amount": 0.000233
+          },
+          {
+            "name": "Ministry of Attorney General \u2192 Public Guardian and Trustee Operating Account",
+            "amount": 0.011852624
+          },
+          {
+            "name": "Ministry of Attorney General \u2192 Transfer from General Account to Public Guardian and Trustee Operating Account",
+            "amount": -0.012394
+          },
+          {
+            "name": "Ministry of Attorney General \u2192 Adjustment of Prior Year Accrual",
+            "amount": -0.038822538
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Children and Family Development",
+        "children": [
+          {
+            "name": "Ministry of Children and Family Development \u2192 Early Childhood Development",
+            "amount": 0.04314565
+          },
+          {
+            "name": "Ministry of Children and Family Development \u2192 Services for Children and Youth with Support Needs",
+            "amount": 0.648192368
+          },
+          {
+            "name": "Ministry of Children and Family Development \u2192 Child and Youth Mental Health Services",
+            "amount": 0.129096093
+          },
+          {
+            "name": "Ministry of Children and Family Development \u2192 Child Safety, Family Support and Children in Care Services",
+            "amount": 1.269136105
+          },
+          {
+            "name": "Ministry of Children and Family Development \u2192 Adoption Services",
+            "amount": 0.034490176
+          },
+          {
+            "name": "Ministry of Children and Family Development \u2192 Youth Justice Services",
+            "amount": 0.04685879
+          },
+          {
+            "name": "Ministry of Children and Family Development \u2192 Service Delivery Support",
+            "amount": 0.228492972
+          },
+          {
+            "name": "Ministry of Children and Family Development \u2192 Executive and Support Services (Ministers Office)",
+            "amount": 0.00082426
+          },
+          {
+            "name": "Ministry of Children and Family Development \u2192 Executive and Support Services (Corporate Services)",
+            "amount": 0.030342865
+          },
+          {
+            "name": "Ministry of Children and Family Development \u2192 Statutory Account",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Children and Family Development \u2192 Adjustment of Prior Year Accrual",
+            "amount": -0.000845984
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Citizens Services",
+        "children": [
+          {
+            "name": "Ministry of Citizens Services \u2192 Services to Citizens and Businesses - Service BC Operations",
+            "amount": 0.035996261
+          },
+          {
+            "name": "Ministry of Citizens Services \u2192 Services to Citizens and Businesses - BC Online",
+            "amount": 0.000788805
+          },
+          {
+            "name": "Ministry of Citizens Services \u2192 Services to Citizens and Businesses - BC Registry Services",
+            "amount": 1e-06
+          },
+          {
+            "name": "Ministry of Citizens Services \u2192 Office of the Chief Information Officer",
+            "amount": 0.006122303
+          },
+          {
+            "name": "Ministry of Citizens Services \u2192 BC Data Service",
+            "amount": 0.046400266
+          },
+          {
+            "name": "Ministry of Citizens Services \u2192 Connectivity",
+            "amount": 0.006670259
+          },
+          {
+            "name": "Ministry of Citizens Services \u2192 Procurement and Supply Services",
+            "amount": 0.01183668
+          },
+          {
+            "name": "Ministry of Citizens Services \u2192 Real Property",
+            "amount": 0.390635657
+          },
+          {
+            "name": "Ministry of Citizens Services \u2192 Enterprise Services",
+            "amount": 0.204368673
+          },
+          {
+            "name": "Ministry of Citizens Services \u2192 Corporate Information and Records Management Office",
+            "amount": 0.028812069
+          },
+          {
+            "name": "Ministry of Citizens Services \u2192 Government Digital Experience",
+            "amount": 0.013716798
+          },
+          {
+            "name": "Ministry of Citizens Services \u2192 Executive and Support Services - Ministers Office",
+            "amount": 0.00066682
+          },
+          {
+            "name": "Ministry of Citizens Services \u2192 Executive and Support Services - Corporate Services",
+            "amount": 0.014990645
+          },
+          {
+            "name": "Ministry of Citizens Services \u2192 Adjustment of Prior Year Accrual",
+            "amount": -0.002939409
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Education and Child Care",
+        "children": [
+          {
+            "name": "Ministry of Education and Child Care \u2192 Public Schools",
+            "amount": 8.133618148
+          },
+          {
+            "name": "Ministry of Education and Child Care \u2192 Independent Schools",
+            "amount": 0.61704664
+          },
+          {
+            "name": "Ministry of Education and Child Care \u2192 Transfers to Other Partners",
+            "amount": 0.066206029
+          },
+          {
+            "name": "Ministry of Education and Child Care \u2192 Child Care",
+            "amount": 0.878893157
+          },
+          {
+            "name": "Ministry of Education and Child Care \u2192 Executive and Support Services (Ministers Offices)",
+            "amount": 0.001072321
+          },
+          {
+            "name": "Ministry of Education and Child Care \u2192 Executive and Support Services (Corporate Services)",
+            "amount": 0.060349238
+          },
+          {
+            "name": "Ministry of Education and Child Care \u2192 British Columbia Training and Education Savings Program",
+            "amount": 0.030001
+          },
+          {
+            "name": "Ministry of Education and Child Care \u2192 Teachers Act Special Account",
+            "amount": 0.008920766
+          },
+          {
+            "name": "Ministry of Education and Child Care \u2192 Adjustment of Prior Year Accrual",
+            "amount": -0.003280771
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Emergency Management and Climate Readiness",
+        "children": [
+          {
+            "name": "Ministry of Emergency Management and Climate Readiness \u2192 Emergency and Disaster Management Operations",
+            "amount": 0.041424762
+          },
+          {
+            "name": "Ministry of Emergency Management and Climate Readiness \u2192 Climate Readiness Programs",
+            "amount": 0.044009443
+          },
+          {
+            "name": "Ministry of Emergency Management and Climate Readiness \u2192 Executive and Support Services (Ministers Office)",
+            "amount": 0.000721049
+          },
+          {
+            "name": "Ministry of Emergency Management and Climate Readiness \u2192 Executive and Support Services (Corporate Services)",
+            "amount": 0.020582173
+          },
+          {
+            "name": "Ministry of Emergency Management and Climate Readiness \u2192 Emergency and Disaster Management Act",
+            "amount": 0.305692301
+          },
+          {
+            "name": "Ministry of Emergency Management and Climate Readiness \u2192 Financial Assistance",
+            "amount": 0.023240567
+          },
+          {
+            "name": "Ministry of Emergency Management and Climate Readiness \u2192 Adjustment of Prior Year Accrual",
+            "amount": -0.000522659
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Energy and Climate Solutions",
+        "children": [
+          {
+            "name": "Ministry of Energy and Climate Solutions \u2192 Responsible Mining and Competitiveness",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Energy and Climate Solutions \u2192 Mines Health, Safety and Enforcement",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Energy and Climate Solutions \u2192 Energy Decarbonization",
+            "amount": 0.100874751
+          },
+          {
+            "name": "Ministry of Energy and Climate Solutions \u2192 Electricity and Utility Regulation",
+            "amount": 0.004824574
+          },
+          {
+            "name": "Ministry of Energy and Climate Solutions \u2192 Energy Resources",
+            "amount": 0.117746046
+          },
+          {
+            "name": "Ministry of Energy and Climate Solutions \u2192 Strategic and Indigenous Partnerships",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Energy and Climate Solutions \u2192 Executive and Support Services (Ministers Office)",
+            "amount": 0.000960811
+          },
+          {
+            "name": "Ministry of Energy and Climate Solutions \u2192 Executive and Support Services (Corporate Services)",
+            "amount": 0.011519888
+          },
+          {
+            "name": "Ministry of Energy and Climate Solutions \u2192 Climate Action",
+            "amount": 0.021775326
+          },
+          {
+            "name": "Ministry of Energy and Climate Solutions \u2192 CleanBC Program for Industry and BC-Output Based Pricing System",
+            "amount": 0.285182585
+          },
+          {
+            "name": "Ministry of Energy and Climate Solutions \u2192 Executive and Support Services (Transferred from Environment and Parks) - Ministers Office",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Energy and Climate Solutions \u2192 Executive and Support Services (Transferred from Environment and Parks) - Corporate Services",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Energy and Climate Solutions \u2192 Executive and Support Services (Transferred from Finance)",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Energy and Climate Solutions \u2192 First Nations Clean Energy Business Fund",
+            "amount": 0.008086838
+          },
+          {
+            "name": "Ministry of Energy and Climate Solutions \u2192 Innovative Clean Energy Fund",
+            "amount": 0.006764138
+          },
+          {
+            "name": "Ministry of Energy and Climate Solutions \u2192 Adjustment of Prior Year Accrual",
+            "amount": -1.1466e-05
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Environment and Parks",
+        "children": [
+          {
+            "name": "Ministry of Environment and Parks \u2192 Environmental Protection",
+            "amount": 0.072425252
+          },
+          {
+            "name": "Ministry of Environment and Parks \u2192 Conservation and Recreation Division",
+            "amount": 0.103339445
+          },
+          {
+            "name": "Ministry of Environment and Parks \u2192 Climate Action",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Environment and Parks \u2192 CleanBC Program for Industry and BC\u2013Output Based Pricing System",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Environment and Parks \u2192 Executive and Support Services - Ministers Office",
+            "amount": 0.000520124
+          },
+          {
+            "name": "Ministry of Environment and Parks \u2192 Executive and Support Services - Corporate Service",
+            "amount": 0.029564808
+          },
+          {
+            "name": "Ministry of Environment and Parks \u2192 Environmental Assessment Office",
+            "amount": 0.01834628
+          },
+          {
+            "name": "Ministry of Environment and Parks \u2192 Park Enhancement Fund special account",
+            "amount": 0.016786045
+          },
+          {
+            "name": "Ministry of Environment and Parks \u2192 Sustainable Environment Fund",
+            "amount": 0.026135
+          },
+          {
+            "name": "Ministry of Environment and Parks \u2192 Environmental Management Act",
+            "amount": 0.004275
+          },
+          {
+            "name": "Ministry of Environment and Parks \u2192 Adjustment of Prior Year Accrual",
+            "amount": -0.001594457
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Finance",
+        "children": [
+          {
+            "name": "Ministry of Finance \u2192 Treasury Board Staff",
+            "amount": 0.009382273
+          },
+          {
+            "name": "Ministry of Finance \u2192 Office of the Comptroller General",
+            "amount": 0.022742775
+          },
+          {
+            "name": "Ministry of Finance \u2192 Internal Audit and Advisory Services",
+            "amount": 0.003291871
+          },
+          {
+            "name": "Ministry of Finance \u2192 Treasury",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Finance \u2192 Revenue Division",
+            "amount": 0.295994941
+          },
+          {
+            "name": "Ministry of Finance \u2192 Policy and Legislation",
+            "amount": 0.0104338
+          },
+          {
+            "name": "Ministry of Finance \u2192 Public Sector Employers Council Secretariat",
+            "amount": 0.031737813
+          },
+          {
+            "name": "Ministry of Finance \u2192 Crown Agencies Secretariat",
+            "amount": 0.007804146
+          },
+          {
+            "name": "Ministry of Finance \u2192 Executive and Support Services",
+            "amount": 0.001123172
+          },
+          {
+            "name": "Ministry of Finance \u2192 Corporate Services",
+            "amount": 0.038887662
+          },
+          {
+            "name": "Ministry of Finance \u2192 Government Communications",
+            "amount": 0.040478907
+          },
+          {
+            "name": "Ministry of Finance \u2192 BC Public Service Agency",
+            "amount": 0.077834234
+          },
+          {
+            "name": "Ministry of Finance \u2192 Pension Contribution and Retirement Benefits",
+            "amount": 0.553947863
+          },
+          {
+            "name": "Ministry of Finance \u2192 Employer Health Tax",
+            "amount": 0.069789123
+          },
+          {
+            "name": "Ministry of Finance \u2192 Employee Health Benefits",
+            "amount": 0.18330132
+          },
+          {
+            "name": "Ministry of Finance \u2192 Long Term Disability",
+            "amount": 0.061172246
+          },
+          {
+            "name": "Ministry of Finance \u2192 Other Benefits",
+            "amount": 0.011308897
+          },
+          {
+            "name": "Ministry of Finance \u2192 Benefits Administration",
+            "amount": 0.011830258
+          },
+          {
+            "name": "Ministry of Finance \u2192 Recoveries",
+            "amount": -0.891349707
+          },
+          {
+            "name": "Ministry of Finance \u2192 Executive and Support Services(Transferred from Jobs, Economic Development and Innovation)",
+            "amount": 4.3325e-05
+          },
+          {
+            "name": "Ministry of Finance \u2192 Executive and Support Services(Transferred from Mental Health and Addictions)",
+            "amount": 0.000684
+          },
+          {
+            "name": "Ministry of Finance \u2192 Housing Priority Initiatives special account",
+            "amount": 1.85820229
+          },
+          {
+            "name": "Ministry of Finance \u2192 Insurance and Risk Management Account",
+            "amount": 0.025703585
+          },
+          {
+            "name": "Ministry of Finance \u2192 Long Term Disability Fund special account",
+            "amount": 0.05492598
+          },
+          {
+            "name": "Ministry of Finance \u2192 Provincial Home Acquisition Wind Up special account",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Finance \u2192 Land Tax Deferment Act",
+            "amount": 0.058829
+          },
+          {
+            "name": "Ministry of Finance \u2192 Statutory Account",
+            "amount": 0.222907121
+          },
+          {
+            "name": "Ministry of Finance \u2192 Transfer from General Account to Long Term Disability Fund special account",
+            "amount": -0.062743258
+          },
+          {
+            "name": "Ministry of Finance \u2192 Transfer from General Account to First Nations Equity Financing special account...",
+            "amount": -0.01
+          },
+          {
+            "name": "Ministry of Finance \u2192 Adjustment of Prior Year Accrual",
+            "amount": -0.031969011
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Forests",
+        "children": [
+          {
+            "name": "Ministry of Forests \u2192 Forest Resiliency and Archaeology",
+            "amount": 0.011685466
+          },
+          {
+            "name": "Ministry of Forests \u2192 Integrated Resource Operations",
+            "amount": 0.060574735
+          },
+          {
+            "name": "Ministry of Forests \u2192 Office of the Chief Forester",
+            "amount": 0.149598638
+          },
+          {
+            "name": "Ministry of Forests \u2192 Timber, Range and Economics",
+            "amount": 0.010343171
+          },
+          {
+            "name": "Ministry of Forests \u2192 Fire Preparedness",
+            "amount": 0.042234167
+          },
+          {
+            "name": "Ministry of Forests \u2192 Regional Operations",
+            "amount": 0.094599215
+          },
+          {
+            "name": "Ministry of Forests \u2192 Executive and Support Services - Ministers Office",
+            "amount": 0.001038523
+          },
+          {
+            "name": "Ministry of Forests \u2192 Executive and Support Services - Corporate Services",
+            "amount": 0.081686852
+          },
+          {
+            "name": "Ministry of Forests \u2192 Fire Management",
+            "amount": 0.769400078
+          },
+          {
+            "name": "Ministry of Forests \u2192 BC Timber Sales Account",
+            "amount": 0.212665677
+          },
+          {
+            "name": "Ministry of Forests \u2192 Forest Stand Management Fund",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Forests \u2192 Adjustment of Prior Year Accrual",
+            "amount": -0.033716542
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Health",
+        "children": [
+          {
+            "name": "Ministry of Health \u2192 Regional Services",
+            "amount": 23.542659806
+          },
+          {
+            "name": "Ministry of Health \u2192 Medical Services Plan",
+            "amount": 8.062362759
+          },
+          {
+            "name": "Ministry of Health \u2192 PharmaCare",
+            "amount": 1.425375768
+          },
+          {
+            "name": "Ministry of Health \u2192 Health Benefits Operations",
+            "amount": 0.067952054
+          },
+          {
+            "name": "Ministry of Health \u2192 Recoveries from Health Special Account",
+            "amount": -0.14725
+          },
+          {
+            "name": "Ministry of Health \u2192 Executive and Support Services (Ministers Office)",
+            "amount": 0.001108182
+          },
+          {
+            "name": "Ministry of Health \u2192 Executive and Support Services (Stewardship and Corporate Services)",
+            "amount": 0.3980176
+          },
+          {
+            "name": "Ministry of Health \u2192 Policy Development, Research, Monitoring and Evaluation (Transferred from Ministry of Mental Health and Addictions)",
+            "amount": 0.028433188
+          },
+          {
+            "name": "Ministry of Health \u2192 Executive and Support Services (Transferred from Ministry of Mental Health and Addictions) \u2013 Corporate Services",
+            "amount": 0.001844009
+          },
+          {
+            "name": "Ministry of Health \u2192 Procurement and Supply Services (Transferred from Citizens Services)",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Health \u2192 Health Special Account",
+            "amount": 0.14725
+          },
+          {
+            "name": "Ministry of Health \u2192 Payments Based on Contributions",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Health \u2192 Adjustment of Prior Year Accrual",
+            "amount": -0.097650393
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Housing and Municipal Affairs",
+        "children": [
+          {
+            "name": "Ministry of Housing and Municipal Affairs \u2192 Housing and Land Use Policy",
+            "amount": 0.017117815
+          },
+          {
+            "name": "Ministry of Housing and Municipal Affairs \u2192 Homelessness, Partnerships and Housing Supports - Residential Tenancy",
+            "amount": 0.018914392
+          },
+          {
+            "name": "Ministry of Housing and Municipal Affairs \u2192 Homelessness, Partnerships and Housing Supports - Homelessness Policy and Partnership Branch",
+            "amount": 0.005186601
+          },
+          {
+            "name": "Ministry of Housing and Municipal Affairs \u2192 Strategy, Governance and Accountability",
+            "amount": 0.003449794
+          },
+          {
+            "name": "Ministry of Housing and Municipal Affairs \u2192 Housing Innovations Division",
+            "amount": 0.001693668
+          },
+          {
+            "name": "Ministry of Housing and Municipal Affairs \u2192 Transfers to Crown Corporations and Agencies - British Columbia Housing Management Commission",
+            "amount": 1.042807
+          },
+          {
+            "name": "Ministry of Housing and Municipal Affairs \u2192 Executive and Support Services - Ministers Office",
+            "amount": 0.001268702
+          },
+          {
+            "name": "Ministry of Housing and Municipal Affairs \u2192 Executive and Support Services - Corporate Services",
+            "amount": 0.004249343
+          },
+          {
+            "name": "Ministry of Housing and Municipal Affairs \u2192 Statutory - Executive and Support Services (Transferred from Ministry of Attorney General) - Corporate Services",
+            "amount": 0.000188
+          },
+          {
+            "name": "Ministry of Housing and Municipal Affairs \u2192 Executive and Support Services (Transferred from Ministry of Public Safety and Solicitor General) - Corporate Services",
+            "amount": 0.000324
+          },
+          {
+            "name": "Ministry of Housing and Municipal Affairs \u2192 Local Government (Transferred from Ministry of Municipal Affairs) - Local Government Services and Transfers",
+            "amount": 0.605369837
+          },
+          {
+            "name": "Ministry of Housing and Municipal Affairs \u2192 Local Government (Transferred from Ministry of Municipal Affairs) - University Endowment Lands",
+            "amount": 0.007332347
+          },
+          {
+            "name": "Ministry of Housing and Municipal Affairs \u2192 Immigration Services and Strategic Planning (Transferred from Ministry of Municipal Affairs) - Strategic Planning",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Housing and Municipal Affairs \u2192 Executive and Support Services (Transferred from Ministry of Municipal Affairs) - Corporate Services",
+            "amount": 0.007905177
+          },
+          {
+            "name": "Ministry of Housing and Municipal Affairs \u2192 University Endowment Lands Administration Account (Transferred from Ministry of Municipal Affairs) - Statutory Appropriation(s)",
+            "amount": 0.013204577
+          },
+          {
+            "name": "Ministry of Housing and Municipal Affairs \u2192 Housing Endowment Fund - Statutory Appropriation(s)",
+            "amount": 0.012884
+          },
+          {
+            "name": "Ministry of Housing and Municipal Affairs \u2192 Statutory Account - Payments based on contributions",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Housing and Municipal Affairs \u2192 Adjustment of Prior Year Accrual",
+            "amount": -5.2397e-05
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Indigenous Relations and Reconciliation",
+        "children": [
+          {
+            "name": "Ministry of Indigenous Relations and Reconciliation \u2192 Negotiations and Regional Operations Division",
+            "amount": 0.019324833
+          },
+          {
+            "name": "Ministry of Indigenous Relations and Reconciliation \u2192 Strategic Partnerships and Initiatives Division",
+            "amount": 0.025103656
+          },
+          {
+            "name": "Ministry of Indigenous Relations and Reconciliation \u2192 Reconciliation Transformation and Strategies Division",
+            "amount": 0.004050946
+          },
+          {
+            "name": "Ministry of Indigenous Relations and Reconciliation \u2192 Executive and Support Services (Ministers Office)",
+            "amount": 0.000789004
+          },
+          {
+            "name": "Ministry of Indigenous Relations and Reconciliation \u2192 Executive and Support Services (Corporate Services)",
+            "amount": 0.011464728
+          },
+          {
+            "name": "Ministry of Indigenous Relations and Reconciliation \u2192 Treaty and Other Agreements Funding",
+            "amount": 0.001835523
+          },
+          {
+            "name": "Ministry of Indigenous Relations and Reconciliation \u2192 Non Treaty Funding",
+            "amount": 0.230279434
+          },
+          {
+            "name": "Ministry of Indigenous Relations and Reconciliation \u2192 Declaration Act Secretariat",
+            "amount": 0.003342066
+          },
+          {
+            "name": "Ministry of Indigenous Relations and Reconciliation \u2192 First Citizens Fund",
+            "amount": 0.0017892
+          },
+          {
+            "name": "Ministry of Indigenous Relations and Reconciliation \u2192 Adjustment of Prior Year Accrual",
+            "amount": -0.000179656
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Infrastructure",
+        "children": [
+          {
+            "name": "Ministry of Infrastructure \u2192 Educational Institutions and Organizations (Transferred from Ministry of Post-Secondary Education and Future Skills) - Educational Institutions and Organizations",
+            "amount": 0.003282109
+          },
+          {
+            "name": "Ministry of Infrastructure \u2192 Executive and Support Services (Transferred from Ministry of Post-Secondary Education and Future Skills) - Corporate Services",
+            "amount": 0.002056396
+          },
+          {
+            "name": "Ministry of Infrastructure \u2192 Public Schools (Transferred from Ministry of Education and Child Care) - Public Schools",
+            "amount": 0.023465201
+          },
+          {
+            "name": "Ministry of Infrastructure \u2192 Transfers to Other Partners (Transferred from Ministry of Education and Child Care) - Transfers to Other Partners",
+            "amount": 0.000963318
+          },
+          {
+            "name": "Ministry of Infrastructure \u2192 Executive and Support Services (Transferred from Ministry of Education and Child Care) - Corporate Services",
+            "amount": 0.004151835
+          },
+          {
+            "name": "Ministry of Infrastructure \u2192 Executive and Support Services (Transferred from Ministry of Health) - Stewardship and Corporate Services",
+            "amount": 0.007416173
+          },
+          {
+            "name": "Ministry of Infrastructure \u2192 Executive and Support Services (Transferred from Ministry of Mental Health and Addictions) - Ministers Office",
+            "amount": 0.0007134
+          },
+          {
+            "name": "Ministry of Infrastructure \u2192 Executive and Support Services (Transferred from Ministry of Mental Health and Addictions) - Corporate Services",
+            "amount": 0.002616615
+          },
+          {
+            "name": "Ministry of Infrastructure \u2192 Executive and Support Services (Transferred from Ministry of Municipal Affairs) - Corporate Services",
+            "amount": 0.000801593
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Jobs, Economic Development and Innovation",
+        "children": [
+          {
+            "name": "Ministry of Jobs, Economic Development and Innovation \u2192 Trade and Industry Development - Trade and Industry Development",
+            "amount": 0.031637318
+          },
+          {
+            "name": "Ministry of Jobs, Economic Development and Innovation \u2192 Small Business and Economic Development - Small Business and Economic Development",
+            "amount": 0.006980387
+          },
+          {
+            "name": "Ministry of Jobs, Economic Development and Innovation \u2192 Small Business and Economic Development - Regional Development",
+            "amount": 0.101724335
+          },
+          {
+            "name": "Ministry of Jobs, Economic Development and Innovation \u2192 Investment and Sustainable Economy - Investment and Sustainable Economy",
+            "amount": 0.036966491
+          },
+          {
+            "name": "Ministry of Jobs, Economic Development and Innovation \u2192 Transfers to Crown Corporations and Agencies - Forestry Innovation Investment Ltd",
+            "amount": 0.020366
+          },
+          {
+            "name": "Ministry of Jobs, Economic Development and Innovation \u2192 Transfers to Crown Corporations and Agencies - Innovate BC",
+            "amount": 0.013143
+          },
+          {
+            "name": "Ministry of Jobs, Economic Development and Innovation \u2192 Executive and Support Services - Ministers Offices",
+            "amount": 0.001180467
+          },
+          {
+            "name": "Ministry of Jobs, Economic Development and Innovation \u2192 Executive and Support Services - Corporate Services",
+            "amount": 0.007797961
+          },
+          {
+            "name": "Ministry of Jobs, Economic Development and Innovation \u2192 Statutory - Northern Development Fund - Northern Development Fund",
+            "amount": 0.000385
+          },
+          {
+            "name": "Ministry of Jobs, Economic Development and Innovation \u2192 Adjustment of Prior Year Accrual",
+            "amount": -0.000935089
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Labour",
+        "children": [
+          {
+            "name": "Ministry of Labour \u2192 Employment Standards",
+            "amount": 0.021980116
+          },
+          {
+            "name": "Ministry of Labour \u2192 WorkSafeBC Funded Services",
+            "amount": 1e-06
+          },
+          {
+            "name": "Ministry of Labour \u2192 Labour Policy and Legislation",
+            "amount": 0.017317486
+          },
+          {
+            "name": "Ministry of Labour \u2192 Ministers Office",
+            "amount": 0.000616369
+          },
+          {
+            "name": "Ministry of Labour \u2192 Corporate Services",
+            "amount": 0.001352785
+          },
+          {
+            "name": "Ministry of Labour \u2192 Adjustment of Prior Year Accrual",
+            "amount": -1.0496e-05
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Mental Health and Addictions",
+        "children": [
+          {
+            "name": "Ministry of Mental Health and Addictions \u2192 Policy Development, Research, Monitoring and Evaluation",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Mental Health and Addictions \u2192 Ministers Office",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Mental Health and Addictions \u2192 Corporate Services",
+            "amount": 0.0
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Mining and Critical Minerals",
+        "children": [
+          {
+            "name": "Ministry of Mining and Critical Minerals \u2192 Responsible Mining and Competitiveness (Transferred from Ministry of Energy, Mines and Low Carbon Innovation)",
+            "amount": 0.03055113
+          },
+          {
+            "name": "Ministry of Mining and Critical Minerals \u2192 Mines Health, Safety and Enforcement (Transferred from Ministry of Energy, Mines and Low Carbon Innovation)",
+            "amount": 0.016202014
+          },
+          {
+            "name": "Ministry of Mining and Critical Minerals \u2192 Strategic and Indigenous Partnerships (Transferred from Ministry of Energy, Mines and Low Carbon Innovation)",
+            "amount": 0.005604193
+          },
+          {
+            "name": "Ministry of Mining and Critical Minerals \u2192 Executive and Support Services (Transferred from Ministry of Energy, Mines and Low Carbon Innovation) - Corporate Services",
+            "amount": 0.011296231
+          },
+          {
+            "name": "Ministry of Mining and Critical Minerals \u2192 Executive and Support Services (Transferred from Ministry of Municipal Affairs) - Ministers Office",
+            "amount": 0.00067165
+          },
+          {
+            "name": "Ministry of Mining and Critical Minerals \u2192 Executive and Support Services (Transferred from Ministry of Environment and Climate Change Strategy) - Corporate Services",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Mining and Critical Minerals \u2192 Mines Act (Statutory Account)",
+            "amount": 0.005696663
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Municipal Affairs",
+        "children": [
+          {
+            "name": "Ministry of Municipal Affairs \u2192 Local Government - Local Government Services and Transfers",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Municipal Affairs \u2192 Local Government - University Endowment Lands",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Municipal Affairs \u2192 Immigration Services and Strategic Planning - Strategic Planning",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Municipal Affairs \u2192 Immigration Services and Strategic Planning - Provincial Nominee Program",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Municipal Affairs \u2192 Immigration Services and Strategic Planning - Workforce and Immigration",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Municipal Affairs \u2192 Immigration Services and Strategic Planning - Community Gaming Grants",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Municipal Affairs \u2192 Executive and Support Services - Corporate Services",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Municipal Affairs \u2192 Executive and Support Services - Ministers Office",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Municipal Affairs \u2192 University Endowment Lands Administration Account",
+            "amount": 0.0
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Post-Secondary Education and Future Skills",
+        "children": [
+          {
+            "name": "Ministry of Post-Secondary Education and Future Skills \u2192 Educational Institutions and Organizations",
+            "amount": 3.177606436
+          },
+          {
+            "name": "Ministry of Post-Secondary Education and Future Skills \u2192 Student Services Programs",
+            "amount": 0.093781897
+          },
+          {
+            "name": "Ministry of Post-Secondary Education and Future Skills \u2192 Private Training Institutions",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Post-Secondary Education and Future Skills \u2192 Labour Market Development - Strategic Planning",
+            "amount": 0.013072099
+          },
+          {
+            "name": "Ministry of Post-Secondary Education and Future Skills \u2192 Labour Market Development - Labour Market Policy and Planning",
+            "amount": 0.003424375
+          },
+          {
+            "name": "Ministry of Post-Secondary Education and Future Skills \u2192 Labour Market Development - Labour Market and Skills Training Programs",
+            "amount": 0.049987068
+          },
+          {
+            "name": "Ministry of Post-Secondary Education and Future Skills \u2192 Transfers to Crown Corporations and Agencies - SkilledTradesBC",
+            "amount": 0.10722
+          },
+          {
+            "name": "Ministry of Post-Secondary Education and Future Skills \u2192 Executive and Support Services - Ministers Office",
+            "amount": 0.00089845
+          },
+          {
+            "name": "Ministry of Post-Secondary Education and Future Skills \u2192 Executive and Support Services - Corporate Services",
+            "amount": 0.035434636
+          },
+          {
+            "name": "Ministry of Post-Secondary Education and Future Skills \u2192 Statutory - Immigration Services and Strategic Planning (Transfer from Ministry of Municipal Affairs) - Strategic Planning",
+            "amount": 0.000664676
+          },
+          {
+            "name": "Ministry of Post-Secondary Education and Future Skills \u2192 Statutory - Immigration Services and Strategic Planning (Transfer from Ministry of Municipal Affairs) - Corporate Services",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Post-Secondary Education and Future Skills \u2192 Statutory - Immigration Services and Strategic Planning (Transfer from Ministry of Municipal Affairs) - Provincial Nominee Program",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Post-Secondary Education and Future Skills \u2192 Statutory - Immigration Services and Strategic Planning (Transfer from Ministry of Municipal Affairs) - Workforce and Immigration",
+            "amount": 0.037156862
+          },
+          {
+            "name": "Ministry of Post-Secondary Education and Future Skills \u2192 Statutory Account - Payments Based On Contributions",
+            "amount": -0.000474046
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Public Safety and Solicitor General",
+        "children": [
+          {
+            "name": "Ministry of Public Safety and Solicitor General \u2192 Corrections - Corrections",
+            "amount": 0.33915587
+          },
+          {
+            "name": "Ministry of Public Safety and Solicitor General \u2192 Policing and Security - Policing and Security",
+            "amount": 0.604883633
+          },
+          {
+            "name": "Ministry of Public Safety and Solicitor General \u2192 Community Safety and Victim Services - Community Safety and Victim Services",
+            "amount": 0.086401553
+          },
+          {
+            "name": "Ministry of Public Safety and Solicitor General \u2192 BC Coroners Service - BC Coroners Service",
+            "amount": 0.030017906
+          },
+          {
+            "name": "Ministry of Public Safety and Solicitor General \u2192 RoadSafetyBC - RoadSafetyBC",
+            "amount": 0.037838785
+          },
+          {
+            "name": "Ministry of Public Safety and Solicitor General \u2192 Liquor Regulation - Liquor Regulation",
+            "amount": 1e-06
+          },
+          {
+            "name": "Ministry of Public Safety and Solicitor General \u2192 Cannabis Regulation - Cannabis Regulation",
+            "amount": 0.008557764
+          },
+          {
+            "name": "Ministry of Public Safety and Solicitor General \u2192 Gaming Policy and Enforcement - Gaming Policy and Enforcement Operations",
+            "amount": 0.02146114
+          },
+          {
+            "name": "Ministry of Public Safety and Solicitor General \u2192 Gaming Policy and Enforcement - Distribution of Gaming Proceeds",
+            "amount": 1e-06
+          },
+          {
+            "name": "Ministry of Public Safety and Solicitor General \u2192 Cannabis, Consumer Protection and Corporate Policy - Cannabis, Consumer Protection and Corporate Policy",
+            "amount": 0.007779959
+          },
+          {
+            "name": "Ministry of Public Safety and Solicitor General \u2192 Office of the Fire Commissioner - Office of the Fire Commissioner",
+            "amount": 0.003087308
+          },
+          {
+            "name": "Ministry of Public Safety and Solicitor General \u2192 Executive and Support Services - Ministers Office",
+            "amount": 0.000824437
+          },
+          {
+            "name": "Ministry of Public Safety and Solicitor General \u2192 Executive and Support Services - Corporate Services",
+            "amount": 0.01947878
+          },
+          {
+            "name": "Ministry of Public Safety and Solicitor General \u2192 Civil Forfeiture Account (Statutory)",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Public Safety and Solicitor General \u2192 Corrections Work Program Account (Statutory)",
+            "amount": 0.000744996
+          },
+          {
+            "name": "Ministry of Public Safety and Solicitor General \u2192 Criminal Asset Management Fund (Statutory)",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Public Safety and Solicitor General \u2192 Victim Surcharge Special Account (Statutory)",
+            "amount": 0.013504
+          },
+          {
+            "name": "Ministry of Public Safety and Solicitor General \u2192 Statutory Account - Payments Based on Contributions",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Public Safety and Solicitor General \u2192 Corrections Work Program Account Elimination",
+            "amount": -0.000658905
+          },
+          {
+            "name": "Ministry of Public Safety and Solicitor General \u2192 Adjustment of Prior Year Accrual",
+            "amount": -0.000340882
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Social Development and Poverty Reduction",
+        "children": [
+          {
+            "name": "Ministry of Social Development and Poverty Reduction \u2192 Income Assistance - Income Assistance - Program Management",
+            "amount": 0.19886809
+          },
+          {
+            "name": "Ministry of Social Development and Poverty Reduction \u2192 Income Assistance - Temporary Assistance",
+            "amount": 0.649722252
+          },
+          {
+            "name": "Ministry of Social Development and Poverty Reduction \u2192 Income Assistance - Disability Assistance",
+            "amount": 2.082404155
+          },
+          {
+            "name": "Ministry of Social Development and Poverty Reduction \u2192 Income Assistance - Supplementary Assistance",
+            "amount": 0.506802348
+          },
+          {
+            "name": "Ministry of Social Development and Poverty Reduction \u2192 Employment - Employment Programs",
+            "amount": 0.031863493
+          },
+          {
+            "name": "Ministry of Social Development and Poverty Reduction \u2192 Employment - Labour Market Development Agreement",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Social Development and Poverty Reduction \u2192 Community Living Services - Community Living Services",
+            "amount": 1.687582
+          },
+          {
+            "name": "Ministry of Social Development and Poverty Reduction \u2192 Employment and Assistance Appeal Tribunal - Employment and Assistance Appeal Tribunal",
+            "amount": 0.001911039
+          },
+          {
+            "name": "Ministry of Social Development and Poverty Reduction \u2192 Executive and Support Services - Ministers Office",
+            "amount": 0.000863448
+          },
+          {
+            "name": "Ministry of Social Development and Poverty Reduction \u2192 Executive and Support Services - Corporate Services",
+            "amount": 0.015955173
+          },
+          {
+            "name": "Ministry of Social Development and Poverty Reduction \u2192 Adjustment of Prior Year Accrual",
+            "amount": -0.000229032
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Tourism, Arts, Culture and Sport",
+        "children": [
+          {
+            "name": "Ministry of Tourism, Arts, Culture and Sport \u2192 Tourism Sector Strategy - Tourism Sector Strategy",
+            "amount": 0.026450811
+          },
+          {
+            "name": "Ministry of Tourism, Arts, Culture and Sport \u2192 Arts and Culture - Arts and Culture",
+            "amount": 0.040338464
+          },
+          {
+            "name": "Ministry of Tourism, Arts, Culture and Sport \u2192 Sport and Creative Sector - Sport",
+            "amount": 0.048834325
+          },
+          {
+            "name": "Ministry of Tourism, Arts, Culture and Sport \u2192 Sport and Creative Sector - Creative Sector",
+            "amount": 0.003846724
+          },
+          {
+            "name": "Ministry of Tourism, Arts, Culture and Sport \u2192 Transfers to Crown Corporations and Agencies - BC Games Society",
+            "amount": 0.002152
+          },
+          {
+            "name": "Ministry of Tourism, Arts, Culture and Sport \u2192 Transfers to Crown Corporations and Agencies - B.C. Pavilion Corporation",
+            "amount": 0.009791
+          },
+          {
+            "name": "Ministry of Tourism, Arts, Culture and Sport \u2192 Transfers to Crown Corporations and Agencies - Destination BC Corp",
+            "amount": 0.056431
+          },
+          {
+            "name": "Ministry of Tourism, Arts, Culture and Sport \u2192 Transfers to Crown Corporations and Agencies - Knowledge Network Corporation",
+            "amount": 0.006611
+          },
+          {
+            "name": "Ministry of Tourism, Arts, Culture and Sport \u2192 Transfers to Crown Corporations and Agencies - Royal British Columbia Museum",
+            "amount": 0.026962851
+          },
+          {
+            "name": "Ministry of Tourism, Arts, Culture and Sport \u2192 Executive and Support Services - Ministers Office",
+            "amount": 0.000790392
+          },
+          {
+            "name": "Ministry of Tourism, Arts, Culture and Sport \u2192 Executive and Support Services - Corporate Services",
+            "amount": 0.001365238
+          },
+          {
+            "name": "Ministry of Tourism, Arts, Culture and Sport \u2192 Statutory - Immigration Services and Strategic Planning (Transferred from Municipal Affairs) - Community Gaming Grants",
+            "amount": 0.002434995
+          },
+          {
+            "name": "Ministry of Tourism, Arts, Culture and Sport \u2192 Executive and Support Services (Transferred from Municipal Affairs) - Corporate Services",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Tourism, Arts, Culture and Sport \u2192 BC Arts and Culture Endowment - BC Arts and Culture Endowment",
+            "amount": 0.003795
+          },
+          {
+            "name": "Ministry of Tourism, Arts, Culture and Sport \u2192 Physical Fitness and Amateur Sports Fund - Physical Fitness and Amateur Sports Fund",
+            "amount": 0.0012
+          },
+          {
+            "name": "Ministry of Tourism, Arts, Culture and Sport \u2192 Adjustment of Prior Year Accrual",
+            "amount": -0.000188308
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Transportation and Transit",
+        "children": [
+          {
+            "name": "Ministry of Transportation and Transit \u2192 Transportation and Infrastructure Improvements - Transportation Policy and Programs",
+            "amount": 0.036877581
+          },
+          {
+            "name": "Ministry of Transportation and Transit \u2192 Transportation and Infrastructure Improvements - Transportation Investments",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Transportation and Transit \u2192 Transportation and Infrastructure Improvements - Partnerships",
+            "amount": 0.0
+          },
+          {
+            "name": "Ministry of Transportation and Transit \u2192 Transportation and Infrastructure Improvements - Port and Airport Development",
+            "amount": 0.00220871
+          },
+          {
+            "name": "Ministry of Transportation and Transit \u2192 Transportation and Infrastructure Improvements - Enhancing Economic Development",
+            "amount": 0.004674117
+          },
+          {
+            "name": "Ministry of Transportation and Transit \u2192 Public Transportation - Public Transit",
+            "amount": 0.481131246
+          },
+          {
+            "name": "Ministry of Transportation and Transit \u2192 Public Transportation - Coastal Ferry Services",
+            "amount": 0.204789795
+          },
+          {
+            "name": "Ministry of Transportation and Transit \u2192 Highway Operations - Maintenance and Operations",
+            "amount": 0.651730891
+          },
+          {
+            "name": "Ministry of Transportation and Transit \u2192 Highway Operations - Commercial Vehicle Safety and Enforcement",
+            "amount": 0.028906847
+          },
+          {
+            "name": "Ministry of Transportation and Transit \u2192 Highway Operations - Inland Ferries",
+            "amount": 0.028325346
+          },
+          {
+            "name": "Ministry of Transportation and Transit \u2192 Commercial Transportation Regulation - Container Trucking Commissioner",
+            "amount": 5.5905e-05
+          },
+          {
+            "name": "Ministry of Transportation and Transit \u2192 Commercial Transportation Regulation - Passenger Transportation Branch",
+            "amount": 0.000588082
+          },
+          {
+            "name": "Ministry of Transportation and Transit \u2192 Executive and Support Services - Ministers Offices",
+            "amount": 0.00112175
+          },
+          {
+            "name": "Ministry of Transportation and Transit \u2192 Executive and Support Services - Corporate Services",
+            "amount": 0.024702442
+          },
+          {
+            "name": "Ministry of Transportation and Transit \u2192 Adjustment of Prior Year Accrual",
+            "amount": -0.006259066
+          }
+        ]
+      },
+      {
+        "name": "Ministry of Water, Land and Resource Stewardship",
+        "children": [
+          {
+            "name": "Ministry of Water, Land and Resource Stewardship \u2192 Land Use Planning and Cumulative Effects",
+            "amount": 0.096709868
+          },
+          {
+            "name": "Ministry of Water, Land and Resource Stewardship \u2192 Resource Stewardship",
+            "amount": 0.032241586
+          },
+          {
+            "name": "Ministry of Water, Land and Resource Stewardship \u2192 Water, Fisheries and Coast",
+            "amount": 0.052372705
+          },
+          {
+            "name": "Ministry of Water, Land and Resource Stewardship \u2192 Natural Resource Information and Digital Services",
+            "amount": 0.039543535
+          },
+          {
+            "name": "Ministry of Water, Land and Resource Stewardship \u2192 Reconciliation, Lands and Natural Resource Policy",
+            "amount": 0.040442096
+          },
+          {
+            "name": "Ministry of Water, Land and Resource Stewardship \u2192 Permitting Transformation",
+            "amount": 0.052563363
+          },
+          {
+            "name": "Ministry of Water, Land and Resource Stewardship \u2192 Executive and Support Services - Ministers Office",
+            "amount": 0.000935906
+          },
+          {
+            "name": "Ministry of Water, Land and Resource Stewardship \u2192 Executive and Support Services - Corporate Services",
+            "amount": 0.033227157
+          },
+          {
+            "name": "Ministry of Water, Land and Resource Stewardship \u2192 Statutory - Crown Land special account",
+            "amount": 0.090695786
+          },
+          {
+            "name": "Ministry of Water, Land and Resource Stewardship \u2192 Transfers from Crown Land to General Account",
+            "amount": -0.090195786
+          },
+          {
+            "name": "Ministry of Water, Land and Resource Stewardship \u2192 Adjustment of Prior Year Accrual",
+            "amount": -0.000916239
+          }
+        ]
+      },
+      {
+        "name": "Management of Public Funds and Debt",
+        "children": [
+          {
+            "name": "Management of Public Funds and Debt \u2192 Cost of Borrowing for Government Operating and Capital Funding (Net of Recoveries) - Cost of Borrowing for Government Operating and Capital Funding",
+            "amount": 2.343174511
+          },
+          {
+            "name": "Management of Public Funds and Debt \u2192 Cost of Borrowing for Relending to Government Bodies (Net of Recoveries) - Cost of Borrowing for Relending to Government Bodies",
+            "amount": 0.0
+          },
+          {
+            "name": "Management of Public Funds and Debt \u2192 Cost of Financial Agreements Entered into on Behalf of Government Bodies (Net of Recoveries) - Cost of Financial Agreements Entered into on Behalf of Government Bodies",
+            "amount": 0.0
+          },
+          {
+            "name": "Management of Public Funds and Debt \u2192 Cost of Warehouse Borrowing Program (Net of Recoveries) - Cost of Warehouse Borrowing Program",
+            "amount": 0.0
+          },
+          {
+            "name": "Management of Public Funds and Debt \u2192 Statutory Account - Transfer of Interest to Special Account",
+            "amount": -0.029268721
+          },
+          {
+            "name": "Management of Public Funds and Debt \u2192 Adjustment of Prior Year Accrual - Adjustment of Prior Year Accrual",
+            "amount": -7.5e-07
+          }
+        ]
+      },
+      {
+        "name": "Other Appropriations",
+        "children": [
+          {
+            "name": "Other Appropriations \u2192 Total",
+            "amount": 7.491242
+          }
+        ]
+      }
+    ]
+  },
+  "revenue_data": {
+    "name": "Revenue",
+    "children": [
+      {
+        "name": "Taxation Revenue",
+        "children": [
+          {
+            "name": "Taxation Revenue \u2192 Personal Income",
+            "amount": 17.025701
+          },
+          {
+            "name": "Taxation Revenue \u2192 Provincial Sales",
+            "amount": 10.355433
+          },
+          {
+            "name": "Taxation Revenue \u2192 Corporate Income",
+            "amount": 8.261589
+          },
+          {
+            "name": "Taxation Revenue \u2192 Property",
+            "amount": 3.574268
+          },
+          {
+            "name": "Taxation Revenue \u2192 Employer Health",
+            "amount": 3.056124
+          },
+          {
+            "name": "Revenue \u2192 Taxation Revenue \u2192 Carbon",
+            "amount": 2.603617
+          },
+          {
+            "name": "Revenue \u2192 Taxation Revenue \u2192 Property Transfer",
+            "amount": 2.005029
+          },
+          {
+            "name": "Taxation Revenue \u2192 Fuel",
+            "amount": 0.531165
+          },
+          {
+            "name": "Taxation Revenue \u2192 Tobacco",
+            "amount": 0.412411
+          },
+          {
+            "name": "Taxation Revenue \u2192 Other",
+            "amount": 0.900034
+          },
+          {
+            "name": "Taxation Revenue \u2192 Tax Targeting Home Flipping Activity",
+            "amount": 0.000029
+          },
+          {
+            "name": "Taxation Revenue \u2192 Commissions on Collection of Public Funds",
+            "amount": -0.079874
+          },
+          {
+            "name": "Taxation Revenue \u2192 Valuation Adjustments",
+            "amount": -0.152278
+          }
+        ]
+      },
+      {
+        "name": "Revenue \u2192 Contributions from the Federal Government",
+        "children": [
+          {
+            "name": "Contributions from the Federal Government \u2192 Canada Health and Social Transfers",
+            "amount": 9.541513
+          },
+          {
+            "name": "Contributions from the Federal Government \u2192 Other Contributions",
+            "amount": 0.504904
+          }
+        ]
+      },
+      {
+        "name": "Revenue \u2192 Other Revenue",
+        "children": [
+          {
+            "name": "Other Revenue \u2192 Medical Services Plan Premiums",
+            "amount": 0.0
+          },
+          {
+            "name": "Other Revenue \u2192 Motor Vehicle Licences and Permits",
+            "amount": 0.640193
+          },
+          {
+            "name": "Other Revenue \u2192 Other Fees and Licences",
+            "amount": 0.648552
+          },
+          {
+            "name": "Other Revenue \u2192 Investment Earnings",
+            "amount": 0.602483
+          },
+          {
+            "name": "Other Revenue \u2192 Miscellaneous",
+            "amount": 0.479978
+          },
+          {
+            "name": "Other Revenue \u2192 Asset Dispositions",
+            "amount": -0.00005
+          },
+          {
+            "name": "Other Revenue \u2192 Commissions on Collection of Public Funds",
+            "amount": -0.007715
+          },
+          {
+            "name": "Other Revenue \u2192 Valuation Adjustments",
+            "amount": -0.050818
+          }
+        ]
+      },
+      {
+        "name": "Revenue \u2192 Dividends",
+        "children": [
+          {
+            "name": "Dividends \u2192 BC Lottery Corporation",
+            "amount": 1.053308
+          },
+          {
+            "name": "Dividends \u2192 BC Liquor Distribution Branch",
+            "amount": 1.094239
+          },
+          {
+            "name": "Dividends \u2192 Columbia Power Corporation",
+            "amount": 0.034
+          }
+        ]
+      },
+      {
+        "name": "Revenue \u2192 Natural Resource Revenue",
+        "children": [
+          {
+            "name": "Natural Resource Revenue \u2192 Petroleum, Natural Gas and Minerals",
+            "amount": 0.923989
+          },
+          {
+            "name": "Natural Resource Revenue \u2192 Forests",
+            "amount": 0.327859
+          },
+          {
+            "name": "Natural Resource Revenue \u2192 Water and Other",
+            "amount": 0.633995
+          },
+          {
+            "name": "Natural Resource Revenue \u2192 Commissions on Collection of Public Funds",
+            "amount": -0.000815
+          },
+          {
+            "name": "Natural Resource Revenue \u2192 Valuation Adjustments",
+            "amount": -0.052061
+          }
+        ]
+      }
+    ]
+  }
+}
