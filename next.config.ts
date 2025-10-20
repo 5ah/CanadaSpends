@@ -2,7 +2,6 @@ import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypePrettyCode from "rehype-pretty-code";
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -66,7 +65,7 @@ const nextConfig: NextConfig = {
   skipTrailingSlashRedirect: true,
 };
 
-// MDX Configuration With Rehype Plugins For Better Code Highlighting And Heading Links
+// MDX Configuration With Rehype Plugins For Heading Links
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
@@ -80,13 +79,6 @@ const withMDX = createMDX({
           properties: {
             className: ["anchor"],
           },
-        },
-      ],
-      [
-        rehypePrettyCode,
-        {
-          theme: "github-dark",
-          keepBackground: false,
         },
       ],
     ],
