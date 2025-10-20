@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
 import rehypeSlug from "rehype-slug";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -65,23 +64,12 @@ const nextConfig: NextConfig = {
   skipTrailingSlashRedirect: true,
 };
 
-// MDX Configuration With Rehype Plugins For Heading Links
+// MDX Configuration With Rehype Plugins
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [],
-    rehypePlugins: [
-      rehypeSlug,
-      [
-        rehypeAutolinkHeadings,
-        {
-          behavior: "wrap",
-          properties: {
-            className: ["anchor"],
-          },
-        },
-      ],
-    ],
+    rehypePlugins: [rehypeSlug],
   },
 });
 
