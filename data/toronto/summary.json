@@ -1,0 +1,93 @@
+{
+  "name": "Toronto",
+  "financialYear": "2024",
+  "source": "https://www.toronto.ca/city-government/budget-finances/city-finance/annual-financial-report/",
+  "totalProvincialSpending": 16.56719,
+  "totalProvincialSpendingFormatted": "$16.6B",
+  "totalEmployees": 44000,
+  "netDebt": null,
+  "totalDebt": null,
+  "debtInterest": null,
+  "population": 2930000,
+  "budgetBalance": 1.6348100000000017,
+  "budgetBalanceFormatted": "$1.6B",
+  "perCapitaSpending": 5654,
+  "propertyTaxPerCapita": 1982,
+  "propertyTaxRevenue": 5.808,
+  "propertyTaxRevenueFormatted": "$5.8B",
+  "ministries": [
+    {
+      "name": "Transportation",
+      "slug": "transportation",
+      "totalSpending": 4.518455367556715,
+      "totalSpendingFormatted": "$4.5B",
+      "percentage": 27.27351691841957,
+      "percentageFormatted": "27.3%"
+    },
+    {
+      "name": "Social & family services",
+      "slug": "social-and-family-services",
+      "totalSpending": 3.8024136232823684,
+      "totalSpendingFormatted": "$3.8B",
+      "percentage": 22.95146988283691,
+      "percentageFormatted": "23.0%"
+    },
+    {
+      "name": "Protection to persons & property",
+      "slug": "protection-to-persons-and-property",
+      "totalSpending": 2.491730364368886,
+      "totalSpendingFormatted": "$2.5B",
+      "percentage": 15.04015083046,
+      "percentageFormatted": "15.0%"
+    },
+    {
+      "name": "Social housing",
+      "slug": "social-housing",
+      "totalSpending": 1.322000002270522,
+      "totalSpendingFormatted": "$1.3B",
+      "percentage": 7.9796272166283,
+      "percentageFormatted": "8.0%"
+    },
+    {
+      "name": "Recreation & cultural services",
+      "slug": "recreation-and-cultural-services",
+      "totalSpending": 1.23900199717,
+      "totalSpendingFormatted": "$1.2B",
+      "percentage": 7.478649047726258,
+      "percentageFormatted": "7.5%"
+    },
+    {
+      "name": "General government",
+      "slug": "general-government",
+      "totalSpending": 1.2215927469999999,
+      "totalSpendingFormatted": "$1.2B",
+      "percentage": 7.37356635011731,
+      "percentageFormatted": "7.4%"
+    },
+    {
+      "name": "Environmental services",
+      "slug": "environmental-services",
+      "totalSpending": 1.1759952897781487,
+      "totalSpendingFormatted": "$1.2B",
+      "percentage": 7.098338884132726,
+      "percentageFormatted": "7.1%"
+    },
+    {
+      "name": "Health services",
+      "slug": "health-services",
+      "totalSpending": 0.5769996478269456,
+      "totalSpendingFormatted": "$577M",
+      "percentage": 3.4827852389388037,
+      "percentageFormatted": "3.5%"
+    },
+    {
+      "name": "Planning & development",
+      "slug": "planning-and-development",
+      "totalSpending": 0.219000456,
+      "totalSpendingFormatted": "$219M",
+      "percentage": 1.3218925840773241,
+      "percentageFormatted": "1.3%"
+    }
+  ],
+  "generatedAt": "2025-10-17T20:10:49Z"
+}
