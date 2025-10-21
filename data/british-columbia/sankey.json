@@ -1,6 +1,6 @@
 {
-  "total": 77.668219152,
-  "spending": 77.668219152,
+  "total": 77.368922244,
+  "spending": 77.368922244,
   "revenue": 64.866802,
   "spending_data": {
     "name": "Spending",
@@ -1510,12 +1510,106 @@
           }
         ]
       },
-      {
+            {
         "name": "Other Appropriations",
         "children": [
           {
-            "name": "Other Appropriations \u2192 Total",
-            "amount": 7.491242
+            "name": "Other Appropriations \u2192 Tax Transfers",
+            "children": [
+              {
+                "name": "Tax Transfers \u2192 Climate Action Tax Credit",
+                "amount": 0.980215571
+              },
+              {
+                "name": "Tax Transfers \u2192 Production Services Tax Credit",
+                "amount": 0.813521885
+              },
+              {
+                "name": "Tax Transfers \u2192 BC Family Benefit",
+                "amount": 0.695803175
+              },
+              {
+                "name": "Tax Transfers \u2192 Other Personal Income Tax Credits",
+                "amount": 0.275740954
+              },
+              {
+                "name": "Tax Transfers \u2192 Film and Television Tax Credit",
+                "amount": 0.138102194
+              },
+              {
+                "name": "Tax Transfers \u2192 Interactive Digital Media Tax Credit",
+                "amount": 0.126107409
+              },
+              {
+                "name": "Tax Transfers \u2192 Scientific Research and Experimental Development Tax Credit",
+                "amount": 0.118095187
+              },
+              {
+                "name": "Tax Transfers \u2192 Renters Tax Credit",
+                "amount": 0.090446104
+              },
+              {
+                "name": "Tax Transfers \u2192 Other Corporate Income Tax Credits",
+                "amount": 0.067850734
+              },
+              {
+                "name": "Tax Transfers \u2192 Sales Tax Credit",
+                "amount": 0.035086708
+              },
+              {
+                "name": "Tax Transfers \u2192 Small Business Venture Capital Tax Credit",
+                "amount": 0.011092498
+              },
+              {
+                "name": "Tax Transfers \u2192 Clean Buildings Tax Credit",
+                "amount": 0.0
+              }
+            ]
+          },
+          {
+            "name": "Other Appropriations \u2192 Capital Funding",
+            "children": [
+              {
+                "name": "Capital Funding \u2192 Health Facilities",
+                "amount": 2.399774756
+              },
+              {
+                "name": "Capital Funding \u2192 Schools",
+                "amount": 0.880550918
+              },
+              {
+                "name": "Capital Funding \u2192 Post-secondary Institutions",
+                "amount": 0.690309624
+              },
+              {
+                "name": "Capital Funding \u2192 Housing",
+                "amount": 0.367505628
+              },
+              {
+                "name": "Capital Funding \u2192 Royal British Columbia Museum",
+                "amount": 0.086892037
+              },
+              {
+                "name": "Capital Funding \u2192 B.C. Pavilion Corporation",
+                "amount": 0.009999801
+              },
+              {
+                "name": "Capital Funding \u2192 Other Capital Projects",
+                "amount": 0.003443862
+              }
+            ]
+          },
+          {
+            "name": "Other Appropriations \u2192 Contingencies (Ex-gratia payments - Affordable Child Care Benefit Crossover)",
+            "amount": 0.001495277
+          },
+          {
+            "name": "Other Appropriations \u2192 Forest Practices Board",
+            "amount": 0.004148655
+          },
+          {
+            "name": "Other Appropriations \u2192 Adjustment of Prior Year Accrual",
+            "amount": -0.304940840
           }
         ]
       }

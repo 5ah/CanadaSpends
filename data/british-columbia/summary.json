@@ -1,7 +1,7 @@
 {
   "name": "British Columbia",
   "financialYear": "2024-25",
-  "source": "https://www2.gov.bc.ca/assets/gov/british-columbians-our-governments/government-finances/public-accounts/2024-25/public-accounts-2024-25.pdf",
+  "source": "https://www2.gov.bc.ca/assets/gov/british-columbians-our-governments/government-finances/public-accounts/2024-25/pa-2024-25-crf-supplementary-schedules.pdf",
   "totalProvincialSpending": "77.368925",
   "totalProvincialSpendingFormatted": "$77.4B",
   "totalEmployees": "39.036",
@@ -31,7 +31,44 @@
       "totalSpending": 7.491242,
       "percentage": 9.682494619125185,
       "percentageFormatted": "9.7%",
-      "totalSpendingFormatted": "$7.5B"
+      "totalSpendingFormatted": "$7.5B",
+      "subcategories": [
+        {
+          "name": "Capital Funding",
+          "totalSpending": 4.438477,
+          "percentage": 59.25,
+          "percentageFormatted": "59.3%",
+          "totalSpendingFormatted": "$4.4B"
+        },
+        {
+          "name": "Tax Transfers",
+          "totalSpending": 3.352062,
+          "percentage": 44.75,
+          "percentageFormatted": "44.8%",
+          "totalSpendingFormatted": "$3.4B"
+        },
+        {
+          "name": "Forest Practices Board",
+          "totalSpending": 0.004149,
+          "percentage": 0.06,
+          "percentageFormatted": "0.1%",
+          "totalSpendingFormatted": "$0.0B"
+        },
+        {
+          "name": "Contingencies",
+          "totalSpending": 0.001495,
+          "percentage": 0.02,
+          "percentageFormatted": "0.0%",
+          "totalSpendingFormatted": "$0.0B"
+        },
+        {
+          "name": "Adjustment of Prior Year Accrual",
+          "totalSpending": -0.304941,
+          "percentage": -4.07,
+          "percentageFormatted": "-4.1%",
+          "totalSpendingFormatted": "-$0.3B"
+        }
+      ]
     },
     {
       "name": "Ministry of Social Development and Poverty Reduction",
