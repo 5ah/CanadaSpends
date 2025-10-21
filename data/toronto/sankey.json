@@ -1,0 +1,1497 @@
+{
+  "total": 18.202,
+  "spending": 16.56719,
+  "revenue": 18.202,
+  "spending_data": {
+    "name": "Spending",
+    "children": [
+      {
+        "name": "Transportation",
+        "children": [
+          {
+            "name": "Transportation \u2192 Roads - Paved",
+            "children": [
+              {
+                "name": "Transportation \u2192 Roads - Paved \u2192 Amortization",
+                "amount": 0.11671832665
+              },
+              {
+                "name": "Transportation \u2192 Roads - Paved \u2192 Contracted Services",
+                "amount": 0.059420238
+              },
+              {
+                "name": "Transportation \u2192 Roads - Paved \u2192 External Transfers",
+                "amount": 0.002618461
+              },
+              {
+                "name": "Transportation \u2192 Roads - Paved \u2192 Interest on Long Term Debt",
+                "amount": 0.072316875
+              },
+              {
+                "name": "Transportation \u2192 Roads - Paved \u2192 Materials ",
+                "amount": 0.050566793
+              },
+              {
+                "name": "Transportation \u2192 Roads - Paved \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": -0.027220787
+              },
+              {
+                "name": "Transportation \u2192 Roads - Paved \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.069789407
+              }
+            ]
+          },
+          {
+            "name": "Transportation \u2192 Roads - Bridges and Culverts",
+            "children": [
+              {
+                "name": "Transportation \u2192 Roads - Bridges and Culverts \u2192 Amortization",
+                "amount": 0.037604288699999995
+              },
+              {
+                "name": "Transportation \u2192 Roads - Bridges and Culverts \u2192 Contracted Services",
+                "amount": -0.010088936
+              },
+              {
+                "name": "Transportation \u2192 Roads - Bridges and Culverts \u2192 Materials ",
+                "amount": 0.00033702300000000004
+              },
+              {
+                "name": "Transportation \u2192 Roads - Bridges and Culverts \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": -0.00621107
+              },
+              {
+                "name": "Transportation \u2192 Roads - Bridges and Culverts \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.00049569
+              }
+            ]
+          },
+          {
+            "name": "Transportation \u2192 Roads - Traffic Operations & Roadside",
+            "children": [
+              {
+                "name": "Transportation \u2192 Roads - Traffic Operations & Roadside \u2192 Amortization",
+                "amount": 0.0186349452067144
+              },
+              {
+                "name": "Transportation \u2192 Roads - Traffic Operations & Roadside \u2192 Contracted Services",
+                "amount": 0.069409514
+              },
+              {
+                "name": "Transportation \u2192 Roads - Traffic Operations & Roadside \u2192 Materials ",
+                "amount": 0.018917469
+              },
+              {
+                "name": "Transportation \u2192 Roads - Traffic Operations & Roadside \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": -0.0037689859999999998
+              },
+              {
+                "name": "Transportation \u2192 Roads - Traffic Operations & Roadside \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.048880494
+              }
+            ]
+          },
+          {
+            "name": "Transportation \u2192 Winter Control - Except Sidewalks, Parking Lots",
+            "children": [
+              {
+                "name": "Transportation \u2192 Winter Control - Except Sidewalks, Parking Lots \u2192 Contracted Services",
+                "amount": 0.039807702
+              },
+              {
+                "name": "Transportation \u2192 Winter Control - Except Sidewalks, Parking Lots \u2192 Materials ",
+                "amount": 0.003942786
+              },
+              {
+                "name": "Transportation \u2192 Winter Control - Except Sidewalks, Parking Lots \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.006835704
+              },
+              {
+                "name": "Transportation \u2192 Winter Control - Except Sidewalks, Parking Lots \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.019860167
+              }
+            ]
+          },
+          {
+            "name": "Transportation \u2192 Winter Control - Sidewalks, Parking Lots Only",
+            "children": [
+              {
+                "name": "Transportation \u2192 Winter Control - Sidewalks, Parking Lots Only \u2192 Contracted Services",
+                "amount": 0.047903403
+              },
+              {
+                "name": "Transportation \u2192 Winter Control - Sidewalks, Parking Lots Only \u2192 Materials ",
+                "amount": 0.004322043
+              },
+              {
+                "name": "Transportation \u2192 Winter Control - Sidewalks, Parking Lots Only \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.001897458
+              },
+              {
+                "name": "Transportation \u2192 Winter Control - Sidewalks, Parking Lots Only \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.026870069
+              }
+            ]
+          },
+          {
+            "name": "Transportation \u2192 Transit - Conventional",
+            "children": [
+              {
+                "name": "Transportation \u2192 Transit - Conventional \u2192 Amortization",
+                "amount": 0.768306
+              },
+              {
+                "name": "Transportation \u2192 Transit - Conventional \u2192 Contracted Services",
+                "amount": 0.39568065999999996
+              },
+              {
+                "name": "Transportation \u2192 Transit - Conventional \u2192 External Transfers",
+                "amount": -0.008396529
+              },
+              {
+                "name": "Transportation \u2192 Transit - Conventional \u2192 Interest on Long Term Debt",
+                "amount": 0.163411226
+              },
+              {
+                "name": "Transportation \u2192 Transit - Conventional \u2192 Materials ",
+                "amount": 0.270985674
+              },
+              {
+                "name": "Transportation \u2192 Transit - Conventional \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.054522948999999994
+              },
+              {
+                "name": "Transportation \u2192 Transit - Conventional \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 1.832232113
+              }
+            ]
+          },
+          {
+            "name": "Transportation \u2192 Parking",
+            "children": [
+              {
+                "name": "Transportation \u2192 Parking \u2192 Contracted Services",
+                "amount": 0.000112434
+              },
+              {
+                "name": "Transportation \u2192 Parking \u2192 Materials ",
+                "amount": 0.012268626
+              },
+              {
+                "name": "Transportation \u2192 Parking \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.012865769
+              },
+              {
+                "name": "Transportation \u2192 Parking \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.052924642
+              }
+            ]
+          },
+          {
+            "name": "Transportation \u2192 Street Lighting",
+            "children": [
+              {
+                "name": "Transportation \u2192 Street Lighting \u2192 Contracted Services",
+                "amount": 0.031323201
+              },
+              {
+                "name": "Transportation \u2192 Street Lighting \u2192 Materials ",
+                "amount": 0.02113512
+              },
+              {
+                "name": "Transportation \u2192 Street Lighting \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.00016217699999999998
+              },
+              {
+                "name": "Transportation \u2192 Street Lighting \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.001884707
+              }
+            ]
+          },
+          {
+            "name": "Transportation \u2192 Support Services",
+            "children": [
+              {
+                "name": "Transportation \u2192 Support Services \u2192 Amortization",
+                "amount": 0.001325321
+              },
+              {
+                "name": "Transportation \u2192 Support Services \u2192 Contracted Services",
+                "amount": 0.014078261
+              },
+              {
+                "name": "Transportation \u2192 Support Services \u2192 External Transfers",
+                "amount": 6.0852000000000006e-5
+              },
+              {
+                "name": "Transportation \u2192 Support Services \u2192 Materials ",
+                "amount": 0.13695896999999999
+              },
+              {
+                "name": "Transportation \u2192 Support Services \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.001353184
+              },
+              {
+                "name": "Transportation \u2192 Support Services \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.085400933
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Social & family services",
+        "children": [
+          {
+            "name": "Social & family services \u2192 General Assistance",
+            "children": [
+              {
+                "name": "Social & family services \u2192 General Assistance \u2192 Amortization",
+                "amount": 0.0125891927580163
+              },
+              {
+                "name": "Social & family services \u2192 General Assistance \u2192 Contracted Services",
+                "amount": 0.045319007
+              },
+              {
+                "name": "Social & family services \u2192 General Assistance \u2192 External Transfers",
+                "amount": 1.671603106
+              },
+              {
+                "name": "Social & family services \u2192 General Assistance \u2192 Interest on Long Term Debt",
+                "amount": 0.032336312
+              },
+              {
+                "name": "Social & family services \u2192 General Assistance \u2192 Materials ",
+                "amount": 0.333366342
+              },
+              {
+                "name": "Social & family services \u2192 General Assistance \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.040513635
+              },
+              {
+                "name": "Social & family services \u2192 General Assistance \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.333165943
+              }
+            ]
+          },
+          {
+            "name": "Social & family services \u2192 Assistance to Seniors",
+            "children": [
+              {
+                "name": "Social & family services \u2192 Assistance to Seniors \u2192 Amortization",
+                "amount": 0.0048162062128
+              },
+              {
+                "name": "Social & family services \u2192 Assistance to Seniors \u2192 Contracted Services",
+                "amount": 0.020130829
+              },
+              {
+                "name": "Social & family services \u2192 Assistance to Seniors \u2192 Interest on Long Term Debt",
+                "amount": 0.0043884020000000004
+              },
+              {
+                "name": "Social & family services \u2192 Assistance to Seniors \u2192 Materials ",
+                "amount": 0.047386086
+              },
+              {
+                "name": "Social & family services \u2192 Assistance to Seniors \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.001322793
+              },
+              {
+                "name": "Social & family services \u2192 Assistance to Seniors \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.32870716299999997
+              }
+            ]
+          },
+          {
+            "name": "Social & family services \u2192 Child Care and Early Years Learning",
+            "children": [
+              {
+                "name": "Social & family services \u2192 Child Care and Early Years Learning \u2192 Amortization",
+                "amount": 0.000759861311551983
+              },
+              {
+                "name": "Social & family services \u2192 Child Care and Early Years Learning \u2192 Contracted Services",
+                "amount": 0.825933041
+              },
+              {
+                "name": "Social & family services \u2192 Child Care and Early Years Learning \u2192 Interest on Long Term Debt",
+                "amount": 5.1367000000000005e-5
+              },
+              {
+                "name": "Social & family services \u2192 Child Care and Early Years Learning \u2192 Materials ",
+                "amount": -0.032942351
+              },
+              {
+                "name": "Social & family services \u2192 Child Care and Early Years Learning \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.00312197
+              },
+              {
+                "name": "Social & family services \u2192 Child Care and Early Years Learning \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.129842016
+              },
+              {
+                "name": "Social & family services \u2192 Child Care and Early Years Learning \u2192 Other (adjustment)",
+                "amount": 2.702e-6
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Protection to persons & property",
+        "children": [
+          {
+            "name": "Protection to persons & property \u2192 Fire",
+            "children": [
+              {
+                "name": "Protection to persons & property \u2192 Fire \u2192 Amortization",
+                "amount": 0.0155319565264978
+              },
+              {
+                "name": "Protection to persons & property \u2192 Fire \u2192 Contracted Services",
+                "amount": 0.006741494000000001
+              },
+              {
+                "name": "Protection to persons & property \u2192 Fire \u2192 Interest on Long Term Debt",
+                "amount": 0.00198538
+              },
+              {
+                "name": "Protection to persons & property \u2192 Fire \u2192 Materials ",
+                "amount": 0.017834779000000002
+              },
+              {
+                "name": "Protection to persons & property \u2192 Fire \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.0033552070000000002
+              },
+              {
+                "name": "Protection to persons & property \u2192 Fire \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.585964944
+              }
+            ]
+          },
+          {
+            "name": "Protection to persons & property \u2192 Police",
+            "children": [
+              {
+                "name": "Protection to persons & property \u2192 Police \u2192 Amortization",
+                "amount": 0.0556882178423885
+              },
+              {
+                "name": "Protection to persons & property \u2192 Police \u2192 Contracted Services",
+                "amount": 0.030447130000000003
+              },
+              {
+                "name": "Protection to persons & property \u2192 Police \u2192 External Transfers",
+                "amount": 0.000226943
+              },
+              {
+                "name": "Protection to persons & property \u2192 Police \u2192 Interest on Long Term Debt",
+                "amount": 0.004513684
+              },
+              {
+                "name": "Protection to persons & property \u2192 Police \u2192 Materials ",
+                "amount": 0.10584597
+              },
+              {
+                "name": "Protection to persons & property \u2192 Police \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.018460345
+              },
+              {
+                "name": "Protection to persons & property \u2192 Police \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 1.359236844
+              }
+            ]
+          },
+          {
+            "name": "Protection to persons & property \u2192 Court Security",
+            "children": [
+              {
+                "name": "Protection to persons & property \u2192 Court Security \u2192 Contracted Services",
+                "amount": 0.000168729
+              },
+              {
+                "name": "Protection to persons & property \u2192 Court Security \u2192 Materials ",
+                "amount": 0.000589353
+              },
+              {
+                "name": "Protection to persons & property \u2192 Court Security \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.00012694800000000002
+              },
+              {
+                "name": "Protection to persons & property \u2192 Court Security \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.061733508
+              }
+            ]
+          },
+          {
+            "name": "Protection to persons & property \u2192 Prisoner Transportation",
+            "children": [
+              {
+                "name": "Protection to persons & property \u2192 Prisoner Transportation \u2192 Materials ",
+                "amount": 0.000449216
+              }
+            ]
+          },
+          {
+            "name": "Protection to persons & property \u2192 Conservation Authority",
+            "children": [
+              {
+                "name": "Protection to persons & property \u2192 Conservation Authority \u2192 External Transfers",
+                "amount": 0.028487482
+              },
+              {
+                "name": "Protection to persons & property \u2192 Conservation Authority \u2192 Interest on Long Term Debt",
+                "amount": 0.000531998
+              }
+            ]
+          },
+          {
+            "name": "Protection to persons & property \u2192 Protective Inspection and Control",
+            "children": [
+              {
+                "name": "Protection to persons & property \u2192 Protective Inspection and Control \u2192 Contracted Services",
+                "amount": 0.003376344
+              },
+              {
+                "name": "Protection to persons & property \u2192 Protective Inspection and Control \u2192 External Transfers",
+                "amount": 0.001060359
+              },
+              {
+                "name": "Protection to persons & property \u2192 Protective Inspection and Control \u2192 Materials ",
+                "amount": 0.0041450459999999995
+              },
+              {
+                "name": "Protection to persons & property \u2192 Protective Inspection and Control \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.001996162
+              },
+              {
+                "name": "Protection to persons & property \u2192 Protective Inspection and Control \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.070754382
+              }
+            ]
+          },
+          {
+            "name": "Protection to persons & property \u2192 Building Permit and Inspection Services",
+            "children": [
+              {
+                "name": "Protection to persons & property \u2192 Building Permit and Inspection Services \u2192 Contracted Services",
+                "amount": 0.00023339299999999998
+              },
+              {
+                "name": "Protection to persons & property \u2192 Building Permit and Inspection Services \u2192 Materials ",
+                "amount": 0.0009986770000000001
+              },
+              {
+                "name": "Protection to persons & property \u2192 Building Permit and Inspection Services \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.000777513
+              },
+              {
+                "name": "Protection to persons & property \u2192 Building Permit and Inspection Services \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.067302534
+              }
+            ]
+          },
+          {
+            "name": "Protection to persons & property \u2192 Emergency Measures",
+            "children": [
+              {
+                "name": "Protection to persons & property \u2192 Emergency Measures \u2192 Contracted Services",
+                "amount": 5.2664e-5
+              },
+              {
+                "name": "Protection to persons & property \u2192 Emergency Measures \u2192 Materials ",
+                "amount": 0.00024418
+              },
+              {
+                "name": "Protection to persons & property \u2192 Emergency Measures \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 1.2257e-5
+              },
+              {
+                "name": "Protection to persons & property \u2192 Emergency Measures \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.005539655
+              }
+            ]
+          },
+          {
+            "name": "Protection to persons & property \u2192 Provincial Offences Act (POA)",
+            "children": [
+              {
+                "name": "Protection to persons & property \u2192 Provincial Offences Act (POA) \u2192 Contracted Services",
+                "amount": 0.001601192
+              },
+              {
+                "name": "Protection to persons & property \u2192 Provincial Offences Act (POA) \u2192 Materials ",
+                "amount": 0.003360856
+              },
+              {
+                "name": "Protection to persons & property \u2192 Provincial Offences Act (POA) \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.010695768
+              },
+              {
+                "name": "Protection to persons & property \u2192 Provincial Offences Act (POA) \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.021657982
+              },
+              {
+                "name": "Protection to persons & property \u2192 Provincial Offences Act (POA) \u2192 Other (adjustment)",
+                "amount": 1.272e-6
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Social housing",
+        "children": [
+          {
+            "name": "Social housing \u2192 Public Housing",
+            "children": [
+              {
+                "name": "Social housing \u2192 Public Housing \u2192 Amortization",
+                "amount": 0.278831536270522
+              },
+              {
+                "name": "Social housing \u2192 Public Housing \u2192 Contracted Services",
+                "amount": 0.103147339
+              },
+              {
+                "name": "Social housing \u2192 Public Housing \u2192 External Transfers",
+                "amount": 0.098655133
+              },
+              {
+                "name": "Social housing \u2192 Public Housing \u2192 Interest on Long Term Debt",
+                "amount": 0.073700742
+              },
+              {
+                "name": "Social housing \u2192 Public Housing \u2192 Materials ",
+                "amount": 0.15866958299999998
+              },
+              {
+                "name": "Social housing \u2192 Public Housing \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.031951676
+              },
+              {
+                "name": "Social housing \u2192 Public Housing \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.260673993
+              }
+            ]
+          },
+          {
+            "name": "Social housing \u2192 Other-Housing",
+            "amount": 0.31637
+          }
+        ]
+      },
+      {
+        "name": "Recreation & cultural services",
+        "children": [
+          {
+            "name": "Recreation & cultural services \u2192 Parks",
+            "children": [
+              {
+                "name": "Recreation & cultural services \u2192 Parks \u2192 Amortization",
+                "amount": 0.049742368999999995
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Parks \u2192 Contracted Services",
+                "amount": 0.022009873
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Parks \u2192 External Transfers",
+                "amount": 0.005058294
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Parks \u2192 Materials ",
+                "amount": 0.0340869
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Parks \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.005720309999999999
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Parks \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.141726448
+              }
+            ]
+          },
+          {
+            "name": "Recreation & cultural services \u2192 Recreation Programs",
+            "children": [
+              {
+                "name": "Recreation & cultural services \u2192 Recreation Programs \u2192 Amortization",
+                "amount": 0.00182279276
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Recreation Programs \u2192 Contracted Services",
+                "amount": 0.002480019
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Recreation Programs \u2192 External Transfers",
+                "amount": 0.039556908999999994
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Recreation Programs \u2192 Materials ",
+                "amount": 0.008418355
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Recreation Programs \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.015022104000000001
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Recreation Programs \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.161964462
+              }
+            ]
+          },
+          {
+            "name": "Recreation & cultural services \u2192 Recreation Facilities - Golf Course, Marina, Ski Hill",
+            "children": [
+              {
+                "name": "Recreation & cultural services \u2192 Recreation Facilities - Golf Course, Marina, Ski Hill \u2192 Amortization",
+                "amount": 0.00048195441
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Recreation Facilities - Golf Course, Marina, Ski Hill \u2192 Contracted Services",
+                "amount": -0.00249057
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Recreation Facilities - Golf Course, Marina, Ski Hill \u2192 External Transfers",
+                "amount": 0.000564156
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Recreation Facilities - Golf Course, Marina, Ski Hill \u2192 Materials ",
+                "amount": 0.007569480000000001
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Recreation Facilities - Golf Course, Marina, Ski Hill \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": -0.005810869000000001
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Recreation Facilities - Golf Course, Marina, Ski Hill \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.01823425
+              }
+            ]
+          },
+          {
+            "name": "Recreation & cultural services \u2192 Recreation Facilities - All Other",
+            "children": [
+              {
+                "name": "Recreation & cultural services \u2192 Recreation Facilities - All Other \u2192 Amortization",
+                "amount": 0.007968771
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Recreation Facilities - All Other \u2192 Contracted Services",
+                "amount": -0.013709123
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Recreation Facilities - All Other \u2192 External Transfers",
+                "amount": 0.004706925
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Recreation Facilities - All Other \u2192 Interest on Long Term Debt",
+                "amount": 0.005898327
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Recreation Facilities - All Other \u2192 Materials ",
+                "amount": 0.08296432
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Recreation Facilities - All Other \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": -0.002319008
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Recreation Facilities - All Other \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.081072458
+              }
+            ]
+          },
+          {
+            "name": "Recreation & cultural services \u2192 Libraries",
+            "children": [
+              {
+                "name": "Recreation & cultural services \u2192 Libraries \u2192 Amortization",
+                "amount": 0.053866475999999996
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Libraries \u2192 Contracted Services",
+                "amount": 0.041313198999999995
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Libraries \u2192 External Transfers",
+                "amount": 0.001006874
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Libraries \u2192 Interest on Long Term Debt",
+                "amount": 0.0038583099999999998
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Libraries \u2192 Materials ",
+                "amount": 0.0032036570000000004
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Libraries \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.00422044
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Libraries \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.184205857
+              }
+            ]
+          },
+          {
+            "name": "Recreation & cultural services \u2192 Museums",
+            "children": [
+              {
+                "name": "Recreation & cultural services \u2192 Museums \u2192 Contracted Services",
+                "amount": 0.001164673
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Museums \u2192 Materials ",
+                "amount": 0.000956452
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Museums \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.000109396
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Museums \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.007762778
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Museums \u2192 Other (adjustment)",
+                "amount": 2.289e-6
+              }
+            ]
+          },
+          {
+            "name": "Recreation & cultural services \u2192 Cultural Services",
+            "children": [
+              {
+                "name": "Recreation & cultural services \u2192 Cultural Services \u2192 Amortization",
+                "amount": 0.011394805
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Cultural Services \u2192 Contracted Services",
+                "amount": 0.025066604000000003
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Cultural Services \u2192 External Transfers",
+                "amount": 0.063516995
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Cultural Services \u2192 Materials ",
+                "amount": 0.032887267000000005
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Cultural Services \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.007279459
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Cultural Services \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.090586559
+              }
+            ]
+          },
+          {
+            "name": "Recreation & cultural services \u2192 Other recreation and cultural",
+            "children": [
+              {
+                "name": "Recreation & cultural services \u2192 Other recreation and cultural \u2192 External Transfers",
+                "amount": 0.0045658750000000005
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Other recreation and cultural \u2192 Interest on Long Term Debt",
+                "amount": 0.006717789
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Other recreation and cultural \u2192 Materials ",
+                "amount": 0.000704426
+              },
+              {
+                "name": "Recreation & cultural services \u2192 Other recreation and cultural \u2192 Other (adjustment)",
+                "amount": 0.02187191
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Environmental services",
+        "children": [
+          {
+            "name": "Environmental services \u2192 Wastewater Collection / Conveyance",
+            "children": [
+              {
+                "name": "Environmental services \u2192 Wastewater Collection / Conveyance \u2192 Amortization",
+                "amount": 0.068038055472785
+              },
+              {
+                "name": "Environmental services \u2192 Wastewater Collection / Conveyance \u2192 Contracted Services",
+                "amount": 0.033058844999999996
+              },
+              {
+                "name": "Environmental services \u2192 Wastewater Collection / Conveyance \u2192 External Transfers",
+                "amount": 0.005031
+              },
+              {
+                "name": "Environmental services \u2192 Wastewater Collection / Conveyance \u2192 Materials ",
+                "amount": 0.008964102
+              },
+              {
+                "name": "Environmental services \u2192 Wastewater Collection / Conveyance \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": -0.001256016
+              },
+              {
+                "name": "Environmental services \u2192 Wastewater Collection / Conveyance \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.051095356
+              }
+            ]
+          },
+          {
+            "name": "Environmental services \u2192 Wastewater Treatment & Disposal",
+            "children": [
+              {
+                "name": "Environmental services \u2192 Wastewater Treatment & Disposal \u2192 Amortization",
+                "amount": 0.07420741044842351
+              },
+              {
+                "name": "Environmental services \u2192 Wastewater Treatment & Disposal \u2192 Contracted Services",
+                "amount": 0.026212562
+              },
+              {
+                "name": "Environmental services \u2192 Wastewater Treatment & Disposal \u2192 Materials ",
+                "amount": 0.063644206
+              },
+              {
+                "name": "Environmental services \u2192 Wastewater Treatment & Disposal \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.012263988
+              },
+              {
+                "name": "Environmental services \u2192 Wastewater Treatment & Disposal \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.07185954800000001
+              }
+            ]
+          },
+          {
+            "name": "Environmental services \u2192 Urban Storm Sewer System",
+            "children": [
+              {
+                "name": "Environmental services \u2192 Urban Storm Sewer System \u2192 Amortization",
+                "amount": 0.00323646186408407
+              },
+              {
+                "name": "Environmental services \u2192 Urban Storm Sewer System \u2192 Contracted Services",
+                "amount": 0.019922946
+              },
+              {
+                "name": "Environmental services \u2192 Urban Storm Sewer System \u2192 External Transfers",
+                "amount": 0.021130855
+              },
+              {
+                "name": "Environmental services \u2192 Urban Storm Sewer System \u2192 Materials ",
+                "amount": 0.002843359
+              },
+              {
+                "name": "Environmental services \u2192 Urban Storm Sewer System \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.0020400550000000003
+              },
+              {
+                "name": "Environmental services \u2192 Urban Storm Sewer System \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.027659154999999998
+              }
+            ]
+          },
+          {
+            "name": "Environmental services \u2192 Water Treatment",
+            "children": [
+              {
+                "name": "Environmental services \u2192 Water Treatment \u2192 Amortization",
+                "amount": 0.0491119304778685
+              },
+              {
+                "name": "Environmental services \u2192 Water Treatment \u2192 Contracted Services",
+                "amount": 0.003990831
+              },
+              {
+                "name": "Environmental services \u2192 Water Treatment \u2192 External Transfers",
+                "amount": 0.00011022
+              },
+              {
+                "name": "Environmental services \u2192 Water Treatment \u2192 Materials ",
+                "amount": 0.028963522000000002
+              },
+              {
+                "name": "Environmental services \u2192 Water Treatment \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.004001637
+              },
+              {
+                "name": "Environmental services \u2192 Water Treatment \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.030966128000000002
+              }
+            ]
+          },
+          {
+            "name": "Environmental services \u2192 Water Distribution / Transmission",
+            "children": [
+              {
+                "name": "Environmental services \u2192 Water Distribution / Transmission \u2192 Amortization",
+                "amount": 0.0632836388762848
+              },
+              {
+                "name": "Environmental services \u2192 Water Distribution / Transmission \u2192 Contracted Services",
+                "amount": 0.020988412
+              },
+              {
+                "name": "Environmental services \u2192 Water Distribution / Transmission \u2192 External Transfers",
+                "amount": 0.000918711
+              },
+              {
+                "name": "Environmental services \u2192 Water Distribution / Transmission \u2192 Materials ",
+                "amount": 0.042258035
+              },
+              {
+                "name": "Environmental services \u2192 Water Distribution / Transmission \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": -0.009272524
+              },
+              {
+                "name": "Environmental services \u2192 Water Distribution / Transmission \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.078873633
+              }
+            ]
+          },
+          {
+            "name": "Environmental services \u2192 Solid Waste Collection",
+            "children": [
+              {
+                "name": "Environmental services \u2192 Solid Waste Collection \u2192 Amortization",
+                "amount": 0.0012089581112700002
+              },
+              {
+                "name": "Environmental services \u2192 Solid Waste Collection \u2192 Contracted Services",
+                "amount": 0.017085403
+              },
+              {
+                "name": "Environmental services \u2192 Solid Waste Collection \u2192 Interest on Long Term Debt",
+                "amount": 0.001501219
+              },
+              {
+                "name": "Environmental services \u2192 Solid Waste Collection \u2192 Materials ",
+                "amount": 0.0013477159999999999
+              },
+              {
+                "name": "Environmental services \u2192 Solid Waste Collection \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.00084107
+              },
+              {
+                "name": "Environmental services \u2192 Solid Waste Collection \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.013475889999999999
+              }
+            ]
+          },
+          {
+            "name": "Environmental services \u2192 Solid Waste Disposal",
+            "children": [
+              {
+                "name": "Environmental services \u2192 Solid Waste Disposal \u2192 Amortization",
+                "amount": 0.0139776118631718
+              },
+              {
+                "name": "Environmental services \u2192 Solid Waste Disposal \u2192 Contracted Services",
+                "amount": 0.03501498
+              },
+              {
+                "name": "Environmental services \u2192 Solid Waste Disposal \u2192 External Transfers",
+                "amount": 0.001565236
+              },
+              {
+                "name": "Environmental services \u2192 Solid Waste Disposal \u2192 Interest on Long Term Debt",
+                "amount": 0.002565267
+              },
+              {
+                "name": "Environmental services \u2192 Solid Waste Disposal \u2192 Materials ",
+                "amount": 0.010283763999999999
+              },
+              {
+                "name": "Environmental services \u2192 Solid Waste Disposal \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.006348856999999999
+              },
+              {
+                "name": "Environmental services \u2192 Solid Waste Disposal \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.018487127000000003
+              }
+            ]
+          },
+          {
+            "name": "Environmental services \u2192 Waste Diversion",
+            "children": [
+              {
+                "name": "Environmental services \u2192 Waste Diversion \u2192 Amortization",
+                "amount": 0.010663586664261
+              },
+              {
+                "name": "Environmental services \u2192 Waste Diversion \u2192 Contracted Services",
+                "amount": 0.066217698
+              },
+              {
+                "name": "Environmental services \u2192 Waste Diversion \u2192 Interest on Long Term Debt",
+                "amount": 0.0069141440000000005
+              },
+              {
+                "name": "Environmental services \u2192 Waste Diversion \u2192 Materials ",
+                "amount": 0.008658753000000002
+              },
+              {
+                "name": "Environmental services \u2192 Waste Diversion \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.004965537999999999
+              },
+              {
+                "name": "Environmental services \u2192 Waste Diversion \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.06528365
+              }
+            ]
+          },
+          {
+            "name": "Environmental services \u2192 Litter Collection & Environmental Initiatives",
+            "children": [
+              {
+                "name": "Environmental services \u2192 Litter Collection & Environmental Initiatives \u2192 Amortization",
+                "amount": 0.000675864
+              },
+              {
+                "name": "Environmental services \u2192 Litter Collection & Environmental Initiatives \u2192 Contracted Services",
+                "amount": 0.016768531
+              },
+              {
+                "name": "Environmental services \u2192 Litter Collection & Environmental Initiatives \u2192 External Transfers",
+                "amount": -0.000276308
+              },
+              {
+                "name": "Environmental services \u2192 Litter Collection & Environmental Initiatives \u2192 Interest on Long Term Debt",
+                "amount": 0.001779671
+              },
+              {
+                "name": "Environmental services \u2192 Litter Collection & Environmental Initiatives \u2192 Materials ",
+                "amount": 0.003742723
+              },
+              {
+                "name": "Environmental services \u2192 Litter Collection & Environmental Initiatives \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.0017719670000000002
+              },
+              {
+                "name": "Environmental services \u2192 Litter Collection & Environmental Initiatives \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.03570031
+              }
+            ]
+          },
+          {
+            "name": "Environmental services \u2192 Other-Environmental",
+            "amount": 0.02528
+          }
+        ]
+      },
+      {
+        "name": "General government",
+        "children": [
+          {
+            "name": "General government \u2192 Governance",
+            "children": [
+              {
+                "name": "General government \u2192 Governance \u2192 Contracted Services",
+                "amount": 0.001556836
+              },
+              {
+                "name": "General government \u2192 Governance \u2192 Materials ",
+                "amount": 0.002105487
+              },
+              {
+                "name": "General government \u2192 Governance \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.0007879310000000001
+              },
+              {
+                "name": "General government \u2192 Governance \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.051448774999999995
+              }
+            ]
+          },
+          {
+            "name": "General government \u2192 Corporate Management",
+            "children": [
+              {
+                "name": "General government \u2192 Corporate Management \u2192 Amortization",
+                "amount": 0.055916729
+              },
+              {
+                "name": "General government \u2192 Corporate Management \u2192 Contracted Services",
+                "amount": 0.050615962
+              },
+              {
+                "name": "General government \u2192 Corporate Management \u2192 External Transfers",
+                "amount": 0.053514147
+              },
+              {
+                "name": "General government \u2192 Corporate Management \u2192 Interest on Long Term Debt",
+                "amount": 0.03851553
+              },
+              {
+                "name": "General government \u2192 Corporate Management \u2192 Materials ",
+                "amount": 0.03243966
+              },
+              {
+                "name": "General government \u2192 Corporate Management \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.09784070199999999
+              },
+              {
+                "name": "General government \u2192 Corporate Management \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.077570988
+              }
+            ]
+          },
+          {
+            "name": "General government \u2192 Program Support",
+            "children": [
+              {
+                "name": "General government \u2192 Program Support \u2192 Contracted Services",
+                "amount": 0.09877767
+              },
+              {
+                "name": "General government \u2192 Program Support \u2192 External Transfers",
+                "amount": 0.00293596
+              },
+              {
+                "name": "General government \u2192 Program Support \u2192 Materials ",
+                "amount": 0.156763864
+              },
+              {
+                "name": "General government \u2192 Program Support \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": -0.018886182
+              },
+              {
+                "name": "General government \u2192 Program Support \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.500798943
+              },
+              {
+                "name": "General government \u2192 Program Support \u2192 Other (adjustment)",
+                "amount": 0.018889745
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Health services",
+        "children": [
+          {
+            "name": "Health services \u2192 Public Health Services",
+            "children": [
+              {
+                "name": "Health services \u2192 Public Health Services \u2192 Amortization",
+                "amount": 0.00036427084
+              },
+              {
+                "name": "Health services \u2192 Public Health Services \u2192 Contracted Services",
+                "amount": 0.013054869
+              },
+              {
+                "name": "Health services \u2192 Public Health Services \u2192 External Transfers",
+                "amount": 0.022262667
+              },
+              {
+                "name": "Health services \u2192 Public Health Services \u2192 Interest on Long Term Debt",
+                "amount": 0.000271716
+              },
+              {
+                "name": "Health services \u2192 Public Health Services \u2192 Materials ",
+                "amount": 0.007888823
+              },
+              {
+                "name": "Health services \u2192 Public Health Services \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.000932683
+              },
+              {
+                "name": "Health services \u2192 Public Health Services \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.194569367
+              }
+            ]
+          },
+          {
+            "name": "Health services \u2192 Ambulance Services",
+            "children": [
+              {
+                "name": "Health services \u2192 Ambulance Services \u2192 Amortization",
+                "amount": 0.00749444247694554
+              },
+              {
+                "name": "Health services \u2192 Ambulance Services \u2192 Contracted Services",
+                "amount": 0.014222499
+              },
+              {
+                "name": "Health services \u2192 Ambulance Services \u2192 External Transfers",
+                "amount": -0.0006425570000000001
+              },
+              {
+                "name": "Health services \u2192 Ambulance Services \u2192 Interest on Long Term Debt",
+                "amount": 0.000555759
+              },
+              {
+                "name": "Health services \u2192 Ambulance Services \u2192 Materials ",
+                "amount": 0.015558085000000001
+              },
+              {
+                "name": "Health services \u2192 Ambulance Services \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.0022454999999999997
+              },
+              {
+                "name": "Health services \u2192 Ambulance Services \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.25067826
+              }
+            ]
+          },
+          {
+            "name": "Health services \u2192 Ambulance Dispatch",
+            "children": [
+              {
+                "name": "Health services \u2192 Ambulance Dispatch \u2192 Amortization",
+                "amount": 0.000941340509999999
+              },
+              {
+                "name": "Health services \u2192 Ambulance Dispatch \u2192 Contracted Services",
+                "amount": 0.001424594
+              },
+              {
+                "name": "Health services \u2192 Ambulance Dispatch \u2192 Materials ",
+                "amount": 0.001832064
+              },
+              {
+                "name": "Health services \u2192 Ambulance Dispatch \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.00041290799999999997
+              },
+              {
+                "name": "Health services \u2192 Ambulance Dispatch \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.02893453
+              }
+            ]
+          },
+          {
+            "name": "Health services \u2192 EMS",
+            "children": [
+              {
+                "name": "Health services \u2192 EMS \u2192 Contracted Services",
+                "amount": 2.5251e-5
+              },
+              {
+                "name": "Health services \u2192 EMS \u2192 Materials ",
+                "amount": 0.00024976100000000004
+              },
+              {
+                "name": "Health services \u2192 EMS \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.007902815
+              }
+            ]
+          },
+          {
+            "name": "Health services \u2192 Other-Health",
+            "amount": 0.0058200000000000005
+          }
+        ]
+      },
+      {
+        "name": "Planning & development",
+        "children": [
+          {
+            "name": "Planning & development \u2192 Planning and Zoning",
+            "children": [
+              {
+                "name": "Planning & development \u2192 Planning and Zoning \u2192 Amortization",
+                "amount": 0.005245738000000001
+              },
+              {
+                "name": "Planning & development \u2192 Planning and Zoning \u2192 Contracted Services",
+                "amount": 0.006040961
+              },
+              {
+                "name": "Planning & development \u2192 Planning and Zoning \u2192 External Transfers",
+                "amount": 0.000275174
+              },
+              {
+                "name": "Planning & development \u2192 Planning and Zoning \u2192 Interest on Long Term Debt",
+                "amount": 0.015137373
+              },
+              {
+                "name": "Planning & development \u2192 Planning and Zoning \u2192 Materials ",
+                "amount": 0.002176392
+              },
+              {
+                "name": "Planning & development \u2192 Planning and Zoning \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": 0.005360534
+              },
+              {
+                "name": "Planning & development \u2192 Planning and Zoning \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.071997033
+              }
+            ]
+          },
+          {
+            "name": "Planning & development \u2192 Commercial and Industrial",
+            "children": [
+              {
+                "name": "Planning & development \u2192 Commercial and Industrial \u2192 Amortization",
+                "amount": 0.002118706
+              },
+              {
+                "name": "Planning & development \u2192 Commercial and Industrial \u2192 Contracted Services",
+                "amount": 0.004213535
+              },
+              {
+                "name": "Planning & development \u2192 Commercial and Industrial \u2192 External Transfers",
+                "amount": 0.009509562000000001
+              },
+              {
+                "name": "Planning & development \u2192 Commercial and Industrial \u2192 Interest on Long Term Debt",
+                "amount": 0.000204459
+              },
+              {
+                "name": "Planning & development \u2192 Commercial and Industrial \u2192 Materials ",
+                "amount": 0.001852983
+              },
+              {
+                "name": "Planning & development \u2192 Commercial and Industrial \u2192 Rents, Financial Expenses & Accretion Expense",
+                "amount": -0.004918031
+              },
+              {
+                "name": "Planning & development \u2192 Commercial and Industrial \u2192 Salaries, Wages and Employee Benefits",
+                "amount": 0.016216037
+              }
+            ]
+          },
+          {
+            "name": "Planning & development \u2192 Other-Planning & Dev",
+            "amount": 0.08356999999999999
+          }
+        ]
+      }
+    ]
+  },
+  "revenue_data": {
+    "name": "Revenue",
+    "children": [
+      {
+        "name": "Property taxes & taxation from other governments",
+        "children": [
+          {
+            "name": "Property taxes & taxation from other governments \u2192 Tax levies from annual return of the property assessment roll",
+            "amount": 5.615
+          },
+          {
+            "name": "Property taxes & taxation from other governments \u2192 Tax levies from supplementary and omitted returns of the property assessment roll",
+            "amount": 0.074
+          },
+          {
+            "name": "Property taxes & taxation from other governments \u2192 Payments in lieu of tax",
+            "amount": 0.094
+          },
+          {
+            "name": "Property taxes & taxation from other governments \u2192 Heads and beds levy on public hospitals, provincial mental health facilities, universities, colleges, and correctional institutions",
+            "amount": 0.021
+          },
+          {
+            "name": "Property taxes & taxation from other governments \u2192 Other",
+            "amount": 0.004
+          }
+        ]
+      },
+      {
+        "name": "Government transfers",
+        "children": [
+          {
+            "name": "Government transfers \u2192 Ontario Conditional Grants",
+            "amount": 2.9364919890000003
+          },
+          {
+            "name": "Government transfers \u2192 Ontario Grants for Tangible Capital Assets",
+            "amount": 0.408848499
+          },
+          {
+            "name": "Government transfers \u2192 Canada Conditional Grants",
+            "amount": 0.8856226309999999
+          },
+          {
+            "name": "Government transfers \u2192 Canada Grants for Tangible Capital Assets",
+            "amount": 0.40613514500000003
+          },
+          {
+            "name": "Government transfers \u2192 Revenue From Other Municipalities",
+            "amount": 0.030414394
+          },
+          {
+            "name": "Government transfers \u2192 Revenue From Other Municipalities for Tangible Capital Assets",
+            "amount": 0.000641481
+          },
+          {
+            "name": "Government transfers \u2192 Other",
+            "amount": 0.0008458609999999999
+          }
+        ]
+      },
+      {
+        "name": "User charges",
+        "amount": 3.61
+      },
+      {
+        "name": "Municipal Land Transfer Tax (City of Toronto Act, 2006)",
+        "amount": 0.828
+      },
+      {
+        "name": "Investment income",
+        "amount": 0.801
+      },
+      {
+        "name": "Development charges",
+        "amount": 0.789
+      },
+      {
+        "name": "Rent & concessions",
+        "amount": 0.584
+      },
+      {
+        "name": "Government business enterprises earnings",
+        "children": [
+          {
+            "name": "Government business enterprises earnings \u2192 Toronto Hydro Corporation",
+            "amount": 0.132
+          },
+          {
+            "name": "Government business enterprises earnings \u2192 Toronto Parking Authority",
+            "amount": 0.044
+          }
+        ]
+      },
+      {
+        "name": "Other revenue sources",
+        "children": [
+          {
+            "name": "Other revenue sources \u2192 Utilities cut and other recoveries",
+            "amount": 0.163
+          },
+          {
+            "name": "Other revenue sources \u2192 Hotel, lodging and sign tax",
+            "amount": 0.128
+          },
+          {
+            "name": "Other revenue sources \u2192 Sale of properties and recycled materials",
+            "amount": 0.081
+          },
+          {
+            "name": "Other revenue sources \u2192 Other income",
+            "amount": 0.565
+          }
+        ]
+      }
+    ]
+  },
+  "population": 2930000,
+  "budget_balance": 1.6348100000000017,
+  "per_capita_spending": 5654,
+  "property_tax_per_capita": 1982,
+  "property_tax_revenue": 5.808
+}
