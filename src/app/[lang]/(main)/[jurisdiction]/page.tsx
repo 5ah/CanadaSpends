@@ -125,7 +125,8 @@ export default async function ProvinceIndex({
   const revenueRoot = sankey.revenue_data as SankeyNode | undefined;
   const propertyTaxNode = revenueRoot?.children?.find(
     (child) =>
-      child.name === "Property taxes & taxation from other governments",
+      child.name === "Property taxes & taxation from other governments" ||
+      "Property tax and business taxes",
   );
   const propertyTaxTotal = propertyTaxNode ? sumNode(propertyTaxNode) : null;
   const propertyTaxPerCapita =
