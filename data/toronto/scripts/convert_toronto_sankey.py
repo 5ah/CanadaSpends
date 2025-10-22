@@ -29,7 +29,7 @@ def parse_sankeymatic_txt(filepath: str) -> Dict[str, Any]:
     # Parse tier-1 revenue items: "Category [amount] Revenue"
     for line in content.split('\n'):
         if '] Revenue' in line and not line.strip().startswith('//'):
-            match = re.match(r'^(.+?)\s*\[([0-9.]+)\]\s*Revenue', line.strip())
+            match = re.match(r'^(.+?)\s*\[(-?[0-9.]+)\]\s*Revenue', line.strip())
             if match:
                 category = match.group(1).strip()
                 amount = float(match.group(2))
@@ -38,7 +38,7 @@ def parse_sankeymatic_txt(filepath: str) -> Dict[str, Any]:
     # Parse tier-1 spending items: "Spending [amount] Category"
     for line in content.split('\n'):
         if line.strip().startswith('Spending ['):
-            match = re.match(r'^Spending\s*\[([0-9.]+)\]\s*(.+)$', line.strip())
+            match = re.match(r'^Spending\s*\[(-?[0-9.]+)\]\s*(.+)$', line.strip())
             if match:
                 amount = float(match.group(1))
                 category = match.group(2).strip()
@@ -57,7 +57,7 @@ def parse_sankeymatic_txt(filepath: str) -> Dict[str, Any]:
             if line.startswith('Spending ['):
                 current_tier1_rev = None
                 continue
-            match = re.match(r'^(.+?)\s*\[([0-9.]+)\]\s*(.+)$', line)
+            match = re.match(r'^(.+?)\s*\[(-?[0-9.]+)\]\s*(.+)$', line)
             if match:
                 item_name = match.group(1).strip()
                 amount = float(match.group(2))
@@ -78,7 +78,7 @@ def parse_sankeymatic_txt(filepath: str) -> Dict[str, Any]:
         elif line.startswith('// Tier 3'):
             current_section = None
         elif current_section and not line.startswith('//') and '[' in line:
-            match = re.match(r'^(.+?)\s*\[([0-9.]+)\]\s*(.+)$', line)
+            match = re.match(r'^(.+?)\s*\[(-?[0-9.]+)\]\s*(.+)$', line)
             if match:
                 category = match.group(1).strip()
                 amount = float(match.group(2))
@@ -98,7 +98,7 @@ def parse_sankeymatic_txt(filepath: str) -> Dict[str, Any]:
         elif line.startswith('// Tier 2'):
             current_tier3_section = None
         elif current_tier3_section and not line.startswith('//') and '[' in line:
-            match = re.match(r'^(.+?)\s*\[([0-9.]+)\]\s*(.+)$', line)
+            match = re.match(r'^(.+?)\s*\[(-?[0-9.]+)\]\s*(.+)$', line)
             if match:
                 tier2_item = match.group(1).strip()
                 amount = float(match.group(2))
@@ -203,9 +203,13 @@ def build_spending_structure(sankey_data: Dict, excel_data: Dict) -> Dict[str, A
             'children': []
         }
 
-        # Find tier-2 items from Expense Tier 2
+        # Find tier-2 items from Expense Tier 2 (Excel)
         tier2_items = df_expense2[df_expense2['Category'] == tier1_name]
 
+        # Also get tier-2 items from sankeymatic (includes Unreported items)
+        sankey_tier2_items = sankey_data['spending_tier2'].get(tier1_name, [])
+
+        # Process Excel tier-2 items
         for _, tier2_row in tier2_items.iterrows():
             tier2_name = tier2_row['Name']
             tier2_total_m = float(tier2_row['2024 ($M)'])
@@ -246,6 +250,24 @@ def build_spending_structure(sankey_data: Dict, excel_data: Dict) -> Dict[str, A
                 tier2_node = {
                     'name': f"{tier1_name} → {tier2_name}",
                     'amount': tier2_row['2024 ($M)'] / 1000  # Convert to billions
+                }
+                tier1_node['children'].append(tier2_node)
+
+        # Add tier-2 items from sankeymatic (e.g., Unreported items)
+        for sankey_item in sankey_tier2_items:
+            # Only add if not already in Excel (avoid duplicates)
+            item_name = sankey_item['name']
+            # Check if this item already exists from Excel
+            already_exists = any(
+                item_name in child['name']
+                for child in tier1_node['children']
+            )
+
+            if not already_exists:
+                # Add as leaf node (Unreported items don't have tier-3 children)
+                tier2_node = {
+                    'name': f"{tier1_name} → {item_name}",
+                    'amount': sankey_item['amount'] / 1000  # Convert to billions
                 }
                 tier1_node['children'].append(tier2_node)
 

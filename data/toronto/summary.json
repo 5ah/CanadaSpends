@@ -2,16 +2,16 @@
   "name": "Toronto",
   "financialYear": "2024",
   "source": "https://www.toronto.ca/city-government/budget-finances/city-finance/annual-financial-report/",
-  "totalProvincialSpending": 16.56719,
-  "totalProvincialSpendingFormatted": "$16.6B",
+  "totalProvincialSpending": 16.186,
+  "totalProvincialSpendingFormatted": "$16.2B",
   "totalEmployees": 44000,
   "netDebt": null,
   "totalDebt": null,
   "debtInterest": null,
   "population": 2930000,
-  "budgetBalance": 1.6348100000000017,
-  "budgetBalanceFormatted": "$1.6B",
-  "perCapitaSpending": 5654,
+  "budgetBalance": 2.016000000000002,
+  "budgetBalanceFormatted": "$2B",
+  "perCapitaSpending": 5524,
   "propertyTaxPerCapita": 1982,
   "propertyTaxRevenue": 5.808,
   "propertyTaxRevenueFormatted": "$5.8B",
@@ -19,75 +19,75 @@
     {
       "name": "Transportation",
       "slug": "transportation",
-      "totalSpending": 4.518455367556715,
+      "totalSpending": 4.459995367556715,
       "totalSpendingFormatted": "$4.5B",
-      "percentage": 27.27351691841957,
-      "percentageFormatted": "27.3%"
+      "percentage": 27.554648261193098,
+      "percentageFormatted": "27.6%"
     },
     {
       "name": "Social & family services",
       "slug": "social-and-family-services",
-      "totalSpending": 3.8024136232823684,
-      "totalSpendingFormatted": "$3.8B",
-      "percentage": 22.95146988283691,
-      "percentageFormatted": "23.0%"
+      "totalSpending": 3.6780036232823683,
+      "totalSpendingFormatted": "$3.7B",
+      "percentage": 22.72336354431217,
+      "percentageFormatted": "22.7%"
     },
     {
       "name": "Protection to persons & property",
       "slug": "protection-to-persons-and-property",
-      "totalSpending": 2.491730364368886,
+      "totalSpending": 2.452000364368886,
       "totalSpendingFormatted": "$2.5B",
-      "percentage": 15.04015083046,
-      "percentageFormatted": "15.0%"
+      "percentage": 15.148896357153626,
+      "percentageFormatted": "15.1%"
     },
     {
       "name": "Social housing",
       "slug": "social-housing",
       "totalSpending": 1.322000002270522,
       "totalSpendingFormatted": "$1.3B",
-      "percentage": 7.9796272166283,
-      "percentageFormatted": "8.0%"
+      "percentage": 8.167552219637479,
+      "percentageFormatted": "8.2%"
     },
     {
       "name": "Recreation & cultural services",
       "slug": "recreation-and-cultural-services",
       "totalSpending": 1.23900199717,
       "totalSpendingFormatted": "$1.2B",
-      "percentage": 7.478649047726258,
-      "percentageFormatted": "7.5%"
-    },
-    {
-      "name": "General government",
-      "slug": "general-government",
-      "totalSpending": 1.2215927469999999,
-      "totalSpendingFormatted": "$1.2B",
-      "percentage": 7.37356635011731,
-      "percentageFormatted": "7.4%"
+      "percentage": 7.654775714629928,
+      "percentageFormatted": "7.7%"
     },
     {
       "name": "Environmental services",
       "slug": "environmental-services",
       "totalSpending": 1.1759952897781487,
       "totalSpendingFormatted": "$1.2B",
-      "percentage": 7.098338884132726,
-      "percentageFormatted": "7.1%"
+      "percentage": 7.265509018770226,
+      "percentageFormatted": "7.3%"
+    },
+    {
+      "name": "General government",
+      "slug": "general-government",
+      "totalSpending": 1.0630027469999999,
+      "totalSpendingFormatted": "$1.1B",
+      "percentage": 6.567420900778449,
+      "percentageFormatted": "6.6%"
     },
     {
       "name": "Health services",
       "slug": "health-services",
       "totalSpending": 0.5769996478269456,
       "totalSpendingFormatted": "$577M",
-      "percentage": 3.4827852389388037,
-      "percentageFormatted": "3.5%"
+      "percentage": 3.564806918490952,
+      "percentageFormatted": "3.6%"
     },
     {
       "name": "Planning & development",
       "slug": "planning-and-development",
       "totalSpending": 0.219000456,
       "totalSpendingFormatted": "$219M",
-      "percentage": 1.3218925840773241,
-      "percentageFormatted": "1.3%"
+      "percentage": 1.3530239466205363,
+      "percentageFormatted": "1.4%"
     }
   ],
-  "generatedAt": "2025-10-17T20:10:49Z"
+  "generatedAt": "2025-10-21T22:57:13Z"
 }
