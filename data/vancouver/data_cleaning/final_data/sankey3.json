@@ -715,10 +715,5 @@
         ]
       }
     ]
-  },
-  "population": 663000,
-  "budget_balance": 0.21700000000000053,
-  "per_capita_spending": 5899.854,
-  "property_tax_per_capita": 3322.78,
-  "property_tax_revenue": 2.203
+  }
 }
