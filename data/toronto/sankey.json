@@ -1,6 +1,6 @@
 {
   "total": 18.202,
-  "spending": 16.56719,
+  "spending": 16.186,
   "revenue": 18.202,
   "spending_data": {
     "name": "Spending",
@@ -236,6 +236,10 @@
                 "amount": 0.085400933
               }
             ]
+          },
+          {
+            "name": "Transportation \u2192 Unreported",
+            "amount": -0.05846
           }
         ]
       },
@@ -336,6 +340,10 @@
                 "amount": 2.702e-6
               }
             ]
+          },
+          {
+            "name": "Social & family services \u2192 Unreported",
+            "amount": -0.12440999999999999
           }
         ]
       },
@@ -538,6 +546,10 @@
                 "amount": 1.272e-6
               }
             ]
+          },
+          {
+            "name": "Protection to persons & property \u2192 Unreported",
+            "amount": -0.039729999999999994
           }
         ]
       },
@@ -1175,6 +1187,10 @@
                 "amount": 0.018889745
               }
             ]
+          },
+          {
+            "name": "General government \u2192 Unreported",
+            "amount": -0.15859
           }
         ]
       },
@@ -1490,8 +1506,8 @@
     ]
   },
   "population": 2930000,
-  "budget_balance": 1.6348100000000017,
-  "per_capita_spending": 5654,
+  "budget_balance": 2.016000000000002,
+  "per_capita_spending": 5524,
   "property_tax_per_capita": 1982,
   "property_tax_revenue": 5.808
 }

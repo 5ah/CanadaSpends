@@ -113,9 +113,9 @@ export default async function ProvinceIndex({
     const absolute = Math.abs(value);
     const formatted =
       absolute >= 1
-        ? `$${absolute.toFixed(1)}B`
+        ? `$${absolute.toFixed(2)}B`
         : `$${(absolute * 1000).toFixed(0)}M`;
-    return formatted.replace(".0B", "B");
+    return formatted.replace(".00B", "B");
   };
 
   const perCapitaSpending = population
