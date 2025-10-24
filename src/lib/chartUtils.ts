@@ -93,6 +93,23 @@ export const getColorClassName = (
   return chartColors[color]?.[type] ?? fallbackColor[type];
 };
 
+// Get hex color value for SVG elements (Recharts doesn't support Tailwind classes)
+// Source (Shift + Click for nearest hex value): https://tailwindcss.com/docs/colors
+export const getColorHexValue = (color: AvailableChartColorsKeys): string => {
+  const colorMap: Record<AvailableChartColorsKeys, string> = {
+    blue: "#3b82f6",
+    emerald: "#10b981",
+    violet: "#8b5cf6",
+    amber: "#f59e0b",
+    gray: "#6b7280",
+    cyan: "#06b6d4",
+    pink: "#ec4899",
+    lime: "#84cc16",
+    fuchsia: "#c026d3",
+  };
+  return colorMap[color];
+};
+
 // Tremor Raw getYAxisDomain [v0.0.0]
 
 export const getYAxisDomain = (
