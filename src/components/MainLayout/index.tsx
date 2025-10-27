@@ -123,6 +123,14 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
                     </DropdownMenu.Item>
                     <DropdownMenu.Item asChild>
                       <Link
+                        href="/british-columbia"
+                        className="px-3 py-2 text-sm hover:bg-gray-100 rounded cursor-pointer"
+                      >
+                        <Trans>British Columbia</Trans>
+                      </Link>
+                    </DropdownMenu.Item>
+                    <DropdownMenu.Item asChild>
+                      <Link
                         href="/toronto"
                         className="px-3 py-2 text-sm hover:bg-gray-100 rounded cursor-pointer"
                       >
@@ -260,6 +268,15 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
             >
               <span className="pl-4 inline-block">
                 <Trans>Alberta</Trans>
+              </span>
+            </MobileNavLink>
+            <MobileNavLink
+              href="/british-columbia"
+              active={pathname.startsWith("/british-columbia")}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <span className="pl-4 inline-block">
+                <Trans>British Columbia</Trans>
               </span>
             </MobileNavLink>
             <MobileNavLink

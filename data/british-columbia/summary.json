@@ -1,0 +1,290 @@
+{
+  "name": "British Columbia",
+  "financialYear": "2024-25",
+  "source": "https://www2.gov.bc.ca/assets/gov/british-columbians-our-governments/government-finances/public-accounts/2024-25/pa-2024-25-crf-supplementary-schedules.pdf",
+  "totalProvincialSpending": "77.368925",
+  "totalProvincialSpendingFormatted": "$77.4B",
+  "totalEmployees": "39.036",
+  "netDebt": 133.877,
+  "totalDebt": 135.234,
+  "debtInterest": 4.6,
+  "ministries": [
+    {
+      "name": "Ministry of Health",
+      "slug": "ministry-of-health",
+      "totalSpending": 33.430103,
+      "percentage": 43.208695222274315,
+      "percentageFormatted": "43.2%",
+      "totalSpendingFormatted": "$33.4B"
+    },
+    {
+      "name": "Ministry of Education and Child Care",
+      "slug": "ministry-of-education-and-child-care",
+      "totalSpending": 9.792827,
+      "percentage": 12.657312997434047,
+      "percentageFormatted": "12.7%",
+      "totalSpendingFormatted": "$9.8B"
+    },
+    {
+      "name": "Other Appropriations",
+      "slug": "other-appropriations",
+      "totalSpending": 7.491242,
+      "percentage": 9.682494619125185,
+      "percentageFormatted": "9.7%",
+      "totalSpendingFormatted": "$7.5B",
+      "subcategories": [
+        {
+          "name": "Capital Funding",
+          "totalSpending": 4.438477,
+          "percentage": 59.25,
+          "percentageFormatted": "59.3%",
+          "totalSpendingFormatted": "$4.4B"
+        },
+        {
+          "name": "Tax Transfers",
+          "totalSpending": 3.352062,
+          "percentage": 44.75,
+          "percentageFormatted": "44.8%",
+          "totalSpendingFormatted": "$3.4B"
+        },
+        {
+          "name": "Forest Practices Board",
+          "totalSpending": 0.004149,
+          "percentage": 0.06,
+          "percentageFormatted": "0.1%",
+          "totalSpendingFormatted": "$0.0B"
+        },
+        {
+          "name": "Contingencies",
+          "totalSpending": 0.001495,
+          "percentage": 0.02,
+          "percentageFormatted": "0.0%",
+          "totalSpendingFormatted": "$0.0B"
+        },
+        {
+          "name": "Adjustment of Prior Year Accrual",
+          "totalSpending": -0.304941,
+          "percentage": -4.07,
+          "percentageFormatted": "-4.1%",
+          "totalSpendingFormatted": "-$0.3B"
+        }
+      ]
+    },
+    {
+      "name": "Ministry of Social Development and Poverty Reduction",
+      "slug": "ministry-of-social-development-and-poverty-reduction",
+      "totalSpending": 5.175744,
+      "percentage": 6.689693568832706,
+      "percentageFormatted": "6.7%",
+      "totalSpendingFormatted": "$5.2B"
+    },
+    {
+      "name": "Ministry of Post-Secondary Education and Future Skills",
+      "slug": "ministry-of-post-secondary-education-and-future-skills",
+      "totalSpending": 3.518773,
+      "percentage": 4.548044321411988,
+      "percentageFormatted": "4.5%",
+      "totalSpendingFormatted": "$3.5B"
+    },
+    {
+      "name": "Ministry of Finance",
+      "slug": "ministry-of-finance",
+      "totalSpending": 2.656294,
+      "percentage": 3.433282807018451,
+      "percentageFormatted": "3.4%",
+      "totalSpendingFormatted": "$2.7B"
+    },
+    {
+      "name": "Ministry of Children and Family Development",
+      "slug": "ministry-of-children-and-family-development",
+      "totalSpending": 2.429733,
+      "percentage": 3.140450768832577,
+      "percentageFormatted": "3.1%",
+      "totalSpendingFormatted": "$2.4B"
+    },
+    {
+      "name": "Management of Public Funds and Debt",
+      "slug": "management-of-public-funds-and-debt",
+      "totalSpending": 2.313905,
+      "percentage": 2.990742084111935,
+      "percentageFormatted": "3.0%",
+      "totalSpendingFormatted": "$2.3B"
+    },
+    {
+      "name": "Ministry of Housing and Municipal Affairs",
+      "slug": "ministry-of-housing-and-municipal-affairs",
+      "totalSpending": 1.741843,
+      "percentage": 2.2513470362939643,
+      "percentageFormatted": "2.3%",
+      "totalSpendingFormatted": "$1.7B"
+    },
+    {
+      "name": "Ministry of Transportation and Transit",
+      "slug": "ministry-of-transportation-and-transit",
+      "totalSpending": 1.458854,
+      "percentage": 1.8855813235094063,
+      "percentageFormatted": "1.9%",
+      "totalSpendingFormatted": "$1.5B"
+    },
+    {
+      "name": "Ministry of Forests",
+      "slug": "ministry-of-forests",
+      "totalSpending": 1.40011,
+      "percentage": 1.8096541990211186,
+      "percentageFormatted": "1.8%",
+      "totalSpendingFormatted": "$1.4B"
+    },
+    {
+      "name": "Ministry of Public Safety and Solicitor General",
+      "slug": "ministry-of-public-safety-and-solicitor-general",
+      "totalSpending": 1.172739,
+      "percentage": 1.5157752288790365,
+      "percentageFormatted": "1.5%",
+      "totalSpendingFormatted": "$1.2B"
+    },
+    {
+      "name": "Ministry of Attorney General",
+      "slug": "ministry-of-attorney-general",
+      "totalSpending": 0.874201,
+      "percentage": 1.1299123000610387,
+      "percentageFormatted": "1.1%",
+      "totalSpendingFormatted": "$0.9B"
+    },
+    {
+      "name": "Ministry of Citizens' Services",
+      "slug": "ministry-of-citizens-services",
+      "totalSpending": 0.758067,
+      "percentage": 0.9798081077124957,
+      "percentageFormatted": "1.0%",
+      "totalSpendingFormatted": "$0.8B"
+    },
+    {
+      "name": "Ministry of Energy and Climate Solutions",
+      "slug": "ministry-of-energy-and-climate-solutions",
+      "totalSpending": 0.557723,
+      "percentage": 0.7208617671759043,
+      "percentageFormatted": "0.7%",
+      "totalSpendingFormatted": "$0.6B"
+    },
+    {
+      "name": "Ministry of Emergency Management and Climate Readiness",
+      "slug": "ministry-of-emergency-management-and-climate-readiness",
+      "totalSpending": 0.435148,
+      "percentage": 0.5624325270126217,
+      "percentageFormatted": "0.6%",
+      "totalSpendingFormatted": "$0.4B"
+    },
+    {
+      "name": "Ministry of Water, Land and Resource Stewardship",
+      "slug": "ministry-of-water-land-and-resource-stewardship",
+      "totalSpending": 0.347621,
+      "percentage": 0.44930312783847004,
+      "percentageFormatted": "0.4%",
+      "totalSpendingFormatted": "$0.3B"
+    },
+    {
+      "name": "Ministry of Agriculture and Food",
+      "slug": "ministry-of-agriculture-and-food",
+      "totalSpending": 0.327802,
+      "percentage": 0.4236869001346471,
+      "percentageFormatted": "0.4%",
+      "totalSpendingFormatted": "$0.3B"
+    },
+    {
+      "name": "Ministry of Indigenous Relations and Reconciliation",
+      "slug": "ministry-of-indigenous-relations-and-reconciliation",
+      "totalSpending": 0.2978,
+      "percentage": 0.3849090574801188,
+      "percentageFormatted": "0.4%",
+      "totalSpendingFormatted": "$0.3B"
+    },
+    {
+      "name": "Ministry of Environment and Parks",
+      "slug": "ministry-of-environment-and-parks",
+      "totalSpending": 0.269797,
+      "percentage": 0.3487149394928261,
+      "percentageFormatted": "0.3%",
+      "totalSpendingFormatted": "$0.3B"
+    },
+    {
+      "name": "Ministry of Tourism, Arts, Culture and Sport",
+      "slug": "ministry-of-tourism-arts-culture-and-sport",
+      "totalSpending": 0.230815,
+      "percentage": 0.2983303697188503,
+      "percentageFormatted": "0.3%",
+      "totalSpendingFormatted": "$0.2B"
+    },
+    {
+      "name": "Ministry of Jobs, Economic Development and Innovation",
+      "slug": "ministry-of-jobs-economic-development-and-innovation",
+      "totalSpending": 0.219245,
+      "percentage": 0.28337604535671135,
+      "percentageFormatted": "0.3%",
+      "totalSpendingFormatted": "$0.2B"
+    },
+    {
+      "name": "Officers of the Legislature",
+      "slug": "officers-of-the-legislature",
+      "totalSpending": 0.173722,
+      "percentage": 0.22453717690920483,
+      "percentageFormatted": "0.2%",
+      "totalSpendingFormatted": "$0.2B"
+    },
+    {
+      "name": "Legislative Assembly",
+      "slug": "legislative-assembly",
+      "totalSpending": 0.121982,
+      "percentage": 0.15766278257065094,
+      "percentageFormatted": "0.2%",
+      "totalSpendingFormatted": "$0.1B"
+    },
+    {
+      "name": "Ministry of Mining and Critical Minerals",
+      "slug": "ministry-of-mining-and-critical-minerals",
+      "totalSpending": 0.070022,
+      "percentage": 0.09050403634275647,
+      "percentageFormatted": "0.1%",
+      "totalSpendingFormatted": "$0.1B"
+    },
+    {
+      "name": "Ministry of Infrastructure",
+      "slug": "ministry-of-infrastructure",
+      "totalSpending": 0.045467,
+      "percentage": 0.058766487966583486,
+      "percentageFormatted": "0.1%",
+      "totalSpendingFormatted": "$0.0B"
+    },
+    {
+      "name": "Ministry of Labour",
+      "slug": "ministry-of-labour",
+      "totalSpending": 0.041257,
+      "percentage": 0.053325026811475024,
+      "percentageFormatted": "0.1%",
+      "totalSpendingFormatted": "$0.0B"
+    },
+    {
+      "name": "Office of the Premier",
+      "slug": "office-of-the-premier",
+      "totalSpending": 0.016089,
+      "percentage": 0.020795170670912126,
+      "percentageFormatted": "0.0%",
+      "totalSpendingFormatted": "$0.0B"
+    },
+    {
+      "name": "Ministry of Mental Health and Addictions",
+      "slug": "ministry-of-mental-health-and-addictions",
+      "totalSpending": 0.0,
+      "percentage": 0.0,
+      "percentageFormatted": "0.0%",
+      "totalSpendingFormatted": "$0.0B"
+    },
+    {
+      "name": "Ministry of Municipal Affairs",
+      "slug": "ministry-of-municipal-affairs",
+      "totalSpending": 0.0,
+      "percentage": 0.0,
+      "percentageFormatted": "0.0%",
+      "totalSpendingFormatted": "$0.0B"
+    }
+  ]
+}
