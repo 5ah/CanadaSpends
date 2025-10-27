@@ -1,10 +1,14 @@
 import type { NextConfig } from "next";
+import createMDX from "@next/mdx";
+import rehypeSlug from "rehype-slug";
 
 const nextConfig: NextConfig = {
   /* config options here */
   typescript: {
     ignoreBuildErrors: true,
   },
+  // Enable MDX Support For .mdx Files
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   experimental: {
     swcPlugins: [["@lingui/swc-plugin", {}]],
     turbo: {
@@ -13,8 +17,13 @@ const nextConfig: NextConfig = {
           loaders: ["@lingui/loader"],
           as: "*.js",
         },
+        "*.mdx": {
+          loaders: ["@mdx-js/loader"],
+          as: "*.js",
+        },
       },
     },
+    mdxRs: false,
   },
   webpack: (config) => {
     config.module.rules.push({
@@ -55,4 +64,13 @@ const nextConfig: NextConfig = {
   skipTrailingSlashRedirect: true,
 };
 
-export default nextConfig;
+// MDX Configuration With Rehype Plugins
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [rehypeSlug],
+  },
+});
+
+export default withMDX(nextConfig);
