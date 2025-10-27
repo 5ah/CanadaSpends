@@ -46,6 +46,68 @@ interface BudgetSankeyProps {
   }) => void;
 }
 
+// Types For Split Amounts
+type SplitAmounts = {
+  op2024: number;
+  cap2024: number;
+  op2025: number;
+  cap2025: number;
+
+  transfers2024: number;
+  transfers2025: number;
+  debt2024: number;
+  debt2025: number;
+  other2024: number;
+  other2025: number;
+};
+
+// Zero SplitAmounts for Initialization
+const zeroSplitAmounts: SplitAmounts = {
+  op2024: 0,
+  cap2024: 0,
+  op2025: 0,
+  cap2025: 0,
+  transfers2024: 0,
+  transfers2025: 0,
+  debt2024: 0,
+  debt2025: 0,
+  other2024: 0,
+  other2025: 0,
+};
+
+// Add 2 SplitAmounts Together
+const addSplitAmounts = (a: SplitAmounts, b: SplitAmounts): SplitAmounts => ({
+  op2024: a.op2024 + b.op2024,
+  cap2024: a.cap2024 + b.cap2024,
+  op2025: a.op2025 + b.op2025,
+  cap2025: a.cap2025 + b.cap2025,
+  transfers2024: a.transfers2024 + b.transfers2024,
+  transfers2025: a.transfers2025 + b.transfers2025,
+  debt2024: a.debt2024 + b.debt2024,
+  debt2025: a.debt2025 + b.debt2025,
+  other2024: a.other2024 + b.other2024,
+  other2025: a.other2025 + b.other2025,
+});
+
+// Split a Single Leaf by capitalShare (moved outside component to prevent re-creation)
+const splitLeaf = (
+  amount2024: number,
+  amount2025: number,
+  capitalShare = 0,
+): SplitAmounts => {
+  const cap2024 = amount2024 * capitalShare;
+  const op2024 = amount2024 - cap2024;
+  const cap2025 = amount2025 * capitalShare;
+  const op2025 = amount2025 - cap2025;
+  return {
+    ...zeroSplitAmounts,
+    op2024,
+    cap2024,
+    op2025,
+    cap2025,
+  };
+};
+
 export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
   const { t } = useLingui();
 
@@ -142,68 +204,6 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
     };
 
     return categoryMap[departmentName] || "Other Federal Programs";
-  };
-
-  // Types For Split Amounts
-  type SplitAmounts = {
-    op2024: number;
-    cap2024: number;
-    op2025: number;
-    cap2025: number;
-
-    transfers2024: number;
-    transfers2025: number;
-    debt2024: number;
-    debt2025: number;
-    other2024: number;
-    other2025: number;
-  };
-
-  // Zero SplitAmounts for Initialization
-  const zeroSplitAmounts: SplitAmounts = {
-    op2024: 0,
-    cap2024: 0,
-    op2025: 0,
-    cap2025: 0,
-    transfers2024: 0,
-    transfers2025: 0,
-    debt2024: 0,
-    debt2025: 0,
-    other2024: 0,
-    other2025: 0,
-  };
-
-  // Add two SplitAmounts together
-  const addSplitAmounts = (a: SplitAmounts, b: SplitAmounts): SplitAmounts => ({
-    op2024: a.op2024 + b.op2024,
-    cap2024: a.cap2024 + b.cap2024,
-    op2025: a.op2025 + b.op2025,
-    cap2025: a.cap2025 + b.cap2025,
-    transfers2024: a.transfers2024 + b.transfers2024,
-    transfers2025: a.transfers2025 + b.transfers2025,
-    debt2024: a.debt2024 + b.debt2024,
-    debt2025: a.debt2025 + b.debt2025,
-    other2024: a.other2024 + b.other2024,
-    other2025: a.other2025 + b.other2025,
-  });
-
-  // Split a Single Leaf by capitalShare
-  const splitLeaf = (
-    amount2024: number,
-    amount2025: number,
-    capitalShare = 0,
-  ): SplitAmounts => {
-    const cap2024 = amount2024 * capitalShare;
-    const op2024 = amount2024 - cap2024;
-    const cap2025 = amount2025 * capitalShare;
-    const op2025 = amount2025 - cap2025;
-    return {
-      ...zeroSplitAmounts,
-      op2024,
-      cap2024,
-      op2025,
-      cap2025,
-    };
   };
 
   // Function to Calculate Total from Nested Structure
@@ -310,7 +310,7 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
 
       return { node, sums: { ...zeroSplitAmounts } };
     },
-    [spendingReductions, zeroSplitAmounts, splitLeaf, addSplitAmounts],
+    [spendingReductions],
   );
 
   // Function to Process Revenue Data (no reductions, just add 'amount' property)
