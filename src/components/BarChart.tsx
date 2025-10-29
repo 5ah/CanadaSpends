@@ -8,6 +8,7 @@ import {
   Label,
   BarChart as RechartsBarChart,
   Legend as RechartsLegend,
+  ReferenceLine as RechartsReferenceLine,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -21,6 +22,7 @@ import {
   AvailableChartColorsKeys,
   constructCategoryColors,
   getColorClassName,
+  getColorHexValue,
   getYAxisDomain,
 } from "@/lib/chartUtils";
 import { cn } from "@/lib/utils";
@@ -92,6 +94,7 @@ interface LegendItemProps {
   color: AvailableChartColorsKeys;
   onClick?: (name: string, color: AvailableChartColorsKeys) => void;
   activeLegend?: string;
+  type?: "rect" | "line";
 }
 
 const LegendItem = ({
@@ -99,6 +102,7 @@ const LegendItem = ({
   color,
   onClick,
   activeLegend,
+  type = "rect",
 }: LegendItemProps) => {
   const hasOnValueChange = !!onClick;
   return (
@@ -115,14 +119,29 @@ const LegendItem = ({
         onClick?.(name, color);
       }}
     >
-      <span
-        className={cn(
-          "size-2 shrink-0 rounded-sm",
-          getColorClassName(color, "bg"),
-          activeLegend && activeLegend !== name ? "opacity-40" : "opacity-100",
-        )}
-        aria-hidden={true}
-      />
+      {type === "line" ? (
+        <span
+          className={cn(
+            "h-0.5 w-3 shrink-0",
+            getColorClassName(color, "bg"),
+            activeLegend && activeLegend !== name
+              ? "opacity-40"
+              : "opacity-100",
+          )}
+          aria-hidden={true}
+        />
+      ) : (
+        <span
+          className={cn(
+            "size-2 shrink-0 rounded-sm",
+            getColorClassName(color, "bg"),
+            activeLegend && activeLegend !== name
+              ? "opacity-40"
+              : "opacity-100",
+          )}
+          aria-hidden={true}
+        />
+      )}
       <p
         className={cn(
           // base
@@ -204,6 +223,7 @@ interface LegendProps extends React.OlHTMLAttributes<HTMLOListElement> {
   onClickLegendItem?: (category: string, color: string) => void;
   activeLegend?: string;
   enableLegendSlider?: boolean;
+  types?: ("rect" | "line")[];
 }
 
 type HasScrollProps = {
@@ -219,6 +239,7 @@ const Legend = React.forwardRef<HTMLOListElement, LegendProps>((props, ref) => {
     onClickLegendItem,
     activeLegend,
     enableLegendSlider = false,
+    types,
     ...other
   } = props;
   const scrollableRef = React.useRef<HTMLInputElement>(null);
@@ -331,6 +352,7 @@ const Legend = React.forwardRef<HTMLOListElement, LegendProps>((props, ref) => {
             color={colors[index] as AvailableChartColorsKeys}
             onClick={onClickLegendItem}
             activeLegend={activeLegend}
+            type={types?.[index] || "rect"}
           />
         ))}
       </div>
@@ -378,6 +400,7 @@ const ChartLegend = (
   enableLegendSlider?: boolean,
   legendPosition?: "left" | "center" | "right",
   yAxisWidth?: number,
+  referenceLines?: ReferenceLineConfig[],
 ) => {
   const legendRef = React.useRef<HTMLDivElement>(null);
 
@@ -387,7 +410,14 @@ const ChartLegend = (
     setLegendHeight(calculateHeight(legendRef.current?.clientHeight));
   });
 
-  const filteredPayload = payload.filter((item: any) => item.type !== "none");
+  const filteredPayload = [
+    ...payload.filter((item: any) => item.type !== "none"),
+    ...(referenceLines?.map((line) => ({
+      value: line.label,
+      color: line.color as AvailableChartColorsKeys,
+      type: "line" as const,
+    })) || []),
+  ];
 
   const paddingLeft =
     legendPosition === "left" && yAxisWidth ? yAxisWidth - 8 : 0;
@@ -407,12 +437,13 @@ const ChartLegend = (
     >
       <Legend
         categories={filteredPayload.map((entry: any) => entry.value)}
-        colors={filteredPayload.map((entry: any) =>
-          categoryColors.get(entry.value),
+        colors={filteredPayload.map(
+          (entry: any) => entry.color || categoryColors.get(entry.value),
         )}
         onClickLegendItem={onClick}
         activeLegend={activeLegend}
         enableLegendSlider={enableLegendSlider}
+        types={filteredPayload.map((entry: any) => entry.type || "rect")}
       />
     </div>
   );
@@ -522,6 +553,13 @@ type BaseEventProps = {
 
 type BarChartEventProps = BaseEventProps | null | undefined;
 
+export type ReferenceLineConfig = {
+  value: string | number;
+  color: AvailableChartColorsKeys;
+  label: string;
+  axis?: "x" | "y";
+};
+
 interface BarChartProps extends React.HTMLAttributes<HTMLDivElement> {
   data: Record<string, any>[];
   index: string;
@@ -551,6 +589,7 @@ interface BarChartProps extends React.HTMLAttributes<HTMLDivElement> {
   legendPosition?: "left" | "center" | "right";
   tooltipCallback?: (tooltipCallbackContent: TooltipProps) => void;
   customTooltip?: React.ComponentType<TooltipProps>;
+  referenceLines?: ReferenceLineConfig[];
 }
 
 const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
@@ -585,6 +624,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
       legendPosition = "right",
       tooltipCallback,
       customTooltip,
+      referenceLines = [],
       ...other
     } = props;
     const CustomTooltip = customTooltip;
@@ -846,6 +886,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                     enableLegendSlider,
                     legendPosition,
                     yAxisWidth,
+                    referenceLines,
                   )
                 }
               />
@@ -872,6 +913,18 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                   renderShape(props, activeBar, activeLegend, layout)
                 }
                 onClick={onBarClick}
+              />
+            ))}
+            {referenceLines.map((line, index) => (
+              <RechartsReferenceLine
+                key={`reference-line-${index}`}
+                {...(layout === "horizontal"
+                  ? { x: line.value }
+                  : { y: line.value })}
+                stroke={getColorHexValue(line.color)}
+                strokeDasharray="3 3"
+                strokeWidth={2}
+                ifOverflow="extendDomain"
               />
             ))}
           </RechartsBarChart>

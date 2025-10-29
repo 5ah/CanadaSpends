@@ -213,29 +213,27 @@ export default function Budget() {
             />
           </div>
         </Section>
-      </PageContent>
-      <div className="sankey-chart-container relative overflow-hidden sm:(mr-0 ml-0) md:(min-h-[776px] min-w-[1280px] w-screen -ml-[50vw] -mr-[50vw] left-1/2 right-1/2)">
-        <NoSSR>
-          <BudgetSankey onDataChange={handleBudgetDataChange} />
-        </NoSSR>
-        <div className="absolute bottom-3 left-6">
-          <ExternalLink
-            className="text-xs text-gray-400"
-            href="https://www.canada.ca/en/public-services-procurement/services/payments-accounting/public-accounts/2024.html"
-          >
-            Source
-          </ExternalLink>
+        <div className="sankey-chart-container relative overflow-hidden sm:(mr-0 ml-0) md:(min-h-[776px] min-w-[1280px] w-screen -ml-[50vw] -mr-[50vw] left-1/2 right-1/2)">
+          <NoSSR>
+            <BudgetSankey onDataChange={handleBudgetDataChange} />
+          </NoSSR>
+          <div className="absolute bottom-3 left-6">
+            <ExternalLink
+              className="text-xs text-gray-400"
+              href="https://www.canada.ca/en/public-services-procurement/services/payments-accounting/public-accounts/2024.html"
+            >
+              Source
+            </ExternalLink>
+          </div>
+          <div className="absolute top-0 left-0 w-[100vw] h-full  backdrop-blur-sm z-10 text-white md:hidden flex items-center justify-center">
+            <ExternalLink
+              className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              href="/budget-full-screen"
+            >
+              <Trans>View this chart in full screen</Trans>
+            </ExternalLink>
+          </div>
         </div>
-        <div className="absolute top-0 left-0 w-[100vw] h-full  backdrop-blur-sm z-10 text-white md:hidden flex items-center justify-center">
-          <ExternalLink
-            className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            href="/budget-full-screen"
-          >
-            <Trans>View this chart in full screen</Trans>
-          </ExternalLink>
-        </div>
-      </div>
-      <PageContent>
         <Section>
           <H2>
             <Trans>Latest Budget News & Impact</Trans>

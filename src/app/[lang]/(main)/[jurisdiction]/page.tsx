@@ -113,9 +113,9 @@ export default async function ProvinceIndex({
     const absolute = Math.abs(value);
     const formatted =
       absolute >= 1
-        ? `$${absolute.toFixed(1)}B`
+        ? `$${absolute.toFixed(2)}B`
         : `$${(absolute * 1000).toFixed(0)}M`;
-    return formatted.replace(".0B", "B");
+    return formatted.replace(".00B", "B");
   };
 
   const perCapitaSpending = population
@@ -125,7 +125,8 @@ export default async function ProvinceIndex({
   const revenueRoot = sankey.revenue_data as SankeyNode | undefined;
   const propertyTaxNode = revenueRoot?.children?.find(
     (child) =>
-      child.name === "Property taxes & taxation from other governments",
+      child.name === "Property taxes & taxation from other governments" ||
+      "Property tax and business taxes",
   );
   const propertyTaxTotal = propertyTaxNode ? sumNode(propertyTaxNode) : null;
   const propertyTaxPerCapita =

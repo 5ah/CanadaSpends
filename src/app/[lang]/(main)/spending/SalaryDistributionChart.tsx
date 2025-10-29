@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { BarChart } from "@/components/BarChart";
+import { useState, useMemo } from "react";
+import { BarChart, type ReferenceLineConfig } from "@/components/BarChart";
 import { useLingui } from "@lingui/react/macro";
 import { Trans } from "@lingui/react/macro";
 import {
@@ -12,6 +12,24 @@ import {
   adjustSalaryRangeForInflation,
 } from "@/lib/salaryData";
 
+// Function to calculate the median salary bucket
+const calculateMedianBucket = (data: SalaryRange[]): string | null => {
+  if (!data || data.length === 0) return null;
+
+  const totalEmployees = data.reduce((sum, item) => sum + item.count, 0);
+  const medianPosition = totalEmployees / 2;
+
+  let cumulativeCount = 0;
+  for (const item of data) {
+    cumulativeCount += item.count;
+    if (cumulativeCount >= medianPosition) {
+      return item.range;
+    }
+  }
+
+  return null;
+};
+
 export const SalaryDistributionChart = () => {
   const { t } = useLingui();
   const [selectedYear, setSelectedYear] = useState(years[years.length - 1]); // Default to most recent year
@@ -20,12 +38,36 @@ export const SalaryDistributionChart = () => {
 
   const currentData = salaryData[selectedYear]?.[selectedGroup] || [];
 
+  // Calculate the median bucket
+  const medianBucket = useMemo(
+    () => calculateMedianBucket(currentData),
+    [currentData],
+  );
+
   const chartData = currentData.map((item: SalaryRange) => ({
     range: showInflationAdjusted
       ? adjustSalaryRangeForInflation(item.range, selectedYear)
       : item.range,
     Employees: item.count,
   }));
+
+  // Define reference lines
+  const referenceLines: ReferenceLineConfig[] = useMemo(() => {
+    if (!medianBucket) return [];
+
+    const adjustedMedian = showInflationAdjusted
+      ? adjustSalaryRangeForInflation(medianBucket, selectedYear)
+      : medianBucket;
+
+    return [
+      {
+        value: adjustedMedian,
+        color: "amber",
+        label: "Median Salary",
+        axis: "x",
+      },
+    ];
+  }, [medianBucket, showInflationAdjusted, selectedYear]);
 
   return (
     <div className="space-y-4">
@@ -105,10 +147,11 @@ export const SalaryDistributionChart = () => {
           index="range"
           categories={["Employees"]}
           colors={["blue"]}
-          showLegend={false}
+          showLegend={true}
           showGridLines={true}
           xAxisLabel={t`Salary Range`}
           yAxisLabel={t`Number of Employees`}
+          referenceLines={referenceLines}
         />
 
         {selectedYear !== "2023" && selectedYear !== "2024" && (

@@ -1,0 +1,92 @@
+{
+  "name": "Vancouver",
+  "financialYear": "2024",
+  "source": "https://vancouver.ca/your-government/financial-reports-and-information.aspx",
+  "totalProvincialSpending": 3.269551,
+  "totalProvincialSpendingFormatted": "$3.3B",
+  "totalEmployees": 9500,
+  "netDebt": null,
+  "totalDebt": null,
+  "debtInterest": null,
+  "population": 663000,
+  "budgetBalance": 0.86,
+  "budgetBalanceFormatted": "$860M",
+  "perCapitaSpending": 5291.169,
+  "propertyTaxPerCapita": 3322.78,
+  "propertyTaxRevenue": 2.203,
+  "propertyTaxRevenueFormatted": "$2.2B",
+  "ministries": [
+    {
+      "name": "General Government Expense",
+      "slug": "general-government-expense",
+      "totalSpending": 0.29895,
+      "totalSpendingFormatted": "$299M",
+      "percentage": 9.143457,
+      "percentageFormatted": "9.14%"
+    },
+    {
+      "name": "Police Protection Expense",
+      "slug": "police-protection-expense",
+      "totalSpending": 0.474767,
+      "totalSpendingFormatted": "$475M",
+      "percentage": 14.520862,
+      "percentageFormatted": "14.52%"
+    },
+    {
+      "name": "Fire Protection Expense",
+      "slug": "fire-protection-expense",
+      "totalSpending": 0.201574,
+      "totalSpendingFormatted": "$202M",
+      "percentage": 6.165189,
+      "percentageFormatted": "6.17%"
+    },
+    {
+      "name": "Engineering Expense",
+      "slug": "engineering-expense",
+      "totalSpending": 0.262403,
+      "totalSpendingFormatted": "$262M",
+      "percentage": 8.025659,
+      "percentageFormatted": "8.03%"
+    },
+    {
+      "name": "Utilities Expense",
+      "slug": "utilities-expense",
+      "totalSpending": 0.416446,
+      "totalSpendingFormatted": "$416M",
+      "percentage": 12.737101,
+      "percentageFormatted": "12.74%"
+    },
+    {
+      "name": "Planning and Development Expense",
+      "slug": "planning-and-development-expense",
+      "totalSpending": 0.092675,
+      "totalSpendingFormatted": "$92.7M",
+      "percentage": 2.834487,
+      "percentageFormatted": "2.83%"
+    },
+    {
+      "name": "Parks and Recreation Expense",
+      "slug": "parks-and-recreation-expense",
+      "totalSpending": 0.292966,
+      "totalSpendingFormatted": "$293M",
+      "percentage": 8.960435,
+      "percentageFormatted": "8.96%"
+    },
+    {
+      "name": "Arts, Culture, & Community Services Expense",
+      "slug": "arts-culture-community-services-expense",
+      "totalSpending": 0.193107,
+      "totalSpendingFormatted": "$193M",
+      "percentage": 5.906224,
+      "percentageFormatted": "5.91%"
+    },
+    {
+      "name": "Library Expense",
+      "slug": "library-expense",
+      "totalSpending": 0.070756,
+      "totalSpendingFormatted": "$70.8M",
+      "percentage": 2.164089,
+      "percentageFormatted": "2.16%"
+    }
+  ]
+}

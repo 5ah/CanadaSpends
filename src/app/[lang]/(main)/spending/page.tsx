@@ -165,7 +165,7 @@ export default function Spending() {
             <StatBox
               title={t`Compensation per Employee`}
               value="$136,345"
-              description={t`Average annual salary`}
+              description={t`Average annual compensation`}
               growthPercentage={calculateGrowthPercentage("compensation")}
             />
 
